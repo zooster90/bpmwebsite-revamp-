@@ -270,9 +270,81 @@ When you need to find something:
 
 ---
 
-## 9. Who to ask
+## 9. Using Google Antigravity (or any AI coding tool) — READ THIS CAREFULLY
+
+You'll be using Antigravity to write code. That's fine — but AI tools can produce code that **looks correct but is actually broken, unsafe, or doesn't follow how this project works**. You are still responsible for everything you commit, even if the AI wrote it. Treat the AI like a junior helper, not an expert.
+
+### Hard rules when using AI
+
+1. **One change at a time.** Tell the AI to do **one specific thing**, like "update the office address on the Contact page to X". Do not say "improve the contact page" — that's how it ends up rewriting 10 files and breaking things you didn't notice.
+
+2. **Always work on a branch, never on `main`.** Before you prompt the AI, run:
+
+   ```powershell
+   git checkout main
+   git pull
+   git checkout -b feature/your-change-name
+   ```
+
+   Then let AI make changes. If the AI suggests committing or pushing, **make sure your terminal shows the branch name, not `main`**.
+
+3. **Read every file the AI changed before you commit.** In Antigravity's diff view (or run `git diff` in the terminal), look at every line. If you don't understand what a line does, ask the AI to explain it — or ask Zufar. **Do not commit code you don't understand.**
+
+4. **Test it works in your browser before committing.** Refresh `http://127.0.0.1:8000`, click through the page you changed, make sure nothing is broken. "AI said it works" is not testing.
+
+5. **If the AI wants to touch files outside your task, stop.** Example: you asked to change a contact email and the AI also edits `composer.json`, `.env`, `routes/web.php`, or random other files. That's a red flag — reject the change and re-prompt with a narrower instruction.
+
+6. **NEVER let AI install/remove packages without asking Zufar first.** Commands to refuse: `composer require`, `composer remove`, `npm install <name>`, `npm uninstall`. These pull in code from the internet and can introduce bugs or security holes.
+
+7. **NEVER let AI run database commands without asking Zufar.** Refuse if AI suggests: `php artisan migrate:fresh` (deletes all your local data), `php artisan db:wipe`, anything starting with `DROP TABLE` or `TRUNCATE`.
+
+8. **NEVER let AI commit `.env`, `.env.local`, or anything that looks like a password/key.** If you see those in the file list of a commit, stop.
+
+9. **Never accept AI-generated tests as "proof it works".** AI tests sometimes test the AI's own assumptions, not real behavior. Always test by clicking the actual page yourself.
+
+### Good vs bad prompts
+
+**Good prompts (specific, narrow, one change):**
+
+- "On `resources/views/contact.blade.php`, change the office phone number from `04-573 3858` to `04-573 9999`."
+- "Add a new field called `linkedin_url` (nullable string) to the team member admin form in `app/Filament/Resources/TeamMemberResource.php`."
+- "Increase the spacing between project cards on `resources/views/projects/index.blade.php` from 4 to 8 on mobile only."
+
+**Bad prompts (vague, sweeping, no clear scope):**
+
+- ❌ "Make the contact page look nicer"
+- ❌ "Fix the bugs on the homepage"
+- ❌ "Refactor this controller"
+- ❌ "Update everything to be better"
+
+### What to send Zufar with your PR
+
+When you open a PR, in the description include:
+
+1. **What you wanted to change** (one sentence)
+2. **What the AI did** (paste a summary, or list of files changed)
+3. **What you tested** (which page you opened, what you clicked, what you saw)
+4. **Anything you didn't understand** (be honest — Zufar would rather know now than after merging)
+
+Example PR description:
+
+> **What:** Update office phone number on Contact page.
+>
+> **AI changes:** edited `resources/views/contact.blade.php` line 47, changed `04-573 3858` → `04-573 9999`.
+>
+> **Tested:** opened `/contact` in browser, new number shows in the footer and the contact card. Old number does not appear anywhere else (I searched the codebase with VS Code).
+>
+> **Unsure about:** none.
+
+That's it. A PR like that is easy to review and gets merged fast.
+
+---
+
+## 10. Who to ask
 
 **Zufar** — for code questions, access issues, "is this safe to do" questions, anything you're unsure about. **It's always better to ask than to guess.**
+
+If the AI is confidently telling you to do something and you're not sure, screenshot the suggestion and send it to Zufar. AI confidence ≠ AI correctness.
 
 ---
 
