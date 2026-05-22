@@ -34,8 +34,9 @@ count())
 /dist
 
 # Large user-uploaded media (host on object storage / Laravel Cloud disk, not git)
-/public/images
-/public/img/images
+# Keep small project/award images; exclude only the giant gallery (~1.8 GB each)
+/public/images/records
+/public/img/images/records
 /public/storage
 
 # Local SQLite db if developer creates one
