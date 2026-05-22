@@ -16,6 +16,14 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
+    | Public base URL of an external object store (Cloudflare R2, S3, etc.) that
+    | holds media migrated from the legacy Supabase bucket. When set, the model
+    | display-image resolvers prepend this to any relative path that wasn't
+    | found in /public/images locally. Trailing slash optional.
+    */
+    'image_cdn_url' => env('IMAGE_CDN_URL'),
+
+    /*
     |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------

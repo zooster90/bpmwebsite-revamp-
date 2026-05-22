@@ -78,6 +78,10 @@ class Project extends Model implements HasMedia
         if (file_exists(public_path('images/' . $filename))) return asset('images/' . $filename);
         if (file_exists(public_path('img/images/' . $filename))) return asset('img/images/' . $filename);
 
+        if ($cdn = config('app.image_cdn_url')) {
+            return rtrim($cdn, '/') . '/' . ltrim($clean, '/');
+        }
+
         return str_contains($clean, 'storage/') ? asset($clean) : asset('storage/' . $clean);
     }
 }

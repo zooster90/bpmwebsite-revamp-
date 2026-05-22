@@ -36,6 +36,9 @@ class OurPeople extends Model implements HasMedia
             if (file_exists(public_path('img/images/' . basename($cleanPath)))) {
                 return asset('img/images/' . basename($cleanPath));
             }
+            if ($cdn = config('app.image_cdn_url')) {
+                return rtrim($cdn, '/') . '/' . ltrim($cleanPath, '/');
+            }
             if (str_contains($cleanPath, 'storage/')) {
                 return asset($cleanPath);
             }

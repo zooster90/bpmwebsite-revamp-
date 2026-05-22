@@ -59,6 +59,10 @@ class PressCoverage extends Model implements HasMedia
                 return asset('img/images/' . basename($cleanPath));
             }
 
+            if ($cdn = config('app.image_cdn_url')) {
+                return rtrim($cdn, '/') . '/' . ltrim($cleanPath, '/');
+            }
+
             if (str_contains($cleanPath, 'storage/')) return asset($cleanPath);
             return asset('storage/' . $cleanPath);
         }

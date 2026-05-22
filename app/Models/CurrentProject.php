@@ -70,6 +70,10 @@ class CurrentProject extends Model implements HasMedia
                 return asset('img/images/' . basename($cleanPath));
             }
 
+            if ($cdn = config('app.image_cdn_url')) {
+                return rtrim($cdn, '/') . '/' . ltrim($cleanPath, '/');
+            }
+
             return str_contains($cleanPath, 'storage/') ? asset($cleanPath) : asset('storage/' . $cleanPath);
         }
 
