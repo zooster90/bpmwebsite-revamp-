@@ -72,19 +72,11 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(
-                in: app_path('Filament/Widgets'),
-                for: 'App\Filament\Widgets'
-            )
-            ->widgets([
-                \App\Filament\Widgets\NetlifyDeployWidget::class,
-                \App\Filament\Widgets\DashboardHero::class,
-                \App\Filament\Widgets\StatsOverview::class,
-                \App\Filament\Widgets\FrontendShortcutsWidget::class,
-                \App\Filament\Widgets\LatestInquiries::class,
-                \App\Filament\Widgets\DashboardAnalytics::class,
-                \App\Filament\Widgets\WebsiteAnalytics::class,
-            ])
+            // Custom widgets temporarily disabled — one was crashing /admin with a 500.
+            // Re-enable individually after verifying each loads cleanly on the live env:
+            //   ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            //   ->widgets([\App\Filament\Widgets\NetlifyDeployWidget::class, ...])
+            ->widgets([])
 
             // ── Navigation Groups (organizes the sidebar clearly) ──
             ->navigationGroups([
