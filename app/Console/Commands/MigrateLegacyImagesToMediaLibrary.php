@@ -18,7 +18,8 @@ class MigrateLegacyImagesToMediaLibrary extends Command
     protected $description = 'Migrate legacy image_url / *_upload / gallery_uploads columns into Spatie Media Library so the admin form can edit them';
 
     private int $migrated = 0;
-    private int $skipped = 0;
+    private int $skippedAlreadyMigrated = 0;
+    private int $skippedNoSource = 0;
     private int $failed = 0;
 
     public function handle(): int
@@ -48,7 +49,10 @@ class MigrateLegacyImagesToMediaLibrary extends Command
         }
 
         $this->newLine();
-        $this->info("Migrated: {$this->migrated}   Skipped: {$this->skipped}   Failed: {$this->failed}");
+        $this->info("Migrated: {$this->migrated}");
+        $this->info("Skipped (already in media library): {$this->skippedAlreadyMigrated}");
+        $this->info("Skipped (no image_url / *_upload / gallery_uploads set): {$this->skippedNoSource}");
+        $this->info("Failed (file/URL could not be resolved): {$this->failed}");
         return self::SUCCESS;
     }
 
@@ -56,6 +60,21 @@ class MigrateLegacyImagesToMediaLibrary extends Command
     {
         $this->newLine();
         $this->info("=== {$modelClass} ===");
+
+        $total = $modelClass::query()->count();
+        $withCoverMedia = $modelClass::query()->whereHas('media', fn ($q) => $q->where('collection_name', 'cover_image'))->count();
+        $withGalleryMedia = $modelClass::query()->whereHas('media', fn ($q) => $q->where('collection_name', 'gallery'))->count();
+        $withPrimaryColumn = $modelClass::query()->whereNotNull($coverPrimary)->where($coverPrimary, '!=', '')->count();
+        $withFallbackColumn = $modelClass::query()->whereNotNull($coverFallback)->where($coverFallback, '!=', '')->count();
+        $withGalleryColumn = $modelClass::query()->whereNotNull($galleryColumn)->where($galleryColumn, '!=', '')->where($galleryColumn, '!=', '[]')->count();
+
+        $this->line("  Total rows: {$total}");
+        $this->line("  Already in cover_image media collection: {$withCoverMedia}");
+        $this->line("  Already in gallery media collection: {$withGalleryMedia}");
+        $this->line("  Have {$coverPrimary} column set: {$withPrimaryColumn}");
+        $this->line("  Have {$coverFallback} column set: {$withFallbackColumn}");
+        $this->line("  Have {$galleryColumn} column set: {$withGalleryColumn}");
+        $this->newLine();
 
         $modelClass::query()->chunk(50, function ($models) use ($coverPrimary, $coverFallback, $galleryColumn, $dryRun) {
             foreach ($models as $model) {
@@ -72,13 +91,13 @@ class MigrateLegacyImagesToMediaLibrary extends Command
         }
 
         if ($model->hasMedia('cover_image')) {
-            $this->skipped++;
+            $this->skippedAlreadyMigrated++;
             return;
         }
 
         $path = $model->{$coverPrimary} ?: $model->{$coverFallback};
         if (! $path) {
-            $this->skipped++;
+            $this->skippedNoSource++;
             return;
         }
 
@@ -121,7 +140,7 @@ class MigrateLegacyImagesToMediaLibrary extends Command
         }
 
         if ($model->getMedia('gallery')->isNotEmpty()) {
-            $this->skipped++;
+            $this->skippedAlreadyMigrated++;
             return;
         }
 
