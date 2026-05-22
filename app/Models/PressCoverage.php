@@ -42,7 +42,7 @@ class PressCoverage extends Model implements HasMedia
     {
         // 1. Priority: Spatie Media
         if ($this->hasMedia('press_image')) {
-            return $this->getFirstMediaUrl('press_image');
+            return cdn_rewrite($this->getFirstMediaUrl('press_image'));
         }
 
         // 2. Secondary: Explicit Database Fields

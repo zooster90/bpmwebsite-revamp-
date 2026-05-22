@@ -45,7 +45,7 @@ class Award extends Model implements HasMedia
     {
         // 1. Priority: Spatie Media
         if ($this->hasMedia('logo')) {
-            return $this->getFirstMediaUrl('logo');
+            return cdn_rewrite($this->getFirstMediaUrl('logo'));
         }
 
         // 2. Secondary: Explicit Database Fields

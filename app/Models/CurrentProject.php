@@ -55,7 +55,7 @@ class CurrentProject extends Model implements HasMedia
     public function getDisplayImageAttribute(): string
     {
         if ($this->hasMedia('cover_image')) {
-            return $this->getFirstMediaUrl('cover_image');
+            return cdn_rewrite($this->getFirstMediaUrl('cover_image'));
         }
 
         $dbPath = $this->image_upload ?: $this->image_url;

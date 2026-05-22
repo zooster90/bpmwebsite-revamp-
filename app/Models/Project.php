@@ -60,7 +60,7 @@ class Project extends Model implements HasMedia
     public function getDisplayImageAttribute(): string
     {
         if ($this->hasMedia('cover_image')) {
-            $url = $this->getFirstMediaUrl('cover_image');
+            $url = cdn_rewrite($this->getFirstMediaUrl('cover_image'));
             if ($url) return $url;
         }
 

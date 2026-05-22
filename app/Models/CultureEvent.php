@@ -64,7 +64,7 @@ class CultureEvent extends Model implements HasMedia
     {
         // 1. Priority: Spatie Media
         if ($this->hasMedia('culture_image')) {
-            return $this->getFirstMediaUrl('culture_image');
+            return cdn_rewrite($this->getFirstMediaUrl('culture_image'));
         }
 
         // 2. Secondary: Explicit Database Fields

@@ -53,7 +53,7 @@ class News extends Model implements HasMedia
     {
         // 1. Priority: Spatie Media
         if ($this->hasMedia('news_image')) {
-            return $this->getFirstMediaUrl('news_image');
+            return cdn_rewrite($this->getFirstMediaUrl('news_image'));
         }
 
         // 2. Secondary: Explicit Database Fields

@@ -20,7 +20,7 @@ class OurPeople extends Model implements HasMedia
     public function getDisplayImageAttribute()
     {
         if ($this->hasMedia('people_image')) {
-            return $this->getFirstMediaUrl('people_image');
+            return cdn_rewrite($this->getFirstMediaUrl('people_image'));
         }
         if ($this->image) {
             if (str_starts_with($this->image, 'http')) {
