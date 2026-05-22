@@ -167,22 +167,32 @@ class ImportSqlDump extends Command
 
     private function disableForeignKeys(string $driver): void
     {
-        match ($driver) {
-            'pgsql' => DB::unprepared("SET session_replication_role = 'replica';"),
-            'mysql', 'mariadb' => DB::unprepared('SET FOREIGN_KEY_CHECKS = 0;'),
-            'sqlite' => DB::unprepared('PRAGMA foreign_keys = OFF;'),
-            default => null,
-        };
+        try {
+            match ($driver) {
+                'pgsql' => DB::unprepared("SET session_replication_role = 'replica';"),
+                'mysql', 'mariadb' => DB::unprepared('SET FOREIGN_KEY_CHECKS = 0;'),
+                'sqlite' => DB::unprepared('PRAGMA foreign_keys = OFF;'),
+                default => null,
+            };
+        } catch (\Throwable $e) {
+            // Managed Postgres (Neon, RDS, Supabase) blocks session_replication_role
+            // for non-superusers. That's fine — we rely on import order instead.
+            $this->warn('FK toggle not permitted on this database. Importing in dependency order.');
+        }
     }
 
     private function enableForeignKeys(string $driver): void
     {
-        match ($driver) {
-            'pgsql' => DB::unprepared("SET session_replication_role = 'origin';"),
-            'mysql', 'mariadb' => DB::unprepared('SET FOREIGN_KEY_CHECKS = 1;'),
-            'sqlite' => DB::unprepared('PRAGMA foreign_keys = ON;'),
-            default => null,
-        };
+        try {
+            match ($driver) {
+                'pgsql' => DB::unprepared("SET session_replication_role = 'origin';"),
+                'mysql', 'mariadb' => DB::unprepared('SET FOREIGN_KEY_CHECKS = 1;'),
+                'sqlite' => DB::unprepared('PRAGMA foreign_keys = ON;'),
+                default => null,
+            };
+        } catch (\Throwable) {
+            // ignore — see disableForeignKeys()
+        }
     }
 
     private function truncate(string $driver): void
