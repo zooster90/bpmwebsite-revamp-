@@ -1,0 +1,110 @@
+[
+    {
+        "id": "23403bfe-0d8c-4509-b8be-bbaa0a18058d",
+        "year": 2015,
+        "grade": "CONQUA",
+        "star_rating": 0,
+        "score": 81.4,
+        "remarks": "BTS-Condotel",
+        "document_url": null,
+        "created_at": "2026-03-09T06:59:37.531981+00:00",
+        "updated_at": "2026-03-09T06:59:37.531981+00:00",
+        "created_by": null
+    },
+    {
+        "id": "4fd0d6dd-c180-4402-bd90-023827f5ac7f",
+        "year": 2014,
+        "grade": "QLASSIC",
+        "star_rating": 0,
+        "score": 80,
+        "remarks": "MTT4-Bungalow",
+        "document_url": null,
+        "created_at": "2026-03-09T07:00:07.44639+00:00",
+        "updated_at": "2026-03-09T07:00:07.44639+00:00",
+        "created_by": null
+    },
+    {
+        "id": "806b1d3f-5a6b-45c6-893c-a03eb5a01c39",
+        "year": 2026,
+        "grade": "QLASSIC",
+        "star_rating": 0,
+        "score": 83,
+        "remarks": "MSL-Condo",
+        "document_url": null,
+        "created_at": "2026-03-09T06:58:20.530048+00:00",
+        "updated_at": "2026-03-09T06:58:20.530048+00:00",
+        "created_by": null
+    },
+    {
+        "id": "b10d9aa6-83d7-47d4-9687-75f263d0d8d4",
+        "year": 2016,
+        "grade": "CONQUAS",
+        "star_rating": 0,
+        "score": 80.5,
+        "remarks": "MSP-Condo",
+        "document_url": null,
+        "created_at": "2026-03-09T06:59:00.527092+00:00",
+        "updated_at": "2026-03-09T06:59:00.527092+00:00",
+        "created_by": null
+    },
+    {
+        "id": "d7c67e14-a10d-4bdd-9e19-f09dcef50c8b",
+        "year": 2019,
+        "grade": "High QLASSIC Achievement",
+        "star_rating": 0,
+        "score": null,
+        "remarks": "MSL-Condo",
+        "document_url": null,
+        "created_at": "2026-03-09T06:56:49.690134+00:00",
+        "updated_at": "2026-03-09T06:56:49.690134+00:00",
+        "created_by": null
+    },
+    {
+        "id": "db5b8de2-84ad-47b1-9c3b-f450786c0d78",
+        "year": 2021,
+        "grade": "QLASSIC",
+        "star_rating": 0,
+        "score": 82,
+        "remarks": "MSF-Condo",
+        "document_url": null,
+        "created_at": "2026-03-09T06:55:39.677314+00:00",
+        "updated_at": "2026-03-09T06:55:39.677314+00:00",
+        "created_by": null
+    },
+    {
+        "id": "220482e5-3757-4859-8b44-de1068aec942",
+        "year": 2024,
+        "grade": "QLASSIC",
+        "star_rating": 0,
+        "score": 82,
+        "remarks": "Project: HYA-Service Apartment (Aston Acacia Serviced Apartment, Bukit Mertajam) - Achieved 82% QLASSIC score in 2024. High-quality workmanship and construction standards certified by CIDB Malaysia.",
+        "document_url": "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/certs/qlassic_conquas_scores/1774581223091-duczt.jpg",
+        "created_at": "2026-03-06T01:09:49.174355+00:00",
+        "updated_at": "2026-03-06T01:09:49.174355+00:00",
+        "created_by": "3ac5d1f4-ec9b-426c-88c7-d15cc026cb62"
+    },
+    {
+        "id": "72a9ca8a-1bd0-4184-a059-30e7bbbc1390",
+        "year": 2023,
+        "grade": "QLASSIC",
+        "star_rating": 0,
+        "score": 83,
+        "remarks": "WCL-Citadines Hotel",
+        "document_url": "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/certs/qlassic_conquas_scores/1774581412108-j6m6r.webp",
+        "created_at": "2026-03-09T02:38:07.430557+00:00",
+        "updated_at": "2026-03-09T02:38:07.430557+00:00",
+        "created_by": "3ac5d1f4-ec9b-426c-88c7-d15cc026cb62"
+    },
+    {
+        "id": "e2ace798-0bd8-400a-ae04-a796a1b597aa",
+        "year": 2021,
+        "grade": "QLASSIC",
+        "star_rating": 0,
+        "score": 83,
+        "remarks": "TCF-Factory",
+        "document_url": "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/certs/qlassic_conquas_scores/1774581433580-2jfs1.jpg",
+        "created_at": "2026-03-09T04:35:14.05885+00:00",
+        "updated_at": "2026-03-09T04:35:14.05885+00:00",
+        "created_by": "3ac5d1f4-ec9b-426c-88c7-d15cc026cb62"
+    }
+]

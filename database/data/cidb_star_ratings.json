@@ -1,0 +1,98 @@
+[
+    {
+        "id": "647c55de-3206-4058-9294-b82ba98db2f4",
+        "year": 2015,
+        "grade": "SCORE Rating",
+        "star_rating": 3,
+        "score": null,
+        "remarks": "3 Stars CIDB Malaysia SCORE rating achieved in 2015",
+        "document_url": null,
+        "created_at": "2026-03-06T01:07:49.433241+00:00",
+        "updated_at": "2026-03-06T01:07:49.433241+00:00",
+        "created_by": null
+    },
+    {
+        "id": "926586bc-53e5-4f0b-99b1-4e920905e05e",
+        "year": 2014,
+        "grade": "SCORE Rating",
+        "star_rating": 4,
+        "score": null,
+        "remarks": "4 Stars CIDB Malaysia SCORE rating achieved in 2014",
+        "document_url": null,
+        "created_at": "2026-03-06T01:08:17.493573+00:00",
+        "updated_at": "2026-03-06T01:08:17.493573+00:00",
+        "created_by": null
+    },
+    {
+        "id": "b14715bb-a9d3-4110-b758-15ee898dc26e",
+        "year": 2013,
+        "grade": "SCORE Rating",
+        "star_rating": 4,
+        "score": null,
+        "remarks": "4 Stars CIDB Malaysia SCORE rating achieved in 2013 - Consistent high performance period",
+        "document_url": null,
+        "created_at": "2026-03-06T01:08:17.493573+00:00",
+        "updated_at": "2026-03-06T01:08:17.493573+00:00",
+        "created_by": null
+    },
+    {
+        "id": "d0d497dc-7936-45fd-abd5-d4e89e18242e",
+        "year": 2020,
+        "grade": "SCORE Rating",
+        "star_rating": 4,
+        "score": null,
+        "remarks": "4 Stars CIDB Malaysia SCORE rating in 2020 (alternative or project-specific assessment)",
+        "document_url": null,
+        "created_at": "2026-03-06T01:07:49.433241+00:00",
+        "updated_at": "2026-03-06T01:07:49.433241+00:00",
+        "created_by": null
+    },
+    {
+        "id": "e7d35bdf-ae5a-4f35-b830-2537068f344c",
+        "year": 2016,
+        "grade": "SCORE Rating",
+        "star_rating": 4,
+        "score": null,
+        "remarks": "4 Stars CIDB Malaysia SCORE rating achieved in 2016",
+        "document_url": null,
+        "created_at": "2026-03-06T01:07:49.433241+00:00",
+        "updated_at": "2026-03-06T01:07:49.433241+00:00",
+        "created_by": null
+    },
+    {
+        "id": "e96f3def-e19a-4778-af60-ad7375e1b80d",
+        "year": 2017,
+        "grade": "SCORE Rating",
+        "star_rating": 4,
+        "score": null,
+        "remarks": "4 Stars CIDB Malaysia SCORE rating achieved in 2017",
+        "document_url": null,
+        "created_at": "2026-03-06T01:07:49.433241+00:00",
+        "updated_at": "2026-03-06T01:07:49.433241+00:00",
+        "created_by": null
+    },
+    {
+        "id": "ae9631cc-ce61-44b3-a84b-fe3f243ada90",
+        "year": 2020,
+        "grade": "SCORE Rating",
+        "star_rating": 5,
+        "score": null,
+        "remarks": "5 Stars CIDB Malaysia SCORE rating achieved in 2020 (Certificate of Appreciation for excellence)",
+        "document_url": null,
+        "created_at": "2026-03-06T01:07:49.433241+00:00",
+        "updated_at": "2026-03-06T01:07:49.433241+00:00",
+        "created_by": "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+    },
+    {
+        "id": "3b5c099c-b16d-4558-b180-76ca9f90170b",
+        "year": 2024,
+        "grade": "SCORE Rating",
+        "star_rating": 5,
+        "score": null,
+        "remarks": "Achieved 5 Stars CIDB Malaysia SCORE rating on 10 October 2024 - Highest tier assessment",
+        "document_url": null,
+        "created_at": "2026-03-06T01:07:49.433241+00:00",
+        "updated_at": "2026-03-09T09:23:17.827824+00:00",
+        "created_by": "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+    }
+]

@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'Futura-Bold';
+    src: url('../fonts/futura-bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura-Condensed';
+    src: url('../fonts/futura-bold-condensed.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==========================================
+   BUILTECH GLOBAL DESIGN SYSTEM (2026 Modern)
+   Standard: Tier-1 Corporate — Stripe/Apple Aesthetic
+   ========================================== */
+
+@import "tailwindcss";
+
+@theme {
+  /* 1. Brand Colors (Layered & Rich) */
+  --color-navy: #0a1f38;
+  --color-navy-hover: #162c4d;
+  --color-navy-light: #1e3a63;
+  --color-navy-dark: #05101d;
+  
+  --color-gold: #c5a059;
+  --color-gold-hover: #b08d4a;
+  --color-gold-light: #e0c58f;
+  --color-gold-dark: #8c6f37;
+  
+  --color-surface: #ffffff;
+  --color-surface-alt: #fcfcfc;
+  --color-border: rgba(10, 31, 56, 0.08);
+  --color-border-light: rgba(255, 255, 255, 0.1);
+
+  /* 2. Typography (Apple/Linear Style) */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Outfit', 'Oswald', system-ui, sans-serif;
+
+  /* 3. Shadow System (Depth & Glassmorphism) */
+  --shadow-subtle: 0 4px 24px -4px rgba(10, 31, 56, 0.04);
+  --shadow-elevated: 0 12px 32px -8px rgba(10, 31, 56, 0.08);
+  --shadow-hover: 0 20px 40px -12px rgba(10, 31, 56, 0.12);
+  --shadow-gold: 0 8px 24px -4px rgba(197, 160, 89, 0.25);
+  
+  /* 4. Border Radius (Friendly yet Professional) */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+}
+
+@layer base {
+  body {
+    @apply bg-surface-alt text-navy font-sans antialiased selection:bg-gold selection:text-white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Panel (Apple-style) */
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-subtle rounded-2xl transition-all duration-500 hover:shadow-elevated;
+  }
+  .glass-panel-dark {
+    @apply bg-navy/80 backdrop-blur-xl border border-border-light shadow-subtle rounded-2xl;
+  }
+  
+  /* Modern Button System */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-navy text-white font-bold rounded-full transition-all duration-500 hover:bg-navy-hover hover:-translate-y-0.5 hover:shadow-hover focus:ring-2 focus:ring-offset-2 focus:ring-navy uppercase tracking-widest text-[10px];
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-gold text-white font-bold rounded-full transition-all duration-500 hover:bg-gold-hover hover:-translate-y-0.5 hover:shadow-gold focus:ring-2 focus:ring-offset-2 focus:ring-gold uppercase tracking-widest text-[10px];
+  }
+}
+
+/* ── ADVANCED REVEAL SYSTEM ── */
+.reveal {
+    opacity: 0;
+    will-change: transform, opacity;
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-up { transform: translateY(40px); }
+.reveal-down { transform: translateY(-40px); }
+.reveal-left { transform: translateX(40px); }
+.reveal-right { transform: translateX(-40px); }
+.reveal-scale { transform: scale(0.95); }
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Staggered Delay Utilities */
+.delay-100 { transition-delay: 100ms !important; }
+.delay-200 { transition-delay: 200ms !important; }
+.delay-300 { transition-delay: 300ms !important; }
+.delay-400 { transition-delay: 400ms !important; }
+.delay-500 { transition-delay: 500ms !important; }
+
+/* ── UTILITIES ── */
+.container-tidy {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container-tidy { padding: 0 1.5rem; }
+}
+
+.text-shine-premium {
+    background: linear-gradient(to right, #9e7c3a 0%, #c5a059 25%, #FFFFFF 50%, #c5a059 75%, #9e7c3a 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 6s linear infinite;
+}
+
+@keyframes shine {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Ken Burns Effect */
+@keyframes kenburns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
+.animate-kenburns {
+    animation: kenburns 20s ease-out infinite alternate;
+}

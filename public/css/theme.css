@@ -1,0 +1,109 @@
+/* ============================================================
+   BUILTECH ELITE - GLOBAL DESIGN SYSTEM & PREMIUM UTILITIES
+   ============================================================ */
+
+:root {
+    --gold: #c5a059;
+    --gold-dark: #a68546;
+    --gold-light: #dfc8a0;
+    --navy: #1a242f;
+    --navy-dark: #111827;
+    --white: #ffffff;
+    --off-white: #fcfbf8;
+    --transition-premium: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* 1. CUSTOM PREMIUM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--navy-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light);
+}
+
+/* 2. SCROLL PROGRESS BAR */
+#scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 10001;
+    pointer-events: none;
+}
+
+#scroll-progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, var(--gold), var(--gold-light));
+    width: 0%;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+}
+
+/* 3. MAGNETIC BUTTON UTILITIES */
+.magnetic-btn {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 4. PREMIUM GLASSMORPHISM */
+.glass-premium {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+/* 5. STAGGERED REVEAL ANIMATIONS */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-premium);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* 6. SKELETON LOADERS */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* 7. CUSTOM CURSOR (OPTIONAL ENHANCEMENT) */
+@media (min-width: 1024px) {
+    .custom-cursor-active {
+        cursor: none;
+    }
+}

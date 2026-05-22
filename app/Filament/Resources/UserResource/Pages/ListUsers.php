@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Filament\Resources\UserResource\Pages;
+
+use App\Filament\Resources\UserResource;
+use Filament\Resources\Pages\ListRecords;
+
+class ListUsers extends ListRecords
+{
+    protected static string $resource = UserResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            \Filament\Actions\CreateAction::make()
+                ->label('Add Administrator')
+                ->icon('heroicon-o-user-plus'),
+        ];
+    }
+    public function mount(): void
+    {
+        parent::mount();
+        session()->put('resources.' . static::$resource . '.index_url', request()->fullUrl());
+    }
+}

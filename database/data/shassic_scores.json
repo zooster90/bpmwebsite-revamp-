@@ -1,0 +1,74 @@
+[
+    {
+        "id": "2cf369d2-f1c3-49de-9d4d-d23760766322",
+        "year": 2016,
+        "grade": "SHASSIC",
+        "star_rating": 4,
+        "score": 82,
+        "remarks": "BBM-Condo",
+        "document_url": null,
+        "created_at": "2026-03-09T02:33:55.045647+00:00",
+        "updated_at": "2026-03-09T02:33:55.045647+00:00",
+        "created_by": "acf71da6-5339-423a-b9b9-0442089d00c2"
+    },
+    {
+        "id": "440feee9-9c26-4b50-adf0-339b5a902429",
+        "year": 2018,
+        "grade": "SHASSIC",
+        "star_rating": 4,
+        "score": 77,
+        "remarks": "HYP-Condo",
+        "document_url": null,
+        "created_at": "2026-03-09T02:31:47.92949+00:00",
+        "updated_at": "2026-03-09T02:33:08.600382+00:00",
+        "created_by": "d3ac1ec7-9b69-4258-9b4a-c85a0bee7c54"
+    },
+    {
+        "id": "47027373-93f0-44bc-bfec-2f48b6adeb96",
+        "year": 2012,
+        "grade": "SHASSIC",
+        "star_rating": 4,
+        "score": 75.11,
+        "remarks": "SSC-Terrace",
+        "document_url": null,
+        "created_at": "2026-03-09T02:35:09.215196+00:00",
+        "updated_at": "2026-03-09T02:39:59.599114+00:00",
+        "created_by": "d273e20f-36ff-4fca-a1e5-35bc3c7a8ff6"
+    },
+    {
+        "id": "4b452689-ecb1-45c3-9b1d-29aac99a531b",
+        "year": 2024,
+        "grade": "SHASSIC",
+        "star_rating": 4,
+        "score": 87.14,
+        "remarks": "Project: PHP-Hospital Phase 1A (Pantai Hospital Penang Extension) - Achieved 87.14% overall SHASSIC score with 4 Stars rating on 25 October 2024. Excellent safety and health performance certified by CIDB Malaysia.",
+        "document_url": null,
+        "created_at": "2026-03-06T01:11:49.764125+00:00",
+        "updated_at": "2026-03-09T02:32:47.00465+00:00",
+        "created_by": "a79c40c5-3c2f-479d-b0b7-ecc5e3a5b9d0"
+    },
+    {
+        "id": "e55eea6d-9490-40c9-b007-a81d8762b751",
+        "year": 2019,
+        "grade": "SHASSIC",
+        "star_rating": 4,
+        "score": 88,
+        "remarks": "Project: WCL-Citadines Hotel (Citadines Connect Georgetown Penang) - Achieved 88% overall SHASSIC score with 4 Stars rating in 2019. Strong safety & health assessment by CIDB Malaysia.",
+        "document_url": null,
+        "created_at": "2026-03-06T01:11:49.764125+00:00",
+        "updated_at": "2026-03-09T02:36:42.820235+00:00",
+        "created_by": "e6777335-a9a3-48a3-9385-2d272e01e02a"
+    },
+    {
+        "id": "e8760e42-cc77-4bee-a8ee-33c553905084",
+        "year": 2014,
+        "grade": "SHASSIC",
+        "star_rating": 5,
+        "score": 87,
+        "remarks": "SSC2-Terrace",
+        "document_url": null,
+        "created_at": "2026-03-09T02:34:26.137065+00:00",
+        "updated_at": "2026-03-09T02:34:26.137065+00:00",
+        "created_by": "978ccb80-4b52-4ffd-b162-d37ecf4b4f72"
+    }
+]

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /build/
+Disallow: /storage/
+
+Sitemap: https://www.builtech.com.my/sitemap.xml

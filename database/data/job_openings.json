@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "position_title": "Project Manager",
+        "title": "Project Manager",
+        "department": "Project Management",
+        "location": "Penang",
+        "type": "Full-Time",
+        "description": "Lead and manage construction projects from inception to completion. Coordinate with clients, consultants, and site teams to deliver projects on time and within budget.",
+        "requirements": "Minimum 5 years experience in construction project management. Degree in Civil Engineering or related field. Strong leadership and communication skills.",
+        "is_active": true,
+        "is_available": true,
+        "sort_order": 1
+    },
+    {
+        "id": 2,
+        "position_title": "Quantity Surveyor",
+        "title": "Quantity Surveyor",
+        "department": "QS Department",
+        "location": "Penang",
+        "type": "Full-Time",
+        "description": "Manage project costs and budgets, prepare Bills of Quantities, and evaluate contractor claims and variations for ongoing construction projects.",
+        "requirements": "Degree in Quantity Surveying or related field. Minimum 3 years experience. Proficient in AutoCAD and QS software.",
+        "is_active": true,
+        "is_available": true,
+        "sort_order": 2
+    },
+    {
+        "id": 3,
+        "position_title": "Site Engineer",
+        "title": "Site Engineer",
+        "department": "Engineering",
+        "location": "Penang",
+        "type": "Full-Time",
+        "description": "Supervise day-to-day site construction activities, ensuring compliance with drawings, specifications, and safety standards. Coordinate with subcontractors and suppliers.",
+        "requirements": "Degree in Civil Engineering. Fresh graduates welcome. Willingness to work on-site. Strong problem-solving skills.",
+        "is_active": true,
+        "is_available": true,
+        "sort_order": 3
+    },
+    {
+        "id": 4,
+        "position_title": "Safety Officer",
+        "title": "Safety Officer (SHASSIC Certified)",
+        "department": "HSE Department",
+        "location": "Penang",
+        "type": "Full-Time",
+        "description": "Implement and monitor safety, health, and environmental policies on construction sites. Conduct risk assessments and safety audits to ensure compliance with DOSH regulations.",
+        "requirements": "Green Book holder (SHO). Minimum 3 years experience in construction HSE. SHASSIC experience is an advantage.",
+        "is_active": true,
+        "is_available": true,
+        "sort_order": 4
+    },
+    {
+        "id": 5,
+        "position_title": "Accounts Executive",
+        "title": "Accounts Executive",
+        "department": "Finance & Accounts",
+        "location": "Penang",
+        "type": "Full-Time",
+        "description": "Handle full set of accounts, financial reporting, and liaise with auditors, bankers, and government agencies. Support the finance team in day-to-day operations.",
+        "requirements": "Degree or Diploma in Accounting/Finance. Minimum 2 years experience. Knowledge of AutoCount or similar accounting software.",
+        "is_active": true,
+        "is_available": false,
+        "sort_order": 5
+    }
+]

@@ -1,0 +1,93 @@
+<?php
+
+namespace App\Filament\Resources\PressCoverages\Tables;
+
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+
+/**
+ * Press Coverages Table — Easy to Read
+ */
+class PressCoveragesTable
+{
+    public static function configure(Table $table): Table
+    {
+        return $table
+            ->columns([
+                \Filament\Tables\Columns\ImageColumn::make('display_image')
+                    ->label('Clipping')
+                    ->width(60)
+                    ->height(45)
+                    ->rounded(),
+
+                TextColumn::make('headline')
+                    ->label('Headline')
+                    ->searchable()
+                    ->sortable()
+                    ->weight('bold')
+                    ->limit(50),
+
+                TextColumn::make('publication')
+                    ->label('Publication')
+                    ->searchable(),
+
+                TextColumn::make('published_date')
+                    ->label('Date')
+                    ->date('d M Y')
+                    ->sortable(),
+
+                TextColumn::make('category.name')
+                    ->label('Category')
+                    ->badge()
+                    ->placeholder('-'),
+
+                TextColumn::make('external_url')
+                    ->label('Link')
+                    ->icon('heroicon-o-link')
+                    ->url(fn ($record) => $record->external_url)
+                    ->openUrlInNewTab()
+                    ->limit(20)
+                    ->placeholder('No link'),
+            ])
+            ->filters([
+                \Filament\Tables\Filters\SelectFilter::make('category_id')
+                    ->label('Filter by Category')
+                    ->relationship('category', 'name', fn($query) => $query->where('model_type', 'News')),
+                \Filament\Tables\Filters\SelectFilter::make('year')
+                    ->label('Filter by Year')
+                    ->options(function () {
+                        return \App\Models\PressCoverage::query()
+                            ->whereNotNull('published_date')
+                            ->pluck('published_date')
+                            ->map(function ($date) {
+                                return is_string($date) ? substr($date, 0, 4) : $date->format('Y');
+                            })
+                            ->unique()
+                            ->sortDesc()
+                            ->mapWithKeys(fn($year) => [$year => $year])
+                            ->toArray();
+                    })
+                    ->query(function (\Illuminate\Database\Eloquent\Builder $query, array $data): \Illuminate\Database\Eloquent\Builder {
+                        if (!empty($data['value'])) {
+                            $query->whereYear('published_date', $data['value']);
+                        }
+                        return $query;
+                    }),
+            ])
+            ->defaultSort('published_date', 'desc')
+            ->recordActions([
+                EditAction::make()->label('Edit'),
+            ])
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                ]),
+            ])
+            ->emptyStateHeading('No Press Coverage Yet')
+            ->emptyStateIcon('heroicon-o-globe-alt');
+    }
+}

@@ -1,0 +1,416 @@
+/* ================================================
+   STANDARDIZED NAVBAR & MOBILE MENU (PREMIUM LIGHT THEME)
+   ================================================ */
+
+:root {
+    --pearl: #FDFCF9;
+    --white: #ffffff;
+    --gold: #c5a059;
+    --gold-dark: #a68546;
+    --charcoal: #111827;
+    --navy: #1a242f;
+    --muted: #6B7280;
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --light-bg: rgba(253, 252, 249, 0.98); 
+    --nav-height: 90px;
+    --nav-shrink-height: 70px;
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* =========================================
+   1. 主导航栏基础设置 (Navbar Base)
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: transparent;
+    z-index: 1000;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+}
+
+/* FIX: Ensure content remains visible during transition */
+.navbar-scrolled {
+    height: var(--nav-shrink-height);
+    background: var(--light-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.navbar-inner {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================================
+   2. 品牌 Logo (Brand Logo)
+   ========================================= */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 45px;
+    transition: var(--transition-smooth);
+}
+
+.navbar-scrolled .logo-img {
+    height: 38px;
+}
+
+/* =========================================
+   3. 桌面端菜单链接 (Desktop Links)
+   ========================================= */
+.nav-menu {
+    display: none;
+    list-style: none;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 1024px) {
+    .nav-menu { display: flex; }
+}
+
+.nav-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-smooth);
+    padding: 10px 0;
+}
+
+/* FIX: Ensure links are visible on white background when scrolled */
+.navbar-scrolled .nav-link {
+    color: var(--text-dark);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--gold) !important;
+}
+
+/* =========================================
+   4. 下拉菜单 (Dropdowns)
+   ========================================= */
+.dropdown { position: relative; }
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 240px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: var(--transition-smooth);
+    border-top: 3px solid var(--gold);
+    border-radius: 0 0 6px 6px;
+    z-index: 100;
+}
+
+.dropdown:hover > .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-bottom: 1px solid #f5f5f5;
+    transition: var(--transition-smooth);
+}
+
+.dropdown-content a:hover {
+    background: var(--pearl);
+    color: var(--gold);
+    padding-left: 25px;
+}
+
+/* =========================================
+   5. 二级菜单修复 (Nested Dropdown)
+   ========================================= */
+.nested-dropdown { position: relative; }
+
+.nested-content {
+    position: absolute;
+    top: -3px;
+    left: 100%;
+    background: var(--white);
+    min-width: 250px;
+    box-shadow: 5px 5px 25px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(15px);
+    transition: var(--transition-smooth);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    z-index: 101;
+}
+
+.nested-dropdown:hover > .nested-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* =========================================
+   6. 移动端触发器 (Mobile Toggle - THE FIX)
+   ========================================= */
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002;
+}
+
+/* FIX: Hamburger Bar Styles - Always visible on mobile */
+.hamburger-box {
+    width: 28px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner, 
+.hamburger-inner::before, 
+.hamburger-inner::after {
+    width: 28px;
+    height: 3px;
+    background-color: var(--white); /* Default white on transparent nav */
+    position: absolute;
+    transition: var(--transition-smooth);
+    border-radius: 4px;
+}
+
+.hamburger-inner { top: 50%; transform: translateY(-50%); }
+.hamburger-inner::before { content: ""; top: -8px; }
+.hamburger-inner::after { content: ""; bottom: -8px; }
+
+/* FIX: Change hamburger to dark when navbar scrolls */
+.navbar-scrolled .hamburger-inner,
+.navbar-scrolled .hamburger-inner::before,
+.navbar-scrolled .hamburger-inner::after {
+    background-color: var(--charcoal);
+}
+
+/* Force mobile toggle to show on smaller screens */
+@media (max-width: 1023px) {
+    .mobile-toggle {
+        display: flex !important;
+    }
+}
+
+/* =========================================
+   7. 移动端侧边栏 & 遮罩 (Mobile Sidebar)
+   ========================================= */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 1500;
+    backdrop-filter: blur(4px);
+}
+
+.menu-overlay.active { 
+    display: block; 
+}
+
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    max-width: 85vw;
+    height: 100vh;
+    background: var(--white);
+    z-index: 2000;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+}
+
+.mobile-sidebar.active { 
+    right: 0; 
+}
+
+.sidebar-header {
+    padding: 25px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-close-btn {
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    color: var(--charcoal);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.sidebar-content {
+    padding: 25px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.sidebar-footer {
+    padding: 25px;
+    background: var(--pearl);
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-contact-nav, 
+.mobile-contact-btn {
+    background: var(--gold);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.mobile-contact-btn:hover,
+.btn-contact-nav:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+}
+
+/* Mobile Sidebar Links Styling */
+.sidebar-content a {
+    display: block;
+    padding: 12px 0;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.sidebar-content a:hover {
+    color: var(--gold);
+    padding-left: 8px;
+}
+
+.section-title {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mobile-link.main-link {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 15px 0;
+    border-bottom: 2px solid #eee;
+}
+
+.mobile-staff-btn {
+    background: var(--charcoal);
+    color: var(--white);
+    padding: 14px 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.mobile-staff-btn:hover {
+    background: #1f2a38;
+}
+
+/* ==================== DESKTOP STAFF PORTAL FIX ==================== */
+.nav-utility .staff-portal-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: var(--transition-smooth);
+}
+
+.nav-utility .staff-portal-link:hover {
+    background: rgba(255,255,255,0.15);
+    color: var(--gold);
+}
+
+/* When navbar is scrolled (light background) */
+.navbar-scrolled .staff-portal-link {
+    color: var(--charcoal) !important;
+}
+
+.navbar-scrolled .staff-portal-link:hover {
+    background: rgba(17, 24, 39, 0.08);
+    color: var(--gold) !important;
+}
+
+/* ==================== ADDITIONAL FIXES ==================== */
+
+/* Mobile section wrapper */
+.mobile-section {
+    margin-bottom: 25px;
+}
+
+/* Prevent page jumping when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Extra safety for hamburger color on transparent navbar */
+.navbar:not(.navbar-scrolled) .hamburger-inner,
+.navbar:not(.navbar-scrolled) .hamburger-inner::before,
+.navbar:not(.navbar-scrolled) .hamburger-inner::after {
+    background-color: var(--white);
+}

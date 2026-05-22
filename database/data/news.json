@@ -1,0 +1,1678 @@
+﻿{
+    "value":  [
+                  {
+                      "id":  "0406dd12-ebd9-44f2-8c5a-3935cedacf92",
+                      "year":  2020,
+                      "date":  "18/03/2020",
+                      "title":  "Movement Control Order 1.0 (MCO 1.0) Start Date",
+                      "type":  "Covid",
+                      "icon":  "fa-lock",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "04fa112a-2bc3-4ce1-9a3b-6f2d6c5b374f",
+                      "year":  2021,
+                      "date":  "16/08/2021",
+                      "title":  "Phase 2 of National Recovery Plan (NRP)",
+                      "type":  "Covid",
+                      "icon":  "fa-virus-slash",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "0510f9d5-8b2a-4481-8e69-52db13232c31",
+                      "year":  2019,
+                      "date":  "01/08/2019",
+                      "title":  "Received MSOSH Occupational Safety \u0026 Health Award 2018",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "08e282ab-6888-44e5-8100-182c7a45f491",
+                      "year":  2023,
+                      "date":  "18/11/2023",
+                      "title":  "IEM (Penang Branch) 56th Anniversary Dinner 2023 Sponsorship",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "092e08bc-29b9-4c22-a534-8af51b0a1fc1",
+                      "year":  2018,
+                      "date":  "09/08/2018",
+                      "title":  "Received MSOSH Occupational Safety \u0026 Health Award 2017",
+                      "type":  "Award",
+                      "icon":  "fa-shield",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "09e5bab6-59ce-41bd-9fc3-34088941ece2",
+                      "year":  2017,
+                      "date":  "17/11/2017",
+                      "title":  "Top 3 Winners of Enterprise 50 Award 2017",
+                      "type":  "Award",
+                      "icon":  "fa-star",
+                      "created_at":  "2026-02-23T06:56:37.972+00:00",
+                      "updated_at":  "2026-02-23T06:56:37.972+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  "Recognition",
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "0cd10f04-5e33-4a4e-93f2-0d9829310275",
+                      "year":  2014,
+                      "date":  "05/12/2014",
+                      "title":  "Received SME Recognition Award 2014",
+                      "type":  "Award",
+                      "icon":  "fa-medal",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "0dc732ce-5266-4b01-b660-1447aaeea8bf",
+                      "year":  2012,
+                      "date":  "13/12/2012",
+                      "title":  "Received SME Recognition Award 2012",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "0fe4b9ea-b56f-44c8-a961-ce84b6476078",
+                      "year":  2017,
+                      "date":  "17/11/2017",
+                      "title":  "Received Enterprise 50 Award 2017",
+                      "type":  "Award",
+                      "icon":  "fa-medal",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "106bc762-4b0e-42cb-a363-3ca356dbb24b",
+                      "year":  2021,
+                      "date":  "18/02/2021",
+                      "title":  "Movement Control Order 2.0 (MCO 2.0) End Date",
+                      "type":  "Covid",
+                      "icon":  "fa-door-open",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "16099afa-8095-4bb8-9f15-74afc89d95a0",
+                      "year":  2023,
+                      "date":  "13/05/2023",
+                      "title":  "RISM (Northern Branch) 30th Anniversary Dinner Sponsorship",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "164006a8-8884-4b20-9bb0-5af9de3762ba",
+                      "year":  2021,
+                      "date":  "01/06/2021",
+                      "title":  "Full Movement Control Order (FMCO) Start Date",
+                      "type":  "Covid",
+                      "icon":  "fa-lock",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "18b4ab58-4db3-4086-9323-f4c2e53f3875",
+                      "year":  2024,
+                      "date":  "28/09/2024",
+                      "title":  "IEM (Penang Branch) 57th Anniversary Dinner 2024 Sponsorship",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "1be9e526-0bf8-4213-a354-f5e74ba59ea2",
+                      "year":  2009,
+                      "date":  "16/10/2009",
+                      "title":  "Received Golden Bull Award 2009",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "1c9d24cb-27a2-44c0-ada1-338da34e8e82",
+                      "year":  2021,
+                      "date":  "20/04/2021",
+                      "title":  "Received 82% CIDB Malaysia QLASSIC Score",
+                      "type":  "Quality",
+                      "icon":  "fa-certificate",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "1de986e5-2615-412a-bcd7-71f126df63ae",
+                      "year":  2011,
+                      "date":  "22/07/2011",
+                      "title":  "Received MSOSH Occupational Safety \u0026 Health Award 2010",
+                      "type":  "Award",
+                      "icon":  "fa-shield",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "2035cea3-6089-4e33-8961-e6de08cb4f57",
+                      "year":  2009,
+                      "date":  "16/12/2009",
+                      "title":  "Received SME Recognition Award 2009 (Service Excellence)",
+                      "type":  "Award",
+                      "icon":  "fa-medal",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "245d84fd-7805-4423-a7a9-c9f5ede5e4ea",
+                      "year":  2017,
+                      "date":  "29/12/2017",
+                      "title":  "Received 4 Stars CIDB Malaysia SCORE Rating",
+                      "type":  "Award",
+                      "icon":  "fa-star",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "2739bb0f-bdc6-467a-a085-d779b2cd41c5",
+                      "year":  2014,
+                      "date":  "25/07/2014",
+                      "title":  "Received 4 Stars CIDB Malaysia SCORE Rating",
+                      "type":  "Award",
+                      "icon":  "fa-medal",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "2a2b883d-0412-4860-87d0-51825719e4a6",
+                      "year":  2015,
+                      "date":  "04/12/2015",
+                      "title":  "Received SME Recognition Award 2015",
+                      "type":  "Award",
+                      "icon":  "fa-medal",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "2cf8be60-5700-4449-9896-15fa7fc1d7ef",
+                      "year":  2009,
+                      "date":  "13/11/2009",
+                      "title":  "Received Enterprise 50 Award 2009",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "2f606213-883e-437e-b6f2-34067d2d1a9b",
+                      "year":  2016,
+                      "date":  "28/10/2016",
+                      "title":  "Received Platinum Business Awards 2016",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "35581bbe-31cc-4c99-96c4-8e27f23b4c10",
+                      "year":  2022,
+                      "date":  "22/02/2022",
+                      "title":  "Received Certificate of Appreciation from MahSing for 2,000,000 Man-Hours Without Lost Time Injury",
+                      "type":  "Safety",
+                      "icon":  "fa-shield-halved",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "355d3001-406e-4839-bd94-6152a93a85c9",
+                      "year":  2020,
+                      "date":  "02/11/2020",
+                      "title":  "Received MSOSH Occupational Safety \u0026 Health Award 2019",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "37f64ab8-cb53-4ab0-8c4e-f0ebea12ba96",
+                      "year":  2021,
+                      "date":  "13/01/2021",
+                      "title":  "Movement Control Order 2.0 (MCO 2.0) Start Date",
+                      "type":  "Covid",
+                      "icon":  "fa-ban",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "38698d48-a6b3-42c5-b42b-7ccaef48061e",
+                      "year":  2018,
+                      "date":  "12/11/2018",
+                      "title":  "Received 4 Stars CIDB Malaysia SHASSIC Score",
+                      "type":  "Safety",
+                      "icon":  "fa-star",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "3a3662a4-72c7-4295-abe0-c4c11dc15af4",
+                      "year":  2014,
+                      "date":  "14/11/2014",
+                      "title":  "Received Enterprise 50 Award 2014",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "3a5f2faf-38a4-4588-9159-419d40984622",
+                      "year":  2023,
+                      "date":  "18/05/2023",
+                      "title":  "Received Certificate of Appreciation from CIDB for Excellence Achievement (5 Stars) in 2022 SCORE Program",
+                      "type":  "Award",
+                      "icon":  "fa-star",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "43083c52-8383-4e46-a565-c2bee8758db9",
+                      "year":  2021,
+                      "date":  "08/11/2021",
+                      "title":  "Phase 4 of National Recovery Plan (NRP)",
+                      "type":  "Covid",
+                      "icon":  "fa-virus-slash",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "462e0877-da76-43b7-84b0-85cafbbff47a",
+                      "year":  2012,
+                      "date":  "09/11/2012",
+                      "title":  "Received Golden Bull Award 2012 (The 10th Malaysia 100 Outstanding SMEs)",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "4d3ffc9a-48bb-47de-a6ca-c9d493192ad2",
+                      "year":  2024,
+                      "date":  "12/11/2024",
+                      "title":  "1,700,000 Man-Hours Without Lost Time Injury Celebration at Aston Acacia Bukit Mertajam Project",
+                      "type":  "Safety",
+                      "icon":  "fa-hard-hat",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "4ece248f-b975-4ec9-916a-0e7f5171db9e",
+                      "year":  2017,
+                      "date":  "24/08/2017",
+                      "title":  "Received MSOSH Occupational Safety \u0026 Health Awards 2016",
+                      "type":  "Award",
+                      "icon":  "fa-shield-heart",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "543c147e-e7a7-48fa-93c8-d1450540384b",
+                      "year":  2013,
+                      "date":  "11/09/2013",
+                      "title":  "Received MSOSH Occupational Safety \u0026 Health Award 2012",
+                      "type":  "Award",
+                      "icon":  "fa-shield",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "571b55da-96ac-435d-b337-132d32a971b1",
+                      "year":  2016,
+                      "date":  "18/11/2016",
+                      "title":  "Received Golden Eagle Award 2016",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "5caaa83b-c407-409e-bcf0-136eeb0faadb",
+                      "year":  2016,
+                      "date":  "11/11/2016",
+                      "title":  "Received Sin Chew Business Excellence Awards 2016",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "60977b28-9ee1-46f6-8788-935c20a8c376",
+                      "year":  2023,
+                      "date":  "24/03/2023",
+                      "title":  "Received 83% CIDB Malaysia QLASSIC Score",
+                      "type":  "Quality",
+                      "icon":  "fa-certificate",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "616c1f52-52e4-45db-a4b8-cd2e917a73fe",
+                      "year":  2020,
+                      "date":  "03/05/2020",
+                      "title":  "Movement Control Order 1.0 (MCO 1.0) End Date",
+                      "type":  "Covid",
+                      "icon":  "fa-door-open",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "61c238e7-6478-42bb-97b9-69412ecd9c2a",
+                      "year":  2021,
+                      "date":  "18/10/2021",
+                      "title":  "Phase 3 of National Recovery Plan (NRP)",
+                      "type":  "Covid",
+                      "icon":  "fa-virus-slash",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "6358278f-6345-4fad-8417-9f4c52af888f",
+                      "year":  2011,
+                      "date":  "08/12/2011",
+                      "title":  "Received SME Recognition Award 2011",
+                      "type":  "Award",
+                      "icon":  "fa-medal",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "64017e49-deb0-4af5-ad9a-10b0bece42ae",
+                      "year":  2015,
+                      "date":  "06/11/2015",
+                      "title":  "Received Sin Chew Business Excellence Awards 2015",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "6ccebf39-e252-4bf4-a9e1-0cb1affdba41",
+                      "year":  2014,
+                      "date":  "18/09/2014",
+                      "title":  "Received The Malaysian Construction Industry Excellence Award 2013",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "63e38d9d-3390-4c9c-a4e6-400cd8bfe467",
+                      "year":  2024,
+                      "date":  "20/07/2024",
+                      "title":  "2024 Construction Superbowl Tournament",
+                      "type":  null,
+                      "icon":  null,
+                      "created_at":  "2026-02-26T04:40:24.310811+00:00",
+                      "updated_at":  "2026-03-17T09:36:15.741+00:00",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740175005-0v9h2.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740175431-8old7.jpg"
+                              ],
+                      "category":  "Milestone",
+                      "content":  null,
+                      "description":  "",
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "2a63082c-390e-4a30-ad0e-d7212ffb7e3b",
+                      "year":  2022,
+                      "date":  "23/09/2022",
+                      "title":  "Received 5 Stars CIDB Malaysia SCORE Rating",
+                      "type":  "Award",
+                      "icon":  "fa-medal",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-03-17T09:49:52.455+00:00",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740989961-te018.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740990325-a5xgo.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740990566-z95m9.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740991771-76gaa.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740992176-2vhi8.jpg"
+                              ],
+                      "category":  "General",
+                      "content":  null,
+                      "description":  "",
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "6d95a76d-e40d-4264-adce-63be77cf41d2",
+                      "year":  2024,
+                      "date":  "26/12/2024",
+                      "title":  "Received 82% CIDB Malaysia QLASSIC Score",
+                      "type":  "Quality",
+                      "icon":  "fa-certificate",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "6ef6fc59-e4db-451b-8e5f-c3956c5b6986",
+                      "year":  2010,
+                      "date":  "30/07/2010",
+                      "title":  "Received MSOSH OSH Award 2009",
+                      "type":  "Award",
+                      "icon":  "fa-shield",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "73e29033-6dba-4a5e-bea8-a7f8e2b0eb19",
+                      "year":  2018,
+                      "date":  "23/11/2018",
+                      "title":  "Received Platinum Business Awards 2018",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "7dac8633-1af2-4841-947e-5aec4d5abc32",
+                      "year":  2014,
+                      "date":  "26/09/2014",
+                      "title":  "Received Sin Chew Business Excellence Awards 2014",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "80d34052-7c99-4b19-a79f-ac1b9954923e",
+                      "year":  2009,
+                      "date":  "11/12/2009",
+                      "title":  "Implementing CONQUAS Standard w.e.f. 11/12/2009",
+                      "type":  "Quality",
+                      "icon":  "fa-check-double",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "85e5981d-7f9d-4c8d-adae-d9e639a45d5b",
+                      "year":  2013,
+                      "date":  "18/10/2013",
+                      "title":  "Received Golden Eagle Award 2013",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "864d73b6-e882-42ed-b6b8-d51b9399dbd4",
+                      "year":  2012,
+                      "date":  "06/07/2012",
+                      "title":  "Received MSOSH Occupational Safety \u0026 Health Award 2011",
+                      "type":  "Award",
+                      "icon":  "fa-shield",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "87c55a0d-6721-41ca-b8bc-4c6898556162",
+                      "year":  2015,
+                      "date":  "04/09/2015",
+                      "title":  "Received MSOSH Occupational Safety \u0026 Health Awards 2014",
+                      "type":  "Award",
+                      "icon":  "fa-shield",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "900cac52-b83e-42b2-acb6-5e17a2fea50a",
+                      "year":  2017,
+                      "date":  "17/11/2017",
+                      "title":  "Received Golden Eagle Award 2017",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "91412b22-68a2-41a8-b325-39318eb0f72d",
+                      "year":  2024,
+                      "date":  "25/10/2024",
+                      "title":  "Received 4 Stars CIDB Malaysia SHASSIC Rating",
+                      "type":  "Safety",
+                      "icon":  "fa-star",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "9932ae82-7b2e-4e25-ae74-225ffc73ba84",
+                      "year":  2011,
+                      "date":  "11/01/2011",
+                      "title":  "Received The BrandLaureate SMEs Chapter Awards 2010",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "9ccdb3ff-39fb-4988-a1d5-956de20cacf0",
+                      "year":  2016,
+                      "date":  "05/08/2016",
+                      "title":  "Received MSOSH Occupational Safety \u0026 Health Awards 2015",
+                      "type":  "Award",
+                      "icon":  "fa-shield",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "9dfaa270-1f4a-4150-85bd-7011bb0594b4",
+                      "year":  2017,
+                      "date":  "23/11/2017",
+                      "title":  "Received Platinum Business Awards 2017",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "9e363439-d9cc-4a02-920f-e9849a52981c",
+                      "year":  2024,
+                      "date":  "10/10/2024",
+                      "title":  "Received 5 Stars CIDB Malaysia SCORE Rating",
+                      "type":  "Award",
+                      "icon":  "fa-medal",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "9f054ce9-9d9a-448a-ae28-1b919720281f",
+                      "year":  2023,
+                      "date":  "18/08/2023",
+                      "title":  "IEM (Penang Branch) Geotechnical Engineering Seminar 2023 Sponsorship",
+                      "type":  "Event",
+                      "icon":  "fa-microscope",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "a17ad0d5-fb8e-44f8-8ff0-a2d13fa4b94a",
+                      "year":  2023,
+                      "date":  "10/11/2023",
+                      "title":  "PAM Northern Chapter 50th Golden Anniversary Dinner Sponsorship",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "a4d163d2-3e24-4474-ac69-bd1dab3c35b2",
+                      "year":  2019,
+                      "date":  "05/11/2019",
+                      "title":  "Received 4 Stars CIDB Malaysia SHASSIC Score",
+                      "type":  "Safety",
+                      "icon":  "fa-shield",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "a7b3e5fd-5b7f-4e6b-abee-58c6c6f48f3d",
+                      "year":  2011,
+                      "date":  "28/10/2011",
+                      "title":  "Received Golden Bull Award 2011 (The 9th Malaysia 100 Outstanding SMEs)",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ac2b84a7-3495-4ae5-8475-c3b672ff04a5",
+                      "year":  2009,
+                      "date":  "05/02/2009",
+                      "title":  "2 Units Semi-D Bungalow for Sale at Ayer Itam, Penang from RM788,000",
+                      "type":  "Project",
+                      "icon":  "fa-home",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ac5f797d-a3fd-43b4-8b44-3aec8131af26",
+                      "year":  2023,
+                      "date":  "18/11/2023",
+                      "title":  "CIDB Award Recognition Night",
+                      "type":  "Award",
+                      "icon":  "fa-medal",
+                      "created_at":  "2026-02-23T06:56:37.972+00:00",
+                      "updated_at":  "2026-02-23T06:56:37.972+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  "Recognition",
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "acd56fe1-3d0c-4c7d-a439-7161317f3798",
+                      "year":  2010,
+                      "date":  "12/11/2010",
+                      "title":  "Received Golden Bull Award 2010",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ae3d22ad-ca19-4370-a72c-4e1fa4d84124",
+                      "year":  2015,
+                      "date":  "01/05/2015",
+                      "title":  "Received Anugerah Hari Pekerja 2015",
+                      "type":  "Award",
+                      "icon":  "fa-users-gear",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "af71cd59-70e1-4f74-a02b-4856c36c26d6",
+                      "year":  2024,
+                      "date":  "25/05/2024",
+                      "title":  "RISM (Northern Branch) 31st Anniversary Dinner Sponsorship",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "afdf0e58-6024-4539-9c87-150e7458f3b0",
+                      "year":  2024,
+                      "date":  "25/06/2024",
+                      "title":  "CIDB Luncheon Session with Penang State Developers",
+                      "type":  "Event",
+                      "icon":  "fa-users",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "b0d15a63-6550-474a-b9ae-ebbd317319a3",
+                      "year":  2020,
+                      "date":  "14/07/2020",
+                      "title":  "Received 4 Stars CIDB Malaysia SCORE Rating",
+                      "type":  "Award",
+                      "icon":  "fa-star",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "b28af63c-a964-4e65-82d0-e4c6285c95ac",
+                      "year":  2011,
+                      "date":  "13/10/2011",
+                      "title":  "Received The Malaysia HR Awards 2011 (Best SME Employer Award 2011)",
+                      "type":  "Award",
+                      "icon":  "fa-user-tie",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "b38893be-fb47-4683-82fa-f4c0e093eed0",
+                      "year":  2021,
+                      "date":  "20/08/2021",
+                      "title":  "Received 83% CIDB Malaysia QLASSIC Score",
+                      "type":  "Quality",
+                      "icon":  "fa-certificate",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "b5392cc8-4f9c-425d-bc68-9000f0ea353c",
+                      "year":  2023,
+                      "date":  "13/05/2023",
+                      "title":  "PAM Award 2023 Ceremony",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-23T06:56:37.972+00:00",
+                      "updated_at":  "2026-02-23T06:56:37.972+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  "Recognition",
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "b8279902-c537-4756-a654-55abe4d970c3",
+                      "year":  2016,
+                      "date":  "23/09/2016",
+                      "title":  "Received The Malaysian Construction Industry Excellence Award 2016",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "cd0220b6-67dc-4ff3-8102-08a77dc308c4",
+                      "year":  2017,
+                      "date":  "01/06/2017",
+                      "title":  "Received Aedes Free Construction Site Award 2016",
+                      "type":  "Health",
+                      "icon":  "fa-hand-holding-heart",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "cd674898-1a47-44df-abd4-f9dac2c583b6",
+                      "year":  2017,
+                      "date":  "10/11/2017",
+                      "title":  "Received Sin Chew Business Excellence Awards 2017",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "cd7fc436-45ec-4813-9d21-8d94e5adb856",
+                      "year":  2024,
+                      "date":  "08/08/2024",
+                      "title":  "PHP Safe Manhours Milestone",
+                      "type":  "Safety",
+                      "icon":  "fa-hard-hat",
+                      "created_at":  "2026-02-23T06:56:37.972+00:00",
+                      "updated_at":  "2026-02-23T06:56:37.972+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  "Achievement",
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "d75e6a1e-5c73-4e4f-9b6e-2ada388a9186",
+                      "year":  2014,
+                      "date":  "31/07/2014",
+                      "title":  "Received 5 Stars CIDB Malaysia SHASSIC Score",
+                      "type":  "Safety",
+                      "icon":  "fa-star",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "d7c5beaf-9017-4ba3-9f66-891cfdb4e1d4",
+                      "year":  2012,
+                      "date":  "12/01/2012",
+                      "title":  "Received The BrandLaureate SMEs Chapter Awards 2011",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "d876a170-5a42-4d93-9a2e-bb4cd1065116",
+                      "year":  2021,
+                      "date":  "10/05/2021",
+                      "title":  "Movement Control Order 3.0 (MCO 3.0) Start Date",
+                      "type":  "Covid",
+                      "icon":  "fa-ban",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "dc8554f7-2c19-41f8-896f-be316be2e171",
+                      "year":  2020,
+                      "date":  "02/06/2020",
+                      "title":  "Tapak Projek Bebas Aedes (Aedes-Free Site Support)",
+                      "type":  "Safety",
+                      "icon":  "fa-bug",
+                      "created_at":  "2026-02-23T06:56:37.972+00:00",
+                      "updated_at":  "2026-02-23T06:56:37.972+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  "Environment",
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "e37b2663-5a25-402a-8480-a0e256f5e71c",
+                      "year":  2013,
+                      "date":  "13/12/2013",
+                      "title":  "Received SME Recognition Award 2013",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "e49e5ee8-9cd1-4333-aa3b-c240079ffa7c",
+                      "year":  2011,
+                      "date":  "18/11/2011",
+                      "title":  "Received Enterprise 50 Award 2011",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "e88d2e68-c8c7-4366-9d93-c830555f4c6a",
+                      "year":  2015,
+                      "date":  "30/11/2015",
+                      "title":  "Received QLASSIC Excellent Award 2014",
+                      "type":  "Quality",
+                      "icon":  "fa-certificate",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "e90b1a6c-e978-4808-a21b-8e38a32e96e3",
+                      "year":  2018,
+                      "date":  "09/11/2018",
+                      "title":  "Received Golden Eagle Award 2018",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ecd7436c-922d-4c89-9f61-2457ba970656",
+                      "year":  2009,
+                      "date":  "16/06/2009",
+                      "title":  "Received SME 100 Award in June 2009",
+                      "type":  "Award",
+                      "icon":  "fa-trophy",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ecef0fc3-ce62-4d73-9125-cb3f387cf4b0",
+                      "year":  2012,
+                      "date":  "11/10/2012",
+                      "title":  "Received The Malaysia HR Awards 2012 (Best SME Employer Award 2012)",
+                      "type":  "Award",
+                      "icon":  "fa-user-tie",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ed741fd9-23f3-4d12-ace3-ddb73b966351",
+                      "year":  2010,
+                      "date":  "10/12/2010",
+                      "title":  "Received SME Recognition Award 2010 (Young Entrepreneur)",
+                      "type":  "Award",
+                      "icon":  "fa-user-check",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ef76c717-2070-4755-b4d1-765409c101cb",
+                      "year":  2014,
+                      "date":  "14/11/2014",
+                      "title":  "Received Golden Eagle Award 2014",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "f1bad200-29b6-4312-a943-6e485bc746b9",
+                      "year":  2009,
+                      "date":  "07/02/2009",
+                      "title":  "Joint Venture Development Available",
+                      "type":  "Project",
+                      "icon":  "fa-handshake",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "f1c58ea2-3eb4-4341-973f-7facbc3fa160",
+                      "year":  2016,
+                      "date":  "20/09/2016",
+                      "title":  "Received 4 Stars CIDB Malaysia SCORE Rating",
+                      "type":  "Award",
+                      "icon":  "fa-star",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ddbb4eed-ba25-4ec8-a775-241a81f20466",
+                      "year":  2023,
+                      "date":  "30/05/2023",
+                      "title":  "Received PAM Awards 2023 for Excellence in Architecture (Hospitality) as Builder for Citadines Connect Georgetown",
+                      "type":  "Award",
+                      "icon":  "fa-award",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-03-17T09:46:56.785+00:00",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740816317-sbo0f.jpg"
+                              ],
+                      "category":  "General",
+                      "content":  null,
+                      "description":  "",
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "f85ada22-e04a-4b13-8ed4-6e13bbf9f9b6",
+                      "year":  2015,
+                      "date":  "14/08/2015",
+                      "title":  "Received 3 Stars CIDB Malaysia SCORE Rating",
+                      "type":  "Award",
+                      "icon":  "fa-star",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "img":  [
+
+                              ],
+                      "category":  null,
+                      "content":  null,
+                      "description":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "f211e20d-9b2d-47b6-aa74-392957d662b7",
+                      "year":  2021,
+                      "date":  "28/04/2021",
+                      "title":  "World OSH Day 2021 - Safety Toolbox Activity",
+                      "type":  "Safety",
+                      "icon":  "fa-helmet-safety",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-03-17T09:25:30.586+00:00",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773739529557-5d01y.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773739529989-pccjs.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773739530305-8rhns.jpg"
+                              ],
+                      "category":  "General",
+                      "content":  null,
+                      "description":  "",
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "154b4889-8f2d-486f-8450-a7cc7f30e19e",
+                      "year":  2020,
+                      "date":  "13/05/2020",
+                      "title":  "CIDB SCORE CCA Audit Achievement",
+                      "type":  "Quality",
+                      "icon":  "fa-check-circle",
+                      "created_at":  "2026-02-23T06:56:37.972+00:00",
+                      "updated_at":  "2026-03-17T09:26:58.018+00:00",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773739617387-w2ywp.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773739617736-jgumx.jpg"
+                              ],
+                      "category":  "",
+                      "content":  null,
+                      "description":  "",
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "24c06c91-7acc-43f6-8ab9-47199f313e92",
+                      "year":  2024,
+                      "date":  "02/03/2024",
+                      "title":  "Northern Heart Hospital Penang - Building Handover Ceremony",
+                      "type":  "Project",
+                      "icon":  "fa-building",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-03-17T09:31:18.331+00:00",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773739876787-si2l8.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773739877208-321fw.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773739877490-or887.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773739877775-1zrb0.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773739878106-qfcvp.jpg"
+                              ],
+                      "category":  "General",
+                      "content":  null,
+                      "description":  "",
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "4271157d-3941-4f31-9953-2e1255bff906",
+                      "year":  2024,
+                      "date":  "18/05/2024",
+                      "title":  "The 6th XCMG International Customers Festival at Xuzhou, Jiangsu, China",
+                      "type":  "Event",
+                      "icon":  "fa-globe",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-03-17T09:41:25.533+00:00",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740482397-q1gz4.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740483030-rz487.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740484162-4zo2e.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740484778-2xwln.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740485198-s436u.jpg"
+                              ],
+                      "category":  "General",
+                      "content":  null,
+                      "description":  "",
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "11f8c322-e155-4401-b7e9-90e6f294b22f",
+                      "year":  2024,
+                      "date":  "10/05/2024",
+                      "title":  "CIDB Sesi Luncheon Bersama Pemaju",
+                      "type":  "Event",
+                      "icon":  "fa-utensils",
+                      "created_at":  "2026-02-23T06:56:37.972+00:00",
+                      "updated_at":  "2026-03-17T09:43:15.495+00:00",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740593674-pj82i.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740594073-dzbp4.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740594436-hiurs.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740594835-wk6m9.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773740595136-7hxgj.jpg"
+                              ],
+                      "category":  "",
+                      "content":  null,
+                      "description":  "",
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "075cae18-b5c9-40f5-8ae1-086680eaa696",
+                      "year":  2024,
+                      "date":  "08/08/2024",
+                      "title":  "500,000 Man-Hours Without Lost Time Injury Celebration at Pantai Hospital Extension Project",
+                      "type":  "Safety",
+                      "icon":  "fa-hard-hat",
+                      "created_at":  "2026-02-11T03:17:45.31136+00:00",
+                      "updated_at":  "2026-03-17T09:54:11.32+00:00",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773741249190-x6iul.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773741249723-pzyu5.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773741250097-ppkgi.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773741250539-bvmzz.jpg",
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/news/1773741250947-j9dw7.jpg"
+                              ],
+                      "category":  "General",
+                      "content":  null,
+                      "description":  "",
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  }
+              ],
+    "Count":  97
+}

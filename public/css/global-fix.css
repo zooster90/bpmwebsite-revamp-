@@ -1,0 +1,409 @@
+/* ================================================================
+   BUILTECH — GLOBAL FIX & PERFORMANCE PATCH v4.0
+   Fixes: text visibility, cross-page links, responsive layout,
+   image loading performance, mobile UX, SEO accessibility
+   ================================================================ */
+
+/* ── 1. TEXT VISIBILITY FIXES — No invisible text anywhere ── */
+
+/* Hero sections: ALL text on dark backgrounds must be white/gold */
+.about-hero *, .projects-hero *, .careers-hero *,
+.contact-hero *, .services-hero * {
+  color: inherit;
+}
+
+/* Fix: section-label inside dark hero must be gold, not inheriting body color */
+header .section-label,
+.about-hero .section-label,
+.projects-hero .section-label,
+.careers-hero .section-label,
+.contact-hero .section-label,
+[style*="background: var(--navy)"] .section-label,
+[style*="background:var(--navy)"] .section-label {
+  color: var(--gold) !important;
+}
+
+/* Fix: body text minimum contrast — never use color lighter than text-muted on white bg */
+p, li, td, th, label, span:not([class*="pill"]):not([class*="badge"]):not([class*="label"]):not([class*="tag"]) {
+  color: var(--text-body);
+}
+
+/* Fix: Ensure all anchor text on light background is readable */
+a:not([class]) {
+  color: var(--gold);
+  text-decoration: none;
+}
+a:not([class]):hover {
+  color: var(--gold-dark);
+  text-decoration: underline;
+}
+
+/* Fix: white text elements inside dark process sections */
+.process-section p,
+.process-section h4,
+.process-section span {
+  color: inherit;
+}
+
+/* ── 2. CROSS-PAGE CTA LINKING — Consistent "Next Step" CTAs ── */
+/* Every page bottom has a two-button CTA bar */
+.page-cta-section {
+  background: white;
+  padding: 100px 5%;
+  text-align: center;
+}
+.page-cta-section .section-title { margin-bottom: 0.5rem; }
+.page-cta-section p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin: 0 auto 2.5rem;
+  max-width: 640px;
+}
+.page-cta-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── 3. RESPONSIVE GRID FIXES — All pages ── */
+
+/* Fix: 3-col photo grid collapses properly */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 1024px) {
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .photo-grid { grid-template-columns: 1fr; }
+  .photo-card { aspect-ratio: 4 / 3 !important; }
+}
+
+/* Fix: filter bar on mobile */
+@media (max-width: 900px) {
+  .filter-bar {
+    flex-direction: column !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 12px !important;
+  }
+  .filter-group {
+    border-right: none !important;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .filter-group:last-of-type { border-bottom: none !important; }
+}
+
+/* Fix: contact form grid on tablet */
+@media (max-width: 900px) {
+  .contact-main-grid { grid-template-columns: 1fr !important; }
+  .map-wrapper { grid-template-columns: 1fr !important; }
+  .map-sidebar { border-right: none !important; border-bottom: 1px solid var(--border); }
+  .field-row { grid-template-columns: 1fr !important; gap: 0 !important; }
+}
+
+/* Fix: stat overlap boxes on mobile — no negative margin overlap */
+@media (max-width: 900px) {
+  .career-stats,
+  .contact-stat-row {
+    grid-template-columns: 1fr !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* Fix: footer grid on tablet */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+  .footer-nav-grid { grid-template-columns: repeat(3,1fr) !important; }
+  .iso-row { grid-template-columns: repeat(3,1fr) !important; max-width: 300px; }
+}
+@media (max-width: 640px) {
+  .footer-nav-grid { grid-template-columns: 1fr 1fr !important; }
+  .footer-bottom { flex-direction: column !important; text-align: center !important; gap: 12px !important; }
+  .iso-row { max-width: 100% !important; }
+}
+
+/* Fix: about intro grid */
+@media (max-width: 900px) {
+  .about-intro-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+}
+
+/* Fix: careers form grid */
+@media (max-width: 640px) {
+  .apply-card { padding: 1.5rem !important; }
+  .apply-card > form > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── 4. IMAGE PERFORMANCE — Fast load across all devices ── */
+
+/* Lazy load fallback background */
+img[loading="lazy"] {
+  background: #e9edf2;
+}
+
+/* Photo cards: always show image, no overflow */
+.photo-card img,
+.proj-img-wrap img,
+.bt-project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Fix: hero background images — don't block LCP */
+.projects-hero::before,
+.careers-hero::before,
+.contact-hero::before,
+.about-hero::before,
+.services-hero::before {
+  will-change: transform;
+  contain: paint;
+}
+
+/* ── 5. MOBILE TOUCH TARGETS — Min 44px tap area ── */
+.btn-primary, .btn-navy, .nav-link, .footer-links li a,
+.info-card, .job-card button, .filter-field,
+.mobile-contact-btn, .mobile-staff-btn {
+  min-height: 44px;
+}
+
+/* Fix: mobile nav links too small */
+@media (max-width: 768px) {
+  .mobile-section a {
+    padding: 14px 0 !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* ── 6. NAVIGATION — Active state & hover clarity ── */
+
+/* Fix: navbar on light pages — text stays readable */
+.navbar-scrolled .nav-link { color: var(--navy) !important; }
+.navbar-scrolled .nav-link:hover,
+.navbar-scrolled .nav-link.active { color: var(--gold) !important; }
+
+/* ── 7. HERO TEXT — Never hidden behind overlay ── */
+.careers-hero .bt-container,
+.projects-hero .bt-container,
+.contact-hero .bt-container,
+.about-hero .bt-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* ── 8. SECTION LABEL DISPLAY FIX ── */
+/* Fix: section-label inside flex containers must display inline/block correctly */
+.section-label {
+  display: flex;
+  align-items: center;
+}
+
+/* ── 9. FORM ACCESSIBILITY — visible focus rings ── */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ── 10. PRINT MEDIA — Basic print styles ── */
+@media print {
+  .navbar, footer, #backToTop, .filter-bar { display: none !important; }
+  .projects-hero, .contact-hero, .careers-hero { min-height: auto !important; padding: 2rem !important; }
+  body { font-size: 12pt; color: #000 !important; }
+}
+
+/* ── 11. OVERFLOW SAFETY ── */
+* { box-sizing: border-box; }
+img { max-width: 100%; height: auto; }
+table { max-width: 100%; overflow-x: auto; display: block; }
+
+/* ── 12. REDUCED MOTION ACCESSIBILITY ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* ── 13. CROSS-PAGE BUTTON OUTLINE VARIANT (hero CTAs on dark bg) ── */
+.btn-outline-white {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.7);
+  color: white !important;
+  box-shadow: none;
+}
+.btn-outline-white:hover {
+  background: white;
+  border-color: white;
+  color: var(--navy) !important;
+  transform: translateY(-3px);
+}
+
+/* ── 14. CAREER PAGE — Mobile form grid fix ── */
+@media (max-width: 640px) {
+  .field-row,
+  div[style*="grid-template-columns:1fr 1fr"],
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── 15. PROJECT CARD — Consistent hover on touch devices ── */
+@media (hover: none) {
+  .photo-card .pc-info { opacity: 1 !important; transform: none !important; }
+  .photo-card .pc-gradient { opacity: 1 !important; }
+  .photo-card img { filter: brightness(0.6) !important; }
+}
+
+/* ── 16. SERVICES HERO — FIX TEXT VISIBILITY ── */
+/* The image opacity is 0.45 and overlay 0.65 — text must have shadow for contrast */
+.services-hero h1,
+.services-hero p,
+.services-hero .section-label {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+/* ── 17. FOOTER NAV GRID — 3 columns on wide screens ── */
+/* ── 17. FOOTER NAV GRID — 3 columns on wide screens ── */
+@media (min-width: 1025px) {
+  .footer-nav-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+}
+
+/* ================================================================
+   18. MOBILE & IPAD EXCELLENCE (Native App-like Experience)
+   ================================================================ */
+
+/* A. Active Tap Feedback (Micro-animations for touch devices) */
+@media (max-width: 1024px) {
+  /* Give immediate tactile feedback when tapping buttons and cards */
+  .btn-primary:active, .btn-navy:active, .photo-card:active, .bt-project-card:active, .iso-item:active {
+    transform: scale(0.96) !important;
+    transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+}
+
+/* B. Horizontal Scroll Snapping (iPad & Mobile Grids)
+   Instead of infinitely long vertical scrolls, convert secondary grids 
+   into sleek horizontal swipeable carousels on small screens */
+@media (max-width: 900px) {
+  .bt-op-grid, .pillar-grid, .statement-grid, .commitment-grid, .photo-grid {
+    display: flex !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px !important;
+    padding-bottom: 24px !important; /* Space for scrollbar */
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    margin-left: -5% !important;
+    margin-right: -5% !important;
+  }
+  
+  /* Hide scrollbar for a cleaner native look */
+  .bt-op-grid::-webkit-scrollbar, .pillar-grid::-webkit-scrollbar, 
+  .statement-grid::-webkit-scrollbar, .commitment-grid::-webkit-scrollbar, 
+  .photo-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .bt-op-item, .pillar-card, .statement-item, .commitment-item, .photo-card {
+    flex: 0 0 85% !important; /* Cards take up 85% width, hinting at the next card */
+    scroll-snap-align: center;
+    min-width: 280px;
+  }
+}
+
+/* C. Project Cards Mobile Optimization (Full Record Display)
+   Ensure that all words, images, and locations are 100% visible on mobile 
+   without requiring a hover action. */
+@media (max-width: 768px) {
+  /* Force the info panel to be fully visible and slide up slightly to reveal image */
+  .pc-info {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    background: linear-gradient(to top, rgba(10, 25, 47, 0.98) 0%, rgba(10, 25, 47, 0.85) 60%, transparent 100%) !important;
+    padding: 2.5rem 1.25rem 1.25rem !important; /* More top padding for fade */
+  }
+  
+  /* Make mobile text slightly larger and more legible */
+  .pc-title { font-size: 1.3rem !important; margin-bottom: 12px !important; }
+  .pc-cat { font-size: 0.75rem !important; }
+  .pc-loc-val { font-size: 0.85rem !important; }
+  
+  /* Increase touch targets for mobile */
+  .pc-cta {
+    padding-top: 12px !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* D. iPad Specific Grid Adjustments (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .bt-project-card .bt-project-info h3 {
+    font-size: 1.4rem !important; /* Scale typography perfectly for tablet */
+  }
+  /* Two column layout for forms on iPad */
+  .field-row {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* E. Universal Layout & Overflow Protection (UX/UI Safety Net)
+   Guarantees that NO content, record, or long word can ever block or exceed the screen width. */
+html, body {
+  /* Strictly prevent the entire page from having horizontal scrollbars */
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Force long words, emails, or URLs to break onto the next line instead of breaking the layout */
+p, h1, h2, h3, h4, h5, h6, a, span, li, td, th {
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  hyphens: auto;
+}
+
+/* Ensure data tables (records) gracefully scroll horizontally on small screens */
+table {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* Guarantee images and media strictly respect their parent container bounds */
+img, video, iframe {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* ── 19. PROJECT CARD HIGH CONTRAST TEXT OVERRIDES ── */
+/* Fix: Override global body-text color rule for spans inside dark overlay cards */
+.photo-card .pc-loc-val {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+.photo-card .pc-award-badge {
+  border-color: rgba(197, 160, 89, 0.8) !important;
+  background: rgba(10, 25, 47, 0.6) !important;
+}
+.photo-card .pc-award-val {
+  color: var(--gold) !important;
+}
+.photo-card .fas.fa-map-marker-alt {
+  color: var(--gold) !important;
+}

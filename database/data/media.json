@@ -1,0 +1,143 @@
+﻿{
+    "value":  [
+                  {
+                      "id":  "1523749a-65a1-4744-9beb-e251e1673315",
+                      "created_at":  "2026-02-27T01:36:30.44237+00:00",
+                      "title":  "表扬工地无黑斑蚊",
+                      "media_source":  "Chinese Media",
+                      "category":  "HEALTH \u0026 SAFETY",
+                      "publish_date":  "2016-01-01",
+                      "thumbnail_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625686371-dowlj.jpg",
+                      "clipping_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625686371-dowlj.jpg",
+                      "summary":  "槟州卫生委员会表扬Builtech在工地施工期间无黑斑蚊（Aedes）问题，获得州政府奖项。",
+                      "is_featured":  false,
+                      "sort_order":  22,
+                      "updated_at":  "2026-03-16T01:48:06.778+00:00",
+                      "link":  "",
+                      "clipping_urls":  [
+
+                                        ],
+                      "media_sources":  [
+
+                                        ],
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9",
+                      "create_by":  null
+                  },
+                  {
+                      "id":  "35499cb3-e47d-48a7-930d-99d4d3c52662",
+                      "created_at":  "2026-02-27T01:36:30.44237+00:00",
+                      "title":  "Penang Awards 2 Contractors for Aedes-Free Construction Sites",
+                      "media_source":  "The Star",
+                      "category":  "HEALTH \u0026 SAFETY",
+                      "publish_date":  "2016-01-01",
+                      "thumbnail_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625705004-hojd3.jpg",
+                      "clipping_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625705004-hojd3.jpg",
+                      "summary":  "Builtech received state recognition for maintaining Aedes-free construction sites under the Penang State Government Site Award 2016.",
+                      "is_featured":  true,
+                      "sort_order":  20,
+                      "updated_at":  "2026-03-16T01:48:25.276+00:00",
+                      "link":  "https://www.thestar.com.my/",
+                      "clipping_urls":  [
+
+                                        ],
+                      "media_sources":  [
+
+                                        ],
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9",
+                      "create_by":  null
+                  },
+                  {
+                      "id":  "b0fc51dd-52b2-447f-9a02-b64ea55648be",
+                      "created_at":  "2026-02-27T01:36:30.44237+00:00",
+                      "title":  "Top 3 Winners of Enterprise 50 Award 2017",
+                      "media_source":  "Enterprise",
+                      "category":  "AWARD",
+                      "publish_date":  "2017-01-01",
+                      "thumbnail_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625714519-z3mxx.jpg",
+                      "clipping_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625714519-z3mxx.jpg",
+                      "summary":  "Builtech ranked among top 3 winners of Enterprise 50 Award 2017 for outstanding performance and growth in the SME sector.",
+                      "is_featured":  true,
+                      "sort_order":  10,
+                      "updated_at":  "2026-03-16T01:48:34.928+00:00",
+                      "link":  "",
+                      "clipping_urls":  [
+
+                                        ],
+                      "media_sources":  [
+
+                                        ],
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9",
+                      "create_by":  null
+                  },
+                  {
+                      "id":  "ebf3d3b3-4fbf-4a00-87e8-e0250c0931f4",
+                      "created_at":  "2026-02-27T01:36:30.44237+00:00",
+                      "title":  "RM2mil to clean up river",
+                      "media_source":  "The Star",
+                      "category":  "ENVIRONMENT",
+                      "publish_date":  "2020-01-01",
+                      "thumbnail_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625735170-jonbj.jpg",
+                      "clipping_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625735170-jonbj.jpg",
+                      "summary":  "Builtech undertakes RM2 million river rehabilitation project at Sungai Satu using German bioengineering technology.",
+                      "is_featured":  true,
+                      "sort_order":  5,
+                      "updated_at":  "2026-03-16T01:48:55.465+00:00",
+                      "link":  "https://www.thestar.com.my/",
+                      "clipping_urls":  [
+
+                                        ],
+                      "media_sources":  [
+
+                                        ],
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9",
+                      "create_by":  null
+                  },
+                  {
+                      "id":  "cdca6c16-d620-4a9e-9b13-2e4d31a6e5f0",
+                      "created_at":  "2026-02-27T01:36:30.44237+00:00",
+                      "title":  "Firms honoured for Aedes-free sites",
+                      "media_source":  "Harian Metro",
+                      "category":  "HEALTH \u0026 SAFETY",
+                      "publish_date":  "2016-01-01",
+                      "thumbnail_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625771547-ppmgn.jpg",
+                      "clipping_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625771547-ppmgn.jpg",
+                      "summary":  "Builtech and partner recognized by state authority for Aedes-free construction practices.",
+                      "is_featured":  false,
+                      "sort_order":  21,
+                      "updated_at":  "2026-03-16T01:49:31.827+00:00",
+                      "link":  "",
+                      "clipping_urls":  [
+
+                                        ],
+                      "media_sources":  [
+
+                                        ],
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9",
+                      "create_by":  null
+                  },
+                  {
+                      "id":  "faf23611-b756-4239-a588-af3d893b7d9c",
+                      "created_at":  "2026-02-27T00:35:25.722862+00:00",
+                      "title":  "Penang Awards 2 Contractors for Aedes-Free Construction Sites",
+                      "media_source":  "The Star",
+                      "category":  null,
+                      "publish_date":  "2020-01-27",
+                      "thumbnail_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625780834-i2xun.jpg",
+                      "clipping_url":  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/press/1773625780834-i2xun.jpg",
+                      "summary":  "",
+                      "is_featured":  true,
+                      "sort_order":  0,
+                      "updated_at":  "2026-03-16T01:49:41.216+00:00",
+                      "link":  "",
+                      "clipping_urls":  [
+
+                                        ],
+                      "media_sources":  [
+
+                                        ],
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9",
+                      "create_by":  null
+                  }
+              ],
+    "Count":  6
+}

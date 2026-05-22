@@ -1,0 +1,1340 @@
+﻿{
+    "value":  [
+                  {
+                      "id":  "01b6614b-f539-45ba-92e8-55eee7ffa6fa",
+                      "year":  2014,
+                      "cat":  "quality",
+                      "title":  "MCIEA 2013 - Green Construction Award",
+                      "description":  "Special Award for adopting green and sustainable practices.",
+                      "img":  [
+                                  "images/logo-mciea.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "0269d325-e216-499f-8051-4e6cb6e68a18",
+                      "year":  2014,
+                      "cat":  "safety",
+                      "title":  "MCIEA 2013 - Safety \u0026 Health Award",
+                      "description":  "Special Award for best practices in safety and health requirements.",
+                      "img":  [
+                                  "images/logo-mciea.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "02e3a413-4e06-458d-931c-058e5f66c555",
+                      "year":  2017,
+                      "cat":  "business",
+                      "title":  "Platinum Business Awards 2017",
+                      "description":  "Category: SME Service Excellence Award.",
+                      "img":  [
+                                  "images/PBA2017 logo.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "04ca89da-72cf-4a58-a4f4-9643041521ae",
+                      "year":  2003,
+                      "cat":  "quality",
+                      "title":  "Project Quality Award 2003",
+                      "description":  "Bestowed by Penang state government for outstanding quality.",
+                      "img":  [
+                                  "images/Q-logo2003-greyscalea.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "06a70de8-dbd8-468f-8bed-d104a232b020",
+                      "year":  2009,
+                      "cat":  "business",
+                      "title":  "Golden Bull Award 2009",
+                      "description":  "Recognition for outstanding SME achievements.",
+                      "img":  [
+                                  "images/GB winner logo1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "0a763ba6-b198-4306-a1ca-898d90f5f68a",
+                      "year":  2012,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 4 Stars",
+                      "description":  "Board criteria assessment.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "0c7caaea-52d1-4f2a-8747-c407240621f6",
+                      "year":  2011,
+                      "cat":  "business",
+                      "title":  "SME Recognition - ICT Adoption Award",
+                      "description":  "For automating and adopting ICT in business operations.",
+                      "img":  [
+                                  "images/award logo.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "0fa71c2d-6ccc-4dbb-a14e-1bd7d78270bb",
+                      "year":  2013,
+                      "cat":  "business",
+                      "title":  "SME Recognition - ICT Adoption Award",
+                      "description":  "Bestowed on non-listed SMEs adopting ICT for efficiency.",
+                      "img":  [
+                                  "images/SME Recognition Award 2013.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "0fbfa62a-d80c-46c6-a9d5-df5b748a3687",
+                      "year":  2019,
+                      "cat":  "safety",
+                      "title":  "MSOSH Occupational Safety and Health Awards 2018",
+                      "description":  "Category: Gold Award (Class I). For achievement in sound OSH management systems.",
+                      "img":  [
+                                  "images/MSOSH Logo (2).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "0ff975a9-478c-418e-b1a6-94e0e3cbb42f",
+                      "year":  2014,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 4 Stars",
+                      "description":  "Evaluated according to SCORE criteria.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "103f40a0-ee3f-495b-a99c-bd36ad4dd4d8",
+                      "year":  2012,
+                      "cat":  "business",
+                      "title":  "SME 100 Award 2012",
+                      "description":  "Recognizing Malaysia\u0027s fast-moving small and medium enterprises.",
+                      "img":  [
+                                  "images/SME 100 Award 2012 r.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "14563749-b81b-4e9d-a1ac-f0fa6418c4a4",
+                      "year":  2014,
+                      "cat":  "business",
+                      "title":  "SME Recognition - Product Excellence",
+                      "description":  "For automating and adopting ICT to attain operation efficiency.",
+                      "img":  [
+                                  "images/SMERA2014.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "18f9c259-e3c8-4392-9238-70fda8f27926",
+                      "year":  2019,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Construction Quality Excellence Award",
+                      "description":  "Category: High QLASSIC Achievement for High Rise Residential Development.",
+                      "img":  [
+                                  "images/Qlassic logo.jpeg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "19ba4e10-a341-4d45-822b-94e7fefc44ba",
+                      "year":  2016,
+                      "cat":  "safety",
+                      "title":  "Platinum Business Awards 2016",
+                      "description":  "Category: SME Occupational Safety and Health Award.",
+                      "img":  [
+                                  "images/PBA2016-logo-330181.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "1ec15764-a65d-4709-9c33-0fddc3b0cef5",
+                      "year":  2022,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 5 Stars",
+                      "description":  "Evaluated by Construction Industry Development Board (CIDB) Malaysia.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "1ef576e6-a655-4ce3-a5cc-d70af801a9c7",
+                      "year":  2012,
+                      "cat":  "business",
+                      "title":  "SME Recognition - Innovation Excellence",
+                      "description":  "Bestowed on SMEs with emerging business applying new technologies.",
+                      "img":  [
+                                  "images/SME_copy.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "1fdf29e4-dabf-4460-b340-34ce431aa7ee",
+                      "year":  2008,
+                      "cat":  "business",
+                      "title":  "SME Recognition Award 2008",
+                      "description":  "Category: SME Service Excellence Award by SMI Association.",
+                      "img":  [
+                                  "images/SME Recognition Award1(1).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "21ae8ded-7157-4f5c-8b9a-12ca15d36f07",
+                      "year":  2017,
+                      "cat":  "business",
+                      "title":  "Enterprise 50 Award 2017",
+                      "description":  "Recognizing the achievements of Malaysia\u0027s enterprising homegrown companies.",
+                      "img":  [
+                                  "images/enterprise50.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "22d8b601-f9d0-4388-81fc-4175291afee6",
+                      "year":  2016,
+                      "cat":  "business",
+                      "title":  "Golden Eagle Award 2016",
+                      "description":  "Honoring outstanding SME achievements in Malaysia.",
+                      "img":  [
+                                  "images/GEA2016_Winner_Logo.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "24826f16-b2fb-4cb1-8919-1e1a76597230",
+                      "year":  2004,
+                      "cat":  "quality",
+                      "title":  "ISO 9001:2008",
+                      "description":  "Internationally recognized standards on Quality Management System.",
+                      "img":  [
+                                  "images/ISO 2008a.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "2c1b545a-8e88-4c12-8e05-8b4354537b50",
+                      "year":  2014,
+                      "cat":  "business",
+                      "title":  "Sin Chew Business Excellence Awards 2014",
+                      "description":  "Category: Product and Service Excellence Award.",
+                      "img":  [
+                                  "images/SCBEA 2014.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-03-09T02:13:02.902191+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "31e84078-f150-45e7-8d40-093910b613f3",
+                      "year":  2014,
+                      "cat":  "business",
+                      "title":  "Enterprise 50 Award 2014",
+                      "description":  "Organised by SME Corp. and Deloitte Malaysia.",
+                      "img":  [
+                                  "images/E50 2014.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "342a364b-12ea-43e8-af1d-158b1601bef3",
+                      "year":  2017,
+                      "cat":  "business",
+                      "title":  "Sin Chew Business Excellence Awards 2017",
+                      "description":  "Category: Business Service Excellence Awards.",
+                      "img":  [
+                                  "images/SCBEA.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "351b6280-226a-435a-9232-6ecdb40c6ce3",
+                      "year":  2011,
+                      "cat":  "business",
+                      "title":  "Golden Bull Award 2011",
+                      "description":  "Honoring the best of SMEs in Malaysia.",
+                      "img":  [
+                                  "images/GB color winner logo FA.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "356f6b56-6521-4795-8a63-1fdc72036849",
+                      "year":  2015,
+                      "cat":  "safety",
+                      "title":  "MSOSH Occupational Safety and Health Awards 2014",
+                      "description":  "Category: Gold Award (Class II).",
+                      "img":  [
+                                  "images/MSOSH Logo.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "3586375a-2223-4ff0-a890-c51d50e7276b",
+                      "year":  2024,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 82% - Aston Acacia Service Apartment",
+                      "description":  "Aston Acacia Service Apartment, Bukit Mertajam. Measured and evaluated by CIDB Malaysia based on Construction Industry Standard.",
+                      "img":  [
+                                  "images/Qlassic logo.jpeg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-03-09T08:05:01.180373+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "362e32e9-e2da-4c9c-834c-edcf0759b49b",
+                      "year":  2023,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Program 2022 Rating - 5 Stars",
+                      "description":  "Highest achievement rating evaluated by CIDB Malaysia according to Board criteria.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "36d6458e-b322-4b42-a92a-2bb8ec6d5902",
+                      "year":  2009,
+                      "cat":  "business",
+                      "title":  "SME 100 Award 2009",
+                      "description":  "Fast moving small and medium enterprise recognition.",
+                      "img":  [
+                                  "images/SME100award20091(1).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "3993a88e-3700-45fe-9e0e-d73eece84f13",
+                      "year":  2010,
+                      "cat":  "business",
+                      "title":  "The BrandLaureate-SMEs Chapter Awards 2010",
+                      "description":  "Best brand in Corporate Branding and Construction-Project Management.",
+                      "img":  [
+                                  "images/Award Logo1a.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "3ea8c43d-be1e-4170-bb94-6787920135ba",
+                      "year":  2010,
+                      "cat":  "quality",
+                      "title":  "ISO 14001:2004",
+                      "description":  "Internationally recognized standards on Environmental Management System.",
+                      "img":  [
+                                  "images/iec_uk_ukas_14001a.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "4d8158d5-323b-40ce-a6d3-20a3a5dec468",
+                      "year":  2017,
+                      "cat":  "safety",
+                      "title":  "MSOSH Occupational Safety and Health Awards 2016",
+                      "description":  "Category: Gold Award (Class I).",
+                      "img":  [
+                                  "images/MSOSH Logo (2).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "4e0f1570-bc49-419a-8ae9-723995e6ad18",
+                      "year":  2015,
+                      "cat":  "safety",
+                      "title":  "Anugerah Hari Pekerja 2015",
+                      "description":  "Category: Anugerah Kepatuhan Industri (PKS). Presented by Ministry of Human Resources.",
+                      "img":  [
+                                  "images/ksm.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "547cc0df-41a6-48a2-8138-cd1bd9780041",
+                      "year":  2011,
+                      "cat":  "business",
+                      "title":  "Malaysia HR Awards 2011 - Best Employer",
+                      "description":  "Category: Silver Award (SME). Organized by MIHRM.",
+                      "img":  [
+                                  "images/mihrm2011logo1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "27c87427-b21f-437a-869b-4555ce47ca34",
+                      "year":  2018,
+                      "cat":  "safety",
+                      "title":  "SHASSIC Score - 4 Stars",
+                      "description":  "Safety performance evaluation of a contractor by CIDB Malaysia.",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/awards/1773723381332-qit01.png"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-03-17T04:56:21.681+00:00",
+                      "issuer":  "",
+                      "category":  null,
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "384da876-33be-4c16-beff-89870eb151f8",
+                      "year":  2011,
+                      "cat":  "safety",
+                      "title":  "SHASSIC Score - 4 Stars",
+                      "description":  "Safety performance evaluation by CIDB Malaysia.",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/awards/1773723416683-hzzyk.png"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-03-17T04:56:56.978+00:00",
+                      "issuer":  "",
+                      "category":  null,
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "5a9ef476-ce81-4b4c-8990-6162037f098c",
+                      "year":  2014,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 76% - Sunway Cassia Phase 2",
+                      "description":  "Measured and evaluated by CIDB Malaysia.",
+                      "img":  [
+                                  "images/logo_qlassic2 (3).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "5c401ce5-3b59-4605-a437-621dc03dc940",
+                      "year":  2013,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 4 Stars",
+                      "description":  "Assessment by CIDB Malaysia.",
+                      "img":  [
+                                  "images/LogoCIDB1 (2).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "5f078919-f823-47cb-b7ad-b849483a9a28",
+                      "year":  2011,
+                      "cat":  "business",
+                      "title":  "The BrandLaureate-SMEs Best Brands Awards 2011",
+                      "description":  "Best brand in Corporate Branding \u0026 Construction-Project Management.",
+                      "img":  [
+                                  "images/brandlaureate_logo_2011.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "659d309c-c267-447c-905c-72a03f797d07",
+                      "year":  2014,
+                      "cat":  "business",
+                      "title":  "Golden Eagle Award 2014",
+                      "description":  "Honoring the best of SMEs in Malaysia by Nanyang Siang Pau.",
+                      "img":  [
+                                  "images/Winner_Logo.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "6a602a4e-bddd-46f7-9168-2f3afc2d6a9c",
+                      "year":  2010,
+                      "cat":  "business",
+                      "title":  "SME Recognition - Young Entrepreneur Award",
+                      "description":  "Recognizing innovative spirit and business acumen.",
+                      "img":  [
+                                  "images/SME1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "75430ada-0b0b-43e2-9b3c-e3aa8150f884",
+                      "year":  2005,
+                      "cat":  "safety",
+                      "title":  "OHSAS 18001:2007",
+                      "description":  "Internationally recognized standards on Occupational Safety \u0026 Health.",
+                      "img":  [
+                                  "images/IEC NEW OHSAS1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "7ca690ac-a678-4e04-8ce1-a9708a3cbc0a",
+                      "year":  2015,
+                      "cat":  "safety",
+                      "title":  "SME Recognition Award 2015 - OSH Award",
+                      "description":  "For strong management leadership in safety and health.",
+                      "img":  [
+                                  "images/SME .png"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "7e713442-112a-46e0-a719-073de45d5e5e",
+                      "year":  2018,
+                      "cat":  "business",
+                      "title":  "Golden Eagle Award 2018",
+                      "description":  "Honoring the best of SMEs in Malaysia for hard-earned success.",
+                      "img":  [
+                                  "images/gea_2017(2) (2).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "8b952e8a-6a1c-4b3d-a533-c69d00e05b35",
+                      "year":  2015,
+                      "cat":  "quality",
+                      "title":  "CONQUAS Score 81.4% - By The Sea",
+                      "description":  "Measured by Building and Construction Authority Singapore.",
+                      "img":  [
+                                  "images/conquas.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "8f1b3377-b67c-4e62-afcb-3a1c3540dc1a",
+                      "year":  2009,
+                      "cat":  "business",
+                      "title":  "SME Recognition Award 2009",
+                      "description":  "Category: SME Service Excellence Award.",
+                      "img":  [
+                                  "images/sme award logo 09jpeg1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "906bd996-b921-4a05-8589-a7f00a923587",
+                      "year":  2013,
+                      "cat":  "business",
+                      "title":  "Malaysia HR Awards 2013 - Best Employer",
+                      "description":  "Category: Silver Award (SME). Organized by MIHRM.",
+                      "img":  [
+                                  "images/mihrm.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "9869f8d1-51ea-4f80-af97-da2fb82d1c24",
+                      "year":  2014,
+                      "cat":  "quality",
+                      "title":  "CONQUAS Score 80.6% - Mahsing Legenda",
+                      "description":  "Measured by Building and Construction Authority Singapore.",
+                      "img":  [
+                                  "images/conquas.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "9c001bf7-4ac2-4427-b6ff-861aa5f3c579",
+                      "year":  2016,
+                      "cat":  "quality",
+                      "title":  "CONQUAS Score 80.5% - MahSing Southbay Plaza",
+                      "description":  "Tower B. Measured by BCA Singapore based on Construction Quality Assessment System.",
+                      "img":  [
+                                  "images/conquas.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "9e3dcd53-bf47-4836-8afd-feec8ae2c978",
+                      "year":  2016,
+                      "cat":  "business",
+                      "title":  "Sin Chew Business Excellence Awards 2016",
+                      "description":  "Category: Product and Service Excellence Award.",
+                      "img":  [
+                                  "images/SCBEA.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "9f5b6c31-4ae8-451f-bb63-ad038dda8d3f",
+                      "year":  2010,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 4 Stars",
+                      "description":  "Evaluation by CIDB Malaysia.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "a6e2a600-a085-4ec1-9c6d-a837e5b51de3",
+                      "year":  2017,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 4 Stars",
+                      "description":  "Evaluated by CIDB Malaysia according to Board criteria.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "a8b6a24a-c967-41ec-a890-0efc0c249dcd",
+                      "year":  2013,
+                      "cat":  "safety",
+                      "title":  "MSOSH Occupational Safety and Health Awards 2012",
+                      "description":  "Category: Gold Award (Class I).",
+                      "img":  [
+                                  "images/MSOSH Logo.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "a9c04188-3763-47a1-97a7-d4b5ca69eea3",
+                      "year":  2016,
+                      "cat":  "safety",
+                      "title":  "MSOSH Occupational Safety and Health Awards 2015",
+                      "description":  "Category: Gold Award (Class I).",
+                      "img":  [
+                                  "images/MSOSH Logo.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "aaffdf67-a7c4-42b6-b674-701d0324cbb0",
+                      "year":  2024,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 5 Stars",
+                      "description":  "Highest achievement rating evaluated by CIDB Malaysia according to Board criteria.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ab6e8741-84b1-44c3-82bc-98e51dd1d22d",
+                      "year":  2023,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 83% - Citadines Connect Hotel",
+                      "description":  "Citadines Connect Hotel, Georgetown. Measured and evaluated by CIDB Malaysia.",
+                      "img":  [
+                                  "images/Qlassic logo.jpeg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "aee09f11-8cdd-46aa-ae8e-addf60f77140",
+                      "year":  2011,
+                      "cat":  "safety",
+                      "title":  "MSOSH Occupational Safety and Health Awards 2010",
+                      "description":  "Category: Gold Award (Class II).",
+                      "img":  [
+                                  "images/MSOSH Logo.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "af896974-5e55-4abf-a791-9a54ab6a8191",
+                      "year":  2015,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Excellent Award 2014",
+                      "description":  "By CIDB Malaysia for projects with high rating during assessment.",
+                      "img":  [
+                                  "images/Qlassic logo.jpeg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "b1410395-078a-4dfc-bb35-e88abe2897d8",
+                      "year":  2009,
+                      "cat":  "business",
+                      "title":  "Enterprise 50 Award 2009",
+                      "description":  "Organised by SMIDEC and Deloitte Malaysia.",
+                      "img":  [
+                                  "images/50enterpriselogo1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "b33da590-e74e-487d-b76f-16dbd79ec115",
+                      "year":  2012,
+                      "cat":  "business",
+                      "title":  "Golden Bull Award 2012",
+                      "description":  "Honoring the best of SMEs in Malaysia by Nanyang Siang Pau.",
+                      "img":  [
+                                  "images/GB color winner logo-01(2).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "b89f6c4e-4e82-4ecb-a10f-901b818d249f",
+                      "year":  2015,
+                      "cat":  "business",
+                      "title":  "Sin Chew Business Excellence Awards 2015",
+                      "description":  "Highest accolades for enterprises in business management.",
+                      "img":  [
+                                  "images/SCBEA 2015 (1).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "bd9fe9a4-5547-4d7c-a403-b29e37b1140c",
+                      "year":  2011,
+                      "cat":  "business",
+                      "title":  "Enterprise 50 Award 2011",
+                      "description":  "Recognizing enterprising homegrown companies well-positioned for the future.",
+                      "img":  [
+                                  "images/logo-E50---2011.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "c1fd74a1-7cff-40da-803b-57c3a1cfc1ce",
+                      "year":  2013,
+                      "cat":  "business",
+                      "title":  "Golden Eagle Award 2013",
+                      "description":  "Recognition for hard-earned success and outstanding achievements.",
+                      "img":  [
+                                  "images/GEA Logo(1).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "c3f821de-051c-496b-8c13-6d0d37906fc0",
+                      "year":  2020,
+                      "cat":  "safety",
+                      "title":  "MSOSH Occupational Safety and Health Awards 2019",
+                      "description":  "Category: Gold Award (Class I). Bestowed on companies with commendable safety records.",
+                      "img":  [
+                                  "images/MSOSH Logo (2).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "c3fc9291-2055-4574-9096-2b2778e261a0",
+                      "year":  2021,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 82% - MahSing Ferringhi Residence 2",
+                      "description":  "Phase 1A. Measured and evaluated by CIDB Malaysia.",
+                      "img":  [
+                                  "images/Qlassic logo.jpeg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "c7d32964-f380-40da-9ee0-cd58f08b55d3",
+                      "year":  2017,
+                      "cat":  "business",
+                      "title":  "Golden Eagle Award 2017",
+                      "description":  "Presented by Nanyang Siang Pau honoring excellence in SMEs.",
+                      "img":  [
+                                  "images/gea_2017(2).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ca0733c7-f95c-4109-852a-9a8c3c80b2f5",
+                      "year":  2010,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 77% - Asterspring Showroom",
+                      "description":  "Measured and evaluated by CIDB Malaysia based on CIS.",
+                      "img":  [
+                                  "images/logo_qlassic2 (4).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "cbf7a751-d6f5-489b-9cff-0f27451583c7",
+                      "year":  2001,
+                      "cat":  "quality",
+                      "title":  "Project Quality Award 2001",
+                      "description":  "Bestowed by Penang state government for outstanding quality.",
+                      "img":  [
+                                  "images/Q-logo2001-greyscalea.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "cc53cd64-6bb6-4f3e-978e-4cc95d93611e",
+                      "year":  2014,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 80% - MTT Botanica CT Phase 4",
+                      "description":  "Construction Industry Standard evaluation by CIDB.",
+                      "img":  [
+                                  "images/logo_qlassic2 (3).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "cd55add9-8b59-46bf-b9b8-aec8f368eced",
+                      "year":  2018,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 74% - Hijau E-Komuniti",
+                      "description":  "Highest Score in Malaysia 2018 under Low \u0026 Medium Cost \u0026 Affordable Housing Category.",
+                      "img":  [
+                                  "images/Qlassic logo.jpeg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "bc4c0be1-c182-4f2d-a6da-6c5c9e4f6f6a",
+                      "year":  2019,
+                      "cat":  "safety",
+                      "title":  "SHASSIC Score - 4 Stars",
+                      "description":  "Safety and health performance evaluation by CIDB Malaysia.",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/awards/1773723372875-nxs7p.png"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-03-17T04:56:13.42+00:00",
+                      "issuer":  "",
+                      "category":  null,
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "6681fd4d-b6b1-4865-bb0a-043e5cff7ae6",
+                      "year":  2012,
+                      "cat":  "safety",
+                      "title":  "SHASSIC Score - 4 Stars",
+                      "description":  "Safety performance assessment by CIDB Malaysia.",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/awards/1773723407942-p1bx9.png"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-03-17T04:56:48.226+00:00",
+                      "issuer":  "",
+                      "category":  null,
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "cd977c33-16b1-40ad-a7f7-df91a80e9353",
+                      "year":  2018,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 83% - MahSing The Loft",
+                      "description":  "Measured and evaluated by CIDB Malaysia.",
+                      "img":  [
+                                  "images/Qlassic logo.jpeg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "cef4419c-9fec-45e6-bf35-7ce4ae1d3ef5",
+                      "year":  2010,
+                      "cat":  "safety",
+                      "title":  "MSOSH Occupational Safety and Health Awards 2009",
+                      "description":  "Category: Silver Award. For achievement in sound OSH processes.",
+                      "img":  [
+                                  "images/MSOSH Logo.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "d0e525a1-7a64-4274-a0d0-31e694b96622",
+                      "year":  2016,
+                      "cat":  "business",
+                      "title":  "The Malaysian Construction Industry Excellence Award 2016",
+                      "description":  "Category: The Best Project Awards - Building Development: Medium.",
+                      "img":  [
+                                  "images/logo-mciea.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "d383f540-a86e-400e-a020-9c289f4f8bd5",
+                      "year":  2010,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 75% - Botanica CT Phase 3",
+                      "description":  "Measured and evaluated by CIDB Malaysia.",
+                      "img":  [
+                                  "images/logo_qlassic2 (4).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "d52f3c50-e66f-416a-bcfe-ae20a2cb68a5",
+                      "year":  2018,
+                      "cat":  "safety",
+                      "title":  "MSOSH Occupational Safety and Health Awards 2017",
+                      "description":  "Category: Gold Award (Class II). For commendable safety and health records.",
+                      "img":  [
+                                  "images/MSOSH Logo (2).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "d68a1ed6-49de-4e5a-9a0b-a65b709d59f2",
+                      "year":  2015,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 3 Stars",
+                      "description":  "Evaluated by CIDB Malaysia.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "d6ef1241-cb54-4220-8150-21889a6b01b1",
+                      "year":  2016,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 4 Stars",
+                      "description":  "Evaluated by CIDB Malaysia.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "da462057-59f6-4f5d-b12e-1ecedbcf59b8",
+                      "year":  2020,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 4 Stars",
+                      "description":  "Evaluated by CIDB Malaysia according to the SCORE criteria.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "e688636b-f88d-4568-a06e-a837313d3ee6",
+                      "year":  2010,
+                      "cat":  "business",
+                      "title":  "Golden Bull Award 2010",
+                      "description":  "Honoring the best of SMEs in Malaysia.",
+                      "img":  [
+                                  "images/GBA2010Logoa.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ec4caa07-4a82-4229-86d1-61116773fddb",
+                      "year":  2021,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 83% - Thien Cheong Factory",
+                      "description":  "Measured and evaluated by CIDB Malaysia based on Construction Industry Standard.",
+                      "img":  [
+                                  "images/Qlassic logo.jpeg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ed82136d-1f66-4ec0-ad35-f4e6c4e201c2",
+                      "year":  2012,
+                      "cat":  "business",
+                      "title":  "Malaysia HR Awards 2012 - Best Employer",
+                      "description":  "Category: Silver Award (SME). Employing best practices in HR.",
+                      "img":  [
+                                  "images/Award Logo (1).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "ee38ca36-848f-4b55-adce-13b2f39cd7a1",
+                      "year":  2012,
+                      "cat":  "safety",
+                      "title":  "MSOSH Occupational Safety and Health Awards 2011",
+                      "description":  "Category: Gold Award (Class I).",
+                      "img":  [
+                                  "images/MSOSH Logo.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "f82bf051-fdd7-4712-b6c1-7c335e973d4c",
+                      "year":  2010,
+                      "cat":  "business",
+                      "title":  "SME 100 Award 2010",
+                      "description":  "Recognizing Malaysia\u0027s fast-moving enterprises.",
+                      "img":  [
+                                  "images/SME100award2010a.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "fe24300e-1e92-4961-89cb-bb1ff2b875f6",
+                      "year":  2011,
+                      "cat":  "business",
+                      "title":  "CIDB Malaysia SCORE Rating - 3 Stars",
+                      "description":  "Assessment by Construction Industry Development Board Malaysia.",
+                      "img":  [
+                                  "images/LogoCIDB1.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-03-09T02:40:13.378502+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "fe4f1b9e-812b-49ce-996e-a90ec0c13cfd",
+                      "year":  2010,
+                      "cat":  "quality",
+                      "title":  "QLASSIC Score 76% - Setia Pearl Island Semi-D",
+                      "description":  "Construction Industry Standard assessment.",
+                      "img":  [
+                                  "images/logo_qlassic2 (4).jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "issuer":  null,
+                      "category":  null,
+                      "created_by":  null
+                  },
+                  {
+                      "id":  "c313f36b-945c-4902-9774-5c0cb6e6a446",
+                      "year":  2018,
+                      "cat":  "business",
+                      "title":  "Platinum Business Awards 2018",
+                      "description":  "Category: SME Best Overall Award. Bestowed on the creme-de-la-creme of non-listed SMEs.",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/awards/1773719841688-yvec8.jpg"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-03-17T03:57:22.221+00:00",
+                      "issuer":  "",
+                      "category":  null,
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "2a69a603-2ff7-4153-a9ca-1efc1c464fd1",
+                      "year":  2024,
+                      "cat":  "safety",
+                      "title":  "SHASSIC Score - 4 Stars",
+                      "description":  "Assessment carried out by CIDB Malaysia to evaluate safety and health performance.",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/awards/1773723357212-3jjrn.png"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-03-17T04:55:57.883+00:00",
+                      "issuer":  "",
+                      "category":  null,
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  },
+                  {
+                      "id":  "06041a83-ae1d-451a-956b-d87755a521d3",
+                      "year":  2014,
+                      "cat":  "safety",
+                      "title":  "SHASSIC Score - 5 Stars",
+                      "description":  "Highest rating evaluation by CIDB Malaysia for contractor safety performance.",
+                      "img":  [
+                                  "https://guvifomiadxehmtrqrfu.supabase.co/storage/v1/object/public/project-images/awards/1773723398032-l4330.png"
+                              ],
+                      "created_at":  "2026-02-11T03:15:03.937097+00:00",
+                      "updated_at":  "2026-03-17T04:56:38.505+00:00",
+                      "issuer":  "",
+                      "category":  null,
+                      "created_by":  "6adc2729-bea3-4fef-94d5-be7b6114eaf9"
+                  }
+              ],
+    "Count":  89
+}
