@@ -216,24 +216,34 @@ class ImportSqlDump extends Command
      */
     private function resetPostgresSequences(): void
     {
-        $rows = DB::select("
-            SELECT
-                t.table_name,
-                pg_get_serial_sequence(quote_ident(t.table_name), 'id') AS seq
-            FROM information_schema.tables t
-            WHERE t.table_schema = 'public'
-              AND pg_get_serial_sequence(quote_ident(t.table_name), 'id') IS NOT NULL
-        ");
+        try {
+            // JOIN with information_schema.columns so we only ask about tables
+            // that actually have an 'id' column. pg_get_serial_sequence() errors
+            // on a missing column in modern Postgres, so the pre-filter matters.
+            $rows = DB::select("
+                SELECT
+                    c.table_name,
+                    pg_get_serial_sequence(quote_ident(c.table_name), 'id') AS seq
+                FROM information_schema.columns c
+                WHERE c.table_schema = 'public'
+                  AND c.column_name = 'id'
+            ");
 
-        foreach ($rows as $row) {
-            $table = $row->table_name;
-            $seq = $row->seq;
-            try {
-                DB::statement("SELECT setval('{$seq}', COALESCE((SELECT MAX(id) FROM \"{$table}\"), 1), true)");
-            } catch (\Throwable) {
-                // table may be empty or have no id — ignore
+            $reset = 0;
+            foreach ($rows as $row) {
+                if (! $row->seq) {
+                    continue;
+                }
+                try {
+                    DB::statement("SELECT setval('{$row->seq}', COALESCE((SELECT MAX(id) FROM \"{$row->table_name}\"), 1), true)");
+                    $reset++;
+                } catch (\Throwable) {
+                    // empty table or oddly-typed id — ignore
+                }
             }
+            $this->info("  ✓ Postgres sequences reset ({$reset} tables)");
+        } catch (\Throwable $e) {
+            $this->warn('  Sequence reset skipped: ' . $e->getMessage());
         }
-        $this->info('  ✓ Postgres sequences reset to MAX(id)+1');
     }
 }
