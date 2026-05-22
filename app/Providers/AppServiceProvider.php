@@ -7,6 +7,7 @@ use App\Models\CultureEvent;
 use App\Models\News;
 use App\Models\PressCoverage;
 use App\Models\Project;
+use App\Observers\HomepageCacheObserver;
 use App\Observers\ImageCompressionObserver;
 use Illuminate\Support\ServiceProvider;
 
@@ -39,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
         CultureEvent::observe(ImageCompressionObserver::class);
         News::observe(ImageCompressionObserver::class);
         PressCoverage::observe(ImageCompressionObserver::class);
+
+        Project::observe(HomepageCacheObserver::class);
+        PressCoverage::observe(HomepageCacheObserver::class);
     }
 }
 
