@@ -46,31 +46,36 @@ class ImageCompressionService
         }
 
         try {
-            $storage  = Storage::disk($disk);
+            $storage = Storage::disk($disk);
 
             if (! $storage->exists($relativePath)) {
                 return;
             }
 
-            $absolutePath = $storage->path($relativePath);
-            $extension    = strtolower(pathinfo($absolutePath, PATHINFO_EXTENSION));
+            $extension = strtolower(pathinfo($relativePath, PATHINFO_EXTENSION));
 
             // Only process image files — skip PDFs, videos, etc.
             if (! in_array($extension, ['jpg', 'jpeg', 'png', 'webp', 'gif', 'bmp'])) {
                 return;
             }
 
-            // Create the Intervention Image manager with GD driver (no extra deps)
+            // Stream-based read/write so this works on both local AND S3-compatible disks (R2).
+            $bytes = $storage->get($relativePath);
+            if (! $bytes) {
+                return;
+            }
+
             $manager = new ImageManager(new Driver());
-            $image   = $manager->read($absolutePath);
+            $image   = $manager->read($bytes);
 
             // Scale down only if image exceeds max dimensions (never upscale)
             if ($image->width() > $this->maxWidth || $image->height() > $this->maxHeight) {
                 $image->scaleDown($this->maxWidth, $this->maxHeight);
             }
 
-            // Encode to WebP at HD quality and overwrite the original file
-            $image->toWebp($this->quality)->save($absolutePath);
+            // Encode to WebP and overwrite the original blob on the same disk
+            $compressed = (string) $image->toWebp($this->quality);
+            $storage->put($relativePath, $compressed);
 
             Log::info("[ImageCompression] Compressed: {$relativePath}");
 

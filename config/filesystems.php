@@ -38,16 +38,35 @@ return [
             'report' => false,
         ],
 
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('IMAGE_CDN_URL')
-                ? rtrim(env('IMAGE_CDN_URL'), '/')
-                : rtrim(env('APP_URL', 'http://localhost'), '/').'/storage',
-            'visibility' => 'public',
-            'throw' => false,
-            'report' => false,
-        ],
+        /*
+         * The 'public' disk is the default target for Filament file uploads
+         * and Spatie Media Library. In production it points at Cloudflare R2
+         * (S3-compatible) so uploads survive deploys. In local dev — where
+         * no R2 credentials are set — it falls back to the standard local
+         * filesystem so the project still works out of the box.
+         */
+        'public' => env('R2_ACCESS_KEY_ID')
+            ? [
+                'driver' => 's3',
+                'key' => env('R2_ACCESS_KEY_ID'),
+                'secret' => env('R2_SECRET_ACCESS_KEY'),
+                'region' => env('R2_REGION', 'auto'),
+                'bucket' => env('R2_BUCKET'),
+                'endpoint' => env('R2_ENDPOINT'),
+                'url' => rtrim(env('IMAGE_CDN_URL'), '/'),
+                'use_path_style_endpoint' => false,
+                'visibility' => 'public',
+                'throw' => false,
+                'report' => false,
+            ]
+            : [
+                'driver' => 'local',
+                'root' => storage_path('app/public'),
+                'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/storage',
+                'visibility' => 'public',
+                'throw' => false,
+                'report' => false,
+            ],
 
         's3' => [
             'driver' => 's3',
