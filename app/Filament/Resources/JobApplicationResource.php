@@ -159,7 +159,7 @@ class JobApplicationResource extends Resource
                     ->icon('heroicon-o-arrow-down-tray')
                     ->color('gray')
                     ->visible(fn (JobApplication $record) => !empty($record->resume_path))
-                    ->url(fn (JobApplication $record) => asset('storage/' . $record->resume_path))
+                    ->url(fn (JobApplication $record) => cdn_rewrite(asset('storage/' . ltrim($record->resume_path, '/'))))
                     ->openUrlInNewTab(),
             ])
             ->bulkActions([

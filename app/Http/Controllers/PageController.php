@@ -136,8 +136,14 @@ class PageController extends Controller
             $img = $project->getFirstMediaUrl('cover_image');
             if ($img && $img !== '') return $img;
         }
-        if (!empty($project->image_url)) return $project->image_url;
-        if (!empty($project->cover_image_upload)) return asset('storage/' . $project->cover_image_upload);
+        if (!empty($project->image_url)) {
+            return str_starts_with($project->image_url, 'http')
+                ? $project->image_url
+                : cdn_rewrite(asset(ltrim($project->image_url, '/')));
+        }
+        if (!empty($project->cover_image_upload)) {
+            return cdn_rewrite(asset('storage/' . ltrim($project->cover_image_upload, '/')));
+        }
         return asset('images/placeholder.jpg');
     }
 
@@ -147,7 +153,11 @@ class PageController extends Controller
             $img = $coverage->getFirstMediaUrl('press_image');
             if ($img && $img !== '') return $img;
         }
-        if (!empty($coverage->image_url)) return $coverage->image_url;
+        if (!empty($coverage->image_url)) {
+            return str_starts_with($coverage->image_url, 'http')
+                ? $coverage->image_url
+                : cdn_rewrite(asset(ltrim($coverage->image_url, '/')));
+        }
         return asset('images/placeholder.jpg');
     }
 }

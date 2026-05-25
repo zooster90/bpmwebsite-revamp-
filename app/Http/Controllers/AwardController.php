@@ -56,17 +56,19 @@ class AwardController extends Controller
         }
         // Priority 2: Legacy Direct Upload Column
         elseif (!empty($award->logo_upload)) {
-            $img = asset('storage/' . $award->logo_upload);
+            $img = cdn_rewrite(asset('storage/' . ltrim($award->logo_upload, '/')));
         }
         // Priority 3: Legacy URL column (Supabase or Local assets)
         elseif (!empty($award->image_url)) {
-            $img = str_starts_with($award->image_url, 'http') ? $award->image_url : asset($award->image_url);
+            $img = str_starts_with($award->image_url, 'http')
+                ? $award->image_url
+                : cdn_rewrite(asset(ltrim($award->image_url, '/')));
         }
         // Priority 4: Old document/certificate columns (if any)
         elseif (!empty($award->document_url)) {
-            $img = asset($award->document_url);
+            $img = cdn_rewrite(asset(ltrim($award->document_url, '/')));
         } elseif (!empty($award->certificate_url)) {
-            $img = asset($award->certificate_url);
+            $img = cdn_rewrite(asset(ltrim($award->certificate_url, '/')));
         }
 
         // Gallery Logic
@@ -78,7 +80,7 @@ class AwardController extends Controller
         }
         $legacyGallery = is_array($award->gallery_uploads) ? array_filter($award->gallery_uploads) : [];
         foreach($legacyGallery as $path) {
-            $gallery[] = str_starts_with($path, 'http') ? $path : asset('storage/' . $path);
+            $gallery[] = str_starts_with($path, 'http') ? $path : cdn_rewrite(asset('storage/' . ltrim($path, '/')));
         }
         $gallery = array_values(array_unique(array_filter($gallery)));
 
@@ -113,7 +115,7 @@ class AwardController extends Controller
 
         $first = $awards->firstWhere('logo_upload', '!=', null);
         if ($first) {
-            return asset('storage/' . $first->logo_upload);
+            return cdn_rewrite(asset('storage/' . ltrim($first->logo_upload, '/')));
         }
         return null;
     }

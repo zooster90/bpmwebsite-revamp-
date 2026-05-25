@@ -18,7 +18,7 @@ class ViewJobApplication extends ViewRecord
                 ->icon('heroicon-o-arrow-down-tray')
                 ->color('gray')
                 ->visible(fn () => !empty($this->record->resume_path))
-                ->url(fn () => asset('storage/' . $this->record->resume_path))
+                ->url(fn () => cdn_rewrite(asset('storage/' . ltrim($this->record->resume_path, '/'))))
                 ->openUrlInNewTab(),
         ];
     }

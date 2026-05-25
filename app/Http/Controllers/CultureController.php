@@ -40,10 +40,12 @@ class CultureController extends Controller
             return $event->getFirstMediaUrl('culture_image');
         }
         if (! empty($event->culture_image_upload)) {
-            return asset('storage/' . $event->culture_image_upload);
+            return cdn_rewrite(asset('storage/' . ltrim($event->culture_image_upload, '/')));
         }
         if (! empty($event->image_url)) {
-            return str_starts_with($event->image_url, 'http') ? $event->image_url : asset($event->image_url);
+            return str_starts_with($event->image_url, 'http')
+                ? $event->image_url
+                : cdn_rewrite(asset(ltrim($event->image_url, '/')));
         }
         
         $config = $this->categoryConfig();

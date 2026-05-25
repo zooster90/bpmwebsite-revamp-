@@ -34,7 +34,7 @@ class JobApplicationForm
                                     if (!$record || !$record->resume_path) {
                                         return \Illuminate\Support\HtmlString('<div style="color:var(--bt-muted); font-style:italic;">No resume attached.</div>');
                                     }
-                                    $url = asset('storage/' . $record->resume_path);
+                                    $url = cdn_rewrite(asset('storage/' . ltrim($record->resume_path, '/')));
                                     return new \Illuminate\Support\HtmlString('
                                         <a href="'.$url.'" target="_blank" style="
                                             display:flex; align-items:center; gap:12px; 

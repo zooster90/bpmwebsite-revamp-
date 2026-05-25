@@ -282,12 +282,14 @@ class PageController extends Controller
 
         // 2. Try image_url field from database
         if (!empty($project->image_url)) {
-            return $project->image_url;
+            return str_starts_with($project->image_url, 'http')
+                ? $project->image_url
+                : cdn_rewrite(asset(ltrim($project->image_url, '/')));
         }
 
         // 3. Try cover_image_upload field
         if (!empty($project->cover_image_upload)) {
-            return asset('storage/' . $project->cover_image_upload);
+            return cdn_rewrite(asset('storage/' . ltrim($project->cover_image_upload, '/')));
         }
 
         // 4. Ultimate fallback
@@ -308,7 +310,9 @@ class PageController extends Controller
 
         // 2. Try image_url field from database
         if (!empty($coverage->image_url)) {
-            return $coverage->image_url;
+            return str_starts_with($coverage->image_url, 'http')
+                ? $coverage->image_url
+                : cdn_rewrite(asset(ltrim($coverage->image_url, '/')));
         }
 
         // 3. Ultimate fallback

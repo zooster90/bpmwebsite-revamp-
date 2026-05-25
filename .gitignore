@@ -47,3 +47,6 @@ count())
 /.trae
 /.augment
 
+# Local scratch / data dumps from intern handoffs (not for repo)
+/newcodefile
+
