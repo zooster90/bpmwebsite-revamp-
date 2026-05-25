@@ -14,11 +14,13 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class TrackPageView
 {
+    private const BOT_PATTERN = '/bot|crawl|spider|slurp|mediapartners|facebookexternalhit|embedly|quora link preview|whatsapp|telegrambot|skypeuripreview|nuzzel|bitlybot|tumblr|vkshare|w3c_validator|baiduspider|yandex|duckduck|ahrefs|semrush|mj12|dotbot|petalbot|seznambot|gigablast|exabot|ia_archiver|sitebulb|chrome-lighthouse|headlesschrome|phantomjs|puppeteer|playwright|selenium|pingdom|uptimerobot|statuscake|monitor|curl\/|wget\/|python-requests|httpx|go-http-client|java\/|okhttp|postmanruntime/i';
+
     public function handle(Request $request, Closure $next): Response
     {
         $response = $next($request);
 
-        // Only track frontend GET requests (skip admin, api, assets, ajax)
+        // Only track frontend GET requests (skip admin, api, assets, ajax, bots)
         if (
             $request->isMethod('GET') &&
             !$request->is('admin*') &&
@@ -27,7 +29,8 @@ class TrackPageView
             !$request->is('*.js') &&
             !$request->expectsJson() &&
             !$request->ajax() &&
-            $response->getStatusCode() === 200
+            $response->getStatusCode() === 200 &&
+            !$this->isBot($request->userAgent() ?? '')
         ) {
             try {
                 $ua = $request->userAgent() ?? '';
@@ -54,5 +57,14 @@ class TrackPageView
         }
 
         return $response;
+    }
+
+    private function isBot(string $userAgent): bool
+    {
+        if ($userAgent === '') {
+            return true;
+        }
+
+        return (bool) preg_match(self::BOT_PATTERN, $userAgent);
     }
 }
