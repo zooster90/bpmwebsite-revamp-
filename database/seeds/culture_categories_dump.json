@@ -1,0 +1,342 @@
+[
+    {
+        "id": 40,
+        "name": "Company Trips",
+        "slug": "trip",
+        "model_type": "CultureEvent",
+        "parent_id": null,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 41,
+        "name": "Company Trip",
+        "slug": "company-trip",
+        "model_type": "CultureEvent",
+        "parent_id": 40,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 42,
+        "name": "Team Building",
+        "slug": "tb",
+        "model_type": "CultureEvent",
+        "parent_id": null,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 44,
+        "name": "Festive Celebrations",
+        "slug": "festive",
+        "model_type": "CultureEvent",
+        "parent_id": null,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 45,
+        "name": "Annual Dinner",
+        "slug": "annual-dinner",
+        "model_type": "CultureEvent",
+        "parent_id": 44,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 46,
+        "name": "Chinese New Year (CNY)",
+        "slug": "cny",
+        "model_type": "CultureEvent",
+        "parent_id": 44,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 47,
+        "name": "Internship",
+        "slug": "intern",
+        "model_type": "CultureEvent",
+        "parent_id": null,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-20 03:42:50"
+    },
+    {
+        "id": 48,
+        "name": "Internship Programme",
+        "slug": "intern",
+        "model_type": "CultureEvent",
+        "parent_id": 47,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 51,
+        "name": "Dumpling Festival",
+        "slug": "dumpling",
+        "model_type": "CultureEvent",
+        "parent_id": 44,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 52,
+        "name": "Training & Work",
+        "slug": "work",
+        "model_type": "CultureEvent",
+        "parent_id": null,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 54,
+        "name": "Mid-Autumn Festival",
+        "slug": "mid-autumn",
+        "model_type": "CultureEvent",
+        "parent_id": 44,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 55,
+        "name": "Others",
+        "slug": "others",
+        "model_type": "CultureEvent",
+        "parent_id": 44,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 56,
+        "name": "Birthday Celebration",
+        "slug": "birthday",
+        "model_type": "CultureEvent",
+        "parent_id": 44,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 57,
+        "name": "Award Ceremony",
+        "slug": "award",
+        "model_type": "CultureEvent",
+        "parent_id": 52,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 58,
+        "name": "CSR Activities",
+        "slug": "csr",
+        "model_type": "CultureEvent",
+        "parent_id": null,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 59,
+        "name": "Charity & Donation",
+        "slug": "charity",
+        "model_type": "CultureEvent",
+        "parent_id": 58,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 60,
+        "name": "Durian Party",
+        "slug": "durian",
+        "model_type": "CultureEvent",
+        "parent_id": 44,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 61,
+        "name": "Winter Solstice",
+        "slug": "solstice",
+        "model_type": "CultureEvent",
+        "parent_id": 44,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 62,
+        "name": "Sports & Recreation",
+        "slug": "sports",
+        "model_type": "CultureEvent",
+        "parent_id": 52,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 64,
+        "name": "Internal Training",
+        "slug": "internal",
+        "model_type": "CultureEvent",
+        "parent_id": 52,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 65,
+        "name": "Christmas",
+        "slug": "christmas",
+        "model_type": "CultureEvent",
+        "parent_id": 44,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:50",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 66,
+        "name": "Hari Raya",
+        "slug": "raya",
+        "model_type": "CultureEvent",
+        "parent_id": 44,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:51",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 67,
+        "name": "Talk & Sharing Session",
+        "slug": "talk",
+        "model_type": "CultureEvent",
+        "parent_id": 52,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:51",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 68,
+        "name": "Internal Training",
+        "slug": "training",
+        "model_type": "CultureEvent",
+        "parent_id": 52,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:51",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 69,
+        "name": "Others",
+        "slug": "other-work",
+        "model_type": "CultureEvent",
+        "parent_id": 52,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:51",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 70,
+        "name": "Team Building Activity",
+        "slug": "team-building",
+        "model_type": "CultureEvent",
+        "parent_id": 42,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:51",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 71,
+        "name": "Company Dinner",
+        "slug": "dinner",
+        "model_type": "CultureEvent",
+        "parent_id": 52,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:51",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 73,
+        "name": "Annual Dinner",
+        "slug": "annual-dinner",
+        "model_type": "CultureEvent",
+        "parent_id": 52,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:51",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 74,
+        "name": "Internship Training",
+        "slug": "internship",
+        "model_type": "CultureEvent",
+        "parent_id": 52,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:51",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 75,
+        "name": "Safety Audit",
+        "slug": "audit",
+        "model_type": "CultureEvent",
+        "parent_id": 52,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:51",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 77,
+        "name": "Sponsorship",
+        "slug": "sponsor",
+        "model_type": "CultureEvent",
+        "parent_id": 79,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:52",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 78,
+        "name": "Industrial Training",
+        "slug": "industrial",
+        "model_type": "CultureEvent",
+        "parent_id": 47,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:52",
+        "updated_at": "2026-05-22 00:47:53"
+    },
+    {
+        "id": 79,
+        "name": "Events & Sponsorship",
+        "slug": "event",
+        "model_type": "CultureEvent",
+        "parent_id": null,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:52",
+        "updated_at": "2026-05-22 00:47:52"
+    },
+    {
+        "id": 80,
+        "name": "Sponsorship Event",
+        "slug": "sponsorship",
+        "model_type": "CultureEvent",
+        "parent_id": 79,
+        "sort_order": 0,
+        "created_at": "2026-05-20 03:42:52",
+        "updated_at": "2026-05-22 00:47:53"
+    }
+]
