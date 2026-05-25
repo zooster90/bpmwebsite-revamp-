@@ -111,25 +111,23 @@
 
     .media-image-wrapper {
         position: relative;
-        height: 280px;
+        height: 260px; /* Taller to fit clipping */
         overflow: hidden;
-        background: #0d1925; /* dark letterbox for portrait press images */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        background: #ffffff; /* Pure white background */
+        display: block;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
     .media-image {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* show full image — no cropping */
+        padding: 10px; /* Let the clipping breathe */
+        object-fit: contain; /* Show the full clipping perfectly */
         object-position: center;
-        transition: transform 0.7s ease, filter 0.3s ease;
-        image-rendering: -webkit-optimize-contrast;
-        filter: brightness(1.0) contrast(1.04) saturate(1.06);
+        transition: transform 0.5s ease;
     }
 
-    .media-card:hover .media-image { transform: scale(1.04); filter: brightness(1.06) contrast(1.08) saturate(1.1); }
+    .media-card:hover .media-image { transform: scale(1.02); }
 
     .media-overlay {
         position: absolute;
@@ -279,7 +277,7 @@
 <section class="media-hero">
     <div class="hero-content reveal">
         <span class="hero-tag"><i class="fas fa-newspaper"></i> News &amp; Media</span>
-        <h1 class="hero-title">Press <span style="color:var(--gold);">Coverage</span></h1>
+        <h1 class="hero-title">MEDIA <span style="color:var(--gold);">COVERAGE</span></h1>
         <p style="color:rgba(255,255,255,0.72); font-size:1.05rem; margin-top:1rem; max-width:560px; line-height:1.85; font-family:'Montserrat',sans-serif;">
             Showcasing our project milestones and expert insights as featured in leading regional publications.
         </p>
@@ -377,6 +375,7 @@
     document.getElementById('lightboxModal').addEventListener('click', function(e) {
         if (e.target === this) closeLightbox();
     });
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
 <script>

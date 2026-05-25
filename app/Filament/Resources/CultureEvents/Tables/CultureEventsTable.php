@@ -35,10 +35,9 @@ class CultureEventsTable
                 SpatieMediaLibraryImageColumn::make('culture_image')
                     ->collection('culture_image')
                     ->label('Photo')
-                    ->width(70)
-                    ->height(52)
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
                     ->defaultImageUrl(fn ($record) => $record->display_image)
-                    ->extraImgAttributes(['style' => 'object-fit:cover;border-radius:8px;']),
+                    ->extraImgAttributes(['style' => 'min-width: 80px; min-height: 60px; max-width: 80px; max-height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);']),
 
                 // ── Title + Intern Sub-description ─────────────────────
                 TextColumn::make('title')
@@ -110,31 +109,17 @@ class CultureEventsTable
             ])
 
             ->defaultSort('year', 'desc')
-            ->defaultGroup('year')
+            ->defaultGroup(
+                \Filament\Tables\Grouping\Group::make('year')
+                    ->collapsible()
+                    ->titlePrefixedWithLabel(false)
+                    ->orderQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query, string $direction) => $query->orderBy('year', 'desc'))
+            )
 
             // ══════════════════════════════════════════════════════════
             //  FILTERS — Clean, deduped, human-readable
             // ══════════════════════════════════════════════════════════
             ->filters([
-                // ── Category Filter: Only unique, real CultureEvent categories ──
-                SelectFilter::make('category_id')
-                    ->label('Filter by Category')
-                    ->placeholder('All Categories')
-                    ->options(function () {
-                        // Pull only unique parent-level categories used by CultureEvent
-                        // Deduplicated by name, sorted alphabetically
-                        return Category::query()
-                            ->where('model_type', 'CultureEvent')
-                            ->whereNull('parent_id')              // top-level only (no sub-cats)
-                            ->whereNotIn('slug', ['all', ''])     // exclude junk "all" entries
-                            ->where('name', '!=', '')
-                            ->orderBy('name')
-                            ->get()
-                            ->unique('name')                      // deduplicate by display name
-                            ->pluck('name', 'id')
-                            ->toArray();
-                    }),
-
                 // ── Year Filter: Only years that actually have records ──
                 SelectFilter::make('year')
                     ->label('Filter by Year')
@@ -184,6 +169,7 @@ class CultureEventsTable
 
             ->emptyStateHeading('No Staff Activities Found')
             ->emptyStateDescription('Use the filters above to search, or click "+ New Activity" to add a record.')
-            ->emptyStateIcon('heroicon-o-camera');
+            ->emptyStateIcon('heroicon-o-camera')
+            ->deferFilters(false);
     }
 }

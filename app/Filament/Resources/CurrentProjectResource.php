@@ -77,7 +77,9 @@ class CurrentProjectResource extends Resource
 
                                             Select::make('category_id')
                                                 ->label('Category')
-                                                ->relationship('category', 'name', fn($query) => $query->where('model_type', 'Project')),
+                                                ->relationship('category', 'name', fn($query) => $query->where('model_type', 'Project'))
+                                                ->searchable()
+                                                ->preload(),
 
                                             TextInput::make('year')
                                                 ->label('Expected Completion Year')
@@ -171,9 +173,8 @@ class CurrentProjectResource extends Resource
             ->columns([
                 ImageColumn::make('display_image')
                     ->label('Image')
-                    ->width(80)
-                    ->height(60)
-                    ->extraImgAttributes(['class' => 'rounded-md object-cover']),
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->extraImgAttributes(['style' => 'min-width: 80px; min-height: 60px; max-width: 80px; max-height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);']),
                 
                 TextColumn::make('title')
                     ->label('Project')
@@ -216,7 +217,12 @@ class CurrentProjectResource extends Resource
                     ->sortable(),
             ])
             ->defaultSort('sort_order', 'asc')
-            ->defaultGroup('year')
+            ->defaultGroup(
+                \Filament\Tables\Grouping\Group::make('year')
+                    ->collapsible()
+                    ->titlePrefixedWithLabel(false)
+                    ->orderQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query, string $direction) => $query->orderBy('year', 'desc'))
+            )
             ->actions([
                 \Filament\Actions\EditAction::make(),
                 \Filament\Actions\DeleteAction::make()
@@ -234,7 +240,9 @@ class CurrentProjectResource extends Resource
             ->filters([
                 SelectFilter::make('category_id')
                     ->label('Filter by Category')
-                    ->relationship('category', 'name', fn($query) => $query->where('model_type', 'Project')),
+                    ->relationship('category', 'name', fn($query) => $query->where('model_type', 'Project'))
+                    ->searchable()
+                    ->preload(),
                 SelectFilter::make('year')
                     ->label('Filter by Target Year')
                     ->options(function () {

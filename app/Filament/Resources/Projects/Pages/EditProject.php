@@ -18,14 +18,6 @@ class EditProject extends EditRecord
     }
     protected function getRedirectUrl(): string
     {
-        $resource = $this->getResource();
-        $indexUrl = session()->get('resources.' . $resource . '.index_url');
-        if ($indexUrl) {
-            return $indexUrl;
-        }
-        if ($this->previousUrl && !str_contains($this->previousUrl, '/edit')) {
-            return $this->previousUrl;
-        }
-        return $resource::getUrl('index');
+        return $this->getResource()::getUrl('index');
     }
 }

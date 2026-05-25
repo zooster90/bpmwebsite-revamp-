@@ -13,7 +13,7 @@ class CultureEvent extends Model implements HasMedia
     
     protected $fillable = [
         'title', 'slug', 'event_date', 'description', 
-        'image_url', 'year', 'name', 'category_id', 'sub_category_id', 'culture_image_upload', 'gallery_uploads',
+        'image_url', 'year', 'name', 'category_id', 'sub_category_id', 'culture_image_upload', 'gallery_uploads', 'video_url', 'video_upload',
         // Internship-specific fields
         'intern_name', 'university', 'department', 'intern_period',
     ];
@@ -64,7 +64,7 @@ class CultureEvent extends Model implements HasMedia
     {
         // 1. Priority: Spatie Media
         if ($this->hasMedia('culture_image')) {
-            return cdn_rewrite($this->getFirstMediaUrl('culture_image'));
+            return $this->getFirstMediaUrl('culture_image');
         }
 
         // 2. Secondary: Explicit Database Fields
@@ -79,10 +79,6 @@ class CultureEvent extends Model implements HasMedia
             }
             if (file_exists(public_path('img/images/' . basename($cleanPath)))) {
                 return asset('img/images/' . basename($cleanPath));
-            }
-
-            if ($cdn = config('app.image_cdn_url')) {
-                return rtrim($cdn, '/') . '/' . ltrim($cleanPath, '/');
             }
 
             if (str_contains($cleanPath, 'storage/')) return asset($cleanPath);

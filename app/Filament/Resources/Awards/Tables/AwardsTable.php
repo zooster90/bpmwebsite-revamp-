@@ -21,9 +21,8 @@ class AwardsTable
             ->columns([
                 \Filament\Tables\Columns\ImageColumn::make('display_image')
                     ->label('Award Logo')
-                    ->width(50)
-                    ->height(50)
-                    ->circular()
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->extraImgAttributes(['style' => 'min-width: 80px; min-height: 60px; max-width: 80px; max-height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);'])
                     ->defaultImageUrl(asset('images/award-fallback.png')),
 
                 TextColumn::make('name')
@@ -47,13 +46,22 @@ class AwardsTable
                     ->color('primary'),
             ])
             ->defaultSort('year', 'desc')
-            ->defaultGroup('year')
+            ->defaultGroup(
+                \Filament\Tables\Grouping\Group::make('year')
+                    ->collapsible()
+                    ->titlePrefixedWithLabel(false)
+                    ->orderQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query, string $direction) => $query->orderBy('year', 'desc'))
+            )
             ->filters([
                 SelectFilter::make('category_id')
                     ->label('Filter by Category')
-                    ->relationship('category', 'name', fn($query) => $query->where('model_type', 'Award')),
+                    ->relationship('category', 'name', fn($query) => $query->where('model_type', 'Award'))
+                    ->searchable()
+                    ->preload(),
                 SelectFilter::make('year')
                     ->label('Filter by Year')
+                    ->searchable()
+                    ->preload()
                     ->options(function () {
                         return \App\Models\Award::query()
                             ->whereNotNull('year')
@@ -72,6 +80,7 @@ class AwardsTable
                 ]),
             ])
             ->emptyStateHeading('No Awards Yet')
-            ->emptyStateIcon('heroicon-o-trophy');
+            ->emptyStateIcon('heroicon-o-trophy')
+            ->deferFilters(false);
     }
 }

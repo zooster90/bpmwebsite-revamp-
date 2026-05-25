@@ -84,7 +84,12 @@ class ProjectsTable
                     ->alignment(Alignment::Center),
             ])
             ->defaultSort('year', 'desc')
-            ->defaultGroup('year')
+            ->defaultGroup(
+                \Filament\Tables\Grouping\Group::make('year')
+                    ->collapsible()
+                    ->titlePrefixedWithLabel(false)
+                    ->orderQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query, string $direction) => $query->orderBy('year', 'desc'))
+            )
             ->striped()
             ->filters([
                 SelectFilter::make('status')
@@ -118,6 +123,7 @@ class ProjectsTable
                 ]),
             ])
             ->emptyStateHeading('No Projects Found')
-            ->emptyStateIcon('heroicon-o-building-office-2');
+            ->emptyStateIcon('heroicon-o-building-office-2')
+            ->deferFilters(false);
     }
 }

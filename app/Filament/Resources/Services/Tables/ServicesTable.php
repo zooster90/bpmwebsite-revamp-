@@ -22,7 +22,9 @@ class ServicesTable
                     ->searchable(),
                 TextColumn::make('icon_class')
                     ->searchable(),
-                ImageColumn::make('image_path'),
+                ImageColumn::make('image_path')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->extraImgAttributes(['style' => 'min-width: 80px; min-height: 60px; max-width: 80px; max-height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);']),
                 TextColumn::make('sort_order')
                     ->numeric()
                     ->sortable(),
@@ -47,6 +49,7 @@ class ServicesTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->deferFilters(false);
     }
 }

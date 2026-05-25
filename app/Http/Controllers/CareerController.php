@@ -95,9 +95,9 @@ class CareerController extends Controller
                     $admins = \App\Models\User::all();
                     if (class_exists('\Filament\Notifications\Notification')) {
                         \Filament\Notifications\Notification::make()
-                            ->title('New Job Application')
-                            ->body("Applicant: {$application->name} ({$application->position})")
-                            ->icon('heroicon-o-users')
+                            ->title('New Job Application Received')
+                            ->body("**Applicant:** {$application->name}\n**Position:** {$application->position}\n**Email:** {$application->email}\n**Phone:** {$application->phone}")
+                            ->icon('heroicon-o-user-circle')
                             ->iconColor('success')
                             ->actions([
                                 \Filament\Notifications\Actions\Action::make('view')

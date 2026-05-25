@@ -77,7 +77,13 @@ class AdminPanelProvider extends PanelProvider
                 for: 'App\Filament\Widgets'
             )
             ->widgets([
-                AccountWidget::class,
+                \App\Filament\Widgets\NetlifyDeployWidget::class,
+                \App\Filament\Widgets\DashboardHero::class,
+                \App\Filament\Widgets\StatsOverview::class,
+                \App\Filament\Widgets\FrontendShortcutsWidget::class,
+                \App\Filament\Widgets\LatestInquiries::class,
+                \App\Filament\Widgets\DashboardAnalytics::class,
+                \App\Filament\Widgets\WebsiteAnalytics::class,
             ])
 
             // ── Navigation Groups (organizes the sidebar clearly) ──

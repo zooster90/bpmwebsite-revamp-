@@ -2,806 +2,681 @@
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
 
-    /* =====================================================
-       BUILTECH ADMIN — CLEAN ENTERPRISE UI
-       Design: Senior Developer Designer Refinement
-    ===================================================== */
+    /* ═══════════════════════════════════════════════════════════════
+       BUILTECH ADMIN — 2026 HIGH-END ENTERPRISE UI
+       Senior Developer + World-Class UX/UI Design System
+    ═══════════════════════════════════════════════════════════════ */
 
     :root {
-        /* ── Warm Cream + Gold Palette ── */
-        --bt-navy:        #292524;   /* warm stone-800 */
+        --bt-navy:        #292524;
         --bt-gold:        #c5a059;
         --bt-gold-hover:  #b08d47;
-        --bt-gold-light:  #f5edd9;  /* warm gold tint */
-        --bt-bg:          #f7f5f2;  /* warm cream — the page background */
-        --bt-card:        #fdfcfb;  /* warm white cards */
-        --bt-sidebar:     #fffef9;  /* very warm sidebar white */
-        --bt-border:      #e8e3db;  /* warm stone border */
-        --bt-border-soft: #f0ebe3;  /* even softer divider */
-        --bt-text:        #1c1917;  /* stone-950 warm near-black */
-        --bt-muted:       #78716c;  /* stone-500 warm grey */
+        --bt-gold-light:  #f5edd9;
+        --bt-gold-glow:   rgba(197, 160, 89, 0.18);
+        --bt-bg:          #f7f5f2;
+        --bt-card:        #fdfcfb;
+        --bt-sidebar:     #fffef9;
+        --bt-border:      #e8e3db;
+        --bt-border-soft: #f0ebe3;
+        --bt-text:        #1c1917;
+        --bt-muted:       #78716c;
         --bt-radius:      14px;
         --bt-shadow:      0 2px 10px rgba(40, 30, 20, 0.05);
-        --bt-shadow-lg:   0 8px 28px rgba(40, 30, 20, 0.08);
+        --bt-shadow-lg:   0 8px 28px rgba(40, 30, 20, 0.10);
         --bt-transition:  all 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    /* Tighter widget gap for bento feel */
-    .fi-wi { gap: 16px !important; }
-    .fi-page-main > .fi-page-content { padding-top: 1.5rem !important; }
-
-    @media (max-width: 1024px) {
-        .bt-bento { grid-template-columns: 1fr 1fr !important; }
-    }
-    @media (max-width: 640px) {
-        .bt-bento { grid-template-columns: 1fr !important; }
-    }
-
+    /* ── BASE ── */
     body, html {
         background-color: var(--bt-bg) !important;
         font-family: 'Plus Jakarta Sans', sans-serif !important;
         -webkit-font-smoothing: antialiased;
         color: var(--bt-text) !important;
     }
+    .fi-main, .fi-body { background-color: var(--bt-bg) !important; }
+    .fi-main-ctn { padding: 1.5rem 2rem !important; }
+    .fi-wi { gap: 16px !important; }
+    .fi-page-main > .fi-page-content { padding-top: 1.25rem !important; }
 
-    .fi-main, .fi-body {
-        background-color: var(--bt-bg) !important;
+    /* ══════════════════════════════════════════
+       TOPBAR — Elevated, Glass, Always Sticky
+    ══════════════════════════════════════════ */
+    .fi-topbar {
+        background: rgba(253, 252, 251, 0.96) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        border-bottom: 1px solid var(--bt-border) !important;
+        box-shadow: 0 1px 12px rgba(40, 30, 20, 0.07) !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 50 !important;
     }
 
-    /* ── Side-to-Side Content ────────────────────────────── */
-    .fi-main-ctn {
-        padding: 2rem !important;
-    }
+    /* Removed custom sidebar toggle CSS to prevent logo overlap */
 
-    /* ── SIDEBAR — Warm Cream Sidebar ────────── */
+    /* ══════════════════════════════════════════
+       SIDEBAR — Warm, Precise, Premium
+    ══════════════════════════════════════════ */
     .fi-sidebar {
         background: var(--bt-sidebar) !important;
         border-right: 1px solid var(--bt-border) !important;
-        box-shadow: 2px 0 16px rgba(40, 30, 20, 0.04) !important;
+        box-shadow: 2px 0 20px rgba(40, 30, 20, 0.04) !important;
     }
-
     .fi-sidebar-header {
         background: transparent !important;
-        padding: 24px 20px !important;
+        padding: 20px !important;
         border-bottom: 1px solid var(--bt-border) !important;
     }
-
-    /* Custom Navigation Item Styling */
     .fi-sidebar-item-button {
         border-radius: 10px !important;
-        margin: 4px 12px !important;
-        padding: 10px 16px !important;
+        margin: 2px 10px !important;
+        padding: 9px 14px !important;
         background: transparent !important;
         transition: var(--bt-transition) !important;
     }
-    
     .fi-sidebar-item-label {
         font-weight: 600 !important;
         color: var(--bt-muted) !important;
-        font-size: 0.9rem !important;
+        font-size: 0.88rem !important;
         transition: var(--bt-transition) !important;
     }
-
-    .fi-sidebar-item-icon {
-        color: var(--bt-muted) !important;
-        transition: var(--bt-transition) !important;
-    }
-
-    .fi-sidebar-item-button:hover {
-        background: var(--bt-gold-light) !important;
-    }
-
+    .fi-sidebar-item-icon { color: var(--bt-muted) !important; transition: var(--bt-transition) !important; }
+    .fi-sidebar-item-button:hover { background: var(--bt-gold-light) !important; }
     .fi-sidebar-item-button:hover .fi-sidebar-item-label,
-    .fi-sidebar-item-button:hover .fi-sidebar-item-icon {
-        color: var(--bt-text) !important;
-    }
-
-    /* Active State Enhancement */
+    .fi-sidebar-item-button:hover .fi-sidebar-item-icon { color: var(--bt-text) !important; }
     .fi-active > .fi-sidebar-item-btn,
-    .fi-sidebar-item-active > .fi-sidebar-item-button {
-        background: rgba(197, 160, 89, 0.08) !important;
+    .fi-sidebar-item-active > .fi-sidebar-item-button { background: rgba(197, 160, 89, 0.10) !important; }
+    .fi-active .fi-sidebar-item-label,
+    .fi-active .fi-sidebar-item-icon { color: var(--bt-gold) !important; font-weight: 700 !important; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       TABLES — THE BIGGEST UX FIX
+       Problem: Action buttons (Edit/Delete) require scrolling right.
+       Fix: Sticky last column, always-visible actions, no wrapping.
+    ═══════════════════════════════════════════════════════════════ */
+
+    .fi-ta-ctn {
+        background: var(--bt-card) !important;
+        border-radius: var(--bt-radius) !important;
+        border: 1px solid var(--bt-border) !important;
+        box-shadow: 0 10px 40px rgba(40,30,20,0.06) !important;
+        overflow: hidden !important;
     }
 
-    .fi-active .fi-sidebar-item-label, 
-    .fi-active .fi-sidebar-item-icon {
-        color: var(--bt-gold) !important;
+    /* Floating Search & Filters Toolbar */
+    .fi-ta-header-toolbar {
+        padding: 20px 24px !important;
+        background: #fdfbf8 !important;
+        border-bottom: 1px solid rgba(232, 227, 219, 0.8) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 16px !important;
+    }
+    
+    /* ── Search Input ── */
+    .fi-ta-search-field .fi-input-wrapper {
+        border-radius: 99px !important;
+        padding: 2px 14px !important;
+        background: #ffffff !important;
+        border: 1px solid rgba(197, 160, 89, 0.25) !important;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.02), 0 2px 8px rgba(40,30,20,0.03) !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        min-width: 280px !important;
+    }
+    .fi-ta-search-field .fi-input-wrapper:focus-within {
+        border-color: var(--bt-gold) !important;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.01), 0 4px 16px rgba(197, 160, 89, 0.15) !important;
+        transform: translateY(-1px) !important;
+    }
+    .fi-ta-search-field input {
+        font-weight: 500 !important;
+        color: var(--bt-navy) !important;
+        letter-spacing: 0.01em !important;
+    }
+
+    /* ── Filter Section & Dropdowns ── */
+    .fi-ta-filters {
+        background: white !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(232, 227, 219, 0.7) !important;
+        box-shadow: 0 10px 30px rgba(40,30,20,0.05) !important;
+        padding: 18px 24px !important;
+    }
+    .fi-ta-filters-header {
+        border-bottom: 1px dashed rgba(232, 227, 219, 0.8) !important;
+        padding-bottom: 12px !important;
+        margin-bottom: 16px !important;
+    }
+    .fi-ta-filters-heading {
+        font-weight: 800 !important;
+        color: var(--bt-navy) !important;
+        font-size: 1.1rem !important;
+        letter-spacing: -0.01em !important;
+    }
+
+    /* Reset Button */
+    .fi-ta-filters .fi-btn[color="danger"], .fi-ta-filters .fi-btn-color-danger {
+        background: transparent !important;
+        border: 1px solid rgba(220, 38, 38, 0.2) !important;
+        color: #dc2626 !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+    }
+    .fi-ta-filters .fi-btn[color="danger"]:hover {
+        background: rgba(220, 38, 38, 0.05) !important;
+        border-color: #dc2626 !important;
+    }
+
+    /* Apply Filters Button */
+    .fi-ta-filters .fi-btn-color-primary, .fi-ta-filters .fi-btn[type="submit"] {
+        background: linear-gradient(135deg, var(--bt-gold) 0%, var(--bt-gold-hover) 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
         font-weight: 700 !important;
+        box-shadow: 0 4px 12px rgba(197, 160, 89, 0.25) !important;
+        transition: all 0.2s ease !important;
+        padding: 8px 20px !important;
+    }
+    .fi-ta-filters .fi-btn[type="submit"]:hover {
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 16px rgba(197, 160, 89, 0.35) !important;
     }
 
-    /* ── TOPBAR ───────────────────────────────────── */
-    .fi-topbar {
-        background: rgba(253, 252, 251, 0.92) !important;
-        backdrop-filter: blur(14px) !important;
+    /* Filter Form Inputs */
+    .fi-ta-filters .fi-input-wrapper {
+        border-radius: 10px !important;
+        background: #fdfcf9 !important;
+        border-color: rgba(197, 160, 89, 0.2) !important;
+    }
+    .fi-ta-filters .fi-fo-field-wrp-label {
+        color: var(--bt-muted) !important;
+        font-weight: 600 !important;
+        font-size: 0.8rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.04em !important;
+    }
+
+    /* Enable horizontal scroll so content columns compress gracefully */
+    .fi-ta-wrap,
+    .fi-ta-ctn > div,
+    [class*="overflow-x"] {
+        overflow-x: auto !important;
+    }
+
+    /* ── STICKY GLASSMORPHISM TABLE HEADER ── */
+    .fi-ta-header-cell {
+        background: rgba(247, 243, 235, 0.85) !important;
+        backdrop-filter: blur(12px) !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 10 !important;
+        padding: 14px 18px !important;
+        color: var(--bt-navy) !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        font-size: 0.72rem !important;
+        letter-spacing: 0.08em !important;
         border-bottom: 1px solid var(--bt-border) !important;
-        box-shadow: 0 1px 0 rgba(40, 30, 20, 0.06) !important;
+        white-space: nowrap !important;
+        box-shadow: 0 4px 12px rgba(40,30,20,0.02) !important;
     }
 
-    /* ── MODERN CARD SYSTEMS ────────────────────────────── */
-    .fi-ta-ctn, .fi-wi-stats-overview-stat, .fi-section, .fi-fo-ctn, .fi-in-ctn {
+    /* Row cells */
+    .fi-ta-row { 
+        transition: all 0.25s ease !important; 
+        border-left: 3px solid transparent !important;
+    }
+    .fi-ta-row:hover { 
+        background: rgba(197, 160, 89, 0.04) !important; 
+        border-left: 3px solid var(--bt-gold) !important;
+    }
+    .fi-ta-cell {
+        padding: 14px 18px !important;
+        color: var(--bt-text) !important;
+        border-bottom: 1px solid var(--bt-border-soft) !important;
+        font-size: 0.875rem !important;
+        font-weight: 500 !important;
+    }
+
+    /* Image Avatars inside tables */
+    .fi-ta-image {
+        border-radius: 50% !important;
+        box-shadow: 0 2px 8px rgba(40,30,20,0.1) !important;
+        border: 2px solid white !important;
+        transition: transform 0.2s ease !important;
+    }
+    .fi-ta-row:hover .fi-ta-image {
+        transform: scale(1.1) !important;
+        border-color: var(--bt-gold-light) !important;
+    }
+
+    /* ─── STICKY ACTIONS COLUMN ─── */
+    /* The last <td>/<th> in every row is pinned to the right edge */
+    .fi-ta-row > td:last-child {
+        position: sticky !important;
+        right: 0 !important;
+        z-index: 5 !important;
+        background: var(--bt-card) !important;
+        box-shadow: -6px 0 16px rgba(40,30,20,0.04) !important;
+        border-left: 1px dashed var(--bt-border-soft) !important;
+    }
+    .fi-ta-row:hover > td:last-child {
+        background: #faf8f5 !important;
+    }
+    .fi-ta-header-cell:last-child {
+        position: sticky !important;
+        right: 0 !important;
+        z-index: 6 !important;
+        background: var(--bt-gold-light) !important;
+        box-shadow: -4px 0 12px rgba(40,30,20,0.06) !important;
+        border-left: 1px solid var(--bt-border) !important;
+    }
+
+    /* ─── ROW ACTION BUTTONS: Edit / Delete / View ─── */
+    /* Force horizontal layout, no wrapping, always readable */
+    .fi-ta-row-actions {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 4px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    /* Action links/buttons base style */
+    .fi-link, .fi-ac-action-lnk {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        padding: 5px 11px !important;
+        border-radius: 7px !important;
+        font-size: 0.77rem !important;
+        font-weight: 700 !important;
+        text-decoration: none !important;
+        transition: all 0.16s ease !important;
+        white-space: nowrap !important;
+        border: 1.5px solid transparent !important;
+        letter-spacing: 0.01em !important;
+    }
+
+    /* Edit — blue pill */
+    .fi-link[class*="primary"], .fi-color-primary.fi-link,
+    .fi-ac-action-lnk[class*="primary"] {
+        color: #2563eb !important;
+        background: rgba(37,99,235,0.08) !important;
+        border-color: rgba(37,99,235,0.2) !important;
+    }
+    .fi-link[class*="primary"]:hover, .fi-ac-action-lnk[class*="primary"]:hover {
+        background: #2563eb !important; color: white !important; border-color: #2563eb !important;
+        box-shadow: 0 3px 10px rgba(37,99,235,0.28) !important;
+    }
+
+    /* Delete — red pill */
+    .fi-link[class*="danger"], .fi-color-danger.fi-link,
+    .fi-ac-action-lnk[class*="danger"] {
+        color: #dc2626 !important;
+        background: rgba(220,38,38,0.07) !important;
+        border-color: rgba(220,38,38,0.2) !important;
+    }
+    .fi-link[class*="danger"]:hover, .fi-ac-action-lnk[class*="danger"]:hover {
+        background: #dc2626 !important; color: white !important; border-color: #dc2626 !important;
+        box-shadow: 0 3px 10px rgba(220,38,38,0.28) !important;
+    }
+
+    /* View/Other — gold pill */
+    .fi-link[class*="gray"], .fi-color-gray.fi-link,
+    .fi-ac-action-lnk[class*="gray"],
+    .fi-link:not([class*="primary"]):not([class*="danger"]):not([class*="warning"]) {
+        color: var(--bt-gold-hover) !important;
+        background: var(--bt-gold-light) !important;
+        border-color: rgba(197,160,89,0.3) !important;
+    }
+
+    /* ══════════════════════════════════════════
+       GLOBAL LAYOUT — Premium Studio Background
+    ══════════════════════════════════════════ */
+    .fi-layout {
+        background: radial-gradient(circle at top left, #fdfbf8 0%, #f4efe6 100%) !important;
+    }
+    .fi-main {
+        background: transparent !important;
+    }
+
+    /* ══════════════════════════════════════════
+       PAGE HEADER — Clean, Spacious, Hierarchical
+    ══════════════════════════════════════════ */
+    .fi-header {
+        padding: 2rem 0 1.5rem !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        justify-content: space-between !important;
+        gap: 16px !important;
+    }
+    .fi-header-heading {
+        font-weight: 900 !important;
+        color: var(--bt-navy) !important;
+        font-size: clamp(1.8rem, 3vw, 2.2rem) !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.03em !important;
+    }
+
+    /* JS-injected back button */
+    .bt-back-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 36px !important;
+        padding: 0 14px !important;
+        gap: 6px !important;
+        flex-shrink: 0 !important;
+        border-radius: 10px !important;
+        background: var(--bt-gold-light) !important;
+        border: 1.5px solid rgba(197,160,89,0.35) !important;
+        color: var(--bt-gold-hover) !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 2px 6px rgba(197,160,89,0.12) !important;
+    }
+    .bt-back-label {
+        font-size: 0.82rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.02em !important;
+    }
+    .bt-back-btn:hover {
+        background: var(--bt-gold) !important;
+        color: white !important;
+        transform: translateX(-2px) !important;
+        box-shadow: 0 4px 16px rgba(197,160,89,0.32) !important;
+    }
+
+    /* ══════════════════════════════════════════
+       CARDS & SECTIONS
+    ══════════════════════════════════════════ */
+    .fi-wi-stats-overview-stat, .fi-section, .fi-fo-ctn, .fi-in-ctn {
         background: var(--bt-card) !important;
         border-radius: var(--bt-radius) !important;
         border: 1px solid var(--bt-border) !important;
         box-shadow: var(--bt-shadow) !important;
         transition: var(--bt-transition) !important;
     }
-
-    .fi-ta-ctn:hover, .fi-section:hover, .fi-in-ctn:hover {
-        box-shadow: var(--bt-shadow-lg) !important;
-    }
-
-    /* Stats Styling */
-    .fi-wi-stats-overview-stat {
-        padding: 24px !important;
-    }
-    
+    .fi-section:hover, .fi-in-ctn:hover { box-shadow: var(--bt-shadow-lg) !important; }
+    .fi-wi-stats-overview-stat { padding: 22px !important; }
     .fi-wi-stats-overview-stat-label {
-        font-weight: 600 !important;
-        color: var(--bt-muted) !important;
-        font-size: 0.85rem !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.05em !important;
+        font-weight: 600 !important; color: var(--bt-muted) !important;
+        font-size: 0.8rem !important; text-transform: uppercase !important; letter-spacing: 0.05em !important;
     }
+    .fi-wi-stats-overview-stat-value { font-weight: 800 !important; color: var(--bt-text) !important; }
 
-    .fi-wi-stats-overview-stat-value {
-        font-weight: 800 !important;
-        color: var(--bt-text) !important;
-    }
-
-    /* ── TABLES ────────────────────── */
-    .fi-ta-header-cell {
-        background: var(--bt-gold-light) !important;
-        padding: 14px 20px !important;
-        color: var(--bt-muted) !important;
-        font-weight: 700 !important;
-        text-transform: uppercase !important;
-        font-size: 0.72rem !important;
-        letter-spacing: 0.06em !important;
-        border-bottom: 1px solid var(--bt-border) !important;
-    }
-
-    .fi-ta-row {
-        transition: var(--bt-transition) !important;
-    }
-
-    .fi-ta-row:hover {
-        background: var(--bt-gold-light) !important;
-    }
-
-    .fi-ta-cell {
-        padding: 14px 20px !important;
-        color: var(--bt-text) !important;
-        border-bottom: 1px solid var(--bt-border-soft) !important;
-    }
-
-    /* ── BUTTONS ──────────────────────────── */
-    .fi-btn {
-        border-radius: 8px !important;
-        font-weight: 600 !important;
-        box-shadow: none !important;
-    }
-
-    .fi-btn-color-primary {
-        background: var(--bt-gold) !important;
-        color: white !important;
-    }
-
+    /* ── BUTTONS ── */
+    .fi-btn { border-radius: 9px !important; font-weight: 700 !important; box-shadow: none !important; transition: all 0.2s ease !important; }
+    .fi-btn-color-primary { background: var(--bt-gold) !important; color: white !important; }
     .fi-btn-color-primary:hover {
         background: var(--bt-gold-hover) !important;
+        box-shadow: 0 4px 16px rgba(197,160,89,0.35) !important;
+        transform: translateY(-1px) !important;
     }
 
-    /* Forms */
+    /* ── FORMS ── */
     .fi-input-wrapper {
-        border-radius: 8px !important;
-        border: 1px solid var(--bt-border) !important;
-        box-shadow: none !important;
+        border-radius: 8px !important; border: 1.5px solid var(--bt-border) !important;
+        box-shadow: none !important; background: white !important; transition: all 0.2s ease !important;
     }
-
     .fi-input-wrapper:focus-within {
         border-color: var(--bt-gold) !important;
         box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15) !important;
     }
+    .fi-fo-field-wrp-label { font-weight: 700 !important; color: var(--bt-text) !important; font-size: 0.875rem !important; }
 
-    .fi-fo-field-wrp-label {
-        font-weight: 600 !important;
-        color: var(--bt-text) !important;
+    /* ── BADGES ── */
+    .fi-badge { font-weight: 700 !important; letter-spacing: 0.03em !important; border-radius: 6px !important; font-size: 0.7rem !important; }
+
+    /* ── PAGINATION ── */
+    .fi-pagination { padding: 12px 18px !important; background: var(--bt-card) !important; border-top: 1px solid var(--bt-border-soft) !important; }
+    .fi-pagination-item-btn { border-radius: 8px !important; font-weight: 600 !important; }
+    .fi-pagination-item-btn[aria-current="page"] { background: var(--bt-gold) !important; color: white !important; }
+
+    /* ── GROUP HEADERS (Year dividers like 2024, 2025) ── */
+    .fi-ta-header-cell[colspan] {
+        background: linear-gradient(90deg, rgba(197,160,89,0.09) 0%, transparent 80%) !important;
+        font-size: 0.82rem !important; font-weight: 800 !important; color: var(--bt-text) !important;
+        text-transform: none !important; letter-spacing: 0 !important; padding: 9px 18px !important;
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb {
-        background: #d6cfc5;
-        border-radius: 6px;
-    }
-    ::-webkit-scrollbar-thumb:hover { background: var(--bt-gold); }
-
-    /* Theme Switcher Hiding */
-    .fi-theme-switcher { display: none !important; }
-
-    /* Headings */
-    .fi-header-heading {
-        font-weight: 800 !important;
-        color: var(--bt-text) !important;
-    }
-
-    /* ── EMPTY STATE SVG FIX ─────────────────────────────
-       Filament's empty-state illustration uses fill:currentColor.
-       Inheriting dark body text makes the whole SVG solid black.
-       Reset it to a soft grey so it renders correctly.
-    ─────────────────────────────────────────────────────── */
-    .fi-ta-empty-state-icon,
-    .fi-ta-empty-state-icon svg,
-    .fi-ta-empty-state svg,
-    .fi-empty-state svg,
-    .fi-empty-state-icon svg {
-        color: #d6cfc5 !important;
-        fill: #d6cfc5 !important;
-    }
-
-    /* Prevent any rogue img / svg inside widgets going huge */
-    .fi-wi img, .fi-wi svg:not(.fi-icon) {
-        max-width: 100% !important;
-        max-height: 200px !important;
-    }
-
-    /* ── DIRECT FIX FOR FILAMENT FILE UPLOAD IMAGE EDITOR ── */
-    
-    /* Ensure the editor modal backdrop and window stay centered and never overflow screen */
-    .fi-fo-file-upload-editor {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        position: fixed !important;
-        inset: 0 !important;
-        z-index: 9999 !important;
-        padding: 1.5rem !important;
-        background-color: rgba(15, 23, 42, 0.75) !important; /* Premium dark glass overlay */
-        backdrop-filter: blur(8px) !important;
-    }
-
-    /* 🔥 Prevent !important from overriding Alpine.js hide logic */
-    .fi-fo-file-upload-editor[style*="display: none"],
-    .fi-fo-file-upload-editor[x-cloak] {
-        display: none !important;
-    }
-
-    .fi-fo-file-upload-editor-window {
-        display: flex !important;
-        flex-direction: row !important; /* Force side-by-side on desktop */
-        width: 80vw !important;
-        max-width: 1050px !important;
-        height: 72vh !important;
-        max-height: 620px !important;
-        background-color: #0f172a !important; /* Dark studio mode background */
-        border-radius: 1.25rem !important;
+    /* ══════════════════════════════════════════
+       NOTIFICATIONS & MODALS (Confirmations)
+    ══════════════════════════════════════════ */
+    .fi-modal-window {
+        border-radius: 24px !important; 
+        border: 1px solid rgba(255,255,255,0.8) !important;
+        box-shadow: 0 40px 100px rgba(40,30,20,0.18) !important; 
         overflow: hidden !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5) !important;
+        background: rgba(253, 252, 251, 0.95) !important;
+        backdrop-filter: blur(20px) !important;
+        transform: scale(0.95);
+        animation: modalScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
     }
-
-    /* Constrain the image section so it can't explode horizontally or vertically */
-    .fi-fo-file-upload-editor-image-ctn {
-        flex: 1 1 0% !important;
-        min-width: 0 !important; /* Critical to prevent flexbox content blowout */
-        height: 100% !important;
-        background-color: #020617 !important; /* Pure black backdrop for studio editing */
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        position: relative !important;
-        padding: 1rem !important;
+    @keyframes modalScaleIn {
+        to { transform: scale(1); }
     }
-
-    .fi-fo-file-upload-editor-image-ctn img {
-        max-width: 100% !important;
-        max-height: 100% !important;
-        border-radius: 8px !important;
+    .fi-modal-close-btn { transition: all 0.2s ease !important; }
+    .fi-modal-close-btn:hover { background: rgba(0,0,0,0.05) !important; color: var(--bt-text) !important; }
+    
+    /* Toast Notifications */
+    .fi-no-notification { 
+        border-radius: 16px !important; 
+        border: 1px solid var(--bt-border) !important; 
+        box-shadow: 0 12px 40px rgba(40,30,20,0.12) !important; 
+        background: rgba(255,255,255,0.95) !important;
+        backdrop-filter: blur(12px) !important;
     }
+    .fi-no-notification.fi-color-success { border-left: 4px solid #10b981 !important; }
+    .fi-no-notification.fi-color-danger { border-left: 4px solid #ef4444 !important; }
 
-    .cropper-container {
-        max-width: 100% !important;
-        max-height: 100% !important;
+    /* ══════════════════════════════════════════
+       UPLOAD IMAGE PART (FilePond Dropzone)
+    ══════════════════════════════════════════ */
+    .filepond--root {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
     }
-
-    /* Make sure the control panel sidebar is ALWAYS locked to the right side of the screen */
-    .fi-fo-file-upload-editor-control-panel {
-        width: 320px !important;
-        min-width: 320px !important;
-        max-width: 320px !important;
-        height: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
-        background-color: #0f172a !important; /* Dark studio panel */
-        flex-shrink: 0 !important; /* Prevent it from shrinking */
+    .filepond--panel-root {
+        background-color: transparent !important;
+        border: 2px dashed var(--bt-border) !important;
+        border-radius: 16px !important;
+        transition: all 0.3s ease !important;
     }
-
-    .fi-fo-file-upload-editor-control-panel-main {
-        flex: 1 1 0% !important;
-        overflow-y: auto !important;
-        padding: 1.5rem !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 1.25rem !important;
-    }
-
-    /* Premium style for coordinate inputs inside dark panel */
-    .fi-fo-file-upload-editor-control-panel-main label {
-        color: #94a3b8 !important;
-        font-size: 0.75rem !important;
+    .filepond--drop-label {
+        color: var(--bt-muted) !important;
         font-weight: 600 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.05em !important;
+    }
+    .filepond--drop-label label { cursor: pointer !important; }
+    .filepond--root:hover .filepond--panel-root {
+        border-color: var(--bt-gold) !important;
+        background-color: rgba(197, 160, 89, 0.04) !important;
+    }
+    .filepond--item-panel {
+        background-color: var(--bt-navy) !important;
+        border-radius: 12px !important;
+    }
+    .filepond--image-preview-wrapper {
+        border-radius: 12px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
     }
 
-    .fi-fo-file-upload-editor-control-panel-main .fi-input-wrapper {
-        background-color: #1e293b !important;
-        border: 1px solid #334155 !important;
-        border-radius: 8px !important;
-        color: #f8fafc !important;
+    /* ══════════════════════════════════════════
+       UPLOAD RECORD PART (Forms & Inputs)
+    ══════════════════════════════════════════ */
+    .fi-fo-component-ctn {
         transition: all 0.2s ease !important;
     }
-
-    .fi-fo-file-upload-editor-control-panel-main .fi-input-wrapper:focus-within {
-        border-color: #c5a059 !important; /* Gold border accent on focus */
-        box-shadow: 0 0 0 1px #c5a059 !important;
+    .fi-section {
+        background: var(--bt-card) !important;
+        border: 1px solid rgba(232, 227, 219, 0.6) !important;
+        border-radius: 20px !important;
+        box-shadow: 0 4px 20px rgba(40,30,20,0.03) !important;
     }
-
-    .fi-fo-file-upload-editor-control-panel-main .fi-input-wrapper input {
-        color: #f8fafc !important;
-    }
-
-    /* Dark mode title text for Aspect Ratio */
-    .fi-fo-file-upload-editor-control-panel-group-title {
-        color: #94a3b8 !important;
-        font-size: 0.72rem !important;
-        font-weight: 700 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.1em !important;
-        margin-bottom: 0.5rem !important;
-    }
-
-    /* Action buttons (Cropping tools, aspect ratio buttons) */
-    .fi-fo-file-upload-editor-control-panel-main .fi-btn {
-        background-color: #1e293b !important;
-        border: 1px solid #334155 !important;
-        color: #cbd5e1 !important;
-        border-radius: 8px !important;
-        transition: all 0.2s !important;
-    }
-
-    .fi-fo-file-upload-editor-control-panel-main .fi-btn:hover {
-        background-color: #334155 !important;
-        color: #fff !important;
-    }
-
-    .fi-fo-file-upload-editor-control-panel-main .fi-btn.fi-active {
-        background-color: #c5a059 !important;
-        border-color: #c5a059 !important;
-        color: #0f172a !important;
-        font-weight: 700 !important;
-    }
-
-    /* Footer area with primary action buttons */
-    .fi-fo-file-upload-editor-control-panel-footer {
-        padding: 1.25rem 1.5rem !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-        background-color: #020617 !important;
-        display: flex !important;
-        gap: 0.75rem !important;
-        justify-content: flex-end !important;
-        flex-shrink: 0 !important;
-    }
-
-    /* Cancel Button (Clean outline) */
-    .fi-fo-file-upload-editor-control-panel-footer button:nth-child(1) {
-        background: transparent !important;
-        border: 1.5px solid #475569 !important;
-        color: #cbd5e1 !important;
-        padding: 0.5rem 1.25rem !important;
-        border-radius: 8px !important;
-        font-weight: 600 !important;
-        transition: all 0.2s !important;
-    }
-
-    .fi-fo-file-upload-editor-control-panel-footer button:nth-child(1):hover {
-        border-color: #94a3b8 !important;
-        color: #fff !important;
-        background-color: rgba(255, 255, 255, 0.05) !important;
-    }
-
-    /* Reset Button (Clean Danger Red) */
-    .fi-fo-file-upload-editor-control-panel-footer .fi-fo-file-upload-editor-control-panel-reset-action {
-        background-color: #ef4444 !important;
-        color: #fff !important;
-        padding: 0.5rem 1.25rem !important;
-        border-radius: 8px !important;
-        font-weight: 600 !important;
-        border: none !important;
-        transition: all 0.2s !important;
-    }
-
-    .fi-fo-file-upload-editor-control-panel-footer .fi-fo-file-upload-editor-control-panel-reset-action:hover {
-        background-color: #dc2626 !important;
-        box-shadow: 0 0 12px rgba(239, 68, 68, 0.4) !important;
-    }
-
-    /* Save Button (Gold Theme matching Builtech) */
-    .fi-fo-file-upload-editor-control-panel-footer button[class*="success"] {
-        background-color: #c5a059 !important;
-        color: #0f172a !important;
-        padding: 0.5rem 1.5rem !important;
-        border-radius: 8px !important;
-        font-weight: 700 !important;
-        border: none !important;
-        transition: all 0.2s !important;
-    }
-
-    .fi-fo-file-upload-editor-control-panel-footer button[class*="success"]:hover {
-        background-color: #d4af37 !important;
-        box-shadow: 0 0 15px rgba(197, 160, 89, 0.4) !important;
-    }
-
-    /* ── MOBILE RESPONSIVE ADAPTATION ── */
-    @media (max-width: 768px) {
-        .fi-fo-file-upload-editor {
-            padding: 0.5rem !important;
-        }
-
-        .fi-fo-file-upload-editor-window {
-            flex-direction: column !important; /* Stack vertically on small screens */
-            width: 100vw !important;
-            height: 98vh !important;
-            max-height: none !important;
-            border-radius: 0.75rem !important;
-        }
-
-        .fi-fo-file-upload-editor-image-ctn {
-            height: 50% !important;
-            flex: none !important;
-        }
-
-        .fi-fo-file-upload-editor-control-panel {
-            width: 100% !important;
-            min-width: 100% !important;
-            max-width: 100% !important;
-            height: 50% !important;
-            border-left: none !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-        }
-
-        .fi-fo-file-upload-editor-control-panel-main {
-            padding: 1rem !important;
-            gap: 1rem !important;
-        }
-
-        .fi-fo-file-upload-editor-control-panel-footer {
-            padding: 1rem !important;
-        }
-    }
-
-    /* ── PREMIUM CINEMATIC LOGIN PAGE OVERRIDES ─────────── */
-    .fi-simple-layout {
-        background: radial-gradient(circle at 10% 20%, rgba(247, 245, 242, 1) 0%, rgba(232, 227, 219, 0.7) 100%) !important;
-        position: relative;
-        overflow: hidden;
-    }
-
-    /* Adding subtle premium gold glow points behind the login card */
-    .fi-simple-layout::before {
-        content: "";
-        position: absolute;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 65%);
-        top: -200px;
-        left: -100px;
-        pointer-events: none;
-        z-index: 0;
-    }
-    
-    .fi-simple-layout::after {
-        content: "";
-        position: absolute;
-        width: 800px;
-        height: 800px;
-        background: radial-gradient(circle, rgba(41, 37, 36, 0.04) 0%, transparent 70%);
-        bottom: -300px;
-        right: -100px;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .fi-simple-main-ctn {
-        position: relative;
-        z-index: 10;
-    }
-
-    .fi-simple-main {
-        background: rgba(253, 252, 251, 0.95) !important;
-        backdrop-filter: blur(16px) !important;
-        border: 1px solid rgba(197, 160, 89, 0.25) !important;
-        border-radius: 24px !important;
-        box-shadow: 0 20px 40px rgba(40, 30, 20, 0.12) !important;
-        padding: 40px !important;
-        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    }
-
-    .fi-simple-main:hover {
-        box-shadow: 0 24px 48px rgba(197, 160, 89, 0.15) !important;
-        transform: translateY(-2px);
-    }
-
-    /* Beautiful corporate logo styling on login */
-    .fi-simple-header {
-        margin-bottom: 28px !important;
-    }
-
-    .fi-simple-header img {
-        filter: drop-shadow(0 4px 12px rgba(40, 30, 20, 0.08)) !important;
-        transition: transform 0.3s ease !important;
-    }
-
-    .fi-simple-header img:hover {
-        transform: scale(1.03);
-    }
-
-    .fi-simple-header h1 {
-        font-family: 'DM Serif Display', serif !important;
-        font-size: 1.75rem !important;
-        font-weight: 700 !important;
+    .fi-section-header-heading {
+        font-size: 1.1rem !important;
+        font-weight: 800 !important;
         color: var(--bt-navy) !important;
-        margin-top: 16px !important;
-        letter-spacing: -0.5px !important;
+        letter-spacing: -0.01em !important;
     }
-
-    .fi-simple-header p {
-        color: var(--bt-muted) !important;
+    .fi-input-wrapper {
+        border-radius: 12px !important; 
+        border: 1.5px solid var(--bt-border) !important;
+        background: #ffffff !important; 
+        transition: all 0.2s ease !important;
+        padding: 2px !important;
+    }
+    .fi-input-wrapper:focus-within {
+        border-color: var(--bt-gold) !important;
+        box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.12) !important;
+        transform: translateY(-1px) !important;
+    }
+    .fi-fo-field-wrp-label { 
+        font-weight: 700 !important; 
+        color: var(--bt-navy) !important; 
+        font-size: 0.85rem !important; 
+        margin-bottom: 6px !important;
+    }
+    .fi-input {
+        color: var(--bt-text) !important;
         font-weight: 500 !important;
-        font-size: 0.875rem !important;
     }
 </style>
+
 <script>
-(function() {
-    // 1. Function to dynamically load scripts
-    function loadScript(src) {
-        return new Promise((resolve, reject) => {
-            if (window.heic2any) {
-                resolve();
-                return;
-            }
-            const script = document.createElement('script');
-            script.src = src;
-            script.onload = resolve;
-            script.onerror = reject;
-            document.head.appendChild(script);
-        });
-    }
+(function () {
+    'use strict';
 
-    // 2. Compress and resize images using HTML5 Canvas (runs locally, very fast)
-    function compressAndResizeImage(file, maxDimension = 2000, quality = 0.85) {
-        return new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const img = new Image();
-                img.onload = function() {
-                    let width = img.width;
-                    let height = img.height;
-                    
-                    // Downscale if image dimensions exceed maxDimension
-                    if (width > maxDimension || height > maxDimension) {
-                        if (width > height) {
-                            height = Math.round((height * maxDimension) / width);
-                            width = maxDimension;
-                        } else {
-                            width = Math.round((width * maxDimension) / height);
-                            height = maxDimension;
-                        }
-                    }
-                    
-                    const canvas = document.createElement('canvas');
-                    canvas.width = width;
-                    canvas.height = height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0, width, height);
-                    
-                    canvas.toBlob((blob) => {
-                        if (blob) {
-                            // Convert extension to .jpg
-                            const newName = file.name.replace(/\.[^/.]+$/, "") + ".jpg";
-                            const compressedFile = new File([blob], newName, {
-                                type: 'image/jpeg',
-                                lastModified: Date.now()
-                            });
-                            resolve(compressedFile);
-                        } else {
-                            resolve(file);
-                        }
-                    }, 'image/jpeg', quality);
-                };
-                img.onerror = () => resolve(file);
-                img.src = e.target.result;
-            };
-            reader.onerror = () => resolve(file);
-            reader.readAsDataURL(file);
-        });
-    }
+    /* ════════════════════════════════════════════════════
+       BUILTECH ADMIN — 2026 UX Intelligence Layer
+       1. HEIC image auto-conversion + compression
+       2. Smart Back Button (clearly separate from Menu)
+       3. Sidebar Menu toggle label (never confused w/ Back)
+       4. Row action buttons always forced visible
+       5. Smooth page enter animation
+    ════════════════════════════════════════════════════ */
 
-    // 3. Convert HEIC/HEIF files to JPEG using heic2any
-    function convertHeic(file) {
-        console.log('Converting HEIC image to JPEG: ' + file.name);
-        
-        return loadScript('/js/heic2any.min.js')
-            .then(() => {
-                return window.heic2any({
-                    blob: file,
-                    toType: 'image/jpeg',
-                    quality: 0.85
-                });
-            })
-            .then((resultBlob) => {
-                const blob = Array.isArray(resultBlob) ? resultBlob[0] : resultBlob;
-                const newName = file.name.replace(/\.[^/.]+$/, "") + ".jpg";
-                const convertedFile = new File([blob], newName, { type: 'image/jpeg' });
-                
-                // After conversion, compress and resize the image
-                return compressAndResizeImage(convertedFile);
-            })
-            .catch((err) => {
-                console.error('HEIC conversion failed, falling back to original file:', err);
-                return file;
-            });
-    }
+    // ── 1. Image Engine Removed (Caused FilePond crash) ──────────────
+    // We will let Filament's native FileUpload handle image processing
+    // to prevent Alpine.js crashes.
 
-    // 4. Intercept FilePond instances to hook into beforeAddFile
-    let filePondInstance = window.FilePond;
-    function interceptFilePond(fp) {
-        if (!fp || fp.isIntercepted) return;
-        fp.isIntercepted = true;
-        
-        const originalCreate = fp.create;
-        fp.create = function(element, options) {
-            options = options || {};
-            
-            // Bypass accepted types validation to allow HEIC files to be dropped/selected
-            if (options.acceptedFileTypes) {
-                if (Array.isArray(options.acceptedFileTypes)) {
-                    if (!options.acceptedFileTypes.includes('image/heic')) {
-                        options.acceptedFileTypes.push('image/heic', '.heic', 'image/heif', '.heif');
-                    }
-                } else if (typeof options.acceptedFileTypes === 'string') {
-                    if (!options.acceptedFileTypes.includes('heic')) {
-                        options.acceptedFileTypes += ', image/heic, .heic, image/heif, .heif';
-                    }
-                }
-            }
-            
-            // Bypass max file size validation temporarily during adding (we will compress it before saving)
-            if (options.maxFileSize) {
-                options.maxFileSize = '200MB'; // Temporarily allow large files
-            }
-            
-            // Hook into beforeAddFile callback
-            const originalBeforeAddFile = options.beforeAddFile;
-            options.beforeAddFile = function(fileItem) {
-                const file = fileItem.file;
-                if (!file) return true;
-                
-                const extension = file.name.split('.').pop().toLowerCase();
-                const isHeic = extension === 'heic' || extension === 'heif' || file.type === 'image/heic' || file.type === 'image/heif';
-                
-                if (isHeic) {
-                    return convertHeic(file);
-                } else if (file.type.startsWith('image/') && file.size > 1.5 * 1024 * 1024) {
-                    // Auto-compress JPEGs/PNGs larger than 1.5MB to save storage and optimize page load
-                    console.log('Compressing large image: ' + file.name + ' (' + (file.size / 1024 / 1024).toFixed(2) + 'MB)');
-                    return compressAndResizeImage(file);
-                }
-                
-                if (originalBeforeAddFile) {
-                    return originalBeforeAddFile(fileItem);
-                }
-                return true;
-            };
-            
-            return originalCreate.call(fp, element, options);
-        };
-        console.log('FilePond image auto-conversion & HEIC engine successfully hooked!');
-    }
-    
+    // ── 2. Smart Back Button ─────────────────────────
+    // Renders a labeled "← Back to List" pill directly above the page <h1>.
+    // Placement: in the breadcrumb/header zone, NOT the topbar.
+    // This is COMPLETELY separate from the sidebar ☰ toggle.
     function addBackButton() {
-        const heading = document.querySelector('h1.fi-header-heading');
-        if (!heading) return;
-        
-        const url = window.location.href;
-        const isSubPage = url.includes('/create') || /\/\d+(\/edit)?$/.test(url) || url.includes('/edit');
-        
+        if (document.querySelector('.bt-back-btn')) return;
+        var url = window.location.href;
+        var isSubPage = url.includes('/create') || /\/\d+(?:\/edit)?$/.test(url);
         if (!isSubPage) return;
-        if (document.querySelector('.bt-back-btn')) return; // Already exists
-        
-        const backBtn = document.createElement('button');
-        backBtn.className = 'bt-back-btn flex items-center justify-center p-2 rounded-xl transition-all duration-200 mr-3 shadow-sm';
-        backBtn.style.backgroundColor = 'var(--bt-gold-light)';
-        backBtn.style.color = 'var(--bt-gold)';
-        backBtn.style.border = 'none';
-        backBtn.style.cursor = 'pointer';
-        backBtn.style.width = '36px';
-        backBtn.style.height = '36px';
-        backBtn.style.flexShrink = '0';
-        backBtn.innerHTML = `
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
-            </svg>
-        `;
-        backBtn.title = "Go Back";
-        
-        // Hover effects
-        backBtn.addEventListener('mouseenter', () => {
-            backBtn.style.backgroundColor = 'var(--bt-gold)';
-            backBtn.style.color = '#ffffff';
-            backBtn.style.transform = 'translateX(-2px)';
-        });
-        backBtn.addEventListener('mouseleave', () => {
-            backBtn.style.backgroundColor = 'var(--bt-gold-light)';
-            backBtn.style.color = 'var(--bt-gold)';
-            backBtn.style.transform = 'none';
-        });
-        
-        backBtn.addEventListener('click', () => {
-            if (window.history.length > 1) {
-                window.history.back();
-            } else {
-                const indexUrl = url.replace(/\/create$/, '').replace(/\/\d+(\/edit)?$/, '').replace(/\/edit$/, '');
-                window.location.href = indexUrl;
+
+        // Find the page heading text itself
+        var heading = document.querySelector('h1.fi-header-heading, h1[class*="fi-header"]');
+        if (!heading) return;
+
+        // Build the Back pill: arrow icon + "Back to List" label
+        var btn = document.createElement('button');
+        btn.className = 'bt-back-btn';
+        btn.setAttribute('aria-label', 'Back to list');
+        btn.title = 'Back to list';
+        btn.innerHTML = [
+            '<svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke-width="2.8" stroke="currentColor">',
+            '<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>',
+            '</svg>',
+            '<span class="bt-back-label">Back to List</span>'
+        ].join('');
+
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (window.history.length > 1) { window.history.back(); }
+            else {
+                var base = url.replace(/\/create$/, '').replace(/\/\d+(?:\/edit)?$/, '');
+                window.location.href = base;
             }
         });
-        
-        const parent = heading.parentElement;
-        if (parent) {
-            parent.style.display = 'flex';
-            parent.style.flexDirection = 'row';
-            parent.style.alignItems = 'center';
-            parent.insertBefore(backBtn, heading);
+
+        // Safe insertion: Place it INSIDE the <h1>, right before the text.
+        // This completely avoids breaking Filament's responsive header layout.
+        heading.style.display = 'inline-flex';
+        heading.style.alignItems = 'center';
+        heading.style.gap = '16px';
+        heading.insertBefore(btn, heading.firstChild);
+    }
+
+    // ── 3. Style sidebar toggle as distinct "hamburger" ──────
+    // Permanently marks it as the menu icon with a tooltip.
+    // The user will NEVER mistake it for the Back button because:
+    //   - It lives in the TOP LEFT corner of the topbar
+    //   - It shows 3 horizontal lines (☰ hamburger icon)
+    //   - It shows a "Menu" tooltip on hover
+    //   - The Back button lives in the PAGE CONTENT area beside the h1
+    function labelMenuToggle() {
+        var topbarStart = document.querySelector('.fi-topbar-start');
+        if (!topbarStart) return;
+        topbarStart.querySelectorAll('button').forEach(function (btn) {
+            if (btn.dataset.btMenuDone) return;
+            btn.dataset.btMenuDone = '1';
+            btn.title = 'Expand / Collapse menu';
+            btn.setAttribute('aria-label', 'Toggle navigation menu');
+        });
+    }
+
+    // ── 4. Force action cells to always be visible ──
+    // Ensures Edit / Delete / View never get hidden by overflow.
+    function fixActionCells() {
+        var rows = document.querySelectorAll('.fi-ta-row');
+        rows.forEach(function (row) {
+            var cells = row.querySelectorAll('td');
+            if (!cells.length) return;
+            var last = cells[cells.length - 1];
+            last.style.whiteSpace = 'nowrap';
+            last.style.minWidth = 'fit-content';
+            last.querySelectorAll('a, button').forEach(function (el) {
+                el.style.whiteSpace = 'nowrap';
+                el.style.display = 'inline-flex';
+                el.style.alignItems = 'center';
+            });
+        });
+    }
+
+    // ── 5. Smooth page enter animation ──────────────
+    function pageAnimation() {
+        var main = document.querySelector('.fi-main');
+        if (main && !main.dataset.btAnimated) {
+            main.dataset.btAnimated = '1';
+            main.style.opacity = '0';
+            main.style.transform = 'translateY(8px)';
+            main.style.transition = 'opacity 0.38s ease, transform 0.38s ease';
+            requestAnimationFrame(function () {
+                main.style.opacity = '1';
+                main.style.transform = 'translateY(0)';
+            });
         }
     }
 
-    // Set up interceptor via getter/setter on window
-    Object.defineProperty(window, 'FilePond', {
-        get: function() {
-            return filePondInstance;
-        },
-        set: function(val) {
-            filePondInstance = val;
-            interceptFilePond(filePondInstance);
-        },
-        configurable: true
-    });
-    
-    if (window.FilePond) {
-        interceptFilePond(window.FilePond);
-    }
-})();
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Elegant Page Transitions
-    const main = document.querySelector('.fi-main');
-    if (main) {
-        main.style.opacity = '0';
-        main.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-        main.style.transform = 'translateY(10px)';
-        setTimeout(() => {
-            main.style.opacity = '1';
-            main.style.transform = 'translateY(0)';
-        }, 50);
-    }
-
-    // Initialize back button
-    addBackButton();
-
-    // Observe changes to the DOM (for Livewire re-renders)
-    const observer = new MutationObserver(() => {
+    // ── Run all ──────────────────────────────────────
+    function runAll() {
         addBackButton();
+        labelMenuToggle();
+        fixActionCells();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        pageAnimation();
+        runAll();
     });
-    observer.observe(document.body, { childList: true, subtree: true });
-});
+
+    // Re-run after Livewire navigation (SPA mode)
+    document.addEventListener('livewire:navigated', runAll);
+    document.addEventListener('livewire:load', runAll);
+
+    // Watch for dynamic DOM changes (Livewire re-renders)
+    var observer = new MutationObserver(function () { runAll(); });
+    document.addEventListener('DOMContentLoaded', function () {
+        observer.observe(document.body, { childList: true, subtree: true });
+    });
+
+})();
 </script>
