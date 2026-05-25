@@ -548,33 +548,52 @@
     .fi-modal-close-btn:hover { background: rgba(0,0,0,0.05) !important; color: var(--bt-text) !important; }
 
     /* ── Filament Image Editor (cropper) modal ─────────────────────────
-       The image editor renders a wide image + a column of aspect-ratio
-       buttons on the right. Default custom modal styles + the editor's
-       fixed canvas size were causing the right sidebar to be pushed off
-       the viewport. Constrain the modal, allow overflow, and make sure
-       the editor's flex layout has room to breathe.                       */
-    [x-data*="imageEditor"],
-    .fi-fo-file-upload-editor,
-    .filepond--image-editor,
-    .image-editor-modal {
+       Keep editor modal fully inside the viewport. Image canvas takes
+       the available space, right-side controls + bottom action bar
+       stay reachable. Without this the modal renders wider than the
+       browser window and clips Save/Cancel.                              */
+    .fi-modal-window:has([x-data*="imageEditor"]),
+    .fi-modal-window:has(.fi-fo-file-upload-editor),
+    .fi-modal-window:has(.image-editor-modal) {
+        width: min(95vw, 1400px) !important;
         max-width: 95vw !important;
+        height: min(90vh, 900px) !important;
         max-height: 90vh !important;
+        margin: 0 auto !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
-    .fi-modal:has(.fi-fo-file-upload-editor) .fi-modal-window,
-    .fi-modal:has([x-data*="imageEditor"]) .fi-modal-window {
-        max-width: 95vw !important;
-        width: auto !important;
-        overflow: visible !important;
-    }
-    .fi-modal:has(.fi-fo-file-upload-editor) .fi-modal-content,
-    .fi-modal:has([x-data*="imageEditor"]) .fi-modal-content {
+    .fi-modal-window:has([x-data*="imageEditor"]) .fi-modal-content,
+    .fi-modal-window:has(.fi-fo-file-upload-editor) .fi-modal-content {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
         overflow: auto !important;
-        max-height: 85vh !important;
     }
-    .fi-fo-file-upload-editor img,
-    .filepond--image-editor img {
+    .fi-modal-window:has([x-data*="imageEditor"]) .fi-modal-footer,
+    .fi-modal-window:has(.fi-fo-file-upload-editor) .fi-modal-footer {
+        flex-shrink: 0 !important;
+        position: sticky !important;
+        bottom: 0 !important;
+        background: inherit !important;
+        z-index: 2 !important;
+        padding: 1rem !important;
+        border-top: 1px solid var(--bt-border) !important;
+    }
+    /* Editor body: side-by-side canvas + controls, both scrollable if needed */
+    [x-data*="imageEditor"] > div,
+    .fi-fo-file-upload-editor {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 1rem !important;
+        align-items: stretch !important;
+        max-height: 75vh !important;
+    }
+    [x-data*="imageEditor"] canvas,
+    .fi-fo-file-upload-editor canvas,
+    .fi-fo-file-upload-editor img {
         max-width: 100% !important;
-        max-height: 70vh !important;
+        max-height: 75vh !important;
         object-fit: contain !important;
     }
 
