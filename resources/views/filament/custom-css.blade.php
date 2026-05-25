@@ -55,39 +55,124 @@
     /* Removed custom sidebar toggle CSS to prevent logo overlap */
 
     /* ══════════════════════════════════════════
-       SIDEBAR — Warm, Precise, Premium
+       SIDEBAR — Premium Refined v2
+       - Gold left-bar accent on active item
+       - Refined group headers (small uppercase)
+       - Subtle slide-right on hover
+       - Polished badge + custom scrollbar
     ══════════════════════════════════════════ */
     .fi-sidebar {
         background: var(--bt-sidebar) !important;
         border-right: 1px solid var(--bt-border) !important;
-        box-shadow: 2px 0 20px rgba(40, 30, 20, 0.04) !important;
+        box-shadow: 2px 0 24px rgba(40, 30, 20, 0.05) !important;
     }
     .fi-sidebar-header {
         background: transparent !important;
-        padding: 20px !important;
+        padding: 24px 20px !important;
         border-bottom: 1px solid var(--bt-border) !important;
+        margin-bottom: 4px !important;
     }
+
+    /* Section group headers ("Recognition", "Project Portfolio", etc.) */
+    .fi-sidebar-group-label,
+    .fi-sidebar-nav-group-label,
+    .fi-sidebar-group > .fi-sidebar-group-button {
+        font-size: 0.7rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.08em !important;
+        text-transform: uppercase !important;
+        color: var(--bt-muted) !important;
+        padding: 14px 22px 6px !important;
+        margin-top: 6px !important;
+        opacity: 0.85 !important;
+    }
+    .fi-sidebar-group-collapse-button {
+        transition: transform 0.2s ease !important;
+    }
+
+    /* Sidebar items */
     .fi-sidebar-item-button {
         border-radius: 10px !important;
-        margin: 2px 10px !important;
-        padding: 9px 14px !important;
+        margin: 2px 12px !important;
+        padding: 10px 14px !important;
         background: transparent !important;
-        transition: var(--bt-transition) !important;
+        transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative !important;
+        overflow: hidden !important;
     }
     .fi-sidebar-item-label {
-        font-weight: 600 !important;
-        color: var(--bt-muted) !important;
-        font-size: 0.88rem !important;
+        font-weight: 500 !important;
+        color: var(--bt-text) !important;
+        font-size: 0.875rem !important;
         transition: var(--bt-transition) !important;
     }
-    .fi-sidebar-item-icon { color: var(--bt-muted) !important; transition: var(--bt-transition) !important; }
-    .fi-sidebar-item-button:hover { background: var(--bt-gold-light) !important; }
+    .fi-sidebar-item-icon {
+        color: var(--bt-muted) !important;
+        transition: var(--bt-transition) !important;
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    /* Hover */
+    .fi-sidebar-item-button:hover {
+        background: var(--bt-gold-light) !important;
+        transform: translateX(2px);
+    }
     .fi-sidebar-item-button:hover .fi-sidebar-item-label,
-    .fi-sidebar-item-button:hover .fi-sidebar-item-icon { color: var(--bt-text) !important; }
-    .fi-active > .fi-sidebar-item-btn,
-    .fi-sidebar-item-active > .fi-sidebar-item-button { background: rgba(197, 160, 89, 0.10) !important; }
+    .fi-sidebar-item-button:hover .fi-sidebar-item-icon {
+        color: var(--bt-gold) !important;
+    }
+
+    /* Active state — gold left bar + tinted bg gradient */
+    .fi-active > .fi-sidebar-item-button,
+    .fi-sidebar-item-active > .fi-sidebar-item-button,
+    .fi-active > .fi-sidebar-item-btn {
+        background: linear-gradient(90deg, rgba(197,160,89,0.14) 0%, rgba(197,160,89,0.04) 100%) !important;
+    }
+    .fi-active > .fi-sidebar-item-button::before,
+    .fi-sidebar-item-active > .fi-sidebar-item-button::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 8px;
+        bottom: 8px;
+        width: 3px;
+        background: var(--bt-gold);
+        border-radius: 0 3px 3px 0;
+    }
     .fi-active .fi-sidebar-item-label,
-    .fi-active .fi-sidebar-item-icon { color: var(--bt-gold) !important; font-weight: 700 !important; }
+    .fi-active .fi-sidebar-item-icon {
+        color: var(--bt-gold) !important;
+        font-weight: 600 !important;
+    }
+
+    /* Badge (e.g. Contact Enquiries count) */
+    .fi-sidebar-item-badge,
+    .fi-sidebar .fi-badge {
+        background: var(--bt-gold) !important;
+        color: #fff !important;
+        font-weight: 700 !important;
+        border-radius: 999px !important;
+        padding: 2px 9px !important;
+        font-size: 0.7rem !important;
+        line-height: 1.2 !important;
+        box-shadow: 0 2px 6px rgba(197, 160, 89, 0.25) !important;
+    }
+
+    /* Refined scrollbar — only appears on hover */
+    .fi-sidebar-nav::-webkit-scrollbar { width: 6px; }
+    .fi-sidebar-nav::-webkit-scrollbar-track { background: transparent; }
+    .fi-sidebar-nav::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 3px;
+        transition: background 0.2s;
+    }
+    .fi-sidebar-nav:hover::-webkit-scrollbar-thumb {
+        background: rgba(197, 160, 89, 0.3);
+    }
+    .fi-sidebar-nav::-webkit-scrollbar-thumb:hover {
+        background: rgba(197, 160, 89, 0.5);
+    }
 
     /* ═══════════════════════════════════════════════════════════════
        TABLES — THE BIGGEST UX FIX
