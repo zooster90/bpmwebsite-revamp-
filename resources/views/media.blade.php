@@ -111,9 +111,9 @@
 
     .media-image-wrapper {
         position: relative;
-        height: 220px;
+        height: 260px; /* Taller to fit clipping */
         overflow: hidden;
-        background: #fcfbf8; /* clean off-white background */
+        background: #ffffff; /* Pure white background */
         display: block;
         border-bottom: 1px solid rgba(0,0,0,0.05);
     }
@@ -121,14 +121,13 @@
     .media-image {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* fill the area so it's readable */
-        object-position: top; /* start reading from the top headline */
-        transition: transform 0.7s ease, filter 0.3s ease;
-        image-rendering: -webkit-optimize-contrast;
-        filter: brightness(1.0) contrast(1.04) saturate(1.06);
+        padding: 10px; /* Let the clipping breathe */
+        object-fit: contain; /* Show the full clipping perfectly */
+        object-position: center;
+        transition: transform 0.5s ease;
     }
 
-    .media-card:hover .media-image { transform: scale(1.04); filter: brightness(1.06) contrast(1.08) saturate(1.1); }
+    .media-card:hover .media-image { transform: scale(1.02); }
 
     .media-overlay {
         position: absolute;
