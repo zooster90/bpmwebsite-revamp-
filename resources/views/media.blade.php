@@ -113,10 +113,8 @@
         position: relative;
         height: 380px;
         overflow: hidden;
-        background: #0d1925; /* dark letterbox for portrait press images */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        background: #fcfbf8; /* clean off-white background */
+        display: block;
     }
 
     .media-image {
