@@ -547,9 +547,48 @@
     .fi-modal-close-btn { transition: all 0.2s ease !important; }
     .fi-modal-close-btn:hover { background: rgba(0,0,0,0.05) !important; color: var(--bt-text) !important; }
 
-    /* Image editor (cropper) modal: leave Filament defaults alone. Previous
-       custom CSS here over-constrained the editor and blanked it. The
-       editor is optional anyway — staff can upload without cropping. */
+    /* ── Filament Image Editor (cropper) ────────────────────────────────
+       Targets Filament's real class names (verified against the framework
+       source). Ensures the editor fits the viewport, the canvas + sidebar
+       are visible side-by-side, and Save/Cancel in the footer is reachable
+       on any screen size.                                                  */
+    .fi-fo-file-upload-editor-window {
+        width: min(95vw, 1400px) !important;
+        max-width: 95vw !important;
+        max-height: 92vh !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow: hidden !important;
+    }
+    .fi-fo-file-upload-editor-image-ctn {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+    }
+    .fi-fo-file-upload-editor-control-panel {
+        flex: 0 0 260px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        max-height: 100% !important;
+    }
+    .fi-fo-file-upload-editor-control-panel-main {
+        flex: 1 1 auto !important;
+        overflow-y: auto !important;
+    }
+    .fi-fo-file-upload-editor-control-panel-footer {
+        flex-shrink: 0 !important;
+        border-top: 1px solid rgba(0,0,0,0.1) !important;
+        padding: 12px !important;
+    }
+    @media (max-width: 768px) {
+        .fi-fo-file-upload-editor-window {
+            flex-direction: column !important;
+        }
+        .fi-fo-file-upload-editor-control-panel {
+            flex: 0 0 auto !important;
+            max-height: 40vh !important;
+        }
+    }
 
     /* Toast Notifications */
     .fi-no-notification { 
