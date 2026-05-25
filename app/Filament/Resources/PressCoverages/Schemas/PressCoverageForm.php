@@ -76,7 +76,7 @@ class PressCoverageForm
                                             ->helperText('Accepted formats: JPG, PNG, WEBP — Maximum 5 MB. Upload a screenshot of the article or a press event photo.')
                                             ->image()
                                             ->imageEditor()
-                                            ->imageEditorMode(2)
+                                            ->imageEditorMode(1)
                                             ->imagePreviewHeight('200')
                                             ->maxSize(5120)
                                             ->columnSpanFull(),
@@ -102,7 +102,7 @@ class PressCoverageForm
                                             ->downloadable()
                                             ->image()
                                             ->imageEditor()
-                                            ->imageEditorMode(2)
+                                            ->imageEditorMode(1)
                                             ->imagePreviewHeight('160')
                                             ->maxSize(10240)
                                             ->panelLayout('grid')

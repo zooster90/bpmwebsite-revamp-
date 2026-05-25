@@ -74,7 +74,7 @@ class OurPeopleForm
                             ->helperText('Recommended resolution: 800x600. Accepted formats: JPG, PNG, WEBP.')
                             ->image()
                                             ->imageEditor()
-                                            ->imageEditorMode(2)
+                                            ->imageEditorMode(1)
                             ->maxSize(10240)
                             ->columnSpanFull(),
                     ])

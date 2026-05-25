@@ -97,7 +97,7 @@ class NewsForm
                             ->label('Upload News Photo')
                             ->image()
                                             ->imageEditor()
-                                            ->imageEditorMode(2)
+                                            ->imageEditorMode(1)
                             ->disk('public')
                             ->directory('news-images')
                             ->columnSpanFull(),

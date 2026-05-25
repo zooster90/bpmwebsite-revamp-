@@ -120,7 +120,7 @@ class UserResource extends Resource
                                             ->collection('avatar')
                                             ->avatar()
                                             ->imageEditor()
-                                            ->imageEditorMode(2)
+                                            ->imageEditorMode(1)
                                             ->alignCenter()
                                             ->label('Official Profile Photo'),
                                     ]),

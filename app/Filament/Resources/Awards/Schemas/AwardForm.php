@@ -105,7 +105,7 @@ class AwardForm
                                             ->helperText('Leave empty if using a standard Award Type (e.g. CIDB).')
                                             ->image()
                                             ->imageEditor()
-                                            ->imageEditorMode(2)
+                                            ->imageEditorMode(1)
                                             ->imagePreviewHeight('120')
                                             ->maxSize(5120)
                                             ->columnSpanFull(),
@@ -131,7 +131,7 @@ class AwardForm
                                             ->downloadable()
                                             ->image()
                                             ->imageEditor()
-                                            ->imageEditorMode(2)
+                                            ->imageEditorMode(1)
                                             ->imagePreviewHeight('160')
                                             ->maxSize(10240)
                                             ->panelLayout('grid')
