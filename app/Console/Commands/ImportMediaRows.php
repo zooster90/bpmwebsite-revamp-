@@ -102,6 +102,13 @@ class ImportMediaRows extends Command
         $this->info("Skipped (existing): {$this->skippedExisting}");
         $this->info("Missing on R2:      {$this->missingFile}");
         $this->info("Failed:             {$this->failed}");
+
+        if (! $dryRun && $this->inserted > 0) {
+            $this->newLine();
+            $this->info('Resetting DB sequences (Postgres) so future auto-increment IDs don\'t collide…');
+            $this->call('db:reset-sequences');
+        }
+
         return self::SUCCESS;
     }
 
