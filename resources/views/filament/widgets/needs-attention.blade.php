@@ -1,49 +1,81 @@
 <x-filament-widgets::widget>
-    <x-filament::section>
-        <div class="flex items-center justify-between mb-4">
-            <div>
-                <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
-                    Needs Your Attention
-                </h2>
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                    Items waiting on you right now
-                </p>
-            </div>
+    <div style="
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: var(--bt-radius, 12px);
+        padding: 24px;
+    ">
+        <div style="margin-bottom: 20px;">
+            <h2 style="font-size: 1.125rem; font-weight: 600; color: #111827; margin: 0;">
+                Needs Your Attention
+            </h2>
+            <p style="font-size: 0.875rem; color: #6b7280; margin: 4px 0 0;">
+                Items waiting on you right now
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
             @foreach ($this->getItems() as $item)
-                <a href="{{ $item['url'] }}"
-                   class="block p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-{{ $item['colour'] }}-400 hover:shadow-md transition">
-                    <div class="flex items-start justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="p-2 rounded-md bg-{{ $item['colour'] }}-50 dark:bg-{{ $item['colour'] }}-900/30">
-                                <x-filament::icon
-                                    :icon="$item['icon']"
-                                    class="w-5 h-5 text-{{ $item['colour'] }}-600 dark:text-{{ $item['colour'] }}-400"
-                                />
+                @php
+                    $palette = match($item['colour']) {
+                        'amber' => ['bg' => '#fffbeb', 'fg' => '#b45309', 'border' => '#fcd34d'],
+                        'sky'   => ['bg' => '#f0f9ff', 'fg' => '#0369a1', 'border' => '#7dd3fc'],
+                        'rose'  => ['bg' => '#fff1f2', 'fg' => '#be123c', 'border' => '#fda4af'],
+                        default => ['bg' => '#f3f4f6', 'fg' => '#374151', 'border' => '#d1d5db'],
+                    };
+                @endphp
+
+                <a href="{{ $item['url'] }}" style="
+                    display: block;
+                    padding: 16px;
+                    border: 1px solid #e5e7eb;
+                    border-radius: 10px;
+                    text-decoration: none;
+                    color: inherit;
+                    transition: all 0.15s ease;
+                "
+                onmouseover="this.style.borderColor='{{ $palette['border'] }}'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.06)';"
+                onmouseout="this.style.borderColor='#e5e7eb'; this.style.boxShadow='none';">
+
+                    <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+                            <div style="
+                                flex-shrink: 0;
+                                width: 40px;
+                                height: 40px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border-radius: 8px;
+                                background: {{ $palette['bg'] }};
+                                color: {{ $palette['fg'] }};
+                            ">
+                                <x-filament::icon :icon="$item['icon']" style="width: 20px; height: 20px;" />
                             </div>
-                            <div>
-                                <div class="text-2xl font-bold text-gray-900 dark:text-white leading-none">
+                            <div style="min-width: 0;">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #111827; line-height: 1;">
                                     {{ $item['count'] }}
                                 </div>
-                                <div class="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                                <div style="font-size: 0.875rem; color: #4b5563; margin-top: 4px;">
                                     {{ $item['label'] }}
                                 </div>
                             </div>
                         </div>
-                        @if ($item['count'] > 0)
-                            <span class="text-xs font-medium text-{{ $item['colour'] }}-600 dark:text-{{ $item['colour'] }}-400">
-                                {{ $item['cta'] }} →
-                            </span>
-                        @else
-                            <span class="text-xs text-gray-400">
-                                All clear ✓
-                            </span>
-                        @endif
+
+                        <div style="flex-shrink: 0; padding-top: 4px;">
+                            @if ($item['count'] > 0)
+                                <span style="font-size: 0.75rem; font-weight: 600; color: {{ $palette['fg'] }};">
+                                    {{ $item['cta'] }} →
+                                </span>
+                            @else
+                                <span style="font-size: 0.75rem; color: #9ca3af;">
+                                    All clear ✓
+                                </span>
+                            @endif
+                        </div>
                     </div>
                 </a>
             @endforeach
         </div>
-    </x-filament::section>
+    </div>
 </x-filament-widgets::widget>
