@@ -35,9 +35,8 @@ class NewsTable
                     ->toggleable(isToggledHiddenByDefault: true),
                 \Filament\Tables\Columns\ImageColumn::make('display_image')
                     ->label('Thumbnail')
-                    ->width(60)
-                    ->height(45)
-                    ->rounded(),
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->extraImgAttributes(['style' => 'min-width: 80px; min-height: 60px; max-width: 80px; max-height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);']),
                 TextColumn::make('author')
                     ->searchable(),
                 IconColumn::make('is_published')
@@ -68,6 +67,7 @@ class NewsTable
                         return $query;
                     })
             ])
+            ->defaultSort('published_date', 'desc')
             ->recordActions([
                 EditAction::make(),
             ])
@@ -75,6 +75,7 @@ class NewsTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->deferFilters(false);
     }
 }

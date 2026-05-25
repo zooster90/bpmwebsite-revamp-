@@ -58,9 +58,23 @@ class CultureEventForm
                                             ->required()
                                             ->maxLength(255)
                                             ->live(onBlur: true)
-                                            ->afterStateUpdated(fn (string $operation, $state, callable $set) => 
-                                                $operation === 'create' ? $set('slug', \Illuminate\Support\Str::slug($state)) : null
-                                            )
+                                            ->afterStateUpdated(function (string $operation, $state, callable $set, callable $get) {
+                                                if ($operation !== 'create' || blank($state)) {
+                                                    return;
+                                                }
+                                                $base = $state;
+                                                if ($get('year')) {
+                                                    $base .= '-' . $get('year');
+                                                }
+                                                $slug = \Illuminate\Support\Str::slug($base);
+                                                $originalSlug = $slug;
+                                                $count = 1;
+                                                while (\App\Models\CultureEvent::where('slug', $slug)->exists()) {
+                                                    $slug = $originalSlug . '-' . $count;
+                                                    $count++;
+                                                }
+                                                $set('slug', $slug);
+                                            })
                                             ->columnSpanFull(),
 
                                         TextInput::make('name')
@@ -98,6 +112,24 @@ class CultureEventForm
                                             ->numeric()
                                             ->minValue(1990)
                                             ->maxValue(2035)
+                                            ->live(onBlur: true)
+                                            ->afterStateUpdated(function (string $operation, $state, callable $set, callable $get) {
+                                                if ($operation !== 'create' || blank($get('title'))) {
+                                                    return;
+                                                }
+                                                $base = $get('title');
+                                                if ($state) {
+                                                    $base .= '-' . $state;
+                                                }
+                                                $slug = \Illuminate\Support\Str::slug($base);
+                                                $originalSlug = $slug;
+                                                $count = 1;
+                                                while (\App\Models\CultureEvent::where('slug', $slug)->exists()) {
+                                                    $slug = $originalSlug . '-' . $count;
+                                                    $count++;
+                                                }
+                                                $set('slug', $slug);
+                                            })
                                             ->required(),
 
                                         Select::make('category_id')
@@ -207,6 +239,26 @@ class CultureEventForm
                                             ->imageEditorAspectRatios(['16:9', '4:3', '1:1'])
                                             ->imagePreviewHeight('200')
                                             ->maxSize(10240)
+                                            ->columnSpanFull(),
+                                    ]),
+
+                                // ── Video (Optional) ─────────────────────────────
+                                Section::make('Video (Optional)')
+                                    ->description('Upload a short video clip (MP4) OR provide a YouTube/Vimeo link to show a highlight video.')
+                                    ->schema([
+                                        \Filament\Forms\Components\FileUpload::make('video_upload')
+                                            ->label('Upload Video File')
+                                            ->helperText('Accepted: MP4, WebM. Max 50MB. (If you provide both, the direct upload will be used).')
+                                            ->acceptedFileTypes(['video/mp4', 'video/webm'])
+                                            ->maxSize(51200) // 50MB
+                                            ->directory('event-videos')
+                                            ->columnSpanFull(),
+
+                                        TextInput::make('video_url')
+                                            ->label('Or paste Video URL (YouTube/Vimeo)')
+                                            ->helperText('e.g. https://www.youtube.com/watch?v=... or https://vimeo.com/...')
+                                            ->placeholder('Paste YouTube/Vimeo URL here...')
+                                            ->url()
                                             ->columnSpanFull(),
                                     ]),
 

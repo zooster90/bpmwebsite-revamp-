@@ -20,9 +20,8 @@ class PressCoveragesTable
             ->columns([
                 \Filament\Tables\Columns\ImageColumn::make('display_image')
                     ->label('Clipping')
-                    ->width(60)
-                    ->height(45)
-                    ->rounded(),
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->extraImgAttributes(['style' => 'min-width: 80px; min-height: 60px; max-width: 80px; max-height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);']),
 
                 TextColumn::make('headline')
                     ->label('Headline')
@@ -56,7 +55,9 @@ class PressCoveragesTable
             ->filters([
                 \Filament\Tables\Filters\SelectFilter::make('category_id')
                     ->label('Filter by Category')
-                    ->relationship('category', 'name', fn($query) => $query->where('model_type', 'News')),
+                    ->relationship('category', 'name', fn($query) => $query->where('model_type', \App\Models\PressCoverage::class))
+                    ->searchable()
+                    ->preload(),
                 \Filament\Tables\Filters\SelectFilter::make('year')
                     ->label('Filter by Year')
                     ->options(function () {
@@ -80,7 +81,7 @@ class PressCoveragesTable
             ])
             ->defaultSort('published_date', 'desc')
             ->recordActions([
-                EditAction::make()->label('Edit'),
+                EditAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
@@ -88,6 +89,7 @@ class PressCoveragesTable
                 ]),
             ])
             ->emptyStateHeading('No Press Coverage Yet')
-            ->emptyStateIcon('heroicon-o-globe-alt');
+            ->emptyStateIcon('heroicon-o-globe-alt')
+            ->deferFilters(false);
     }
 }

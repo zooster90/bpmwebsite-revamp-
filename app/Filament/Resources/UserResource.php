@@ -169,8 +169,9 @@ class UserResource extends Resource
             ->columns([
                 SpatieMediaLibraryImageColumn::make('avatar')
                     ->collection('avatar')
-                    ->circular()
-                    ->label(''),
+                    ->label('')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->extraImgAttributes(['style' => 'min-width: 40px; min-height: 40px; max-width: 40px; max-height: 40px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);']),
 
                 TextColumn::make('name')
                     ->searchable()

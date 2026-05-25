@@ -93,9 +93,8 @@ class CultureController extends Controller
         // ── Build Subcategory Map (Category -> Unique Subcategories) ─────────
         $subCategoriesByCategory = collect($categoryConfig ?? $config)->mapWithKeys(function ($catData, $catKey) use ($allEvents) {
             $subs = $allEvents->filter(fn($e) => $e->normalized_category === $catKey)
-                              ->map(fn($e) => $e->subCategory?->name)
-                              ->filter(fn($s) => !empty(trim($s ?? '')) && strtolower(trim($s)) !== 'all')
-                              ->map(fn($s) => trim($s))
+                              ->map(fn($e) => $e->subCategory ? str_replace('-', '_', strtolower(trim($e->subCategory->slug))) : null)
+                              ->filter(fn($s) => !empty($s) && $s !== 'all')
                               ->unique()
                               ->values();
             return [$catKey => $subs];

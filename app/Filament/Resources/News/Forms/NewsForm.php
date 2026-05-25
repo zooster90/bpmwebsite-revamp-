@@ -41,6 +41,9 @@ class NewsForm
                             ->columnSpanFull(),
 
                         Select::make('category')
+                            ->relationship('category', 'name')
+                            ->searchable()
+                            ->preload()
                             ->label('News Category')
                             ->helperText('Pick the most suitable category for this article.')
                             ->options([

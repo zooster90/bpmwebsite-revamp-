@@ -84,6 +84,7 @@ class InquiriesTable
             ])
             ->emptyStateHeading('No Enquiries Yet')
             ->emptyStateDescription('Enquiries from the Contact Us page will appear here.')
-            ->emptyStateIcon('heroicon-o-envelope');
+            ->emptyStateIcon('heroicon-o-envelope')
+            ->deferFilters(false);
     }
 }

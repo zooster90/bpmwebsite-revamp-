@@ -119,8 +119,9 @@ class ProjectForm
 
                                             TextInput::make('award')
                                                 ->label('Award Snippet')
-                                                ->placeholder('e.g. QLASSIC: 82%')
-                                                ->prefixIcon('heroicon-o-trophy'),
+                                                ->placeholder('e.g. QLASSIC: 83% | SHASSIC 5 Stars')
+                                                ->prefixIcon('heroicon-o-trophy')
+                                                ->helperText('To add multiple awards, separate them with a space and pipe symbol ( | ).'),
                                         ]),
                                     ]),
 

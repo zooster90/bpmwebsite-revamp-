@@ -35,9 +35,9 @@ class InquiryController extends Controller
             // Database Notification for Filament
             $admins = \App\Models\User::all();
             \Filament\Notifications\Notification::make()
-                ->title('New Business Enquiry')
-                ->body("From: {$inquiry->name} ({$inquiry->email})")
-                ->icon('heroicon-o-inbox-arrow-down')
+                ->title('New Business Inquiry Received')
+                ->body("**From:** {$inquiry->name} ({$inquiry->email})\n**Phone:** " . ($inquiry->phone ?? 'N/A') . "\n**Type:** " . ($inquiry->service_type ?: 'General Inquiry') . "\n\n**Message:**\n" . \Illuminate\Support\Str::limit($inquiry->message, 150))
+                ->icon('heroicon-o-briefcase')
                 ->iconColor('primary')
                 ->actions([
                     \Filament\Notifications\Actions\Action::make('view')
@@ -52,7 +52,7 @@ class InquiryController extends Controller
 
         return redirect()->route('contact')->with(
             'success',
-            'Thank you for reaching out! Your message has been received and our team will be in touch within 1–2 business days.'
+            'Thank you for reaching out, ' . $inquiry->name . '. We have successfully received your inquiry regarding ' . ($inquiry->service_type ? ucwords(str_replace('_', ' ', $inquiry->service_type)) : 'your project') . '. A representative from our team will review your details and contact you shortly.'
         );
     }
 }

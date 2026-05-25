@@ -59,6 +59,7 @@ class JobOpeningsTable
                 ]),
             ])
             ->emptyStateHeading('No Job Openings Yet')
-            ->emptyStateIcon('heroicon-o-briefcase');
+            ->emptyStateIcon('heroicon-o-briefcase')
+            ->deferFilters(false);
     }
 }
