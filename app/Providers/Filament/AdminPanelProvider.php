@@ -77,7 +77,7 @@ class AdminPanelProvider extends PanelProvider
                 for: 'App\Filament\Widgets'
             )
             ->widgets([
-                \App\Filament\Widgets\NetlifyDeployWidget::class,
+                \App\Filament\Widgets\NeedsAttentionWidget::class,
                 \App\Filament\Widgets\DashboardHero::class,
                 \App\Filament\Widgets\StatsOverview::class,
                 \App\Filament\Widgets\FrontendShortcutsWidget::class,
