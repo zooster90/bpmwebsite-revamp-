@@ -131,14 +131,7 @@
 @endpush
 
 @php
-    $img = null;
-    if (!empty($article->news_image_upload)) {
-        $img = asset('storage/' . $article->news_image_upload);
-    } elseif (!empty($article->image_url)) {
-        $img = $article->image_url;
-    } elseif (method_exists($article, 'getFirstMediaUrl') && $article->getFirstMediaUrl('news_image')) {
-        $img = $article->getFirstMediaUrl('news_image');
-    }
+    $img = $article->display_image;
     $date = $article->published_date ? $article->published_date->format('F d, Y') : ($article->created_at ? $article->created_at->format('F d, Y') : '');
 @endphp
 
@@ -186,8 +179,8 @@
                 <h3 class="bt-title text-3xl text-navy mb-10 pb-4 border-b border-gray-100">Project Imagery</h3>
                 <div class="bt-gallery-grid">
                     @foreach($galleryItems as $photo)
-                        <img src="{{ asset('storage/' . $photo) }}" 
-                             alt="Gallery Item" 
+                        <img src="{{ cdn_rewrite(asset('storage/' . ltrim($photo, '/'))) }}"
+                             alt="Gallery Item"
                              class="bt-gallery-item"
                              onclick="openGlobalLightbox(this.src)">
                     @endforeach

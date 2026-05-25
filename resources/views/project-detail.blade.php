@@ -230,9 +230,9 @@
             if ($project->hasMedia('cover_image')) {
                 $images[] = $project->getFirstMediaUrl('cover_image');
             } elseif ($project->cover_image) {
-                $images[] = asset('storage/' . $project->cover_image);
+                $images[] = cdn_rewrite(asset('storage/' . ltrim($project->cover_image, '/')));
             } elseif ($project->image_url) {
-                $images[] = str_starts_with($project->image_url, 'http') ? $project->image_url : asset($project->image_url);
+                $images[] = str_starts_with($project->image_url, 'http') ? $project->image_url : cdn_rewrite(asset(ltrim($project->image_url, '/')));
             }
 
             // Add Gallery images
@@ -242,7 +242,7 @@
                 }
             } elseif ($project->gallery_uploads) {
                 foreach($project->gallery_uploads as $path) {
-                    $images[] = asset('storage/' . $path);
+                    $images[] = cdn_rewrite(asset('storage/' . ltrim($path, '/')));
                 }
             }
 

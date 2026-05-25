@@ -211,7 +211,7 @@
                     <div class="project-card" onclick="window.location.href='{{ route('projects.show', $project->slug) }}'">
                         <div class="project-image-container">
                             @php
-                                $coverImg = $project->getFirstMediaUrl('cover_image') ?: ($project->image_url ?: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800');
+                                $coverImg = $project->display_image;
                             @endphp
                             <img src="{{ $coverImg }}" class="project-image" alt="{{ $project->name }}">
                             <div class="year-badge">{{ $project->completion_year ?? 'Legacy' }}</div>

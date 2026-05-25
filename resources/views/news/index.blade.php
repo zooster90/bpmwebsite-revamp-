@@ -186,9 +186,9 @@
                     {{ Str::limit(strip_tags($article->content), 200) }}
                 </p>
 
-                @if($article->image_url)
+                @if($article->image_url || $article->news_image_upload || $article->hasMedia('news_image'))
                 <div style="border-radius: 12px; overflow: hidden; margin-top: 2rem; border: 1px solid rgba(0,0,0,0.05);">
-                    <img src="{{ $article->image_url }}" alt="{{ $article->title }}" style="width: 100%; height: auto; display: block;">
+                    <img src="{{ $article->display_image }}" alt="{{ $article->title }}" style="width: 100%; height: auto; display: block;">
                 </div>
                 @endif
 

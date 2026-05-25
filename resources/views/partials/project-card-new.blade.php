@@ -207,7 +207,7 @@
     <article class="project-reveal-card__inner">
         <figure class="project-reveal-card__figure">
             {{-- Background Image --}}
-            <img src="{{ $project->cover_image ?? $project->image_url ?? asset('images/placeholder.jpg') }}" alt="{{ $project->name }}" loading="lazy" class="project-reveal-card__img">
+            <img src="{{ $project->display_image ?? asset('images/placeholder.jpg') }}" alt="{{ $project->name }}" loading="lazy" class="project-reveal-card__img">
             
             {{-- Year Badge (Top Right) --}}
             @if(!empty($project->year))

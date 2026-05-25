@@ -659,7 +659,7 @@
                                                 @endforeach
                                                 @if(is_array($event->gallery_uploads))
                                                     @foreach($event->gallery_uploads as $path)
-                                                        <a href="{{ asset('storage/' . $path) }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}"></a>
+                                                        <a href="{{ cdn_rewrite(asset('storage/' . ltrim($path, '/'))) }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}"></a>
                                                     @endforeach
                                                 @endif
                                             </div>
@@ -713,7 +713,7 @@
                                     @endforeach
                                     @if(is_array($event->gallery_uploads))
                                         @foreach($event->gallery_uploads as $path)
-                                            <a href="{{ asset('storage/' . $path) }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}"></a>
+                                            <a href="{{ cdn_rewrite(asset('storage/' . ltrim($path, '/'))) }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}"></a>
                                         @endforeach
                                     @endif
                                 </div>
@@ -804,7 +804,7 @@
                                                 @endforeach
                                                 @if(is_array($intern->gallery_uploads))
                                                     @foreach($intern->gallery_uploads as $path)
-                                                        <a href="{{ asset('storage/' . $path) }}" class="glightbox" data-gallery="event-{{ $intern->id }}" data-title="{{ $intern->intern_name ?? $intern->title }}"></a>
+                                                        <a href="{{ cdn_rewrite(asset('storage/' . ltrim($path, '/'))) }}" class="glightbox" data-gallery="event-{{ $intern->id }}" data-title="{{ $intern->intern_name ?? $intern->title }}"></a>
                                                     @endforeach
                                                 @endif
                                             </div>

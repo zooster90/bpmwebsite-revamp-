@@ -22,7 +22,7 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: url('{{ $service->image_path ? asset("storage/".$service->image_path) : "https://images.unsplash.com/photo-1541888081628-ebec21e25e2e?q=80&w=1920" }}') center/cover no-repeat;
+        background: url('{{ $service->image_path ? cdn_rewrite(asset("storage/".ltrim($service->image_path, "/"))) : "https://images.unsplash.com/photo-1541888081628-ebec21e25e2e?q=80&w=1920" }}') center/cover no-repeat;
         opacity: 0.45;
         animation: slowZoom 20s infinite alternate ease-in-out;
     }
