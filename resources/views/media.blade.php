@@ -377,6 +377,7 @@
     document.getElementById('lightboxModal').addEventListener('click', function(e) {
         if (e.target === this) closeLightbox();
     });
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
 <script>
