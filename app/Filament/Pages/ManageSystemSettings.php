@@ -22,7 +22,7 @@ class ManageSystemSettings extends Page implements HasForms
     protected static string | \UnitEnum | null $navigationGroup = '⚙️ Settings & System';
     protected static ?string $navigationLabel = 'System Settings';
     protected static ?string $title = 'System Configuration';
-    protected static ?string $slug = 'settings';
+    protected static ?string $slug = 'system-settings';
     protected static ?int $navigationSort = 9999;
     protected string $view = 'filament.pages.manage-system-settings';
 
