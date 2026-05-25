@@ -111,10 +111,11 @@
 
     .media-image-wrapper {
         position: relative;
-        height: 380px;
+        height: 220px;
         overflow: hidden;
         background: #fcfbf8; /* clean off-white background */
         display: block;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
     .media-image {
