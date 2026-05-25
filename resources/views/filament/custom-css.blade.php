@@ -547,55 +547,9 @@
     .fi-modal-close-btn { transition: all 0.2s ease !important; }
     .fi-modal-close-btn:hover { background: rgba(0,0,0,0.05) !important; color: var(--bt-text) !important; }
 
-    /* ── Filament Image Editor (cropper) modal ─────────────────────────
-       Keep editor modal fully inside the viewport. Image canvas takes
-       the available space, right-side controls + bottom action bar
-       stay reachable. Without this the modal renders wider than the
-       browser window and clips Save/Cancel.                              */
-    .fi-modal-window:has([x-data*="imageEditor"]),
-    .fi-modal-window:has(.fi-fo-file-upload-editor),
-    .fi-modal-window:has(.image-editor-modal) {
-        width: min(95vw, 1400px) !important;
-        max-width: 95vw !important;
-        height: min(90vh, 900px) !important;
-        max-height: 90vh !important;
-        margin: 0 auto !important;
-        overflow: hidden !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
-    .fi-modal-window:has([x-data*="imageEditor"]) .fi-modal-content,
-    .fi-modal-window:has(.fi-fo-file-upload-editor) .fi-modal-content {
-        flex: 1 1 auto !important;
-        min-height: 0 !important;
-        overflow: auto !important;
-    }
-    .fi-modal-window:has([x-data*="imageEditor"]) .fi-modal-footer,
-    .fi-modal-window:has(.fi-fo-file-upload-editor) .fi-modal-footer {
-        flex-shrink: 0 !important;
-        position: sticky !important;
-        bottom: 0 !important;
-        background: inherit !important;
-        z-index: 2 !important;
-        padding: 1rem !important;
-        border-top: 1px solid var(--bt-border) !important;
-    }
-    /* Editor body: side-by-side canvas + controls, both scrollable if needed */
-    [x-data*="imageEditor"] > div,
-    .fi-fo-file-upload-editor {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 1rem !important;
-        align-items: stretch !important;
-        max-height: 75vh !important;
-    }
-    [x-data*="imageEditor"] canvas,
-    .fi-fo-file-upload-editor canvas,
-    .fi-fo-file-upload-editor img {
-        max-width: 100% !important;
-        max-height: 75vh !important;
-        object-fit: contain !important;
-    }
+    /* Image editor (cropper) modal: leave Filament defaults alone. Previous
+       custom CSS here over-constrained the editor and blanked it. The
+       editor is optional anyway — staff can upload without cropping. */
 
     /* Toast Notifications */
     .fi-no-notification { 
