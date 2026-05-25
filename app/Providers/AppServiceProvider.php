@@ -7,6 +7,7 @@ use App\Models\CultureEvent;
 use App\Models\News;
 use App\Models\PressCoverage;
 use App\Models\Project;
+use App\Observers\CacheInvalidationObserver;
 use App\Observers\ImageCompressionObserver;
 use Illuminate\Support\ServiceProvider;
 
@@ -47,6 +48,12 @@ class AppServiceProvider extends ServiceProvider
         CultureEvent::observe(ImageCompressionObserver::class);
         News::observe(ImageCompressionObserver::class);
         PressCoverage::observe(ImageCompressionObserver::class);
+
+        Project::observe(CacheInvalidationObserver::class);
+        Award::observe(CacheInvalidationObserver::class);
+        CultureEvent::observe(CacheInvalidationObserver::class);
+        News::observe(CacheInvalidationObserver::class);
+        PressCoverage::observe(CacheInvalidationObserver::class);
     }
 }
 
