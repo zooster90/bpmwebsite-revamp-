@@ -111,7 +111,7 @@
 
     .media-image-wrapper {
         position: relative;
-        height: 280px;
+        height: 380px;
         overflow: hidden;
         background: #0d1925; /* dark letterbox for portrait press images */
         display: flex;
@@ -122,8 +122,8 @@
     .media-image {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* show full image — no cropping */
-        object-position: center;
+        object-fit: cover; /* fill the area so it's readable */
+        object-position: top; /* start reading from the top headline */
         transition: transform 0.7s ease, filter 0.3s ease;
         image-rendering: -webkit-optimize-contrast;
         filter: brightness(1.0) contrast(1.04) saturate(1.06);
