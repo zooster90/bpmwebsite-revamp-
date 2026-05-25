@@ -546,7 +546,38 @@
     }
     .fi-modal-close-btn { transition: all 0.2s ease !important; }
     .fi-modal-close-btn:hover { background: rgba(0,0,0,0.05) !important; color: var(--bt-text) !important; }
-    
+
+    /* ── Filament Image Editor (cropper) modal ─────────────────────────
+       The image editor renders a wide image + a column of aspect-ratio
+       buttons on the right. Default custom modal styles + the editor's
+       fixed canvas size were causing the right sidebar to be pushed off
+       the viewport. Constrain the modal, allow overflow, and make sure
+       the editor's flex layout has room to breathe.                       */
+    [x-data*="imageEditor"],
+    .fi-fo-file-upload-editor,
+    .filepond--image-editor,
+    .image-editor-modal {
+        max-width: 95vw !important;
+        max-height: 90vh !important;
+    }
+    .fi-modal:has(.fi-fo-file-upload-editor) .fi-modal-window,
+    .fi-modal:has([x-data*="imageEditor"]) .fi-modal-window {
+        max-width: 95vw !important;
+        width: auto !important;
+        overflow: visible !important;
+    }
+    .fi-modal:has(.fi-fo-file-upload-editor) .fi-modal-content,
+    .fi-modal:has([x-data*="imageEditor"]) .fi-modal-content {
+        overflow: auto !important;
+        max-height: 85vh !important;
+    }
+    .fi-fo-file-upload-editor img,
+    .filepond--image-editor img {
+        max-width: 100% !important;
+        max-height: 70vh !important;
+        object-fit: contain !important;
+    }
+
     /* Toast Notifications */
     .fi-no-notification { 
         border-radius: 16px !important; 
