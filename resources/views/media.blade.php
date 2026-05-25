@@ -277,7 +277,7 @@
 <section class="media-hero">
     <div class="hero-content reveal">
         <span class="hero-tag"><i class="fas fa-newspaper"></i> News &amp; Media</span>
-        <h1 class="hero-title">Press <span style="color:var(--gold);">Coverage</span></h1>
+        <h1 class="hero-title">MEDIA <span style="color:var(--gold);">COVERAGE</span></h1>
         <p style="color:rgba(255,255,255,0.72); font-size:1.05rem; margin-top:1rem; max-width:560px; line-height:1.85; font-family:'Montserrat',sans-serif;">
             Showcasing our project milestones and expert insights as featured in leading regional publications.
         </p>
