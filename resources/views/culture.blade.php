@@ -586,6 +586,16 @@
                     <div class="count-badge" title="Matching Records">
                         <span x-text="filteredCount"></span>
                     </div>
+                    {{-- Reset-everything button: visible only when at least one filter is active --}}
+                    <button x-cloak
+                            x-show="activeCat !== 'all' || activeSubCat !== 'all' || activeYear !== 'all' || searchQuery.trim() !== ''"
+                            x-transition.opacity
+                            @click="resetAllFilters()"
+                            class="cmd-clear-inline ml-2"
+                            title="Reset all filters"
+                            aria-label="Reset all filters">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </button>
                 </div>
 
             </div>
@@ -953,74 +963,115 @@
                 return this.subCatsMap[category].includes(subCategoryKey);
             },
 
+            // ────────────────────────────────────────────────────────────
+            //  Lifecycle
+            // ────────────────────────────────────────────────────────────
             init() {
-                // Next tick to ensure DOM is ready before counting
+                // First paint: run filter once the DOM has the event-cards.
                 this.$nextTick(() => { this.updateFilter(); });
-                
-                this.$watch('activeCat', () => { 
-                    this.activeSubCat = 'all'; 
-                    this.activeYear = 'all'; 
-                    this.activeInternYear = null; 
-                    this.updateFilter(); 
-                });
-                this.$watch('activeSubCat', () => { 
-                    this.activeYear = 'all'; 
-                    this.updateFilter(); 
-                });
-                this.$watch('activeYear', () => {
-                    this.updateFilter(); 
-                });
+
+                // Single watcher per piece of state — the previous chain double-set
+                // sub/year on activeCat change because setCategory already did the
+                // reset. Now: state changes -> updateFilter, nothing more.
+                this.$watch('activeCat',    () => this.updateFilter());
+                this.$watch('activeSubCat', () => this.updateFilter());
+                this.$watch('activeYear',   () => this.updateFilter());
+
+                // Search: debounce so we don't query the DOM on every keystroke.
+                let searchTimer = null;
                 this.$watch('searchQuery', () => {
-                    this.updateFilter(); 
+                    clearTimeout(searchTimer);
+                    searchTimer = setTimeout(() => this.updateFilter(), 220);
                 });
 
-                // Keyboard shortcut: '/' to focus search
+                // Keyboard shortcut: '/' focuses the search input
                 document.addEventListener('keydown', (e) => {
                     const tag = document.activeElement?.tagName;
                     if (e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') {
                         e.preventDefault();
                         this.$refs.searchInput?.focus();
                     }
+                    // Esc closes any open dropdown
+                    if (e.key === 'Escape' && this.openDropdown) {
+                        this.openDropdown = null;
+                    }
+                });
+
+                // Click outside any dropdown closes it (more intuitive than
+                // requiring a second click on the pill).
+                document.addEventListener('click', (e) => {
+                    if (!this.openDropdown) return;
+                    if (!e.target.closest('.dropdown-wrapper, .filter-pill')) {
+                        this.openDropdown = null;
+                    }
                 });
             },
 
-            // Safe dropdown toggling with slight delay to prevent flicker
+            // ────────────────────────────────────────────────────────────
+            //  Dropdown control
+            // ────────────────────────────────────────────────────────────
             handleMouseEnter(menu) {
                 clearTimeout(this.closeTimeout);
                 this.openDropdown = menu;
             },
-            
+
             handleMouseLeave() {
                 this.closeTimeout = setTimeout(() => {
                     this.openDropdown = null;
-                }, 150); // slight delay to allow moving mouse downwards
+                }, 150);
             },
-            
+
+            // Click the pill: open this dropdown AND switch to that category,
+            // but don't close the dropdown — that was the old bug. Second click
+            // on the same pill toggles the dropdown back closed.
             toggleDropdown(menu) {
                 if (this.openDropdown === menu) {
                     this.openDropdown = null;
-                } else {
-                    this.openDropdown = menu;
-                    this.setCategory(menu);
+                    return;
                 }
+                this._switchCategory(menu);
+                this.openDropdown = menu;
             },
 
-            setCategory(cat) {
-                this.activeCat = cat;
-                this.activeSubCat = 'all';
-                this.activeYear = 'all';
+            // ────────────────────────────────────────────────────────────
+            //  Category / sub-category / reset
+            // ────────────────────────────────────────────────────────────
+            // Internal — change category state WITHOUT touching the dropdown
+            // or scrolling. Shared by toggleDropdown (keeps dropdown open) and
+            // setCategory (closes + scrolls).
+            _switchCategory(cat) {
+                this.activeCat        = cat;
+                this.activeSubCat     = 'all';
+                this.activeYear       = 'all';
                 this.activeInternYear = null;
-                this.searchQuery = '';
-                this.openDropdown = null; // Close dropdown after selection
-                window.scrollTo({ top: document.querySelector('.master-filter-container').offsetTop - 10, behavior: 'smooth' });
+                this.searchQuery      = '';
+            },
+
+            // Public — used by flat pills (All Hub, Team Building, Internship,
+            // Trips, and the empty-state "browse all" CTA).
+            setCategory(cat) {
+                this._switchCategory(cat);
+                this.openDropdown = null;
+                this._scrollToFilters();
             },
 
             setSubCat(sub) {
                 this.activeSubCat = sub;
-                this.activeYear = 'all';
-                this.openDropdown = null; // Close dropdown after selection
-                this.updateFilter();
-                window.scrollTo({ top: document.querySelector('.master-filter-container').offsetTop - 10, behavior: 'smooth' });
+                this.activeYear   = 'all';
+                this.openDropdown = null;
+                this._scrollToFilters();
+            },
+
+            // Clear every filter at once — used by the "Reset" button.
+            resetAllFilters() {
+                this._switchCategory('all');
+                this.openDropdown = null;
+            },
+
+            _scrollToFilters() {
+                const el = document.querySelector('.master-filter-container');
+                if (!el) return;
+                window.scrollTo({ top: el.offsetTop - 10, behavior: 'smooth' });
             },
 
             getCatLabel() {
