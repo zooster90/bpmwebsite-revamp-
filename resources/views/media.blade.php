@@ -299,15 +299,24 @@
 
         <div class="media-grid">
             @forelse($coverages as $item)
+                @php
+                    // Card grid serves the small 'card' webp variant, lightbox keeps the original full-size.
+                    $cardImg = $item->hasMedia('press_image')
+                        ? ($item->getFirstMediaUrl('press_image', 'card') ?: $item->getFirstMediaUrl('press_image'))
+                        : $item->display_image;
+                    $fullImg = $item->hasMedia('press_image')
+                        ? $item->getFirstMediaUrl('press_image')
+                        : $item->display_image;
+                @endphp
                 <div class="media-card reveal year-{{ $item->published_date->format('Y') }}">
                     <div class="media-image-wrapper">
-                        <a href="{{ $item->display_image }}"
+                        <a href="{{ $fullImg }}"
                            class="glightbox"
                            data-gallery="media-press"
                            data-title="{{ $item->headline }}"
                            data-description="{{ $item->publication }} &middot; {{ $item->published_date->format('d M Y') }}"
                            style="display:block; width:100%; height:100%;">
-                            <img src="{{ $item->display_image }}" alt="{{ $item->headline }}" class="media-image" loading="lazy">
+                            <img src="{{ $cardImg }}" alt="{{ $item->headline }}" loading="lazy" decoding="async" width="800" height="600" class="media-image">
                             <div class="media-overlay">
                                 <div class="btn-zoom"><i class="fas fa-expand-alt"></i></div>
                             </div>
