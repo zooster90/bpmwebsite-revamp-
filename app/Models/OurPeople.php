@@ -22,6 +22,12 @@ class OurPeople extends Model implements HasMedia
         $this->addMediaCollection('people_image')->useDisk('public')->singleFile();
     }
 
+    public function registerMediaConversions(?\Spatie\MediaLibrary\MediaCollections\Models\Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')->width(400)->format('webp')->quality(72)->nonQueued();
+        $this->addMediaConversion('card')->width(800)->format('webp')->quality(78)->nonQueued();
+    }
+
     public function getDisplayImageAttribute()
     {
         if ($this->hasMedia('people_image')) {

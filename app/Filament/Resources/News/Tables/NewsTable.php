@@ -15,11 +15,31 @@ class NewsTable
     public static function configure(Table $table): Table
     {
         return $table
+            // Eager-load media so the photo-count column doesn't fire a query per row.
+            ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->with('media'))
             ->columns([
+                \Filament\Tables\Columns\ImageColumn::make('display_image')
+                    ->label('Thumbnail')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->extraImgAttributes(['style' => 'min-width: 80px; min-height: 60px; max-width: 80px; max-height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);']),
                 TextColumn::make('title')
                     ->searchable(),
+                TextColumn::make('photo_count')
+                    ->label('Photos')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->state(fn ($record) => $record->getMedia('news_image')->count() + $record->getMedia('gallery')->count())
+                    ->badge()
+                    ->icon('heroicon-o-photo')
+                    ->color(fn (int $state) => match (true) {
+                        $state === 0 => 'danger',
+                        $state <= 3  => 'warning',
+                        default      => 'success',
+                    })
+                    ->tooltip(fn ($record) => 'Cover: ' . $record->getMedia('news_image')->count() . ' · Gallery: ' . $record->getMedia('gallery')->count())
+                    ->formatStateUsing(fn (int $state) => $state === 0 ? 'None' : $state . ($state === 1 ? ' photo' : ' photos')),
                 TextColumn::make('slug')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('published_date')
                     ->date()
                     ->sortable(),
@@ -33,10 +53,6 @@ class NewsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                \Filament\Tables\Columns\ImageColumn::make('display_image')
-                    ->label('Thumbnail')
-                    ->alignment(\Filament\Support\Enums\Alignment::Center)
-                    ->extraImgAttributes(['style' => 'min-width: 80px; min-height: 60px; max-width: 80px; max-height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);']),
                 TextColumn::make('author')
                     ->searchable(),
                 IconColumn::make('is_published')

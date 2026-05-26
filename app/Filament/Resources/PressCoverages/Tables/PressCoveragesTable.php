@@ -17,6 +17,8 @@ class PressCoveragesTable
     public static function configure(Table $table): Table
     {
         return $table
+            // Eager-load media so the photo-count column doesn't fire a query per row.
+            ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->with('media'))
             ->columns([
                 \Filament\Tables\Columns\ImageColumn::make('display_image')
                     ->label('Clipping')
@@ -29,6 +31,20 @@ class PressCoveragesTable
                     ->sortable()
                     ->weight('bold')
                     ->limit(50),
+
+                TextColumn::make('photo_count')
+                    ->label('Photos')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->state(fn ($record) => $record->getMedia('press_image')->count() + $record->getMedia('gallery')->count())
+                    ->badge()
+                    ->icon('heroicon-o-photo')
+                    ->color(fn (int $state) => match (true) {
+                        $state === 0 => 'danger',
+                        $state <= 3  => 'warning',
+                        default      => 'success',
+                    })
+                    ->tooltip(fn ($record) => 'Cover: ' . $record->getMedia('press_image')->count() . ' · Gallery: ' . $record->getMedia('gallery')->count())
+                    ->formatStateUsing(fn (int $state) => $state === 0 ? 'None' : $state . ($state === 1 ? ' photo' : ' photos')),
 
                 TextColumn::make('publication')
                     ->label('Publication')

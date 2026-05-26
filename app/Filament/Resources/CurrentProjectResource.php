@@ -170,19 +170,35 @@ class CurrentProjectResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            // Eager-load media so the photo-count column doesn't fire a query per row.
+            ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->with('media'))
             ->columns([
                 ImageColumn::make('display_image')
                     ->label('Image')
                     ->alignment(\Filament\Support\Enums\Alignment::Center)
                     ->extraImgAttributes(['style' => 'min-width: 80px; min-height: 60px; max-width: 80px; max-height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);']),
-                
+
                 TextColumn::make('title')
                     ->label('Project')
                     ->searchable()
                     ->sortable()
                     ->weight('bold')
                     ->description(fn (CurrentProject $record): string => $record->location ?? ''),
-                
+
+                TextColumn::make('photo_count')
+                    ->label('Photos')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->state(fn ($record) => $record->getMedia('cover_image')->count() + $record->getMedia('gallery')->count())
+                    ->badge()
+                    ->icon('heroicon-o-photo')
+                    ->color(fn (int $state) => match (true) {
+                        $state === 0 => 'danger',
+                        $state <= 3  => 'warning',
+                        default      => 'success',
+                    })
+                    ->tooltip(fn ($record) => 'Cover: ' . $record->getMedia('cover_image')->count() . ' · Gallery: ' . $record->getMedia('gallery')->count())
+                    ->formatStateUsing(fn (int $state) => $state === 0 ? 'None' : $state . ($state === 1 ? ' photo' : ' photos')),
+
                 TextColumn::make('status')
                     ->badge()
                     ->color(fn (string | null $state): string => match ($state) {
