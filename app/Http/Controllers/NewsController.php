@@ -8,7 +8,11 @@ class NewsController extends Controller
 {
     public function index(\Illuminate\Http\Request $request)
     {
-        $query = News::query()->where('is_published', true);
+        // Eager-load media + category so the card grid doesn't fire one query
+        // per article on `hasMedia()` / `getFirstMediaUrl()`.
+        $query = News::query()
+            ->where('is_published', true)
+            ->with(['media', 'category']);
 
         // Filter by search keyword
         if ($request->has('search') && !empty($request->search)) {
@@ -38,7 +42,10 @@ class NewsController extends Controller
 
     public function show(string $slug)
     {
-        $article = News::where('slug', $slug)->where('is_published', true)->firstOrFail();
+        $article = News::where('slug', $slug)
+            ->where('is_published', true)
+            ->with(['media', 'category'])
+            ->firstOrFail();
 
         return view('news-detail', compact('article'));
     }

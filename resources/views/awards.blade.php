@@ -174,7 +174,7 @@
                     @foreach($allCategories as $id => $category)
                         <a href="#cat-{{ $id }}" class="bt-cat-anchor">
                             @if($category['img'])
-                                <img src="{{ $category['img'] }}" alt="{{ $category['title'] }}">
+                                <img src="{{ $category['img'] }}" alt="{{ $category['title'] }}" loading="lazy" decoding="async" width="120" height="120">
                             @else
                                 <i class="fa-solid fa-award text-gold/30"></i>
                             @endif
@@ -196,7 +196,7 @@
                         <div class="award-section-header">
                             <div class="flex-shrink-0 bt-glow">
                                 @if($category['img'])
-                                    <img src="{{ $category['img'] }}" alt="{{ $category['title'] }}" class="h-20 w-auto object-contain">
+                                    <img src="{{ $category['img'] }}" alt="{{ $category['title'] }}" loading="lazy" decoding="async" width="160" height="160" class="h-20 w-auto object-contain">
                                 @else
                                     <div class="w-20 h-20 bg-white border border-gray-100 rounded-full flex items-center justify-center">
                                         <i class="fa-solid fa-award text-3xl text-gold"></i>
@@ -223,7 +223,7 @@
                                         @if($item['img'])
                                             <a href="{{ $item['img'] }}" class="glightbox">
                                                 <div class="w-20 h-20 bg-off-white flex items-center justify-center p-3 grayscale group-hover:grayscale-0 transition-all duration-700">
-                                                    <img src="{{ $item['img'] }}" alt="{{ $item['title'] }}" class="w-full h-full object-contain">
+                                                    <img src="{{ $item['img'] }}" alt="{{ $item['title'] }}" loading="lazy" decoding="async" width="160" height="160" class="w-full h-full object-contain">
                                                 </div>
                                             </a>
                                         @endif

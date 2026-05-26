@@ -262,7 +262,7 @@
             {{-- 3-col grid: more professional display ratio --}}
             <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:2.5rem;">
                 @php
-                    $teams = \App\Models\OurPeople::where('is_active', true)->orderBy('sort_order', 'asc')->get();
+                    $teams = \App\Models\OurPeople::with('media')->where('is_active', true)->orderBy('sort_order', 'asc')->get();
                 @endphp
 
                 @foreach($teams as $index => $t)
@@ -281,7 +281,10 @@
                                 <div class="bt-team-img-wrap">
                                     <img src="{{ $imgSrc }}"
                                          alt="{{ $t->title }} — Builtech Project Management"
-                                         loading="lazy">
+                                         loading="lazy"
+                                         decoding="async"
+                                         width="600"
+                                         height="800">
                                     {{-- HD overlay with expand button --}}
                                     <div class="bt-team-overlay">
                                         <span class="bt-team-overlay-label">{{ $t->department }}</span>

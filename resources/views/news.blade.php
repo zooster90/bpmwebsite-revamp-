@@ -40,7 +40,18 @@
                         <article class="reveal group bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:translate-y-[-8px] hover:shadow-[0_20px_50px_rgba(10,25,47,0.12)]">
                             <!-- Image Container -->
                             <a href="{{ route('news.show', $featured->slug) }}" class="block relative aspect-[4/3] md:aspect-[21/9] overflow-hidden">
-                                <img src="{{ $featured->display_image ?? 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200' }}" 
+                                @php
+                                    $featuredImg = $featured->hasMedia('news_image')
+                                        ? ($featured->getFirstMediaUrl('news_image', 'card') ?: $featured->getFirstMediaUrl('news_image'))
+                                        : ($featured->display_image ?? 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200');
+                                @endphp
+                                <img src="{{ $featuredImg }}"
+                                     alt="{{ $featured->title }}"
+                                     loading="eager"
+                                     fetchpriority="high"
+                                     decoding="async"
+                                     width="1200"
+                                     height="600"
                                      class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
                                 <div class="absolute inset-0 bg-navy/5 group-hover:bg-navy/15 transition-colors duration-500"></div>
                                 <div class="absolute top-6 left-6 z-20">
@@ -77,7 +88,17 @@
                             @foreach($articles->skip(1) as $article)
                                 <article class="reveal group" data-delay="{{ ($loop->index % 2) * 200 }}">
                                     <a href="{{ route('news.show', $article->slug) }}" class="block aspect-[4/3] overflow-hidden rounded-xl mb-6 relative">
-                                        <img src="{{ $article->display_image ?? 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800' }}" 
+                                        @php
+                                            $cardImg = $article->hasMedia('news_image')
+                                                ? ($article->getFirstMediaUrl('news_image', 'card') ?: $article->getFirstMediaUrl('news_image'))
+                                                : ($article->display_image ?? 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800');
+                                        @endphp
+                                        <img src="{{ $cardImg }}"
+                                             alt="{{ $article->title }}"
+                                             loading="lazy"
+                                             decoding="async"
+                                             width="800"
+                                             height="600"
                                              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0">
                                         <div class="absolute top-3 right-3">
                                             <span style="font-size: 0.72rem; font-weight: 800; background: rgba(255,255,255,0.95); color: var(--navy); padding: 4px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.1em;">{{ $article->published_date ? \Carbon\Carbon::parse($article->published_date)->format('M Y') : $article->created_at->format('M Y') }}</span>

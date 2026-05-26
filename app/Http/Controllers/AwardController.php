@@ -125,8 +125,13 @@ class AwardController extends Controller
         $config = $this->categoryConfig();
         $logoMap = $this->logoMap();
 
-        // 1. All awards, newest first
-        $awards = Award::orderBy('year', 'desc')->orderBy('name', 'asc')->get();
+        // 1. All awards, newest first.
+        // Eager-load media + category so normalizeAward() / resolveCategoryLogo()
+        // don't fire one query per award when they call hasMedia() / getMedia().
+        $awards = Award::with(['media', 'category'])
+            ->orderBy('year', 'desc')
+            ->orderBy('name', 'asc')
+            ->get();
 
         // 2. Group by normalized category key
         $grouped = $awards->groupBy(function ($award) {

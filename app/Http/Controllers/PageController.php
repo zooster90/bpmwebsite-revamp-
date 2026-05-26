@@ -10,9 +10,12 @@ class PageController extends Controller
 {
     public function index()
     {
-        // 只选出发布了且标记为“旗舰”的项目放在首页展示
+        // 只选出发布了且标记为“旗舰”的项目放在首页展示.
+        // Eager-load media + category so the homepage doesn't fire one query
+        // per item when display_image / hasMedia is called from the view.
         $flagships = Project::where('is_published', true)
             ->where('is_flagship', true)
+            ->with(['media', 'category'])
             ->orderBy('sort_order')
             ->limit(3)
             ->get();
@@ -21,13 +24,21 @@ class PageController extends Controller
         $latest_news = News::where(function($q) {
             $q->whereNotNull('image_url')->where('image_url', '!=', '')
               ->orWhereNotNull('news_image_upload')->where('news_image_upload', '!=', '');
-        })->orderBy('published_date', 'desc')->limit(3)->get();
-        
+        })
+        ->with(['media', 'category'])
+        ->orderBy('published_date', 'desc')
+        ->limit(3)
+        ->get();
+
         // 首页媒体报道
-        $latestMedia = \App\Models\PressCoverage::orderBy('published_date', 'desc')->limit(3)->get();
+        $latestMedia = \App\Models\PressCoverage::with(['media', 'category'])
+            ->orderBy('published_date', 'desc')
+            ->limit(3)
+            ->get();
 
         // 🏗️ 获取正在进行的重点项目
         $ongoingProjects = CurrentProject::where('is_active', true)
+            ->with(['media', 'category'])
             ->orderBy('sort_order')
             ->limit(4)
             ->get();

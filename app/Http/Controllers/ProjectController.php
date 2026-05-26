@@ -73,7 +73,8 @@ class ProjectController extends Controller
         $hasFilters    = ! empty($category) || ! empty($status) || ! empty($search);
 
         // ── Base query ─────────────────────────────────────────
-        $query = Project::where('is_published', true);
+        // Eager-load media so card thumbnails don't fire one query per project.
+        $query = Project::where('is_published', true)->with(['media', 'category']);
 
         if ($category && $category !== 'all') {
             $query->whereHas('category', function ($q) use ($category) {
@@ -148,6 +149,7 @@ class ProjectController extends Controller
 
         // ── Main page → fetch ALL published, group by status ───
         $allProjects = Project::where('is_published', true)
+            ->with(['media', 'category'])
             ->when($search, fn($q) => $q->where(function ($inner) use ($search) {
                 $inner->where('name', 'like', "%{$search}%")
                       ->orWhere('location', 'like', "%{$search}%")
@@ -164,6 +166,7 @@ class ProjectController extends Controller
         // Flagship strip: is_flagship=true, fallback to top 3 Completed
         $flagshipProjects = Project::where('is_published', true)
             ->where('is_flagship', true)
+            ->with(['media', 'category'])
             ->orderBy('year', 'desc')
             ->take(6)
             ->get();
@@ -171,6 +174,7 @@ class ProjectController extends Controller
         if ($flagshipProjects->isEmpty()) {
             $flagshipProjects = Project::where('is_published', true)
                 ->whereIn('status', ['Completed', 'completed'])
+                ->with(['media', 'category'])
                 ->orderBy('year', 'desc')
                 ->take(3)
                 ->get();
@@ -197,6 +201,7 @@ class ProjectController extends Controller
     {
         $project = Project::where('slug', $slug)
             ->where('is_published', true)
+            ->with(['media', 'category', 'awards.media'])
             ->firstOrFail();
 
         $relatedProjects = Project::where('is_published', true)
@@ -208,6 +213,7 @@ class ProjectController extends Controller
                 }
             })
             ->where('id', '!=', $project->id)
+            ->with(['media', 'category'])
             ->orderBy('year', 'desc')
             ->take(3)
             ->get();

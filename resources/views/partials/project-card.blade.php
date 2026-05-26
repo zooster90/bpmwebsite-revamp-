@@ -12,7 +12,14 @@
     }
 
     $imgUrl = asset('images/placeholder.jpg');
-    if($project->display_image) $imgUrl = $project->display_image;
+    // Prefer the small 'card' WebP conversion (800px) over the 1920px original
+    // for grid display. Falls back to display_image if no media conversion.
+    if (method_exists($project, 'hasMedia') && $project->hasMedia('cover_image')) {
+        $cardUrl = $project->getFirstMediaUrl('cover_image', 'card');
+        $imgUrl  = $cardUrl ?: $project->getFirstMediaUrl('cover_image');
+    } elseif ($project->display_image) {
+        $imgUrl = $project->display_image;
+    }
 
     // Count gallery images if available
     $photoCount = method_exists($project, 'getMedia') ? $project->getMedia('gallery')->count() : 0;
@@ -25,6 +32,9 @@
         <img src="{{ $imgUrl }}"
              alt="{{ $project->title ?? $project->name }}"
              loading="lazy"
+             decoding="async"
+             width="800"
+             height="600"
              style="width:100%; height:100%; object-fit:cover; object-position:center; transition:transform 1.2s ease; image-rendering:-webkit-optimize-contrast;">
 
         {{-- Year badge --}}

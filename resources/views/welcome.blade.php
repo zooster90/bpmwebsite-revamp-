@@ -554,7 +554,12 @@
                         </span>
                     </div>
 
-                    <img src="{{ $p->display_image }}" alt="{{ $p->title ?? $p->name }}" loading="lazy">
+                    @php
+                        $flagshipImg = $p->hasMedia('cover_image')
+                            ? ($p->getFirstMediaUrl('cover_image', 'card') ?: $p->getFirstMediaUrl('cover_image'))
+                            : $p->display_image;
+                    @endphp
+                    <img src="{{ $flagshipImg }}" alt="{{ $p->title ?? $p->name }}" loading="lazy" decoding="async" width="800" height="600">
                     <div class="project-info relative z-20">
                         <p style="color:#c5a059; font-size:0.75rem; letter-spacing:2.5px; font-weight:800; text-transform:uppercase;">{{ $p->location }}</p>
                         <h4 style="font-family:'Oswald', sans-serif; font-size:1.8rem; margin-top:8px;">{{ $p->title ?? $p->name }}</h4>
@@ -586,7 +591,12 @@
                             <div class="absolute top-4 right-4 bg-gold text-white text-[10px] font-bold px-4 py-2 rounded-full z-10 tracking-[0.2em] uppercase shadow-md">
                                 Ongoing
                             </div>
-                            <img src="{{ $op->display_image ?? asset('img/images/placeholder.jpg') }}" alt="{{ $op->title ?? $op->name }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            @php
+                                $opImg = $op->hasMedia('cover_image')
+                                    ? ($op->getFirstMediaUrl('cover_image', 'card') ?: $op->getFirstMediaUrl('cover_image'))
+                                    : ($op->display_image ?? asset('img/images/placeholder.jpg'));
+                            @endphp
+                            <img src="{{ $opImg }}" alt="{{ $op->title ?? $op->name }}" loading="lazy" decoding="async" width="800" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         </div>
                         <div class="p-6">
                             <span class="text-gold font-bold text-[10px] uppercase tracking-[0.2em] mb-2 block">{{ $op->category?->name ?? 'Construction' }}</span>
@@ -645,7 +655,12 @@
                 @foreach($latest_news as $news)
                     <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 reveal border border-gray-100 group">
                         <div class="relative h-64 overflow-hidden">
-                            <img src="{{ $news->display_image }}" alt="{{ $news->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            @php
+                                $newsImg = $news->hasMedia('news_image')
+                                    ? ($news->getFirstMediaUrl('news_image', 'card') ?: $news->getFirstMediaUrl('news_image'))
+                                    : $news->display_image;
+                            @endphp
+                            <img src="{{ $newsImg }}" alt="{{ $news->title }}" loading="lazy" decoding="async" width="800" height="600" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-8 text-left">
                             <span style="display:block; font-size:0.8rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.5rem;">
