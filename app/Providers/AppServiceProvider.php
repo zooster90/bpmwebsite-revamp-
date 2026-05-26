@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
         \Filament\Tables\Table::configureUsing(function (\Filament\Tables\Table $table): void {
             $table
                 ->paginationPageOptions([10, 25, 50, 100, 'all'])
-                ->defaultPaginationPageOption('all')
+                ->defaultPaginationPageOption(25)
                 ->persistFiltersInSession()
                 ->persistSearchInSession()
                 ->persistSortInSession();

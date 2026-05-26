@@ -693,7 +693,7 @@
                         @endphp
                         <article class="event-card reveal" 
                                  data-category="{{ $catKey }}" 
-                                 data-subcategory="{{ strtolower(trim($event->sub_category ?? '')) }}"
+                                 data-subcategory="{{ strtolower(trim($event->subCategory?->slug ?? '')) }}"
                                  data-title="{{ strtolower($event->title ?? '') }}" 
                                  data-location="{{ strtolower($event->location ?? 'penang') }}"
                                  data-year="{{ $event->year ?? ($event->event_date ? $event->event_date->format('Y') : '') }}">
