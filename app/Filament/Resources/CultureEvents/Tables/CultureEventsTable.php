@@ -4,6 +4,7 @@ namespace App\Filament\Resources\CultureEvents\Tables;
 
 use App\Models\Category;
 use App\Models\CultureEvent;
+use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\DeleteAction;
@@ -193,26 +194,35 @@ class CultureEventsTable
             ], layout: FiltersLayout::AboveContent)
 
             // ══════════════════════════════════════════════════════════
-            //  ROW ACTIONS — With confirmation on Delete
+            //  ROW ACTIONS — Consolidated into a single dropdown so the
+            //  table breathes; Edit stays as a quick standalone button
+            //  because it is the most-used action.
             // ══════════════════════════════════════════════════════════
             ->actions([
-                ViewAction::make()
-                    ->label('View')
-                    ->icon('heroicon-o-eye')
-                    ->color('gray'),
-
                 EditAction::make()
                     ->label('Edit')
                     ->icon('heroicon-o-pencil-square'),
 
-                DeleteAction::make()
-                    ->label('Delete')
-                    ->icon('heroicon-o-trash')
-                    ->requiresConfirmation()
-                    ->modalHeading('Delete this Activity Record?')
-                    ->modalDescription('This will permanently delete the record AND all uploaded photos attached to it. This cannot be undone.')
-                    ->modalSubmitActionLabel('Yes, delete permanently')
-                    ->color('danger'),
+                ActionGroup::make([
+                    ViewAction::make()
+                        ->label('View Details')
+                        ->icon('heroicon-o-eye')
+                        ->color('gray'),
+
+                    DeleteAction::make()
+                        ->label('Delete')
+                        ->icon('heroicon-o-trash')
+                        ->requiresConfirmation()
+                        ->modalHeading('Delete this Activity Record?')
+                        ->modalDescription('This will permanently delete the record AND all uploaded photos attached to it. This cannot be undone.')
+                        ->modalSubmitActionLabel('Yes, delete permanently')
+                        ->color('danger'),
+                ])
+                    ->label('More')
+                    ->icon('heroicon-m-ellipsis-vertical')
+                    ->color('gray')
+                    ->size(\Filament\Support\Enums\Size::Small)
+                    ->button(),
             ])
 
             ->bulkActions([

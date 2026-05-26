@@ -10,10 +10,11 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Filament\Support\Enums\Alignment; 
 
+use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\DeleteAction; 
-use Filament\Actions\EditAction;   
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 
 /**
  * ============================================================
@@ -129,10 +130,19 @@ class ProjectsTable
                 EditAction::make()
                     ->label('Edit')
                     ->icon('heroicon-o-pencil-square'),
-                    
-                DeleteAction::make()
-                    ->label('Delete')
-                    ->icon('heroicon-o-trash'),
+
+                ActionGroup::make([
+                    DeleteAction::make()
+                        ->label('Delete')
+                        ->icon('heroicon-o-trash')
+                        ->requiresConfirmation()
+                        ->color('danger'),
+                ])
+                    ->label('More')
+                    ->icon('heroicon-m-ellipsis-vertical')
+                    ->color('gray')
+                    ->size(\Filament\Support\Enums\Size::Small)
+                    ->button(),
             ])
             ->bulkActions([
                 BulkActionGroup::make([

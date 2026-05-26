@@ -80,6 +80,7 @@ class AdminPanelProvider extends PanelProvider
                 \App\Filament\Widgets\NeedsAttentionWidget::class,
                 \App\Filament\Widgets\DashboardHero::class,
                 \App\Filament\Widgets\StatsOverview::class,
+                \App\Filament\Widgets\MediaLibraryOverview::class,
                 \App\Filament\Widgets\FrontendShortcutsWidget::class,
                 \App\Filament\Widgets\LatestInquiries::class,
                 \App\Filament\Widgets\DashboardAnalytics::class,
