@@ -30,6 +30,9 @@ class CultureEventsTable
     public static function configure(Table $table): Table
     {
         return $table
+            // Eager-load media so the photo-count column doesn't fire a query
+            // per row. One query for all rows instead of N.
+            ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->with('media'))
             ->columns([
                 // ── Thumbnail ──────────────────────────────────────────
                 SpatieMediaLibraryImageColumn::make('culture_image')
@@ -49,6 +52,60 @@ class CultureEventsTable
                         ? '🎓 ' . $record->intern_name . ($record->university ? ' · ' . $record->university : '')
                         : ($record->description ? \Illuminate\Support\Str::limit($record->description, 60) : null)
                     ),
+
+                // ── Photo Count Badge (cover + gallery) ───────────────
+                TextColumn::make('photo_count')
+                    ->label('Photos')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->state(function ($record) {
+                        $cover   = $record->getMedia('culture_image')->count();
+                        $gallery = $record->getMedia('gallery')->count();
+                        return $cover + $gallery;
+                    })
+                    ->badge()
+                    ->icon('heroicon-o-photo')
+                    ->color(fn (int $state) => match (true) {
+                        $state === 0   => 'danger',
+                        $state <= 3    => 'warning',
+                        default        => 'success',
+                    })
+                    ->tooltip(function ($record) {
+                        $cover   = $record->getMedia('culture_image')->count();
+                        $gallery = $record->getMedia('gallery')->count();
+                        return "Cover: {$cover} · Gallery: {$gallery}";
+                    })
+                    ->formatStateUsing(fn (int $state) => $state === 0 ? 'No photos' : ($state . ' ' . ($state === 1 ? 'photo' : 'photos'))),
+
+                // ── Video Indicator ────────────────────────────────────
+                TextColumn::make('video_status')
+                    ->label('Video')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->state(function ($record) {
+                        if (! empty($record->video_upload)) return 'file';
+                        if (! empty($record->video_url))    return 'link';
+                        return 'none';
+                    })
+                    ->badge()
+                    ->icon(fn (string $state) => match ($state) {
+                        'file' => 'heroicon-o-film',
+                        'link' => 'heroicon-o-link',
+                        default => 'heroicon-o-minus-circle',
+                    })
+                    ->color(fn (string $state) => match ($state) {
+                        'file' => 'success',
+                        'link' => 'info',
+                        default => 'gray',
+                    })
+                    ->tooltip(fn ($record) => match (true) {
+                        ! empty($record->video_upload) => 'Uploaded MP4/WebM file',
+                        ! empty($record->video_url)    => 'External video: ' . $record->video_url,
+                        default                        => 'No video attached',
+                    })
+                    ->formatStateUsing(fn (string $state) => match ($state) {
+                        'file' => 'Uploaded',
+                        'link' => 'Linked',
+                        default => 'None',
+                    }),
 
                 // ── Category Badge ─────────────────────────────────────
                 TextColumn::make('category.name')
