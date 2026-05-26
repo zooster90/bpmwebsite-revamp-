@@ -642,23 +642,44 @@
                                 @foreach($previewItems as $event)
                                     @php
                                         $dateStr = $event->event_date ? $event->event_date->format('d/m/Y') : ($event->year ? '15/06/' . $event->year : '12/02/2026');
-                                    @endphp
-                                    @php
+
                                         $lightboxImage = $event->hasMedia('culture_image')
                                             ? $event->getFirstMediaUrl('culture_image')
                                             : ($event->displayImage ?? '#');
+
+                                        // Video resolution: uploaded MP4 (R2) takes priority over external URL.
+                                        $videoUrl  = null;
+                                        $videoType = null;
+                                        if (! empty($event->video_upload)) {
+                                            $videoUrl  = \Illuminate\Support\Facades\Storage::disk('public')->url($event->video_upload);
+                                            $videoType = 'video';
+                                        } elseif (! empty($event->video_url)) {
+                                            $videoUrl  = $event->video_url;
+                                            // glightbox auto-detects YouTube / Vimeo from URL
+                                        }
+                                        $hasVideo  = $videoUrl !== null;
+                                        $mainHref  = $hasVideo ? $videoUrl : $lightboxImage;
                                     @endphp
                                     <article class="event-card reveal">
                                         <div class="event-img-wrapper">
                                             <span class="event-category-badge">{{ $cat['icon'] }} {{ $cat['label'] }}</span>
-                                            <a href="{{ $lightboxImage }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}">
+                                            <a href="{{ $mainHref }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}" @if($videoType) data-type="{{ $videoType }}" @endif>
                                                 <div class="gallery-overlay">
-                                                    <i class="fa-solid fa-expand text-3xl text-white mb-2"></i>
-                                                    <span class="text-white font-bold tracking-widest text-xs uppercase mt-2">Open Gallery</span>
+                                                    @if($hasVideo)
+                                                        <i class="fa-solid fa-circle-play text-5xl text-white mb-2"></i>
+                                                        <span class="text-white font-bold tracking-widest text-xs uppercase mt-2">Play Video</span>
+                                                    @else
+                                                        <i class="fa-solid fa-expand text-3xl text-white mb-2"></i>
+                                                        <span class="text-white font-bold tracking-widest text-xs uppercase mt-2">Open Gallery</span>
+                                                    @endif
                                                 </div>
                                                 <img src="{{ $event->displayImage ?? '#' }}" alt="{{ $event->title }}" class="event-img" loading="lazy" decoding="async" width="800" height="600">
                                             </a>
                                             <div class="hidden" style="display:none;">
+                                                {{-- If the card opened a video, also surface the cover photo inside the lightbox gallery --}}
+                                                @if($hasVideo && $lightboxImage !== '#')
+                                                    <a href="{{ $lightboxImage }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}"></a>
+                                                @endif
                                                 @foreach($event->getMedia('gallery') as $media)
                                                     <a href="{{ $media->getUrl() }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}"></a>
                                                 @endforeach
@@ -698,6 +719,18 @@
                             $lightboxImage = $event->hasMedia('culture_image')
                                 ? $event->getFirstMediaUrl('culture_image')
                                 : ($event->displayImage ?? '#');
+
+                            // Video resolution: uploaded MP4 (R2) takes priority over external URL.
+                            $videoUrl  = null;
+                            $videoType = null;
+                            if (! empty($event->video_upload)) {
+                                $videoUrl  = \Illuminate\Support\Facades\Storage::disk('public')->url($event->video_upload);
+                                $videoType = 'video';
+                            } elseif (! empty($event->video_url)) {
+                                $videoUrl  = $event->video_url;
+                            }
+                            $hasVideo = $videoUrl !== null;
+                            $mainHref = $hasVideo ? $videoUrl : $lightboxImage;
                         @endphp
                         <article class="event-card reveal"
                                  data-category="{{ $catKey }}"
@@ -708,14 +741,26 @@
 
                             <div class="event-img-wrapper">
                                 <span class="event-category-badge">{{ $catData['icon'] }} {{ $catData['label'] }}</span>
-                                <a href="{{ $lightboxImage }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}">
+                                @if($hasVideo)
+                                    <span class="event-category-badge" style="top: auto; bottom: 14px; right: 14px; left: auto; background: rgba(0,0,0,0.78); color: #fff;"><i class="fa-solid fa-circle-play"></i> Video</span>
+                                @endif
+                                <a href="{{ $mainHref }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}" @if($videoType) data-type="{{ $videoType }}" @endif>
                                     <div class="gallery-overlay">
-                                        <i class="fa-solid fa-images text-4xl text-white mb-2"></i>
-                                        <span class="text-white font-bold tracking-widest text-xs uppercase mt-2">View Photo</span>
+                                        @if($hasVideo)
+                                            <i class="fa-solid fa-circle-play text-5xl text-white mb-2"></i>
+                                            <span class="text-white font-bold tracking-widest text-xs uppercase mt-2">Play Video</span>
+                                        @else
+                                            <i class="fa-solid fa-images text-4xl text-white mb-2"></i>
+                                            <span class="text-white font-bold tracking-widest text-xs uppercase mt-2">View Photo</span>
+                                        @endif
                                     </div>
                                     <img src="{{ $event->displayImage ?? '#' }}" alt="{{ $event->title }}" class="event-img" loading="lazy" decoding="async" width="800" height="600">
                                 </a>
                                 <div class="hidden" style="display:none;">
+                                    {{-- If the card opened a video, also surface the cover photo + gallery inside the lightbox --}}
+                                    @if($hasVideo && $lightboxImage !== '#')
+                                        <a href="{{ $lightboxImage }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}"></a>
+                                    @endif
                                     @foreach($event->getMedia('gallery') as $media)
                                         <a href="{{ $media->getUrl() }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}"></a>
                                     @endforeach
