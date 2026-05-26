@@ -33,11 +33,14 @@ class CultureController extends Controller
 
     /**
      * Get the best available image URL for an event.
+     * Uses the 'card' conversion (800px webp) for the grid — much smaller
+     * than the original 1920px file the lightbox uses.
      */
     protected function getEventImage(CultureEvent $event, string $category): string
     {
         if ($event->hasMedia('culture_image')) {
-            return $event->getFirstMediaUrl('culture_image');
+            return $event->getFirstMediaUrl('culture_image', 'card')
+                ?: $event->getFirstMediaUrl('culture_image');
         }
         if (! empty($event->culture_image_upload)) {
             return cdn_rewrite(asset('storage/' . ltrim($event->culture_image_upload, '/')));
@@ -70,8 +73,13 @@ class CultureController extends Controller
             'intern'  => ['intern', 'internship'],
         ];
 
-        // Fetch all events (Sort strictly by newest year first, then newest event date)
-        $allEvents = CultureEvent::with(['category', 'subCategory'])->orderBy('year', 'desc')->orderBy('event_date', 'desc')->get();
+        // Fetch all events (Sort strictly by newest year first, then newest event date).
+        // Eager-load media so getFirstMediaUrl() / getMedia() in the view don't
+        // trigger an N+1 storm (one query per event × per collection check).
+        $allEvents = CultureEvent::with(['category', 'subCategory', 'media'])
+            ->orderBy('year', 'desc')
+            ->orderBy('event_date', 'desc')
+            ->get();
         $allEvents->each(function ($e) use ($categoryMap) {
             // Normalize category key
             $rawCat = strtolower(trim($e->category?->slug ?? ''));

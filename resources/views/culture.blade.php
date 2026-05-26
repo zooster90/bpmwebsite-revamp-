@@ -643,15 +643,20 @@
                                     @php
                                         $dateStr = $event->event_date ? $event->event_date->format('d/m/Y') : ($event->year ? '15/06/' . $event->year : '12/02/2026');
                                     @endphp
+                                    @php
+                                        $lightboxImage = $event->hasMedia('culture_image')
+                                            ? $event->getFirstMediaUrl('culture_image')
+                                            : ($event->displayImage ?? '#');
+                                    @endphp
                                     <article class="event-card reveal">
                                         <div class="event-img-wrapper">
                                             <span class="event-category-badge">{{ $cat['icon'] }} {{ $cat['label'] }}</span>
-                                            <a href="{{ $event->displayImage ?? '#' }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}">
+                                            <a href="{{ $lightboxImage }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}">
                                                 <div class="gallery-overlay">
                                                     <i class="fa-solid fa-expand text-3xl text-white mb-2"></i>
                                                     <span class="text-white font-bold tracking-widest text-xs uppercase mt-2">Open Gallery</span>
                                                 </div>
-                                                <img src="{{ $event->displayImage ?? '#' }}" alt="{{ $event->title }}" class="event-img" loading="lazy">
+                                                <img src="{{ $event->displayImage ?? '#' }}" alt="{{ $event->title }}" class="event-img" loading="lazy" decoding="async" width="800" height="600">
                                             </a>
                                             <div class="hidden" style="display:none;">
                                                 @foreach($event->getMedia('gallery') as $media)
@@ -690,22 +695,25 @@
                             $catKey = $event->normalized_category ?? 'event';
                             $catData = $categoryConfig[$catKey] ?? ['label' => ucfirst($catKey), 'icon' => '📸'];
                             $dateStr = $event->event_date ? $event->event_date->format('d/m/Y') : ($event->year ? '15/06/' . $event->year : '12/02/2026');
+                            $lightboxImage = $event->hasMedia('culture_image')
+                                ? $event->getFirstMediaUrl('culture_image')
+                                : ($event->displayImage ?? '#');
                         @endphp
-                        <article class="event-card reveal" 
-                                 data-category="{{ $catKey }}" 
+                        <article class="event-card reveal"
+                                 data-category="{{ $catKey }}"
                                  data-subcategory="{{ strtolower(trim($event->subCategory?->slug ?? '')) }}"
-                                 data-title="{{ strtolower($event->title ?? '') }}" 
+                                 data-title="{{ strtolower($event->title ?? '') }}"
                                  data-location="{{ strtolower($event->location ?? 'penang') }}"
                                  data-year="{{ $event->year ?? ($event->event_date ? $event->event_date->format('Y') : '') }}">
-                            
+
                             <div class="event-img-wrapper">
                                 <span class="event-category-badge">{{ $catData['icon'] }} {{ $catData['label'] }}</span>
-                                <a href="{{ $event->displayImage ?? '#' }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}">
+                                <a href="{{ $lightboxImage }}" class="glightbox" data-gallery="event-{{ $event->id }}" data-title="{{ $event->title }}">
                                     <div class="gallery-overlay">
                                         <i class="fa-solid fa-images text-4xl text-white mb-2"></i>
                                         <span class="text-white font-bold tracking-widest text-xs uppercase mt-2">View Photo</span>
                                     </div>
-                                    <img src="{{ $event->displayImage ?? '#' }}" alt="{{ $event->title }}" class="event-img" loading="lazy">
+                                    <img src="{{ $event->displayImage ?? '#' }}" alt="{{ $event->title }}" class="event-img" loading="lazy" decoding="async" width="800" height="600">
                                 </a>
                                 <div class="hidden" style="display:none;">
                                     @foreach($event->getMedia('gallery') as $media)
@@ -796,7 +804,7 @@
                                                     <i class="fa-solid fa-images text-4xl text-white mb-2"></i>
                                                     <span class="text-white font-bold tracking-widest text-xs uppercase mt-2">View Photo</span>
                                                 </div>
-                                                <img src="{{ $img }}" alt="{{ $intern->intern_name ?? $intern->title }}" class="w-full h-full object-cover object-top transition duration-700 hover:scale-110">
+                                                <img src="{{ $img }}" alt="{{ $intern->intern_name ?? $intern->title }}" class="w-full h-full object-cover object-top transition duration-700 hover:scale-110" loading="lazy" decoding="async" width="600" height="400">
                                             </a>
                                             <div class="hidden" style="display:none;">
                                                 @foreach($intern->getMedia('gallery') as $media)
