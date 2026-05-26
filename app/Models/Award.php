@@ -26,9 +26,9 @@ class Award extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         // "logo" — the award organization's logo image
-        $this->addMediaCollection('logo')->singleFile();
+        $this->addMediaCollection('logo')->useDisk('public')->singleFile();
         // "gallery" — award certificates or ceremony photos
-        $this->addMediaCollection('gallery');
+        $this->addMediaCollection('gallery')->useDisk('public');
     }
 
     public function project()

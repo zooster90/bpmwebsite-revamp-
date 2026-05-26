@@ -251,6 +251,7 @@ class CultureEventForm
                                             ->helperText('Accepted: MP4, WebM. Max 50MB. (If you provide both, the direct upload will be used).')
                                             ->acceptedFileTypes(['video/mp4', 'video/webm'])
                                             ->maxSize(51200) // 50MB
+                                            ->disk('public')
                                             ->directory('event-videos')
                                             ->columnSpanFull(),
 

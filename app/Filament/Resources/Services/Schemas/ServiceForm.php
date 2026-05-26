@@ -38,7 +38,9 @@ class ServiceForm
                                             ->columnSpanFull(),
                                             
                                         FileUpload::make('image_path')
-                                            ->image(),
+                                            ->image()
+                                            ->disk('public')
+                                            ->directory('services'),
                                     ]),
                             ])
                             ->columnSpan(['default' => 12, 'lg' => 8]),

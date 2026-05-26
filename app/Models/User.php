@@ -27,6 +27,11 @@ class User extends Authenticatable implements FilamentUser, HasMedia
         return $this->hasRole('Super Admin');
     }
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('avatar')->useDisk('public')->singleFile();
+    }
+
     /**
      * Get the attributes that should be cast.
      *

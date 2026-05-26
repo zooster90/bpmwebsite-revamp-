@@ -34,8 +34,8 @@ class PressCoverage extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('press_image')->singleFile();
-        $this->addMediaCollection('gallery');
+        $this->addMediaCollection('press_image')->useDisk('public')->singleFile();
+        $this->addMediaCollection('gallery')->useDisk('public');
     }
 
     public function getDisplayImageAttribute(): string

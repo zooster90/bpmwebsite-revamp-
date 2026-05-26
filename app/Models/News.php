@@ -45,8 +45,8 @@ class News extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('news_image')->singleFile();
-        $this->addMediaCollection('gallery');
+        $this->addMediaCollection('news_image')->useDisk('public')->singleFile();
+        $this->addMediaCollection('gallery')->useDisk('public');
     }
 
     public function getDisplayImageAttribute(): string

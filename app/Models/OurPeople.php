@@ -17,6 +17,11 @@ class OurPeople extends Model implements HasMedia
         'is_active' => 'boolean',
     ];
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('people_image')->useDisk('public')->singleFile();
+    }
+
     public function getDisplayImageAttribute()
     {
         if ($this->hasMedia('people_image')) {

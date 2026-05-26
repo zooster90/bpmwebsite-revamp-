@@ -2,7 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Award;
+use App\Models\CultureEvent;
 use App\Models\CurrentProject;
+use App\Models\News;
+use App\Models\PressCoverage;
 use App\Models\Project;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
@@ -10,8 +14,8 @@ use Illuminate\Support\Facades\Storage;
 class DiagnoseModelMedia extends Command
 {
     protected $signature = 'images:diagnose
-        {model : project | current-project}
-        {id : The model id (e.g. 1)}';
+        {model : project | current-project | culture-event | award | news | press-coverage}
+        {id? : The model id (defaults to latest record)}';
 
     protected $description = 'Print every media row for the given model + check whether the file exists on disk and via URL';
 
@@ -20,6 +24,10 @@ class DiagnoseModelMedia extends Command
         $map = [
             'project'         => Project::class,
             'current-project' => CurrentProject::class,
+            'culture-event'   => CultureEvent::class,
+            'award'           => Award::class,
+            'news'            => News::class,
+            'press-coverage'  => PressCoverage::class,
         ];
 
         $arg = $this->argument('model');
@@ -28,9 +36,16 @@ class DiagnoseModelMedia extends Command
             return self::INVALID;
         }
 
-        $model = $map[$arg]::find($this->argument('id'));
+        $class = $map[$arg];
+        $id    = $this->argument('id');
+
+        $model = $id ? $class::find($id) : $class::latest()->first();
+
         if (! $model) {
-            $this->error("No {$arg} with id={$this->argument('id')}");
+            $this->error($id
+                ? "No {$arg} with id={$id}"
+                : "No {$arg} records found at all."
+            );
             return self::INVALID;
         }
 
