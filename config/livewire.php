@@ -129,13 +129,17 @@ return [
     */
 
     'temporary_file_upload' => [
-        // On Laravel Cloud the app container's local disk is ephemeral. A
-        // deploy / auto-scale event between the chunked-upload start and the
-        // final save will lose the temp file ('Unable to retrieve file_size'
-        // error). Default to the shared 'public' disk (R2) so temp files
-        // survive container changes. Override to 'local' for local dev where
-        // R2 is not configured.
-        'disk' => env('LIVEWIRE_TEMPORARY_FILE_UPLOAD_DISK', 'public'),
+        // Keep temp uploads on the LOCAL ephemeral disk — counter-intuitive
+        // for Laravel Cloud, but pointing this at R2 (S3) makes chunked
+        // uploads hang because Filament's SpatieMediaLibraryFileUpload
+        // pipeline expects a real local filesystem path to seek/read while
+        // the upload progresses. Trade-off accepted: in the rare window
+        // where a deploy or auto-scale fires *during* an in-flight upload
+        // the file is lost ('Unable to retrieve file_size') and the user
+        // has to re-pick the file. Normal-case uploads (the 99% case) just
+        // work and are fast. Final destination is still R2 — Spatie moves
+        // the temp file to the 'public' R2 disk on save.
+        'disk' => env('LIVEWIRE_TEMPORARY_FILE_UPLOAD_DISK', 'local'),
         'rules' => null,                                      // Example: ['file', 'mimes:png,jpg'] | Default: ['required', 'file', 'max:12288'] (12MB)
         'directory' => null,                                  // Example: 'tmp'                     | Default: 'livewire-tmp'
         'middleware' => null,                                 // Example: 'throttle:5,1'            | Default: 'throttle:60,1'
