@@ -28,8 +28,12 @@ class CareerController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        // Fetch culture stories for "Life at Builtech" section
-        $cultureEvents = \App\Models\CultureEvent::orderBy('event_date', 'desc')->take(6)->get();
+        // Fetch culture stories for "Life at Builtech" section.
+        // Eager-load media so the section doesn't fire one query per event.
+        $cultureEvents = \App\Models\CultureEvent::with(['media', 'category'])
+            ->orderBy('event_date', 'desc')
+            ->take(6)
+            ->get();
 
         return view('careers', compact('jobs', 'cultureEvents'));
     }

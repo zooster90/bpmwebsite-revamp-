@@ -86,9 +86,13 @@ class WebsiteAnalytics extends Widget
                 ];
             });
 
+            // SQLite (dev) needs strftime, MySQL/MariaDB (prod) needs HOUR().
+            $hourExpr = DB::connection()->getDriverName() === 'sqlite'
+                ? "CAST(strftime('%H', created_at) AS INTEGER)"
+                : "HOUR(created_at)";
             $peakHours = PageView::where('created_at', '>=', $week)
                 ->select(
-                    DB::raw("CAST(strftime('%H', created_at) AS INTEGER) as hour"),
+                    DB::raw("$hourExpr as hour"),
                     DB::raw('COUNT(*) as count')
                 )
                 ->groupBy('hour')->orderBy('hour')->get()->keyBy('hour');

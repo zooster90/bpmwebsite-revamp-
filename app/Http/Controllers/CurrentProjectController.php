@@ -15,9 +15,10 @@ class CurrentProjectController extends Controller
     {
         $project = CurrentProject::where('slug', $slug)
             ->where('is_active', true)
+            ->with(['media', 'category'])
             ->firstOrFail();
 
-        // Convert title to name for view compatibility if necessary, 
+        // Convert title to name for view compatibility if necessary,
         // or we'll update the view to handle both.
         $project->name = $project->title;
 
@@ -25,9 +26,10 @@ class CurrentProjectController extends Controller
         $relatedProjects = CurrentProject::where('is_active', true)
             ->where('category_id', $project->category_id)
             ->where('id', '!=', $project->id)
+            ->with(['media', 'category'])
             ->take(3)
             ->get();
-        
+
         foreach($relatedProjects as $p) {
             $p->name = $p->title;
         }
