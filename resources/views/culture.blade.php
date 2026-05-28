@@ -292,6 +292,55 @@
     .curated-section { margin-bottom: 6rem; padding: 3rem 0; border-bottom: 1px solid var(--border); }
     .curated-section:last-of-type { border-bottom: none; }
     .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+
+    /* ── Horizontal scroll row for curated category sections ────── */
+    .curated-row { position: relative; }
+    .curated-track {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        gap: 2rem;
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;            /* Firefox */
+        -ms-overflow-style: none;         /* IE/Edge legacy */
+        padding-bottom: 0.5rem;           /* room for card shadow */
+    }
+    .curated-track::-webkit-scrollbar { display: none; }   /* Webkit */
+    .curated-track > .event-card { scroll-snap-align: start; }
+
+    @media (min-width: 768px) {
+        .curated-track { grid-auto-columns: calc((100% - 4rem) / 3); }
+    }
+
+    .curated-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--gold);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 16px rgba(40, 30, 20, 0.18);
+        transition: opacity 0.22s ease, transform 0.22s ease, background 0.22s ease;
+        opacity: 0.92;
+    }
+    .curated-arrow:hover { background: var(--bt-gold-hover, #b08d47); transform: translateY(-50%) scale(1.06); opacity: 1; }
+    .curated-arrow:disabled { opacity: 0.25; cursor: not-allowed; pointer-events: none; }
+    .curated-arrow--left  { left: -16px; }
+    .curated-arrow--right { right: -16px; }
+    @media (max-width: 640px) {
+        .curated-arrow { display: none; }   /* mobile users just swipe */
+    }
     .section-header-title { font-family: var(--bt-font-display, 'Oswald', sans-serif); font-size: 2rem; font-weight: 700; color: var(--navy); text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
     .section-header-title span { color: var(--gold); font-size: 2.4rem; }
     .section-header-meta { font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 4px; }
@@ -648,7 +697,20 @@
                                 </button>
                             </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {{-- Netflix-style horizontal scroll row. Cards keep ~33% width on
+                                 desktop and stay visible; arrows slide by one viewport width.
+                                 'View Full Archive' button (top-right) still exists for full grid. --}}
+                            <div class="curated-row" data-curated-row>
+                                <button type="button"
+                                        class="curated-arrow curated-arrow--left"
+                                        aria-label="Scroll left"
+                                        data-curated-prev
+                                        x-cloak
+                                        x-show="false"
+                                        x-init="$el.style.display = ''">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+                                <div class="curated-track" data-curated-track>
                                 @foreach($previewItems as $event)
                                     @php
                                         $dateStr = $event->event_date ? $event->event_date->format('d/m/Y') : ($event->year ? '15/06/' . $event->year : '12/02/2026');
@@ -710,7 +772,14 @@
                                         </div>
                                     </article>
                                 @endforeach
-                            </div>
+                                </div> {{-- /.curated-track --}}
+                                <button type="button"
+                                        class="curated-arrow curated-arrow--right"
+                                        aria-label="Scroll right"
+                                        data-curated-next>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div> {{-- /.curated-row --}}
                         </div>
                     @endif
                 @endforeach
@@ -945,6 +1014,33 @@
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
 <script>
+    /* ── Netflix-style horizontal scroller for the curated category rows ── */
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[data-curated-row]').forEach((row) => {
+            const track = row.querySelector('[data-curated-track]');
+            const prev  = row.querySelector('[data-curated-prev]');
+            const next  = row.querySelector('[data-curated-next]');
+            if (!track) return;
+
+            const step = () => track.clientWidth * 0.92;  // scroll one viewport at a time
+            const update = () => {
+                const max = track.scrollWidth - track.clientWidth - 2;  // 2px slack
+                if (prev) prev.disabled = track.scrollLeft <= 2;
+                if (next) next.disabled = track.scrollLeft >= max;
+                // Hide arrows entirely if everything already fits
+                const fits = track.scrollWidth <= track.clientWidth + 4;
+                if (prev) prev.style.visibility = fits ? 'hidden' : '';
+                if (next) next.style.visibility = fits ? 'hidden' : '';
+            };
+
+            prev?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+            next?.addEventListener('click', () => track.scrollBy({ left:  step(), behavior: 'smooth' }));
+            track.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        });
+    });
+
     document.addEventListener('alpine:init', () => {
         Alpine.data('cultureHub', (config) => ({
             activeCat: config.activeCategory || 'all',

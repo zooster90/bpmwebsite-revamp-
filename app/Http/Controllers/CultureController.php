@@ -113,8 +113,11 @@ class CultureController extends Controller
         });
 
         // ── Build Latest Per Category Map (For Curated Hub View) ─────────────
+        // Keep up to 12 per category — the curated row only shows 3 at a time,
+        // but the new horizontal scroll lets visitors peek the next batches
+        // without leaving the row. Anything beyond 12 → 'View Full Archive'.
         $latestPerCategory = collect($categoryConfig ?? $config)->mapWithKeys(function ($catData, $catKey) use ($allEvents) {
-            return [$catKey => $allEvents->filter(fn($e) => $e->normalized_category === $catKey)->take(3)->values()];
+            return [$catKey => $allEvents->filter(fn($e) => $e->normalized_category === $catKey)->take(12)->values()];
         });
 
         $years = $allEvents->filter(fn($e) => $e->year)->pluck('year')->unique()->sortDesc()->values();
