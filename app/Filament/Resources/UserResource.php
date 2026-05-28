@@ -106,10 +106,34 @@ class UserResource extends Resource
                                     ->icon('heroicon-o-shield-check')
                                     ->schema([
                                         Grid::make(2)->schema([
-                                            TextInput::make('password')->password()->dehydrateStateUsing(fn ($s) => filled($s) ? Hash::make($s) : null)->dehydrated(fn ($s) => filled($s))->placeholder('••••••••'),
-                                            TextInput::make('password_confirmation')->password()->dehydrated(false)->same('password')->placeholder('••••••••'),
-                                            Select::make('roles')->multiple()->relationship('roles', 'name')->preload()->required(),
-                                            Toggle::make('is_active')->label('Allow Panel Access')->default(true)->inline(false),
+                                            // Password: required on create, optional on edit (blank = keep existing).
+                                            // Do NOT call Hash::make() here — the User model already has
+                                            // `'password' => 'hashed'` cast, which would double-hash the value
+                                            // and prevent the user from ever logging in.
+                                            TextInput::make('password')
+                                                ->password()
+                                                ->required(fn (string $operation): bool => $operation === 'create')
+                                                ->dehydrated(fn ($state) => filled($state))
+                                                ->minLength(8)
+                                                ->placeholder('••••••••')
+                                                ->helperText('Leave blank to keep current password (edit only).'),
+                                            TextInput::make('password_confirmation')
+                                                ->password()
+                                                ->dehydrated(false)
+                                                ->same('password')
+                                                ->required(fn (string $operation, callable $get): bool => $operation === 'create' || filled($get('password')))
+                                                ->placeholder('••••••••'),
+                                            Select::make('roles')
+                                                ->multiple()
+                                                ->relationship('roles', 'name')
+                                                ->preload()
+                                                ->required()
+                                                ->helperText('Super Admin = unrestricted. Editor = create/edit content. Viewer = read-only.'),
+                                            Toggle::make('is_active')
+                                                ->label('Allow Panel Access')
+                                                ->helperText('Toggle off to block this user from logging into admin without deleting the account.')
+                                                ->default(true)
+                                                ->inline(false),
                                         ]),
                                     ]),
 
