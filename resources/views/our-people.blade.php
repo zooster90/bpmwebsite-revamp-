@@ -179,6 +179,18 @@
         box-shadow: var(--shadow-sm);
     }
     .bt-feat-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
+    /* Cards rendered without an onclick handler are informational only — kill the
+       hover lift so visitors don't expect a click to do something. */
+    .bt-feat-card[style*="cursor: default"]:hover {
+        transform: none;
+        box-shadow: var(--shadow-md);
+        border-color: var(--border);
+    }
+    .bt-feat-card[style*="cursor: default"]:hover .bt-feat-icon {
+        background: var(--surface-2);
+        color: var(--gold);
+        transform: none;
+    }
     .bt-feat-icon {
         width: 70px; height: 70px; background: rgba(197,160,89,0.08); color: var(--gold);
         border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -362,9 +374,9 @@
                         <p>Daily safety briefings and risk assessments.</p>
                     </div>
                 </div>
-                {{-- Category 3 --}}
+                {{-- Category 3 — text-only (no photo gallery by editor request) --}}
                 <div class="reveal" data-delay="200">
-                    <div class="bt-feat-card" onclick="openPplModal('vector')">
+                    <div class="bt-feat-card" style="cursor: default;">
                         <div class="bt-feat-icon"><i class="fa-solid fa-bug-slash"></i></div>
                         <h3>Vector Control</h3>
                         <p>Strict hygiene and scheduled anti-larvae fogging.</p>
@@ -457,10 +469,8 @@
             title: 'Tool Box Meetings',
             photos: ['TooBoxMeeting1.jpg', 'TooBoxMeeting2.jpg', 'TooBoxMeeting3.jpg']
         },
-        'vector': {
-            title: 'Vector Control',
-            photos: ['fogging 1.jpg', 'fogging 3.jpg']
-        },
+        // 'vector' entry removed — Vector Control is text-only on the
+        // public page (editor said photos unavailable / incomplete).
         'gotong': {
             title: 'Gotong Royong',
             photos: ['gt1.jpg', 'gt2.jpg', 'gt3.jpg', 'gotong royong 2.jpg']

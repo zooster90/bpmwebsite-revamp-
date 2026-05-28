@@ -113,6 +113,19 @@ class PressCoverageForm
 
                         \Filament\Schemas\Components\Group::make()
                             ->schema([
+                                Section::make('Publish Status')
+                                    ->description('Control whether this coverage appears on the public /media page.')
+                                    ->icon('heroicon-o-eye')
+                                    ->schema([
+                                        \Filament\Forms\Components\Toggle::make('is_published')
+                                            ->label('Show on website')
+                                            ->helperText('Turn OFF while you wait for the scan / write-up. Turn ON when ready.')
+                                            ->default(true)
+                                            ->inline(false)
+                                            ->onColor('success')
+                                            ->offColor('warning'),
+                                    ]),
+
                                 Section::make('Publishing & Media Info')
                                     ->schema([
                                         TextInput::make('publication')

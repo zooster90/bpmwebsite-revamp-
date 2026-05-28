@@ -12,20 +12,22 @@ class PressCoverage extends Model implements HasMedia
     use HasFactory, InteractsWithMedia, LogsActivity;
     
     protected $fillable = [
-        'headline', 'publication', 'published_date', 
+        'headline', 'publication', 'published_date',
         'external_url', 'excerpt', 'image_url',
         'press_image_upload', 'gallery_uploads', 'category_id',
+        'is_published',
+    ];
+
+    protected $casts = [
+        'published_date'  => 'date',
+        'gallery_uploads' => 'array',
+        'is_published'    => 'boolean',
     ];
 
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-
-    protected $casts = [
-        'published_date'  => 'date',
-        'gallery_uploads' => 'array',
-    ];
 
     public function getActivitylogOptions(): LogOptions
     {

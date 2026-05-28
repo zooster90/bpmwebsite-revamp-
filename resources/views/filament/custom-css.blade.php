@@ -579,14 +579,44 @@
         flex-shrink: 0 !important;
         border-top: 1px solid rgba(0,0,0,0.1) !important;
         padding: 12px !important;
+        /* Footer buttons (Cancel / Reset / Save) MUST wrap or scroll when
+           the panel is narrow, otherwise the right-most button (Reset/Save)
+           overflows past the modal edge and gets clipped. */
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        justify-content: flex-end !important;
     }
+    .fi-fo-file-upload-editor-control-panel-footer .fi-btn {
+        flex: 0 1 auto !important;
+        min-width: 0 !important;
+        white-space: nowrap !important;
+    }
+
+    /* Make sure the editor backdrop pins the modal inside the viewport
+       and never lets it slide off the right edge. */
+    [data-filepond-image-editor],
+    .fi-fo-file-upload-editor {
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        overflow: hidden !important;
+    }
+
     @media (max-width: 768px) {
         .fi-fo-file-upload-editor-window {
             flex-direction: column !important;
+            width: 100vw !important;
         }
         .fi-fo-file-upload-editor-control-panel {
             flex: 0 0 auto !important;
             max-height: 40vh !important;
+            width: 100% !important;
+        }
+    }
+    @media (max-width: 1024px) {
+        /* Slimmer control panel on tablet so the canvas keeps room */
+        .fi-fo-file-upload-editor-control-panel {
+            flex: 0 0 220px !important;
         }
     }
 

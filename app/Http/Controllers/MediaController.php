@@ -13,7 +13,9 @@ class MediaController extends Controller
         // one query per item when display_image / hasMedia is called.
         // Filter out rows without published_date — the view assumes the date
         // is non-null when it calls $item->published_date->format('Y').
+        // Only published items reach the public Coverage page.
         $coverages = PressCoverage::with(['media', 'category'])
+            ->where('is_published', true)
             ->whereNotNull('published_date')
             ->orderBy('published_date', 'desc')
             ->get();

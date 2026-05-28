@@ -11,11 +11,12 @@ class Award extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, LogsActivity;
 
-    protected $fillable = ['name', 'issuer', 'year', 'description', 'category_id', 'image_url', 'logo_upload', 'gallery_uploads', 'project_id'];
+    protected $fillable = ['name', 'issuer', 'year', 'description', 'category_id', 'image_url', 'logo_upload', 'gallery_uploads', 'project_id', 'is_published'];
 
     protected $casts = [
         'year'            => 'integer',
         'gallery_uploads' => 'array',
+        'is_published'    => 'boolean',
     ];
 
     public function getActivitylogOptions(): LogOptions

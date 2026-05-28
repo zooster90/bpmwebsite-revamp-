@@ -125,10 +125,13 @@ class AwardController extends Controller
         $config = $this->categoryConfig();
         $logoMap = $this->logoMap();
 
-        // 1. All awards, newest first.
+        // 1. All awards, newest first. Only published rows reach the
+        // public Awards page — editors can keep a draft hidden while
+        // they hunt down the certificate scan.
         // Eager-load media + category so normalizeAward() / resolveCategoryLogo()
         // don't fire one query per award when they call hasMedia() / getMedia().
         $awards = Award::with(['media', 'category'])
+            ->where('is_published', true)
             ->orderBy('year', 'desc')
             ->orderBy('name', 'asc')
             ->get();

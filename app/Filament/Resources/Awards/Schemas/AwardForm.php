@@ -95,6 +95,19 @@ class AwardForm
                         Group::make()
                             ->extraAttributes(['class' => 'lg:sticky lg:top-6 lg:self-start space-y-6'])
                             ->schema([
+                                Section::make('Publish Status')
+                                    ->description('Control whether this award appears on the public Awards page.')
+                                    ->icon('heroicon-o-eye')
+                                    ->schema([
+                                        \Filament\Forms\Components\Toggle::make('is_published')
+                                            ->label('Show on website')
+                                            ->helperText('Turn OFF while you wait for the certificate scan. Turn ON when ready for public.')
+                                            ->default(true)
+                                            ->inline(false)
+                                            ->onColor('success')
+                                            ->offColor('warning'),
+                                    ]),
+
                                 Section::make('Organization Logo')
                                     ->description('The issuer\'s official logo.')
                                     ->icon('heroicon-o-photo')

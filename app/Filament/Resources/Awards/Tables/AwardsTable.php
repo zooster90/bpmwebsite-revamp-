@@ -60,6 +60,18 @@ class AwardsTable
                     ->label('Category')
                     ->badge()
                     ->color('primary'),
+
+                // ── Publish status badge ───────────────────────────────
+                \Filament\Tables\Columns\IconColumn::make('is_published')
+                    ->label('Live')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->boolean()
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-eye-slash')
+                    ->trueColor('success')
+                    ->falseColor('warning')
+                    ->tooltip(fn ($record) => $record->is_published ? 'Visible on public Awards page' : 'Draft — hidden from website')
+                    ->sortable(),
             ])
             ->defaultSort('year', 'desc')
             ->defaultGroup(
@@ -86,12 +98,34 @@ class AwardsTable
                             ->pluck('year', 'year')
                             ->toArray();
                     }),
+
+                \Filament\Tables\Filters\TernaryFilter::make('is_published')
+                    ->label('Publish status')
+                    ->placeholder('All')
+                    ->trueLabel('Live on website')
+                    ->falseLabel('Draft (hidden)'),
             ])
             ->recordActions([
                 EditAction::make()->label('Edit'),
             ])
             ->bulkActions([
                 BulkActionGroup::make([
+                    \Filament\Actions\BulkAction::make('publish')
+                        ->label('Publish (show on website)')
+                        ->icon('heroicon-o-check-circle')
+                        ->color('success')
+                        ->requiresConfirmation()
+                        ->action(fn (\Illuminate\Database\Eloquent\Collection $records) => $records->each->update(['is_published' => true]))
+                        ->deselectRecordsAfterCompletion(),
+
+                    \Filament\Actions\BulkAction::make('unpublish')
+                        ->label('Unpublish (hide from website)')
+                        ->icon('heroicon-o-eye-slash')
+                        ->color('warning')
+                        ->requiresConfirmation()
+                        ->action(fn (\Illuminate\Database\Eloquent\Collection $records) => $records->each->update(['is_published' => false]))
+                        ->deselectRecordsAfterCompletion(),
+
                     DeleteBulkAction::make(),
                 ]),
             ])
