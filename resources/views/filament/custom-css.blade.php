@@ -547,6 +547,23 @@
     .fi-modal-close-btn { transition: all 0.2s ease !important; }
     .fi-modal-close-btn:hover { background: rgba(0,0,0,0.05) !important; color: var(--bt-text) !important; }
 
+    /* ── Filament Dropdown Panels (bulk actions, action group menus) ───
+       Boss flagged the "Bulk actions" menu felt buggy — it was rendering
+       under the sticky table header and the filter row above it, which
+       made the panel look half-clipped. Bumping dropdown panels above
+       every other table-level sticky/positioned element so they're
+       always fully visible and cleanly floating. */
+    .fi-dropdown-panel,
+    .fi-ta-actions .fi-dropdown-panel,
+    .fi-ac .fi-dropdown-panel,
+    [x-ref="panel"].fi-dropdown-panel {
+        z-index: 60 !important;
+        box-shadow: 0 16px 48px rgba(40, 30, 20, 0.18), 0 4px 12px rgba(40, 30, 20, 0.08) !important;
+        border: 1px solid var(--bt-border) !important;
+        border-radius: 12px !important;
+        background: #ffffff !important;
+    }
+
     /* ── Filament Image Editor (cropper) ────────────────────────────────
        Boss reported the right-side control panel (X/Y/Width/Height/Rotation/
        Aspect/Cancel/Reset/Save) was still being clipped past the right edge

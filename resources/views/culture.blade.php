@@ -393,6 +393,45 @@
     /* ── Internship Cohort & Year Cards ── */
     .intern-card { background: #ffffff; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: all 0.5s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
     .intern-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); border-color: rgba(197, 160, 89, 0.4); }
+
+    /* ── University brand mark (3-tier fallback inside intern card) ──
+       .uni-logo-img      = actual brand logo (PNG/SVG dropped into
+                            public/img/university-logos/{slug}.{ext})
+       .uni-logo-badge    = styled abbreviation pill (USM, UM, UTM...)
+                            shown when the university text matched a
+                            known Malaysian institution but no logo
+                            file has been uploaded yet. */
+    .uni-logo-img {
+        width: 32px; height: 32px;
+        object-fit: contain;
+        flex-shrink: 0;
+        margin-top: 1px;
+        background: #ffffff;
+        border-radius: 6px;
+        padding: 2px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .uni-logo-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 36px;
+        height: 32px;
+        padding: 0 8px;
+        flex-shrink: 0;
+        margin-top: 1px;
+        background: linear-gradient(135deg, var(--navy) 0%, #1e3a63 100%);
+        color: var(--gold);
+        border: 1px solid rgba(197, 160, 89, 0.45);
+        border-radius: 6px;
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        white-space: nowrap;
+    }
     .year-card { background: #ffffff; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; transition: all 0.5s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.02); cursor: pointer; text-align: center; padding: 4rem 2rem; position: relative; }
     .year-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); border-color: rgba(197, 160, 89, 0.4); }
     .year-title { font-family: var(--bt-font-display, 'Oswald', sans-serif); font-size: 4.5rem; font-weight: 800; color: var(--navy); margin-bottom: 0.5rem; transition: color 0.3s ease; line-height: 1; }

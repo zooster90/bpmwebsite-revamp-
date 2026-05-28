@@ -41,7 +41,22 @@
             <h3 class="font-heading text-lg font-bold text-navy uppercase mb-4 leading-tight">{{ $intern->intern_name ?: $intern->title }}</h3>
             @if($intern->university)
                 <div class="flex items-start gap-3 text-sm text-slate-700 font-semibold mb-3">
-                    <i class="{{ $intern->institution_icon }} text-gold mt-1"></i>
+                    {{-- 3-tier institution mark fallback:
+                         1. Uploaded brand logo (public/img/university-logos/{slug}.png)
+                         2. Styled abbreviation badge (USM, UM, UTM, ...) when the
+                            university text matches a known Malaysian institution
+                            but no logo file is uploaded yet.
+                         3. Plain Font Awesome icon driven by institution_type. --}}
+                    @if($intern->university_logo_url)
+                        <img src="{{ $intern->university_logo_url }}"
+                             alt="{{ $intern->university }} logo"
+                             class="uni-logo-img"
+                             loading="lazy" decoding="async">
+                    @elseif($intern->university_short)
+                        <span class="uni-logo-badge" title="{{ $intern->university }}">{{ $intern->university_short }}</span>
+                    @else
+                        <i class="{{ $intern->institution_icon }} text-gold mt-1"></i>
+                    @endif
                     <span class="leading-snug">{{ $intern->university }}</span>
                 </div>
             @endif

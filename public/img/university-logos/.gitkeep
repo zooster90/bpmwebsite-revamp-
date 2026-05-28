@@ -1,0 +1,45 @@
+# University Brand Logos
+
+Drop institution logos in this folder using the slug as the filename:
+
+  usm.png     → Universiti Sains Malaysia
+  um.png      → Universiti Malaya
+  utm.png     → Universiti Teknologi Malaysia
+  ukm.png     → Universiti Kebangsaan Malaysia
+  upm.png     → Universiti Putra Malaysia
+  uitm.png    → Universiti Teknologi MARA
+  iium.png    → International Islamic University Malaysia
+  uthm.png    → Universiti Tun Hussein Onn
+  unimap.png  → Universiti Malaysia Perlis
+  taylors.png → Taylor's University
+  sunway.png  → Sunway University
+  monash.png  → Monash University Malaysia
+  inti.png    → INTI International University
+  help.png    → HELP University
+  ucsi.png    → UCSI University
+  mmu.png     → Multimedia University
+  apu.png     → Asia Pacific University
+  psp.png     → Politeknik Seberang Perai
+  puo.png     → Politeknik Ungku Omar
+  kptm.png    → Kolej Poli-Tech MARA
+  gmi.png     → German-Malaysian Institute
+  ...
+
+Full list of detectable institutions lives in:
+  app/Models/CultureEvent.php  →  const UNIVERSITY_BRANDS
+
+The matcher looks for ANY alias substring inside the lowercased
+`university` field, so admins can type "Universiti Sains Malaysia"
+or just "USM" — both resolve to usm.png.
+
+Accepted extensions (checked in order): svg → png → webp → jpg → jpeg.
+
+Display rules on the public intern card:
+  1. If a logo file exists here          → render as <img>
+  2. Else if abbreviation is known       → render a styled badge
+                                           (gold-on-navy pill, e.g. "USM")
+  3. Else                                 → fall back to the institution_type
+                                           Font Awesome icon
+
+So the feature works immediately with the styled abbreviation badge —
+dropping logo files just upgrades each one to real brand artwork.
