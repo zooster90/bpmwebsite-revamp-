@@ -139,16 +139,20 @@ class CultureEventsTable
                     ->sortable()
                     ->placeholder('—'),
 
-                // ── Publish status badge ───────────────────────────────
-                \Filament\Tables\Columns\IconColumn::make('is_published')
+                // ── Publish status — interactive ToggleColumn ──────────
+                // Was an IconColumn (read-only) which forced admins into the
+                // Edit page to flip a single switch. Boss flagged that
+                // records existed but didnt appear on the public site,
+                // and the icon-only column made it non-obvious that the
+                // record was a draft. ToggleColumn lets admins flip the
+                // state directly from the list view — one click per row.
+                // The trait/policy still gates: only Editor / Super Admin
+                // can mutate; Viewers see the toggle but it stays disabled.
+                \Filament\Tables\Columns\ToggleColumn::make('is_published')
                     ->label('Live')
                     ->alignment(\Filament\Support\Enums\Alignment::Center)
-                    ->boolean()
-                    ->trueIcon('heroicon-o-check-circle')
-                    ->falseIcon('heroicon-o-eye-slash')
-                    ->trueColor('success')
-                    ->falseColor('warning')
-                    ->tooltip(fn ($record) => $record->is_published ? 'Visible on public Culture page' : 'Draft — hidden from website')
+                    ->disabled(fn () => ! (auth()->user()?->hasAnyRole(['Super Admin', 'Editor']) ?? false))
+                    ->tooltip(fn ($record) => $record->is_published ? 'Visible on public Culture page — click to unpublish' : 'Draft — hidden from website. Click to publish.')
                     ->sortable(),
 
                 // ── Intern Type badge (Site vs Office) ─────────────────
@@ -282,6 +286,33 @@ class CultureEventsTable
                     ->color('gray')
                     ->size(\Filament\Support\Enums\Size::Small)
                     ->button(),
+            ])
+
+            // ── Table-level "Publish All Drafts" shortcut ──────────────
+            // Sits above the rows so admins don't need to select records
+            // one by one when they just want every hidden record live.
+            // The action runs a single UPDATE for safety + speed; only
+            // touches records that are currently is_published = false so
+            // it's effectively a no-op when there's nothing to publish.
+            ->headerActions([
+                \Filament\Actions\Action::make('publishAllDrafts')
+                    ->label(fn () => 'Publish All Drafts (' . \App\Models\CultureEvent::where('is_published', false)->count() . ')')
+                    ->icon('heroicon-o-check-circle')
+                    ->color('success')
+                    ->visible(fn () => (auth()->user()?->hasAnyRole(['Super Admin', 'Editor']) ?? false)
+                        && \App\Models\CultureEvent::where('is_published', false)->exists())
+                    ->requiresConfirmation()
+                    ->modalHeading('Publish every draft activity?')
+                    ->modalDescription('This will flip every Staff Activities & Events record where Live is currently OFF to ON, making them appear on the public website. You can still unpublish individual records afterwards.')
+                    ->modalSubmitActionLabel('Yes, publish all drafts')
+                    ->action(function () {
+                        $count = \App\Models\CultureEvent::where('is_published', false)->update(['is_published' => true]);
+                        \Filament\Notifications\Notification::make()
+                            ->title("Published {$count} record" . ($count === 1 ? '' : 's'))
+                            ->body('They are now live on the public Culture page.')
+                            ->success()
+                            ->send();
+                    }),
             ])
 
             ->bulkActions([
