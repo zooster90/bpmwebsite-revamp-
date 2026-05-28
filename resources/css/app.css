@@ -55,18 +55,19 @@
 }
 
 /* ──────────────────────────────────────────────────────────────────
-   Global typographic scale bump (2026-05-28)
-   Editors found the public site fonts a touch small. Strategy:
-     1) Bump the root font-size from 16px to 17px (+6.25%). Every rem-
-        based unit scales proportionally, which lifts every Tailwind
-        utility too — no risk of breaking the layout grid.
-     2) Add explicit, slightly louder defaults for body / paragraphs and
-        for the card / section heading classes that visitors actually
-        read.
-     3) Keep the mobile root at 16px so phone layouts stay compact.
+   Global typographic scale — round 2 bump (2026-05-28)
+   Editors still felt the site read small after the first bump. Stepped
+   the whole scale up another notch:
+     • Root font-size 17px → 18px (+5.9% on top of the previous +6.25%).
+       Net effect vs original baseline: ~12.5% larger across every
+       rem-based utility (so every Tailwind text-* utility scales too).
+     • Body / paragraphs use 1.1rem with a roomy 1.7 line-height.
+     • Card titles + section headings get bigger clamp() ranges.
+     • Mobile (<= 480px) holds at 16px root so phone layouts stay
+       compact — only desktop/tablet see the bigger scale.
    ────────────────────────────────────────────────────────────────── */
 :root {
-  font-size: 17px;
+  font-size: 18px;
 }
 @media (max-width: 480px) {
   :root { font-size: 16px; }
@@ -75,12 +76,12 @@
 @layer base {
   body {
     @apply bg-surface-alt text-navy font-sans antialiased selection:bg-gold selection:text-white;
-    font-size: 1.05rem;          /* ~17.85px desktop, ~16.8 mobile */
-    line-height: 1.65;
+    font-size: 1.1rem;           /* ~19.8px desktop, ~17.6px mobile */
+    line-height: 1.7;
   }
   p {
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: 1.1rem;
+    line-height: 1.75;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading tracking-tight;
@@ -93,15 +94,35 @@
 .bt-team-info h4,
 .media-publication + h3,
 .award-section-title {
-  font-size: clamp(1.25rem, 1.8vw, 1.55rem) !important;
+  font-size: clamp(1.4rem, 2vw, 1.75rem) !important;
   line-height: 1.3;
+}
+
+/* Card body descriptions in grids */
+.event-desc,
+.bt-project-card p,
+.bt-team-info p {
+  font-size: 1.02rem !important;
+  line-height: 1.6 !important;
 }
 
 /* Section / hero headings */
 .section-header-title,
 .cat-banner-title,
 .heading-main {
-  font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
+  font-size: clamp(2rem, 3.5vw, 3rem) !important;
+}
+
+/* Top-level page hero titles (Story, Coverage, etc.) */
+.hero-title,
+h1.hero-heading {
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+/* Navigation menu items — slightly louder so the nav reads as primary */
+nav a,
+.nav-link {
+  font-size: 1rem;
 }
 
 @layer components {

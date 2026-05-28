@@ -502,7 +502,7 @@
                 @if(isset($latestPerCategory['trip']) && $latestPerCategory['trip']->isNotEmpty())
                 <div class="filter-cat-item">
                     <button @click="setCategory('trip'); setSubCat('company_trip'); openDropdown = null" @mouseenter="openDropdown = null" :class="{ 'active': activeCat === 'trip' }" class="filter-pill">
-                        <span class="pill-emoji">🌴</span> Company Trip
+                        <span class="pill-emoji">✈️</span> Company Trip
                     </button>
                 </div>
                 @endif
