@@ -291,6 +291,19 @@ class CultureEventForm
                         \Filament\Schemas\Components\Group::make()
                             ->extraAttributes(['class' => 'lg:sticky lg:top-6 lg:self-start space-y-6'])
                             ->schema([
+                                // ── Publish Status ───────────────────────────────
+                                Section::make('Publish Status')
+                                    ->description('Control whether this activity appears on the public Culture page.')
+                                    ->schema([
+                                        \Filament\Forms\Components\Toggle::make('is_published')
+                                            ->label('Show on website')
+                                            ->helperText('Turn OFF while you collect photos / write the description. Turn ON when ready for public.')
+                                            ->default(true)
+                                            ->inline(false)
+                                            ->onColor('success')
+                                            ->offColor('warning'),
+                                    ]),
+
                                 // ── System Settings ──────────────────────────────
                                 Section::make('System Settings')
                                     ->schema([

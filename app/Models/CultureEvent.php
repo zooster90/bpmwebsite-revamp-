@@ -12,7 +12,7 @@ class CultureEvent extends Model implements HasMedia
     use HasFactory, InteractsWithMedia, LogsActivity;
     
     protected $fillable = [
-        'title', 'slug', 'event_date', 'description', 
+        'title', 'slug', 'event_date', 'description', 'is_published',
         'image_url', 'year', 'name', 'category_id', 'sub_category_id', 'culture_image_upload', 'gallery_uploads', 'video_url', 'video_upload',
         // Internship-specific fields
         'intern_name', 'university', 'department', 'intern_period',
@@ -29,9 +29,10 @@ class CultureEvent extends Model implements HasMedia
     }
 
     protected $casts = [
-        'event_date' => 'date',
+        'event_date'      => 'date',
         'year'            => 'integer',
         'gallery_uploads' => 'array',
+        'is_published'    => 'boolean',
     ];
 
     /**

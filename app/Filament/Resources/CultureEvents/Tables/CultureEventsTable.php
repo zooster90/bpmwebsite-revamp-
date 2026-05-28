@@ -139,6 +139,18 @@ class CultureEventsTable
                     ->sortable()
                     ->placeholder('—'),
 
+                // ── Publish status badge ───────────────────────────────
+                \Filament\Tables\Columns\IconColumn::make('is_published')
+                    ->label('Live')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->boolean()
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-eye-slash')
+                    ->trueColor('success')
+                    ->falseColor('warning')
+                    ->tooltip(fn ($record) => $record->is_published ? 'Visible on public Culture page' : 'Draft — hidden from website')
+                    ->sortable(),
+
                 // ── Hidden by default: intern details ──────────────────
                 TextColumn::make('intern_name')
                     ->label('Intern Name')
@@ -191,6 +203,13 @@ class CultureEventsTable
                             ->pluck('year', 'year')
                             ->toArray();
                     }),
+
+                // ── Publish status filter ──────────────────────────────
+                \Filament\Tables\Filters\TernaryFilter::make('is_published')
+                    ->label('Publish status')
+                    ->placeholder('All')
+                    ->trueLabel('Live on website')
+                    ->falseLabel('Draft (hidden)'),
             ], layout: FiltersLayout::AboveContent)
 
             // ══════════════════════════════════════════════════════════
@@ -227,6 +246,22 @@ class CultureEventsTable
 
             ->bulkActions([
                 BulkActionGroup::make([
+                    \Filament\Actions\BulkAction::make('publish')
+                        ->label('Publish (show on website)')
+                        ->icon('heroicon-o-check-circle')
+                        ->color('success')
+                        ->requiresConfirmation()
+                        ->action(fn (\Illuminate\Database\Eloquent\Collection $records) => $records->each->update(['is_published' => true]))
+                        ->deselectRecordsAfterCompletion(),
+
+                    \Filament\Actions\BulkAction::make('unpublish')
+                        ->label('Unpublish (hide from website)')
+                        ->icon('heroicon-o-eye-slash')
+                        ->color('warning')
+                        ->requiresConfirmation()
+                        ->action(fn (\Illuminate\Database\Eloquent\Collection $records) => $records->each->update(['is_published' => false]))
+                        ->deselectRecordsAfterCompletion(),
+
                     DeleteBulkAction::make()
                         ->requiresConfirmation()
                         ->modalHeading('Delete Selected Records?')

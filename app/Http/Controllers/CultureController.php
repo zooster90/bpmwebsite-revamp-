@@ -76,7 +76,9 @@ class CultureController extends Controller
         // Fetch all events (Sort strictly by newest year first, then newest event date).
         // Eager-load media so getFirstMediaUrl() / getMedia() in the view don't
         // trigger an N+1 storm (one query per event × per collection check).
+        // Only show events the admin has explicitly published.
         $allEvents = CultureEvent::with(['category', 'subCategory', 'media'])
+            ->where('is_published', true)
             ->orderBy('year', 'desc')
             ->orderBy('event_date', 'desc')
             ->get();
