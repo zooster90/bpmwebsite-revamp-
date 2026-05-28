@@ -21,7 +21,7 @@ class CultureController extends Controller
     protected function categoryConfig(): array
     {
         return [
-            'tb'      => ['label' => 'Team Building',     'icon' => '🧗', 'color' => '#10b981', 'fallback' => 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&q=80'],
+            'tb'      => ['label' => 'Team Building',     'icon' => '👥', 'color' => '#10b981', 'fallback' => 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&q=80'],
             'work'    => ['label' => 'Training',          'icon' => '🏗️', 'color' => '#6366f1', 'fallback' => 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80'],
             'trip'    => ['label' => 'Trips',             'icon' => '✈️', 'color' => '#0ea5e9', 'fallback' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80'],
             'csr'     => ['label' => 'CSR',               'icon' => '🤝', 'color' => '#f97316', 'fallback' => 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80'],

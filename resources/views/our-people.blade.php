@@ -42,8 +42,11 @@
         font-family: 'Montserrat', sans-serif;
         color: var(--gold);
         text-transform: uppercase;
-        letter-spacing: 0.4em;
-        font-size: 0.72rem;
+        /* Bumped up — boss said the gold eyebrow on the Our People hero
+           was too small to read. Tighter letter-spacing keeps the same
+           elegant look at the larger size. */
+        letter-spacing: 0.3em;
+        font-size: clamp(1rem, 1.6vw, 1.25rem);
         font-weight: 800;
         margin-bottom: 1.5rem;
         display: block;
@@ -246,7 +249,7 @@
             <h1 style="font-family:'Oswald',sans-serif; font-size:clamp(3rem,7vw,6rem); font-weight:700; color:white; text-transform:uppercase; line-height:1.0; margin-bottom:1rem;">
                 Our <span style="color:var(--gold);">People.</span>
             </h1>
-            <p style="font-size:1.05rem; color:rgba(255,255,255,0.65); max-width:560px; line-height:1.85; margin:0 auto;">Equipped with elite technical skills and supported by world-class field systems.</p>
+            <p style="font-size:clamp(1.1rem,1.6vw,1.35rem); color:rgba(255,255,255,0.72); max-width:620px; line-height:1.75; margin:0 auto;">Equipped with elite technical skills and supported by world-class field systems.</p>
         </div>
     </header>
 

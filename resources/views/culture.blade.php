@@ -471,7 +471,7 @@
                 @if(isset($latestPerCategory['tb']) && $latestPerCategory['tb']->isNotEmpty())
                 <div class="filter-cat-item">
                     <button @click="setCategory('tb'); openDropdown = null" @mouseenter="openDropdown = null" :class="{ 'active': activeCat === 'tb' }" class="filter-pill" aria-label="Team Building">
-                        <span class="pill-emoji">🧗</span> Team Building
+                        <span class="pill-emoji">👥</span> Team Building
                     </button>
                 </div>
                 @endif
