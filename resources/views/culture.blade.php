@@ -959,7 +959,7 @@
                                             @endif
                                             @if($intern->department)
                                                 <div class="flex items-center gap-3 text-xs text-slate-500 mb-4">
-                                                    <i class="fa-solid fa-building-columns text-gold"></i>
+                                                    <i class="fa-solid fa-people-group text-gold"></i>
                                                     <span class="uppercase tracking-wide font-semibold">{{ $intern->department }}</span>
                                                 </div>
                                             @endif

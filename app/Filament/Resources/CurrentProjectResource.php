@@ -243,6 +243,69 @@ class CurrentProjectResource extends Resource
             )
             ->actions([
                 \Filament\Actions\EditAction::make(),
+
+                // ── Promote to Completed Projects ──────────────────────
+                // Saves admins from creating the same project twice. Copies
+                // every field + all uploaded photos/gallery into a new
+                // App\Models\Project row, then removes the Ongoing entry.
+                // Gated to Super Admin + Editor (Viewers can't trigger).
+                \Filament\Actions\Action::make('promote_to_completed')
+                    ->label('Mark Completed')
+                    ->icon('heroicon-o-check-badge')
+                    ->color('success')
+                    ->visible(fn () => auth()->user()?->hasAnyRole(['Super Admin', 'Editor']) ?? false)
+                    ->requiresConfirmation()
+                    ->modalHeading('Move to Completed Projects?')
+                    ->modalDescription('This creates a new entry under "Completed Projects" with the same details + all uploaded photos, then removes this Ongoing entry. The action cannot be undone — but the new Completed entry can still be edited or deleted afterwards.')
+                    ->modalSubmitActionLabel('Yes, mark as Completed')
+                    ->action(function (CurrentProject $record) {
+                        $project = \Illuminate\Support\Facades\DB::transaction(function () use ($record) {
+                            // Map CurrentProject fields to Project fields.
+                            // `title` -> `name`, `image_upload` -> `cover_image_upload`.
+                            // Leave `slug` null so Project::boot() generates a unique one.
+                            $project = \App\Models\Project::create([
+                                'name'               => $record->title,
+                                'description'        => $record->description,
+                                'client'             => $record->client,
+                                'location'           => $record->location,
+                                'category_id'        => $record->category_id,
+                                'status'             => 'completed',
+                                'year'               => $record->year ?: now()->year,
+                                'is_flagship'        => false,
+                                'is_published'      => true,
+                                'sort_order'         => $record->sort_order ?? 0,
+                                'image_url'          => $record->image_url,
+                                'contract_value'     => $record->contract_value,
+                                'cover_image_upload' => $record->image_upload,
+                                'gallery_uploads'    => $record->gallery_uploads,
+                            ]);
+
+                            // Copy Spatie media (cover_image + gallery) onto the
+                            // new Project. ->copy() duplicates the underlying file
+                            // on R2, so deleting the source CurrentProject below
+                            // does not wipe the copies attached to $project.
+                            foreach ($record->getMedia('cover_image') as $media) {
+                                $media->copy($project, 'cover_image');
+                            }
+                            foreach ($record->getMedia('gallery') as $media) {
+                                $media->copy($project, 'gallery');
+                            }
+
+                            // Remove the now-promoted Ongoing record.
+                            $record->delete();
+
+                            return $project;
+                        });
+
+                        \Filament\Notifications\Notification::make()
+                            ->title('Promoted to Completed Projects')
+                            ->body('"' . $project->name . '" now lives under Completed Projects. Photos were copied over.')
+                            ->success()
+                            ->send();
+
+                        return redirect(\App\Filament\Resources\Projects\ProjectResource::getUrl('edit', ['record' => $project]));
+                    }),
+
                 \Filament\Actions\DeleteAction::make()
                     ->requiresConfirmation()
                     ->modalHeading('Delete this Ongoing Project?')
