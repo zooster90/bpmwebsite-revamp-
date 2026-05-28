@@ -12,6 +12,8 @@ class OurPeopleTable
     public static function configure(Table $table): Table
     {
         return $table
+            // Eager-load media so the photo-count column doesn't N+1.
+            ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->with('media'))
             ->columns([
                 ImageColumn::make('display_image')
                     ->state(fn ($record) => $record->displayImage)
@@ -22,6 +24,22 @@ class OurPeopleTable
                     ->label('Team Name')
                     ->searchable()
                     ->sortable(),
+
+                // Photo count: cover + gallery, color-coded.
+                TextColumn::make('photo_count')
+                    ->label('Photos')
+                    ->alignment(\Filament\Support\Enums\Alignment::Center)
+                    ->state(fn ($record) => $record->getMedia('people_image')->count() + $record->getMedia('gallery')->count())
+                    ->badge()
+                    ->icon('heroicon-o-photo')
+                    ->color(fn (int $state) => match (true) {
+                        $state === 0 => 'danger',
+                        $state <= 3  => 'warning',
+                        default      => 'success',
+                    })
+                    ->tooltip(fn ($record) => 'Cover: ' . $record->getMedia('people_image')->count() . ' · Gallery: ' . $record->getMedia('gallery')->count())
+                    ->formatStateUsing(fn (int $state) => $state === 0 ? 'None' : $state . ($state === 1 ? ' photo' : ' photos')),
+
                 TextColumn::make('department')
                     ->label('Department')
                     ->searchable()

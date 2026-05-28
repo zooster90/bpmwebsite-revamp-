@@ -268,13 +268,19 @@
                 @foreach($teams as $index => $t)
                     @php
                         $imgSrc = $t->displayImage ?: asset('img/logo.png');
+                        // Multi-image gallery: lightbox group keyed by team id so the
+                        // user can swipe through every gallery photo for THIS team
+                        // without bleeding into other teams.
+                        $teamGalleryKey = 'team-' . $t->id;
+                        $galleryItems   = $t->getMedia('gallery');
+                        $galleryCount   = $galleryItems->count();
                     @endphp
                     <div class="reveal" data-delay="{{ ($index % 4) * 80 }}">
                         <div class="bt-team-card">
                             {{-- Wrap in glightbox anchor for HD full-screen view --}}
                             <a href="{{ $imgSrc }}"
                                class="glightbox"
-                               data-gallery="team-photos"
+                               data-gallery="{{ $teamGalleryKey }}"
                                data-title="{{ $t->title }}"
                                data-description="{{ $t->department }}"
                                style="display:block; text-decoration:none;">
@@ -292,8 +298,27 @@
                                             <i class="fas fa-expand-alt"></i>
                                         </span>
                                     </div>
+                                    {{-- Gallery counter badge: only show if extra photos exist --}}
+                                    @if($galleryCount > 0)
+                                        <span style="position:absolute; top:12px; right:12px; background:rgba(10,25,47,0.85); color:#fff; font-size:0.7rem; font-weight:700; padding:5px 10px; border-radius:50px; display:inline-flex; align-items:center; gap:6px; backdrop-filter:blur(6px); z-index:10;">
+                                            <i class="fas fa-images" style="color:var(--gold);"></i>
+                                            +{{ $galleryCount }}
+                                        </span>
+                                    @endif
                                 </div>
                             </a>
+                            {{-- Hidden lightbox anchors for the rest of the gallery so glightbox can swipe to them --}}
+                            @if($galleryCount > 0)
+                                <div class="hidden" style="display:none;">
+                                    @foreach($galleryItems as $media)
+                                        <a href="{{ $media->getUrl() }}"
+                                           class="glightbox"
+                                           data-gallery="{{ $teamGalleryKey }}"
+                                           data-title="{{ $t->title }}"
+                                           data-description="{{ $t->department }}"></a>
+                                    @endforeach
+                                </div>
+                            @endif
                             <div class="bt-team-info">
                                 <h4>{{ $t->title }}</h4>
                                 <span class="bt-team-info-icon"><i class="fas fa-users"></i></span>

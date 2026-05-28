@@ -70,12 +70,31 @@ class OurPeopleForm
                             ->visible(fn ($record) => $record !== null),
                         \Filament\Forms\Components\SpatieMediaLibraryFileUpload::make('people_image')
                             ->collection('people_image')
-                            ->label('Upload Team Photo')
-                            ->helperText('Recommended resolution: 800x600. Accepted formats: JPG, PNG, WEBP.')
+                            ->label('Main Team Photo (cover)')
+                            ->helperText('The primary photo. Shown as the team cover. Recommended: 800x600.')
                             ->image()
-                                            ->imageEditor()
-                                            ->imageEditorMode(1)
+                            ->imageEditor()
+                            ->imageEditorMode(1)
                             ->maxSize(10240)
+                            ->columnSpanFull(),
+
+                        // ── Multi-image team gallery ─────────────────────
+                        \Filament\Forms\Components\SpatieMediaLibraryFileUpload::make('gallery')
+                            ->collection('gallery')
+                            ->label('Additional Team Photos (gallery)')
+                            ->helperText('Upload multiple. Drag to reorder. Shown as a carousel on the public team page. Max 10 MB each.')
+                            ->multiple()
+                            ->reorderable()
+                            ->appendFiles()
+                            ->openable()
+                            ->downloadable()
+                            ->image()
+                            ->imageEditor()
+                            ->imageEditorMode(1)
+                            ->imageEditorAspectRatios(['16:9', '4:3', '1:1'])
+                            ->imagePreviewHeight('150')
+                            ->maxSize(10240)
+                            ->panelLayout('grid')
                             ->columnSpanFull(),
                     ])
             ]);

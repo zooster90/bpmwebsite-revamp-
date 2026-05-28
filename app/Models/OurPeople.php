@@ -19,7 +19,12 @@ class OurPeople extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
+        // 'people_image' — the primary photo (still single file, used as cover).
         $this->addMediaCollection('people_image')->useDisk('public')->singleFile();
+
+        // 'gallery' — additional team photos. Admin can upload multiple,
+        // drag to reorder. Shown as a carousel on the public team page.
+        $this->addMediaCollection('gallery')->useDisk('public');
     }
 
     public function registerMediaConversions(?\Spatie\MediaLibrary\MediaCollections\Models\Media $media = null): void
