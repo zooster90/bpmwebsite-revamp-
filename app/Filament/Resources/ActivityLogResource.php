@@ -109,9 +109,4 @@ class ActivityLogResource extends Resource
             'index' => ActivityLogResource\Pages\ListActivityLogs::route('/'),
         ];
     }
-
-    public static function canCreate(): bool
-    {
-        return false;
-    }
 }
