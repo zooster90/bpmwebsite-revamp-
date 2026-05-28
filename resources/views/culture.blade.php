@@ -400,16 +400,23 @@
        .uni-logo-badge    = styled abbreviation pill (USM, UM, UTM...)
                             shown when the university text matched a
                             known Malaysian institution but no logo
-                            file has been uploaded yet. */
+                            file has been uploaded yet.
+       Variable aspect ratios — USM and Taylor's ship horizontal
+       lockup logos (4:1), UM and most public unis ship square crests.
+       Fixed height + flexible width keeps them all visually balanced
+       on the same card row. */
     .uni-logo-img {
-        width: 32px; height: 32px;
+        height: 36px;
+        width: auto;
+        max-width: 120px;
         object-fit: contain;
         flex-shrink: 0;
         margin-top: 1px;
         background: #ffffff;
         border-radius: 6px;
-        padding: 2px;
+        padding: 3px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        border: 1px solid rgba(0,0,0,0.04);
     }
     .uni-logo-badge {
         display: inline-flex;
