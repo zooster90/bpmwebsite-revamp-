@@ -294,28 +294,56 @@
     .project-ribbon i { font-size: 0.55rem; margin-right: 4px; vertical-align: 1px; }
 
     /* Always-visible info panel — boss wanted project name on the card,
-       not hidden behind hover. Gradient ensures legibility on any photo. */
+       not hidden behind hover. Stronger gradient + larger / brighter
+       text after editor feedback that the location + CTA were too faint
+       to read on bright cover photos. */
     .project-info {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
-        padding: 5.5rem 2rem 1.75rem;
-        background: linear-gradient(to top, rgba(10, 20, 35, 0.96) 0%, rgba(10, 20, 35, 0.78) 45%, rgba(10, 20, 35, 0.35) 78%, transparent 100%);
+        padding: 6rem 2rem 1.9rem;
+        background: linear-gradient(to top, rgba(8, 16, 28, 0.98) 0%, rgba(8, 16, 28, 0.92) 35%, rgba(8, 16, 28, 0.65) 65%, rgba(8, 16, 28, 0.15) 90%, transparent 100%);
         color: white;
         z-index: 4;
     }
-    .project-info .pcat { color: #e6ca85; font-size: 0.7rem; letter-spacing: 2.5px; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 0.4rem; }
-    .project-info .ptitle { font-family: 'Oswald', sans-serif; font-size: 1.55rem; line-height: 1.2; font-weight: 700; margin: 0 0 0.9rem; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; }
-    .project-info .pcta {
-        display: inline-flex; align-items: center; gap: 8px;
-        font-size: 0.7rem; font-weight: 800; letter-spacing: 2px;
-        text-transform: uppercase; color: #ffffff;
-        padding: 6px 0; border-bottom: 1.5px solid rgba(230, 202, 133, 0.5);
-        transition: gap 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    .project-info .pcat {
+        color: #f0d590;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        font-weight: 800;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
     }
-    .project-card:hover .pcta { gap: 14px; border-color: #e6ca85; color: #e6ca85; }
-    .project-info .pcta i { font-size: 0.65rem; }
+    .project-info .ptitle {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.7rem;
+        line-height: 1.18;
+        font-weight: 700;
+        margin: 0 0 1rem;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .project-info .pcta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #ffffff;
+        padding: 8px 0;
+        border-bottom: 2px solid #e6ca85;
+        transition: gap 0.3s ease, color 0.3s ease;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+    .project-card:hover .pcta { gap: 16px; color: #f0d590; }
+    .project-info .pcta i { font-size: 0.75rem; }
 
     /* Subtle vignette on hover — keeps image punchy but doesn't bury the title */
     .project-card::after {

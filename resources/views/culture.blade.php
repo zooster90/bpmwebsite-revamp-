@@ -881,10 +881,15 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 pb-12">
                         @foreach($internsByYear->keys() as $year)
                             @php
-                                // Match the section page logic — only records that
-                                // are tagged Site or Office count as real interns.
+                                // Real interns = any record with intern_name set
+                                // (regardless of whether admin has tagged it Site or
+                                // Office yet). Records without intern_name are cohort
+                                // group photos (e.g. Internship Farewell) and don't
+                                // count. This stays backwards-compatible with every
+                                // existing intern record from before intern_type was
+                                // introduced.
                                 $yearActualCount = $internsByYear[$year]
-                                    ->whereIn('intern_type', ['site', 'office'])
+                                    ->filter(fn ($e) => filled($e->intern_name))
                                     ->count();
                             @endphp
                             <div class="year-card reveal" @click="activeInternYear = '{{ $year }}'; window.scrollTo({ top: document.querySelector('.master-filter-container').offsetTop - 20, behavior: 'smooth' });">
@@ -913,15 +918,22 @@
                         </div>
 
                         @php
-                            // Split the cohort into Site / Office / Highlights buckets.
-                            // Records without intern_type (e.g. cohort group photos like
-                            // "Internship Farewell") go into Highlights and are NOT
-                            // counted in the Total Interns badge.
-                            $cohortByType    = $cohort->groupBy(fn ($e) => $e->intern_type ?: 'highlight');
-                            $siteInterns     = $cohortByType->get('site',      collect());
-                            $officeInterns   = $cohortByType->get('office',    collect());
-                            $cohortHighlight = $cohortByType->get('highlight', collect());
-                            $actualCount     = $siteInterns->count() + $officeInterns->count();
+                            // Backward-compatible split:
+                            //   - "Real intern"  = any record with intern_name set,
+                            //     even if intern_type hasn't been tagged yet.
+                            //   - "Cohort highlight" = no intern_name (group photo /
+                            //     farewell / event card).
+                            //   - intern_type only decides which sub-section a real
+                            //     intern appears in: Site / Office / Untagged.
+                            // This guarantees that every existing intern record from
+                            // before intern_type was introduced keeps showing up and
+                            // counting properly while admins gradually tag each one.
+                            $cohortHighlight = $cohort->filter(fn ($e) => empty($e->intern_name));
+                            $realInterns     = $cohort->filter(fn ($e) => filled($e->intern_name));
+                            $siteInterns     = $realInterns->filter(fn ($e) => $e->intern_type === 'site');
+                            $officeInterns   = $realInterns->filter(fn ($e) => $e->intern_type === 'office');
+                            $untaggedInterns = $realInterns->filter(fn ($e) => empty($e->intern_type));
+                            $actualCount     = $realInterns->count();
                         @endphp
 
                         <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12 border-b border-border pb-8">
@@ -1004,7 +1016,29 @@
                             </div>
                         @endif
 
-                        {{-- ── Empty state (no interns categorised yet) ── --}}
+                        {{-- ── UNTAGGED INTERNS (legacy records) ──
+                             Shows real intern records that haven't been tagged Site
+                             or Office yet. Lets the count stay accurate today while
+                             editors gradually go through each record and pick the
+                             type. Once everything is tagged this section disappears. --}}
+                        @if($untaggedInterns->isNotEmpty())
+                            <div class="mb-14">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="flex items-center gap-3 bg-slate-100 border border-slate-300 rounded-full px-5 py-2">
+                                        <i class="fa-solid fa-user-graduate text-slate-600"></i>
+                                        <h3 class="font-heading text-sm font-bold text-slate-700 uppercase tracking-[0.2em]">All Interns <span class="text-slate-500 ml-1">· {{ $untaggedInterns->count() }}</span></h3>
+                                    </div>
+                                    <div class="flex-1 h-px bg-gradient-to-r from-slate-300 to-transparent"></div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                                    @foreach($untaggedInterns as $intern)
+                                        @include('partials.intern-card', ['intern' => $intern, 'year' => $year])
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+
+                        {{-- ── Empty state (year truly has no records) ── --}}
                         @if($actualCount === 0 && $cohortHighlight->isEmpty())
                             <div class="text-center py-16 bg-surface rounded-2xl border border-dashed border-border">
                                 <i class="fa-solid fa-user-graduate text-gold/40 text-5xl mb-4"></i>
