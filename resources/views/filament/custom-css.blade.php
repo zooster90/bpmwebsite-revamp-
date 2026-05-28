@@ -548,53 +548,93 @@
     .fi-modal-close-btn:hover { background: rgba(0,0,0,0.05) !important; color: var(--bt-text) !important; }
 
     /* ── Filament Image Editor (cropper) ────────────────────────────────
-       Targets Filament's real class names (verified against the framework
-       source). Ensures the editor fits the viewport, the canvas + sidebar
-       are visible side-by-side, and Save/Cancel in the footer is reachable
-       on any screen size.                                                  */
+       Boss reported the right-side control panel (X/Y/Width/Height/Rotation/
+       Aspect/Cancel/Reset/Save) was still being clipped past the right edge
+       of the screen. Root cause: Filament's modal wrapper centers the editor
+       but neither the modal nor the editor enforces a max-width that
+       accounts for the side panel + footer buttons, so on certain viewport
+       widths the footer overflows.
+
+       Strategy:
+         1. Pin the editor modal inside the viewport with a hard margin.
+         2. Use box-sizing border-box everywhere so padding doesn't add to width.
+         3. Give the canvas a min-width of 0 so it can shrink under flex.
+         4. Make the right-side panel resilient: shrink-friendly, can scroll
+            vertically on its own, never wider than 280px.
+         5. Force the footer button row to wrap AND scroll horizontally if
+            wrapping still isn't enough, so the Save/Reset button is always
+            reachable.                                                       */
+
+    /* The outer Filament modal that wraps the editor — keep it inside the
+       viewport with a guaranteed 16px breathing space on each side. */
+    .fi-modal:has(.fi-fo-file-upload-editor) .fi-modal-window {
+        max-width: calc(100vw - 32px) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
     .fi-fo-file-upload-editor-window {
-        width: min(95vw, 1400px) !important;
-        max-width: 95vw !important;
-        max-height: 92vh !important;
+        width: 100% !important;
+        max-width: calc(100vw - 32px) !important;
+        max-height: calc(100vh - 32px) !important;
         display: flex !important;
         flex-direction: row !important;
         overflow: hidden !important;
+        box-sizing: border-box !important;
     }
+    .fi-fo-file-upload-editor-window * { box-sizing: border-box !important; }
+
     .fi-fo-file-upload-editor-image-ctn {
-        flex: 1 1 auto !important;
+        flex: 1 1 0% !important;
         min-width: 0 !important;
         min-height: 0 !important;
+        overflow: hidden !important;
     }
+
     .fi-fo-file-upload-editor-control-panel {
-        flex: 0 0 260px !important;
+        flex: 0 0 280px !important;
+        max-width: 280px !important;
         display: flex !important;
         flex-direction: column !important;
         max-height: 100% !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
     }
     .fi-fo-file-upload-editor-control-panel-main {
         flex: 1 1 auto !important;
+        min-height: 0 !important;
         overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding: 12px !important;
     }
+    /* Make every input row inside the panel respect the panel's width. */
+    .fi-fo-file-upload-editor-control-panel-main > *,
+    .fi-fo-file-upload-editor-control-panel-main input,
+    .fi-fo-file-upload-editor-control-panel-main select {
+        max-width: 100% !important;
+    }
+
     .fi-fo-file-upload-editor-control-panel-footer {
         flex-shrink: 0 !important;
         border-top: 1px solid rgba(0,0,0,0.1) !important;
-        padding: 12px !important;
-        /* Footer buttons (Cancel / Reset / Save) MUST wrap or scroll when
-           the panel is narrow, otherwise the right-most button (Reset/Save)
-           overflows past the modal edge and gets clipped. */
+        padding: 10px !important;
         display: flex !important;
         flex-wrap: wrap !important;
-        gap: 8px !important;
+        gap: 6px !important;
         justify-content: flex-end !important;
+        max-width: 100% !important;
+        overflow-x: auto !important; /* last-resort safety net */
     }
-    .fi-fo-file-upload-editor-control-panel-footer .fi-btn {
+    .fi-fo-file-upload-editor-control-panel-footer .fi-btn,
+    .fi-fo-file-upload-editor-control-panel-footer button {
         flex: 0 1 auto !important;
         min-width: 0 !important;
         white-space: nowrap !important;
+        padding: 6px 12px !important;
+        font-size: 0.8rem !important;
     }
 
-    /* Make sure the editor backdrop pins the modal inside the viewport
-       and never lets it slide off the right edge. */
+    /* Editor container itself — never spill outside the viewport. */
     [data-filepond-image-editor],
     .fi-fo-file-upload-editor {
         max-width: 100vw !important;
@@ -602,21 +642,23 @@
         overflow: hidden !important;
     }
 
+    @media (max-width: 1024px) {
+        /* Slimmer right panel on tablets so canvas keeps room. */
+        .fi-fo-file-upload-editor-control-panel {
+            flex: 0 0 240px !important;
+            max-width: 240px !important;
+        }
+    }
     @media (max-width: 768px) {
         .fi-fo-file-upload-editor-window {
             flex-direction: column !important;
-            width: 100vw !important;
+            max-height: calc(100vh - 16px) !important;
         }
         .fi-fo-file-upload-editor-control-panel {
             flex: 0 0 auto !important;
-            max-height: 40vh !important;
+            max-width: 100% !important;
+            max-height: 45vh !important;
             width: 100% !important;
-        }
-    }
-    @media (max-width: 1024px) {
-        /* Slimmer control panel on tablet so the canvas keeps room */
-        .fi-fo-file-upload-editor-control-panel {
-            flex: 0 0 220px !important;
         }
     }
 

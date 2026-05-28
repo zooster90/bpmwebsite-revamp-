@@ -357,10 +357,14 @@
                 <p class="text-xl text-gray-400 font-light mt-8">We invest heavily in the continuous development and safety of our people through rigorous daily protocols and professional training.</p>
             </div>
 
+            {{-- All 8 governance cards are text-only per editor request:
+                 boss didn't want any of these to open a photo gallery in
+                 case the photo set is incomplete. Kept the icons + copy
+                 intact, just stripped the onclick handlers and cursor. --}}
             <div class="bt-feat-grid">
                 {{-- Category 1 --}}
                 <div class="reveal" data-delay="0">
-                    <div class="bt-feat-card" onclick="openPplModal('site-coord')">
+                    <div class="bt-feat-card" style="cursor: default;">
                         <div class="bt-feat-icon"><i class="fa-solid fa-users-gear"></i></div>
                         <h3>Site Coordination</h3>
                         <p>High-level tactical alignment on site milestones.</p>
@@ -368,13 +372,13 @@
                 </div>
                 {{-- Category 2 --}}
                 <div class="reveal" data-delay="100">
-                    <div class="bt-feat-card" onclick="openPplModal('toolbox')">
+                    <div class="bt-feat-card" style="cursor: default;">
                         <div class="bt-feat-icon"><i class="fa-solid fa-clipboard-check"></i></div>
                         <h3>Tool Box Meeting</h3>
                         <p>Daily safety briefings and risk assessments.</p>
                     </div>
                 </div>
-                {{-- Category 3 — text-only (no photo gallery by editor request) --}}
+                {{-- Category 3 --}}
                 <div class="reveal" data-delay="200">
                     <div class="bt-feat-card" style="cursor: default;">
                         <div class="bt-feat-icon"><i class="fa-solid fa-bug-slash"></i></div>
@@ -384,7 +388,7 @@
                 </div>
                 {{-- Category 4 --}}
                 <div class="reveal" data-delay="300">
-                    <div class="bt-feat-card" onclick="openPplModal('gotong')">
+                    <div class="bt-feat-card" style="cursor: default;">
                         <div class="bt-feat-icon"><i class="fa-solid fa-hands-holding"></i></div>
                         <h3>Gotong Royong</h3>
                         <p>Community clean-ups and environmental care.</p>
@@ -392,7 +396,7 @@
                 </div>
                 {{-- Category 5 --}}
                 <div class="reveal" data-delay="0">
-                    <div class="bt-feat-card" onclick="openPplModal('mgmt')">
+                    <div class="bt-feat-card" style="cursor: default;">
                         <div class="bt-feat-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
                         <h3>Management Training</h3>
                         <p>Executive leadership and development programmes.</p>
@@ -400,7 +404,7 @@
                 </div>
                 {{-- Category 6 --}}
                 <div class="reveal" data-delay="100">
-                    <div class="bt-feat-card" onclick="openPplModal('conquas')">
+                    <div class="bt-feat-card" style="cursor: default;">
                         <div class="bt-feat-icon"><i class="fa-solid fa-award"></i></div>
                         <h3>CONQUAS / QLASSIC</h3>
                         <p>Elite national quality benchmark training.</p>
@@ -408,7 +412,7 @@
                 </div>
                 {{-- Category 7 --}}
                 <div class="reveal" data-delay="200">
-                    <div class="bt-feat-card" onclick="openPplModal('first-aid')">
+                    <div class="bt-feat-card" style="cursor: default;">
                         <div class="bt-feat-icon"><i class="fa-solid fa-house-medical-circle-check"></i></div>
                         <h3>First Aid Readiness</h3>
                         <p>Comprehensive CPR and emergency certifications.</p>
@@ -416,7 +420,7 @@
                 </div>
                 {{-- Category 8 --}}
                 <div class="reveal" data-delay="300">
-                    <div class="bt-feat-card" onclick="openPplModal('workout')">
+                    <div class="bt-feat-card" style="cursor: default;">
                         <div class="bt-feat-icon"><i class="fa-solid fa-dumbbell"></i></div>
                         <h3>Site Workout</h3>
                         <p>Morning exercise and technical upskilling drills.</p>
@@ -444,100 +448,13 @@
     </section>
 </div>
 
-{{-- GALLERY MODAL --}}
-<div id="ppl-gallery-modal" class="bt-modal">
-    <div class="bt-modal-content">
-        <div class="bt-modal-header">
-            <h3 class="bt-modal-title" id="modal-cat-title">Gallery</h3>
-            <div class="bt-modal-close" onclick="closePplModal()">&times;</div>
-        </div>
-        <div class="bt-modal-body">
-            <div id="modal-gallery-grid" class="bt-gallery-grid"></div>
-        </div>
-    </div>
-</div>
+{{-- Gallery modal removed — all governance cards are text-only now. --}}
 @endsection
 
 @push('scripts')
 <script>
-    const pplGalleries = {
-        'site-coord': {
-            title: 'Site Coordination',
-            photos: ['site_coordination_meeting1.jpg', 'site_coordination_meeting2.jpg', 'site_coordination_meeting3.jpg']
-        },
-        'toolbox': {
-            title: 'Tool Box Meetings',
-            photos: ['TooBoxMeeting1.jpg', 'TooBoxMeeting2.jpg', 'TooBoxMeeting3.jpg']
-        },
-        // 'vector' entry removed — Vector Control is text-only on the
-        // public page (editor said photos unavailable / incomplete).
-        'gotong': {
-            title: 'Gotong Royong',
-            photos: ['gt1.jpg', 'gt2.jpg', 'gt3.jpg', 'gotong royong 2.jpg']
-        },
-        'mgmt': {
-            title: 'Management Training',
-            photos: ['IMG_0225a.jpg', 'IMG_0229a.jpg', 'IMG_0232a.jpg', 'PICT2616a.jpg', 'PICT2628a.jpg', 'PICT3989a.jpg', 'PICT3994a.jpg', 'PICT4003a.jpg']
-        },
-        'conquas': {
-            title: 'CONQUAS / QLASSIC',
-            photos: ['z 004a.jpg', 'z 153a.jpg', 'q2.jpg', 'q7.jpg', 'qlassic.jpg', 'PICT4970a.jpg', 'PICT4974a.jpg', 'PICT4977a.jpg']
-        },
-        'workout': {
-            title: 'Site Workout & Upskilling',
-            photos: ['workout1.jpg', 'workout2.jpg', 'workout3.jpg', 'workout4.jpg', 'workout5.jpg', 'workout6.jpg', 'workout7.jpg', 'workout8.jpg', 'workout9.jpg', 'workout10.jpg', 'workout11.jpg', 'workout12.jpg']
-        },
-        'first-aid': {
-            title: 'First Aid Readiness',
-            photos: ['PICT0307a.jpg', 'PICT0309a.jpg', 'PICT0311a.jpg', 'PICT0312a.jpg', 'PICT0318a.jpg']
-        },
-        'in-house': {
-            title: 'In-House Training',
-            photos: ['PICT1095a.jpg', 'PICT1096a.jpg']
-        }
-    };
-
-    function openPplModal(key) {
-        const gallery = pplGalleries[key];
-        if (!gallery) return;
-
-        document.getElementById('modal-cat-title').innerText = gallery.title;
-        const grid = document.getElementById('modal-gallery-grid');
-        grid.innerHTML = '';
-
-        gallery.photos.forEach(imgName => {
-            const wrapper = document.createElement('div');
-            wrapper.className = 'bt-gallery-img';
-            wrapper.onclick = () => openGlobalLightbox(`/img/images/${imgName}`);
-            
-            const img = document.createElement('img');
-            img.src = `/img/images/${imgName}`;
-            img.alt = gallery.title;
-            img.loading = 'lazy';
-            
-            wrapper.appendChild(img);
-            grid.appendChild(wrapper);
-        });
-
-        document.getElementById('ppl-gallery-modal').classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closePplModal() {
-        document.getElementById('ppl-gallery-modal').classList.remove('open');
-        document.body.style.overflow = '';
-    }
-
-    window.onclick = function(event) {
-        const modal = document.getElementById('ppl-gallery-modal');
-        if (event.target == modal) closePplModal();
-    }
-
-    // ── Fix governance gallery images to show full (contain) ──
-    document.querySelectorAll('.bt-gallery-img img').forEach(img => {
-        img.style.objectFit = 'cover';
-        img.style.background = '#f8fafc';
-    });
+    // Governance & Safety cards are text-only. Modal + gallery data
+    // removed entirely so dead JS doesn't ship to the browser.
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
