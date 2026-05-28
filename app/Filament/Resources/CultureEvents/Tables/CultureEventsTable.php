@@ -250,6 +250,7 @@ class CultureEventsTable
                         ->label('Publish (show on website)')
                         ->icon('heroicon-o-check-circle')
                         ->color('success')
+                        ->visible(fn () => auth()->user()?->hasAnyRole(['Super Admin', 'Editor']) ?? false)
                         ->requiresConfirmation()
                         ->action(fn (\Illuminate\Database\Eloquent\Collection $records) => $records->each->update(['is_published' => true]))
                         ->deselectRecordsAfterCompletion(),
@@ -258,6 +259,7 @@ class CultureEventsTable
                         ->label('Unpublish (hide from website)')
                         ->icon('heroicon-o-eye-slash')
                         ->color('warning')
+                        ->visible(fn () => auth()->user()?->hasAnyRole(['Super Admin', 'Editor']) ?? false)
                         ->requiresConfirmation()
                         ->action(fn (\Illuminate\Database\Eloquent\Collection $records) => $records->each->update(['is_published' => false]))
                         ->deselectRecordsAfterCompletion(),

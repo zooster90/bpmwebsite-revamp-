@@ -9,6 +9,7 @@ use App\Models\PressCoverage;
 use App\Models\Project;
 use App\Observers\CacheInvalidationObserver;
 use App\Observers\ImageCompressionObserver;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -33,6 +34,15 @@ class AppServiceProvider extends ServiceProvider
         if (request()->server('HTTP_X_FORWARDED_PROTO') === 'https') {
             \Illuminate\Support\Facades\URL::forceScheme('https');
         }
+
+        // ── Authorization shortcut ────────────────────────────────────
+        // Super Admin role bypasses every Gate / policy check. This is a
+        // defensive layer on top of the role checks already baked into
+        // each Filament Resource via App\Filament\Concerns\RoleBasedAccess
+        // so any future Gate::allows() call also honours the same rule.
+        Gate::before(function ($user, string $ability) {
+            return $user->hasRole('Super Admin') ? true : null;
+        });
 
         \Filament\Tables\Table::configureUsing(function (\Filament\Tables\Table $table): void {
             $table

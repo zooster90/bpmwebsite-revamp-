@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 
 class ServiceResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = Service::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

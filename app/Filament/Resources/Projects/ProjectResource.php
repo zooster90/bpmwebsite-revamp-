@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 
 class ProjectResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = Project::class;
 
     // ── Sidebar Icon & Label ──────────────────────────────────

@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 
 class OurPeopleResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = OurPeople::class;
 
     protected static ?string $navigationLabel = 'Leadership Team';

@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 
 class PressCoverageResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = PressCoverage::class;
 
     protected static ?string $navigationLabel = 'Press & Media';

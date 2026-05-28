@@ -201,9 +201,19 @@ class CultureEventForm
 
                                         TextInput::make('university')
                                             ->label('University / Institution')
-                                            ->helperText('Name of the university, polytechnic, or college')
+                                            ->helperText('Name of the university, polytechnic, school, training centre, or construction site')
                                             ->placeholder('e.g. Universiti Sains Malaysia (USM)')
                                             ->maxLength(255),
+
+                                        \Filament\Forms\Components\Select::make('institution_type')
+                                            ->label('Institution Type / Icon')
+                                            ->helperText('Choose the icon shown next to the institution name on the public intern card.')
+                                            ->options(collect(\App\Models\CultureEvent::INSTITUTION_TYPES)
+                                                ->mapWithKeys(fn ($cfg, $key) => [$key => $cfg['label']])
+                                                ->all())
+                                            ->default('university')
+                                            ->native(false)
+                                            ->searchable(),
 
                                         TextInput::make('department')
                                             ->label('Department / Faculty')

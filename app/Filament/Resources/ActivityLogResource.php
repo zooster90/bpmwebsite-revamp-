@@ -17,6 +17,38 @@ class ActivityLogResource extends Resource
 {
     protected static ?string $model = Activity::class;
 
+    // Audit trail is Super Admin-only — Editors and Viewers should not see
+    // who-did-what across the whole admin panel.
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->hasRole('Super Admin') ?? false;
+    }
+
+    public static function canView($record): bool
+    {
+        return static::canViewAny();
+    }
+
+    public static function canCreate(): bool
+    {
+        return false;
+    }
+
+    public static function canEdit($record): bool
+    {
+        return false;
+    }
+
+    public static function canDelete($record): bool
+    {
+        return auth()->user()?->hasRole('Super Admin') ?? false;
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        return auth()->user()?->hasRole('Super Admin') ?? false;
+    }
+
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-finger-print';
     protected static ?string $navigationLabel = 'Activity Audit Trail';
     protected static string | \UnitEnum | null $navigationGroup = '⚙️ Settings & System';

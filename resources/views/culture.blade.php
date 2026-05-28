@@ -953,7 +953,7 @@
                                             <h3 class="font-heading text-lg font-bold text-navy uppercase mb-4 leading-tight">{{ $intern->intern_name ?: $intern->title }}</h3>
                                             @if($intern->university)
                                                 <div class="flex items-start gap-3 text-sm text-slate-700 font-semibold mb-3">
-                                                    <i class="fa-solid fa-university text-gold mt-1"></i>
+                                                    <i class="{{ $intern->institution_icon }} text-gold mt-1"></i>
                                                     <span class="leading-snug">{{ $intern->university }}</span>
                                                 </div>
                                             @endif

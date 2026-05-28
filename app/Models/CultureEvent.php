@@ -15,8 +15,31 @@ class CultureEvent extends Model implements HasMedia
         'title', 'slug', 'event_date', 'description', 'is_published',
         'image_url', 'year', 'name', 'category_id', 'sub_category_id', 'culture_image_upload', 'gallery_uploads', 'video_url', 'video_upload',
         // Internship-specific fields
-        'intern_name', 'university', 'department', 'intern_period',
+        'intern_name', 'university', 'institution_type', 'department', 'intern_period',
     ];
+
+    /**
+     * Map of institution_type keys to the Font Awesome icon + human label.
+     * Admin picks one of these on the form so the public card renders an
+     * appropriate icon next to the institution name (e.g. school logo for
+     * schools, helmet for construction site placements, etc.).
+     */
+    public const INSTITUTION_TYPES = [
+        'university'       => ['label' => 'University',        'icon' => 'fa-solid fa-university'],
+        'polytechnic'      => ['label' => 'Polytechnic',       'icon' => 'fa-solid fa-flask'],
+        'college'          => ['label' => 'College',           'icon' => 'fa-solid fa-graduation-cap'],
+        'school'           => ['label' => 'School',            'icon' => 'fa-solid fa-school'],
+        'training_center'  => ['label' => 'Training Centre',   'icon' => 'fa-solid fa-chalkboard-user'],
+        'site'             => ['label' => 'Construction Site', 'icon' => 'fa-solid fa-helmet-safety'],
+        'office'           => ['label' => 'Office / Corporate','icon' => 'fa-solid fa-building'],
+        'engineering_firm' => ['label' => 'Engineering Firm',  'icon' => 'fa-solid fa-gears'],
+    ];
+
+    public function getInstitutionIconAttribute(): string
+    {
+        $key = $this->institution_type ?: 'university';
+        return self::INSTITUTION_TYPES[$key]['icon'] ?? self::INSTITUTION_TYPES['university']['icon'];
+    }
 
     public function category()
     {

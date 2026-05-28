@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 
 class AwardResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = Award::class;
 
     protected static ?string $navigationLabel = 'Awards & Honours';

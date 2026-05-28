@@ -15,6 +15,8 @@ use Filament\Tables\Table;
 
 class InquiryResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = Inquiry::class;
 
     protected static ?string $navigationLabel = 'Contact Enquiries';

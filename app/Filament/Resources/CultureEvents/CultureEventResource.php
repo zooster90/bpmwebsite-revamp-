@@ -17,6 +17,8 @@ use Filament\Tables\Table;
 
 class CultureEventResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = CultureEvent::class;
 
     protected static ?string $navigationLabel = 'Staff Activities & Events';

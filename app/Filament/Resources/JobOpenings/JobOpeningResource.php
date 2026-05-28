@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 
 class JobOpeningResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = JobOpening::class;
 
     protected static ?string $navigationLabel = 'Open Positions';

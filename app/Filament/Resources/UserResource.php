@@ -20,6 +20,44 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
+    // ── Authorization: Super Admin-only ────────────────────────────────
+    // Editors and Viewers must NOT see the Admin Users resource at all —
+    // managing accounts and roles is a security-sensitive operation.
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()?->hasRole('Super Admin') ?? false;
+    }
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->hasRole('Super Admin') ?? false;
+    }
+
+    public static function canView($record): bool
+    {
+        return static::canViewAny();
+    }
+
+    public static function canCreate(): bool
+    {
+        return static::canViewAny();
+    }
+
+    public static function canEdit($record): bool
+    {
+        return static::canViewAny();
+    }
+
+    public static function canDelete($record): bool
+    {
+        return static::canViewAny();
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        return static::canViewAny();
+    }
+
     protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-user-circle';
     protected static ?string $navigationLabel = 'Admin Users';
     protected static string | \UnitEnum | null $navigationGroup = '⚙️ Settings & System';

@@ -18,6 +18,8 @@ use Filament\Notifications\Notification;
 
 class JobApplicationResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = JobApplication::class;
     protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-document-text';
     protected static \UnitEnum|string|null $navigationGroup = '💼 Careers';
@@ -117,7 +119,8 @@ class JobApplicationResource extends Resource
                     ->label('Interview')
                     ->icon('heroicon-o-calendar-days')
                     ->color('info')
-                    ->visible(fn (JobApplication $record) => !in_array($record->status, ['rejected', 'shortlisted']))
+                    ->visible(fn (JobApplication $record) => (auth()->user()?->hasAnyRole(['Super Admin', 'Editor']) ?? false)
+                        && !in_array($record->status, ['rejected', 'shortlisted']))
                     ->form([
                         \Filament\Forms\Components\DateTimePicker::make('interview_date')
                             ->label('Interview Date & Time')
@@ -137,7 +140,8 @@ class JobApplicationResource extends Resource
                     ->label('Shortlist')
                     ->icon('heroicon-o-star')
                     ->color('success')
-                    ->visible(fn (JobApplication $record) => $record->status !== 'shortlisted')
+                    ->visible(fn (JobApplication $record) => (auth()->user()?->hasAnyRole(['Super Admin', 'Editor']) ?? false)
+                        && $record->status !== 'shortlisted')
                     ->action(function (JobApplication $record) {
                         $record->update(['status' => 'shortlisted', 'is_read' => true]);
                         Notification::make()->title('Applicant shortlisted!')->success()->send();
@@ -147,7 +151,8 @@ class JobApplicationResource extends Resource
                     ->label('Reject')
                     ->icon('heroicon-o-x-circle')
                     ->color('danger')
-                    ->visible(fn (JobApplication $record) => $record->status !== 'rejected')
+                    ->visible(fn (JobApplication $record) => (auth()->user()?->hasAnyRole(['Super Admin', 'Editor']) ?? false)
+                        && $record->status !== 'rejected')
                     ->requiresConfirmation()
                     ->action(function (JobApplication $record) {
                         $record->update(['status' => 'rejected', 'is_read' => true]);

@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 
 class CategoryResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = Category::class;
 
     protected static ?string $navigationLabel = 'Category Manager';

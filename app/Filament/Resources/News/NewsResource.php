@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 
 class NewsResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = News::class;
 
     protected static ?string $navigationLabel = 'Engineering Journal';

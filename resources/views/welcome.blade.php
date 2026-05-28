@@ -263,36 +263,71 @@
         text-decoration: none;
         user-select: none;
         -webkit-user-drag: none;
+        background: #0d1925;
     }
     .project-card:hover { transform: translateY(-15px); box-shadow: 0 45px 80px rgba(0,0,0,0.25); }
 
     .project-card img { width: 100%; height: 100%; object-fit: cover; transition: 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); user-select: none; -webkit-user-drag: none; }
-    .project-card:hover img { transform: scale(1.1); filter: brightness(0.85); }
+    .project-card:hover img { transform: scale(1.08); }
 
-    .project-status-tag {
+    /* Classic 45° corner ribbon — replaces the old pill badge so the
+       flagship status reads as a true award marker, not a tag. */
+    .project-ribbon {
         position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
-        background: var(--gold);
+        top: 22px;
+        left: -42px;
+        width: 170px;
+        text-align: center;
+        transform: rotate(-45deg);
+        background: linear-gradient(90deg, #9e7c3a 0%, #c5a059 35%, #e6ca85 50%, #c5a059 65%, #9e7c3a 100%);
         color: white;
-        padding: 0.65rem 1.5rem;
-        font-size: 0.75rem;
-        font-weight: 800;
-        border-radius: 40px;
-        z-index: 5;
-        letter-spacing: 1.5px;
+        padding: 7px 0;
+        font-size: 0.7rem;
+        font-weight: 900;
+        letter-spacing: 2.5px;
         text-transform: uppercase;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.25), inset 0 -1px 0 rgba(0,0,0,0.12);
+        z-index: 10;
+        pointer-events: none;
     }
+    .project-ribbon i { font-size: 0.55rem; margin-right: 4px; vertical-align: 1px; }
 
+    /* Always-visible info panel — boss wanted project name on the card,
+       not hidden behind hover. Gradient ensures legibility on any photo. */
     .project-info {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
-        padding: 6rem 3rem 3rem;
-        background: linear-gradient(transparent, rgba(17, 24, 39, 0.98));
+        padding: 5.5rem 2rem 1.75rem;
+        background: linear-gradient(to top, rgba(10, 20, 35, 0.96) 0%, rgba(10, 20, 35, 0.78) 45%, rgba(10, 20, 35, 0.35) 78%, transparent 100%);
         color: white;
+        z-index: 4;
     }
+    .project-info .pcat { color: #e6ca85; font-size: 0.7rem; letter-spacing: 2.5px; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 0.4rem; }
+    .project-info .ptitle { font-family: 'Oswald', sans-serif; font-size: 1.55rem; line-height: 1.2; font-weight: 700; margin: 0 0 0.9rem; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; }
+    .project-info .pcta {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-size: 0.7rem; font-weight: 800; letter-spacing: 2px;
+        text-transform: uppercase; color: #ffffff;
+        padding: 6px 0; border-bottom: 1.5px solid rgba(230, 202, 133, 0.5);
+        transition: gap 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .project-card:hover .pcta { gap: 14px; border-color: #e6ca85; color: #e6ca85; }
+    .project-info .pcta i { font-size: 0.65rem; }
+
+    /* Subtle vignette on hover — keeps image punchy but doesn't bury the title */
+    .project-card::after {
+        content: '';
+        position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(10,20,35,0.0) 50%, rgba(10,20,35,0.25) 100%);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        z-index: 3;
+        pointer-events: none;
+    }
+    .project-card:hover::after { opacity: 1; }
 
     .all-records-card {
         flex: 0 0 auto;
@@ -544,25 +579,30 @@
         
         <div class="modern-horizontal-scroll scrollbar-none">
             @foreach($flagships as $p)
+                @php
+                    $flagshipImg = $p->hasMedia('cover_image')
+                        ? ($p->getFirstMediaUrl('cover_image', 'card') ?: $p->getFirstMediaUrl('cover_image'))
+                        : $p->display_image;
+                    $flagshipCategory = $p->category?->name;
+                    $flagshipLocation = $p->location;
+                @endphp
                 <a href="{{ route('projects.show', $p->slug) }}" class="project-card reveal group">
-                    <div class="project-status-tag"><i class="fas fa-star" style="margin-right: 6px;"></i> FLAGSHIP</div>
-                    
-                    <!-- Child-Proof Click Overlay -->
-                    <div class="absolute inset-0 z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style="background: rgba(17,24,39,0.3);">
-                        <span class="bg-gold text-white font-bold text-sm uppercase tracking-widest px-8 py-4 rounded-full shadow-2xl transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center gap-3 border-2 border-white/20">
-                            Click To View Details <i class="fa-solid fa-arrow-right"></i>
-                        </span>
-                    </div>
+                    {{-- Corner ribbon — replaces the old pill so flagship status reads as an award marker --}}
+                    <div class="project-ribbon"><i class="fas fa-star"></i> Flagship</div>
 
-                    @php
-                        $flagshipImg = $p->hasMedia('cover_image')
-                            ? ($p->getFirstMediaUrl('cover_image', 'card') ?: $p->getFirstMediaUrl('cover_image'))
-                            : $p->display_image;
-                    @endphp
                     <img src="{{ $flagshipImg }}" alt="{{ $p->title ?? $p->name }}" loading="lazy" decoding="async" width="800" height="600">
-                    <div class="project-info relative z-20">
-                        <p style="color:#c5a059; font-size:0.75rem; letter-spacing:2.5px; font-weight:800; text-transform:uppercase;">{{ $p->location }}</p>
-                        <h4 style="font-family:'Oswald', sans-serif; font-size:1.8rem; margin-top:8px;">{{ $p->title ?? $p->name }}</h4>
+
+                    {{-- Always-visible info panel: location/category + project name + CTA --}}
+                    <div class="project-info">
+                        @if($flagshipLocation || $flagshipCategory)
+                            <span class="pcat">
+                                @if($flagshipLocation){{ $flagshipLocation }}@endif
+                                @if($flagshipLocation && $flagshipCategory) · @endif
+                                @if($flagshipCategory){{ $flagshipCategory }}@endif
+                            </span>
+                        @endif
+                        <h4 class="ptitle">{{ $p->title ?? $p->name }}</h4>
+                        <span class="pcta">View Details <i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </a>
             @endforeach

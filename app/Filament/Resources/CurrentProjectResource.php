@@ -20,6 +20,8 @@ use Filament\Tables\Table;
 
 class CurrentProjectResource extends Resource
 {
+    use \App\Filament\Concerns\RoleBasedAccess;
+
     protected static ?string $model = CurrentProject::class;
 
     protected static ?string $navigationLabel = 'Ongoing Projects';
