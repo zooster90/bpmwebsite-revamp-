@@ -547,7 +547,15 @@
                 {{-- TRIPS --}}
                 @if(isset($latestPerCategory['trip']) && $latestPerCategory['trip']->isNotEmpty())
                 <div class="filter-cat-item">
-                    <button @click="setCategory('trip'); setSubCat('company_trip'); openDropdown = null" @mouseenter="openDropdown = null" :class="{ 'active': activeCat === 'trip' }" class="filter-pill">
+                    {{-- No setSubCat() here — boss reported the pill filtered to
+                         "0 results" even though admin had Hokkaido / Taiwan /
+                         Shanghai records. Cause: subCat was being forced to
+                         "company_trip" but the actual records have no
+                         sub_category_id set in the DB, so the strict-equality
+                         filter dropped them all. Setting only the category
+                         (matches every Trips record regardless of sub-tag)
+                         mirrors how Team Building / All Hub already behave. --}}
+                    <button @click="setCategory('trip'); setSubCat('all'); openDropdown = null" @mouseenter="openDropdown = null" :class="{ 'active': activeCat === 'trip' }" class="filter-pill">
                         <span class="pill-emoji">✈️</span> Company Trip
                     </button>
                 </div>

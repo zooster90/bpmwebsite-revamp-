@@ -293,57 +293,60 @@
     }
     .project-ribbon i { font-size: 0.55rem; margin-right: 4px; vertical-align: 1px; }
 
-    /* Always-visible info panel — boss wanted project name on the card,
-       not hidden behind hover. Stronger gradient + larger / brighter
-       text after editor feedback that the location + CTA were too faint
-       to read on bright cover photos. */
+    /* Always-visible info panel — third pass on legibility after boss
+       said the text was still hard to read. Strategy changed: instead
+       of relying on a soft gradient and faded gold for the eyebrow,
+       we sit everything inside a SOLID dark block (~38% of the card
+       height) so contrast no longer depends on the cover photo. All
+       text is pure white / bright tones so it reads on every image. */
     .project-info {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
-        padding: 6rem 2rem 1.9rem;
-        background: linear-gradient(to top, rgba(8, 16, 28, 0.98) 0%, rgba(8, 16, 28, 0.92) 35%, rgba(8, 16, 28, 0.65) 65%, rgba(8, 16, 28, 0.15) 90%, transparent 100%);
+        padding: 1.5rem 1.75rem 1.6rem;
+        background: linear-gradient(to top, rgba(6, 12, 22, 0.99) 0%, rgba(6, 12, 22, 0.98) 70%, rgba(6, 12, 22, 0.88) 92%, rgba(6, 12, 22, 0.4) 100%);
         color: white;
         z-index: 4;
     }
     .project-info .pcat {
-        color: #f0d590;
-        font-size: 0.85rem;
-        letter-spacing: 2px;
+        color: #ffd982;
+        font-size: 0.78rem;
+        letter-spacing: 1.8px;
         font-weight: 800;
         text-transform: uppercase;
         display: block;
-        margin-bottom: 0.5rem;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        margin-bottom: 0.55rem;
+        line-height: 1.35;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.75);
     }
     .project-info .ptitle {
         font-family: 'Oswald', sans-serif;
-        font-size: 1.7rem;
-        line-height: 1.18;
+        font-size: 1.65rem;
+        line-height: 1.15;
         font-weight: 700;
-        margin: 0 0 1rem;
+        margin: 0 0 0.95rem;
         color: #ffffff;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        letter-spacing: 0.4px;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.6);
     }
     .project-info .pcta {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        font-size: 0.82rem;
+        font-size: 0.85rem;
         font-weight: 800;
-        letter-spacing: 2px;
+        letter-spacing: 1.8px;
         text-transform: uppercase;
         color: #ffffff;
-        padding: 8px 0;
+        padding: 6px 0;
         border-bottom: 2px solid #e6ca85;
-        transition: gap 0.3s ease, color 0.3s ease;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        transition: gap 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
     }
-    .project-card:hover .pcta { gap: 16px; color: #f0d590; }
-    .project-info .pcta i { font-size: 0.75rem; }
+    .project-card:hover .pcta { gap: 16px; color: #ffd982; border-color: #ffd982; }
+    .project-info .pcta i { font-size: 0.8rem; }
 
     /* Subtle vignette on hover — keeps image punchy but doesn't bury the title */
     .project-card::after {
