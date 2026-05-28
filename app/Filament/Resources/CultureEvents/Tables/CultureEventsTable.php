@@ -151,6 +151,33 @@ class CultureEventsTable
                     ->tooltip(fn ($record) => $record->is_published ? 'Visible on public Culture page' : 'Draft — hidden from website')
                     ->sortable(),
 
+                // ── Intern Type badge (Site vs Office) ─────────────────
+                // Shown by default so editors can see at a glance which
+                // intern records are categorised and which still need a
+                // type picked. Records with NULL show as "Highlight".
+                TextColumn::make('intern_type')
+                    ->label('Intern Type')
+                    ->badge()
+                    ->formatStateUsing(fn (?string $state) => match ($state) {
+                        'site'   => 'Site',
+                        'office' => 'Office',
+                        default  => 'Highlight',
+                    })
+                    ->icon(fn (?string $state) => match ($state) {
+                        'site'   => 'heroicon-o-wrench-screwdriver',
+                        'office' => 'heroicon-o-building-office',
+                        default  => 'heroicon-o-camera',
+                    })
+                    ->color(fn (?string $state) => match ($state) {
+                        'site'   => 'warning',
+                        'office' => 'info',
+                        default  => 'gray',
+                    })
+                    ->tooltip(fn ($record) => $record->intern_type
+                        ? 'Counted in Total Interns for ' . ($record->year ?? 'this cohort')
+                        : 'Cohort highlight / group photo — NOT counted as an intern')
+                    ->visible(fn ($livewire) => true),
+
                 // ── Hidden by default: intern details ──────────────────
                 TextColumn::make('intern_name')
                     ->label('Intern Name')
@@ -202,6 +229,19 @@ class CultureEventsTable
                             ->orderBy('year', 'desc')
                             ->pluck('year', 'year')
                             ->toArray();
+                    }),
+
+                // ── Intern Type filter (site / office / uncategorised) ──
+                SelectFilter::make('intern_type')
+                    ->label('Intern Type')
+                    ->placeholder('All Records')
+                    ->options([
+                        'site'   => 'Site Interns Only',
+                        'office' => 'Office Interns Only',
+                    ])
+                    ->query(function (\Illuminate\Database\Eloquent\Builder $query, array $data) {
+                        if (! filled($data['value'] ?? null)) return $query;
+                        return $query->where('intern_type', $data['value']);
                     }),
 
                 // ── Publish status filter ──────────────────────────────

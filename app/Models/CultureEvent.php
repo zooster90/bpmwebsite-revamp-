@@ -15,7 +15,18 @@ class CultureEvent extends Model implements HasMedia
         'title', 'slug', 'event_date', 'description', 'is_published',
         'image_url', 'year', 'name', 'category_id', 'sub_category_id', 'culture_image_upload', 'gallery_uploads', 'video_url', 'video_upload',
         // Internship-specific fields
-        'intern_name', 'university', 'institution_type', 'department', 'intern_period',
+        'intern_name', 'university', 'institution_type', 'department', 'intern_type', 'intern_period',
+    ];
+
+    /**
+     * Two intern placement buckets shown as separate sections on the
+     * public cohort page. Records left null (e.g. a cohort group photo)
+     * appear in the "Cohort Highlights" strip and are NOT counted as
+     * actual interns in the Total Interns badge.
+     */
+    public const INTERN_TYPES = [
+        'site'   => ['label' => 'Site Intern',   'icon' => 'fa-solid fa-helmet-safety', 'description' => 'Placed on a live construction site (e.g. Pantai Hospital, PHP, GHP, BSP).'],
+        'office' => ['label' => 'Office Intern', 'icon' => 'fa-solid fa-building',      'description' => 'Placed at HQ / corporate office.'],
     ];
 
     /**

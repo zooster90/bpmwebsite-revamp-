@@ -193,9 +193,25 @@ class CultureEventForm
                                         $get('category_id') && in_array(\App\Models\Category::find($get('category_id'))?->slug, ['intern', 'internship'])
                                     )
                                     ->schema([
+                                        // ── Placement bucket (Site vs Office) ───────────
+                                        // Drives the section split on the public cohort
+                                        // page AND the Total Interns count. Leave null
+                                        // for cohort group photos (e.g. Internship
+                                        // Farewell) — those go into a Cohort Highlights
+                                        // strip and are not counted as interns.
+                                        \Filament\Forms\Components\Select::make('intern_type')
+                                            ->label('Site or Office Intern?')
+                                            ->helperText('Pick "Site" for interns placed on a construction site, "Office" for interns at HQ / corporate. Leave EMPTY if this record is a cohort group photo / farewell event — it then shows in Cohort Highlights and is not counted as a real intern.')
+                                            ->options(collect(\App\Models\CultureEvent::INTERN_TYPES)
+                                                ->mapWithKeys(fn ($cfg, $key) => [$key => $cfg['label']])
+                                                ->all())
+                                            ->native(false)
+                                            ->placeholder('— Cohort highlight / group photo (no count) —')
+                                            ->columnSpanFull(),
+
                                         TextInput::make('intern_name')
                                             ->label('Intern Full Name')
-                                            ->helperText('Full name of the intern, e.g. "Ahmad bin Ali"')
+                                            ->helperText('Full name of the intern, e.g. "Ahmad bin Ali". Leave blank for cohort group photos.')
                                             ->placeholder('e.g. Ahmad bin Ali')
                                             ->maxLength(255),
 

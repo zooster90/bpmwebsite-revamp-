@@ -880,6 +880,13 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 pb-12">
                         @foreach($internsByYear->keys() as $year)
+                            @php
+                                // Match the section page logic — only records that
+                                // are tagged Site or Office count as real interns.
+                                $yearActualCount = $internsByYear[$year]
+                                    ->whereIn('intern_type', ['site', 'office'])
+                                    ->count();
+                            @endphp
                             <div class="year-card reveal" @click="activeInternYear = '{{ $year }}'; window.scrollTo({ top: document.querySelector('.master-filter-container').offsetTop - 20, behavior: 'smooth' });">
                                 <div class="gallery-overlay">
                                     <i class="fa-solid fa-folder-open text-4xl text-white mb-2"></i>
@@ -888,7 +895,7 @@
                                 <h3 class="year-title">{{ $year }}</h3>
                                 <p class="year-subtitle">Internship</p>
                                 <div class="mt-8 inline-block bg-navy text-gold text-xs font-bold px-5 py-2.5 rounded-full uppercase tracking-widest shadow-md">
-                                    {{ $internsByYear[$year]->count() }} Interns
+                                    {{ $yearActualCount }} Intern{{ $yearActualCount === 1 ? '' : 's' }}
                                 </div>
                             </div>
                         @endforeach
@@ -905,81 +912,105 @@
                             </button>
                         </div>
 
+                        @php
+                            // Split the cohort into Site / Office / Highlights buckets.
+                            // Records without intern_type (e.g. cohort group photos like
+                            // "Internship Farewell") go into Highlights and are NOT
+                            // counted in the Total Interns badge.
+                            $cohortByType    = $cohort->groupBy(fn ($e) => $e->intern_type ?: 'highlight');
+                            $siteInterns     = $cohortByType->get('site',      collect());
+                            $officeInterns   = $cohortByType->get('office',    collect());
+                            $cohortHighlight = $cohortByType->get('highlight', collect());
+                            $actualCount     = $siteInterns->count() + $officeInterns->count();
+                        @endphp
+
                         <div class="flex flex-col md:flex-row items-start md:items-center gap-6 mb-12 border-b border-border pb-8">
                             <span class="font-heading text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gold/30 to-gold/5">{{ $year }}</span>
                             <div class="flex-1">
                                 <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold block mb-1">Internship Cohort</span>
                                 <h2 class="font-heading text-2xl md:text-3xl font-bold text-navy uppercase">{{ $year }} Programme</h2>
                             </div>
-                            <div class="bg-surface border border-border rounded-2xl px-8 py-4 text-center shadow-sm">
-                                <span class="font-heading text-2xl font-bold text-navy block">{{ $cohort->count() }}</span>
-                                <span class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Total Interns</span>
+                            <div class="flex items-center gap-3">
+                                @if($siteInterns->isNotEmpty())
+                                    <div class="bg-white border border-amber-200 rounded-2xl px-5 py-3 text-center shadow-sm">
+                                        <span class="font-heading text-xl font-bold text-navy block leading-none">{{ $siteInterns->count() }}</span>
+                                        <span class="text-[0.6rem] font-bold uppercase tracking-widest text-amber-600 mt-1 block">Site</span>
+                                    </div>
+                                @endif
+                                @if($officeInterns->isNotEmpty())
+                                    <div class="bg-white border border-sky-200 rounded-2xl px-5 py-3 text-center shadow-sm">
+                                        <span class="font-heading text-xl font-bold text-navy block leading-none">{{ $officeInterns->count() }}</span>
+                                        <span class="text-[0.6rem] font-bold uppercase tracking-widest text-sky-600 mt-1 block">Office</span>
+                                    </div>
+                                @endif
+                                <div class="bg-surface border border-border rounded-2xl px-6 py-3 text-center shadow-sm">
+                                    <span class="font-heading text-2xl font-bold text-navy block leading-none">{{ $actualCount }}</span>
+                                    <span class="text-[0.6rem] font-bold uppercase tracking-widest text-slate-500 mt-1 block">Total Interns</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                            @foreach($cohort as $intern)
-                                <article class="intern-card intern-item reveal" data-title="{{ strtolower($intern->intern_name ?: $intern->title) }}" data-uni="{{ strtolower($intern->university ?? '') }}">
-                                    @php $img = $intern->displayImage ?? null; @endphp
-                                    <div class="h-64 bg-navy relative overflow-hidden">
-                                        @if($img)
-                                            <a href="{{ $img }}" class="glightbox" data-gallery="event-{{ $intern->id }}" data-title="{{ $intern->intern_name ?? $intern->title }}">
-                                                <div class="gallery-overlay">
-                                                    <i class="fa-solid fa-images text-4xl text-white mb-2"></i>
-                                                    <span class="text-white font-bold tracking-widest text-xs uppercase mt-2">View Photo</span>
-                                                </div>
-                                                <img src="{{ $img }}" alt="{{ $intern->intern_name ?? $intern->title }}" class="w-full h-full object-cover object-top transition duration-700 hover:scale-110" loading="lazy" decoding="async" width="600" height="400">
-                                            </a>
-                                            <div class="hidden" style="display:none;">
-                                                @foreach($intern->getMedia('gallery') as $media)
-                                                    <a href="{{ $media->getUrl() }}" class="glightbox" data-gallery="event-{{ $intern->id }}" data-title="{{ $intern->intern_name ?? $intern->title }}"></a>
-                                                @endforeach
-                                                @if(is_array($intern->gallery_uploads))
-                                                    @foreach($intern->gallery_uploads as $path)
-                                                        <a href="{{ cdn_rewrite(asset('storage/' . ltrim($path, '/'))) }}" class="glightbox" data-gallery="event-{{ $intern->id }}" data-title="{{ $intern->intern_name ?? $intern->title }}"></a>
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        @else
-                                            <div class="w-full h-full flex items-center justify-content-center">
-                                                <i class="fa-solid fa-user-graduate text-gold/30 text-6xl mx-auto mt-20"></i>
-                                            </div>
-                                        @endif
-                                        <span class="absolute top-4 right-4 bg-gold text-white text-[0.65rem] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-md">{{ $year }}</span>
+                        {{-- ── COHORT HIGHLIGHTS (group photos / farewell etc) ── --}}
+                        @if($cohortHighlight->isNotEmpty())
+                            <div class="mb-14">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="flex items-center gap-3 bg-gold/10 border border-gold/25 rounded-full px-5 py-2">
+                                        <i class="fa-solid fa-camera text-gold"></i>
+                                        <h3 class="font-heading text-sm font-bold text-navy uppercase tracking-[0.2em]">Cohort Highlights</h3>
                                     </div>
+                                    <div class="flex-1 h-px bg-gradient-to-r from-gold/30 to-transparent"></div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                                    @foreach($cohortHighlight as $intern)
+                                        @include('partials.intern-card', ['intern' => $intern, 'year' => $year])
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
 
-                                    <div class="p-6 border-t-4 border-gold flex flex-col justify-between flex-1 bg-white">
-                                        <div>
-                                            <h3 class="font-heading text-lg font-bold text-navy uppercase mb-4 leading-tight">{{ $intern->intern_name ?: $intern->title }}</h3>
-                                            @if($intern->university)
-                                                <div class="flex items-start gap-3 text-sm text-slate-700 font-semibold mb-3">
-                                                    <i class="{{ $intern->institution_icon }} text-gold mt-1"></i>
-                                                    <span class="leading-snug">{{ $intern->university }}</span>
-                                                </div>
-                                            @endif
-                                            @if($intern->department)
-                                                <div class="flex items-center gap-3 text-xs text-slate-500 mb-4">
-                                                    <i class="fa-solid fa-people-group text-gold"></i>
-                                                    <span class="uppercase tracking-wide font-semibold">{{ $intern->department }}</span>
-                                                </div>
-                                            @endif
-                                        </div>
-
-                                        <div class="mt-4 pt-4 border-t border-border">
-                                            @if($intern->intern_period)
-                                                <div class="flex items-center gap-3 text-xs text-slate-500 font-semibold mb-2">
-                                                    <i class="fa-regular fa-calendar text-gold"></i>
-                                                    <span>{{ $intern->intern_period }}</span>
-                                                </div>
-                                            @endif
-                                            @if($intern->description)
-                                                <p class="text-xs text-slate-500 mt-3 line-clamp-3 leading-relaxed">{{ $intern->description }}</p>
-                                            @endif
-                                        </div>
+                        {{-- ── SITE INTERNS ── --}}
+                        @if($siteInterns->isNotEmpty())
+                            <div class="mb-14">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-full px-5 py-2">
+                                        <i class="fa-solid fa-helmet-safety text-amber-600"></i>
+                                        <h3 class="font-heading text-sm font-bold text-amber-900 uppercase tracking-[0.2em]">Site Interns <span class="text-amber-500 ml-1">· {{ $siteInterns->count() }}</span></h3>
                                     </div>
-                                </article>
-                            @endforeach
-                        </div>
+                                    <div class="flex-1 h-px bg-gradient-to-r from-amber-200 to-transparent"></div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                                    @foreach($siteInterns as $intern)
+                                        @include('partials.intern-card', ['intern' => $intern, 'year' => $year])
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+
+                        {{-- ── OFFICE INTERNS ── --}}
+                        @if($officeInterns->isNotEmpty())
+                            <div class="mb-14">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="flex items-center gap-3 bg-sky-50 border border-sky-200 rounded-full px-5 py-2">
+                                        <i class="fa-solid fa-building text-sky-600"></i>
+                                        <h3 class="font-heading text-sm font-bold text-sky-900 uppercase tracking-[0.2em]">Office Interns <span class="text-sky-500 ml-1">· {{ $officeInterns->count() }}</span></h3>
+                                    </div>
+                                    <div class="flex-1 h-px bg-gradient-to-r from-sky-200 to-transparent"></div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                                    @foreach($officeInterns as $intern)
+                                        @include('partials.intern-card', ['intern' => $intern, 'year' => $year])
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+
+                        {{-- ── Empty state (no interns categorised yet) ── --}}
+                        @if($actualCount === 0 && $cohortHighlight->isEmpty())
+                            <div class="text-center py-16 bg-surface rounded-2xl border border-dashed border-border">
+                                <i class="fa-solid fa-user-graduate text-gold/40 text-5xl mb-4"></i>
+                                <p class="text-slate-500 font-semibold">No interns recorded for {{ $year }} yet.</p>
+                            </div>
+                        @endif
                     </div>
                 @endforeach
             @endif
