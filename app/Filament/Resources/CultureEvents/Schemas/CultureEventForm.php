@@ -83,6 +83,12 @@ class CultureEventForm
                                             ->placeholder('e.g. 15th Annual Corporate Dinner')
                                             ->maxLength(255),
 
+                                        TextInput::make('location')
+                                            ->label('Location')
+                                            ->helperText('Where did this activity happen? e.g. "Hokkaido, Japan", "Sunshine Square, Penang", "Krabi, Thailand". Shown as the pin on the public Culture card.')
+                                            ->placeholder('e.g. Sunshine Square, Penang')
+                                            ->maxLength(255),
+
                                         DatePicker::make('event_date')
                                             ->label('Event Date')
                                             ->helperText(fn (callable $get) => 

@@ -139,6 +139,22 @@ class CultureEventsTable
                     ->sortable()
                     ->placeholder('—'),
 
+                // ── Location ───────────────────────────────────────────
+                // Surfaced as a quick column + searchable so admins can spot
+                // records that still have no location set (they fall back
+                // to "Penang, Malaysia" on the public site, which boss
+                // flagged as misleading for trips abroad).
+                TextColumn::make('location')
+                    ->label('Location')
+                    ->icon('heroicon-o-map-pin')
+                    ->iconColor('warning')
+                    ->searchable()
+                    ->sortable()
+                    ->wrap()
+                    ->limit(40)
+                    ->placeholder('— No location set —')
+                    ->toggleable(),
+
                 // ── Publish status — interactive ToggleColumn ──────────
                 // Was an IconColumn (read-only) which forced admins into the
                 // Edit page to flip a single switch. Boss flagged that

@@ -13,7 +13,8 @@ class CultureEvent extends Model implements HasMedia
     
     protected $fillable = [
         'title', 'slug', 'event_date', 'description', 'is_published',
-        'image_url', 'year', 'name', 'category_id', 'sub_category_id', 'culture_image_upload', 'gallery_uploads', 'video_url', 'video_upload',
+        'image_url', 'year', 'name', 'location',
+        'category_id', 'sub_category_id', 'culture_image_upload', 'gallery_uploads', 'video_url', 'video_upload',
         // Internship-specific fields
         'intern_name', 'university', 'institution_type', 'department', 'intern_type', 'intern_period',
     ];
